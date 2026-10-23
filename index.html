@@ -9,6 +9,7 @@
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
   <style>
     * { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    html, body { overflow-x: hidden; word-break: keep-all; overflow-wrap: break-word; }
     .font-condensed { font-family: 'Pretendard', 'Montserrat', -apple-system, sans-serif; letter-spacing: -0.02em; }
     .terracotta-bg { background-color: #b8734a; }
     .terracotta-text { color: #b8734a; }
@@ -18,6 +19,8 @@
     .warm-bg { background-color: #faf8f5; }
     .footer-bg { background-color: #1a1715; }
     .smooth-transition { transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     
     ::-webkit-scrollbar { width: 8px; height: 8px; }
     ::-webkit-scrollbar-track { background: #f1ede7; }
@@ -60,27 +63,27 @@
   <!-- ========================================== -->
   <!-- 1. TOP HEADER BAR                          -->
   <!-- ========================================== -->
-  <header class="w-full bg-[#181513] text-[#a99e96] text-xs py-2 px-4 sm:px-8 border-b border-[#2d2723] shrink-0">
-    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
-      <div class="flex items-center space-x-4">
-        <div class="flex items-center space-x-2 text-[#d1c8c0]">
-          <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span>신내대명11단지 공식 소통 포털</span>
+  <header class="w-full bg-[#181513] text-[#a99e96] text-[11px] sm:text-xs py-2 px-3.5 sm:px-8 border-b border-[#2d2723] shrink-0">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-x-3 gap-y-1.5">
+      <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+        <div class="flex items-center gap-1.5 text-[#d1c8c0]">
+          <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+          <span class="font-medium">신내대명11단지 공식 소통 포털</span>
         </div>
         <span class="hidden md:inline text-[#423b36]">|</span>
         <span class="hidden md:inline">평일 09:00 ~ 18:00 (관리사무소 02-3421-0276)</span>
       </div>
-      <div class="flex items-center space-x-4 text-xs">
+      <div class="flex flex-wrap items-center gap-x-2.5 sm:gap-x-4 gap-y-1 text-[11px] sm:text-xs">
         <span class="hidden lg:flex items-center gap-1">
-          <svg class="w-3.5 h-3.5 text-[#b8734a]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+          <svg class="w-3.5 h-3.5 text-[#b8734a] shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
           서울 중랑구 봉화산로 193 (신내동 661)
         </span>
         <span class="hidden sm:inline text-[#423b36]">|</span>
-        <button onclick="navigateTo('resident')" class="hover:text-white transition-colors">입주민안건</button>
-        <button onclick="navigateTo('online')" class="hover:text-white transition-colors text-[#e5b394] font-semibold">온라인안건현황</button>
-        <button onclick="navigateTo('council')" class="hover:text-white transition-colors">대표회의의결</button>
-        <button onclick="navigateTo('market')" class="hover:text-white transition-colors">시세분석</button>
-        <button onclick="navigateTo('about')" class="hover:text-white transition-colors">단지소개</button>
+        <button onclick="navigateTo('resident')" class="hover:text-white transition-colors whitespace-nowrap">입주민안건</button>
+        <button onclick="navigateTo('online')" class="hover:text-white transition-colors text-[#e5b394] font-semibold whitespace-nowrap">온라인안건현황</button>
+        <button onclick="navigateTo('council')" class="hover:text-white transition-colors whitespace-nowrap">대표회의의결</button>
+        <button onclick="navigateTo('market')" class="hover:text-white transition-colors whitespace-nowrap">시세분석</button>
+        <button onclick="navigateTo('about')" class="hover:text-white transition-colors whitespace-nowrap">단지소개</button>
       </div>
     </div>
   </header>
@@ -89,23 +92,23 @@
   <!-- 2. MAIN NAVIGATION (TAB CONTROLLER)        -->
   <!-- ========================================== -->
   <nav class="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-[#e8e2d9] shadow-sm shrink-0">
-    <div class="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex justify-between items-center">
+    <div class="max-w-7xl mx-auto px-3.5 sm:px-8 h-16 sm:h-20 flex justify-between items-center gap-2">
       <!-- Logo -->
-      <a href="javascript:void(0)" onclick="navigateTo('home')" class="flex items-center space-x-3 group">
-        <div class="w-11 h-11 rounded-lg bg-[#231f1d] flex items-center justify-center p-2 shadow-inner group-hover:bg-[#b8734a] transition-colors">
-          <svg viewBox="0 0 40 40" class="w-7 h-7 text-white fill-none stroke-current stroke-2">
+      <a href="javascript:void(0)" onclick="navigateTo('home')" class="flex items-center gap-2 sm:gap-3 group min-w-0">
+        <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-lg bg-[#231f1d] flex items-center justify-center p-1.5 sm:p-2 shadow-inner group-hover:bg-[#b8734a] transition-colors shrink-0">
+          <svg viewBox="0 0 40 40" class="w-6 h-6 sm:w-7 sm:h-7 text-white fill-none stroke-current stroke-2">
             <path d="M8 34V18C8 11.3726 13.3726 6 20 6C26.6274 6 32 11.3726 32 18V34" stroke-linecap="round"/>
             <path d="M13 34V20C13 16.134 16.134 13 20 13C23.866 13 27 16.134 27 20V34" stroke-linecap="round"/>
             <path d="M18 34V23C18 21.8954 18.8954 21 20 21C21.1046 21 22 21.8954 22 23V34" stroke-linecap="round"/>
             <line x1="5" y1="34" x2="35" y2="34" stroke-linecap="round"/>
           </svg>
         </div>
-        <div>
-          <div class="font-black text-xl tracking-tight text-[#231f1d] group-hover:text-[#b8734a] transition-colors flex items-center gap-1.5">
-            신내대명11단지
-            <span class="text-[11px] font-medium px-2 py-0.5 rounded-full bg-[#f4ebe4] text-[#b8734a]">공식</span>
+        <div class="min-w-0">
+          <div class="font-black text-base sm:text-xl tracking-tight text-[#231f1d] group-hover:text-[#b8734a] transition-colors flex items-center gap-1.5 whitespace-nowrap">
+            <span>신내대명11단지</span>
+            <span class="text-[10px] sm:text-[11px] font-medium px-1.5 sm:px-2 py-0.5 rounded-full bg-[#f4ebe4] text-[#b8734a] shrink-0">공식</span>
           </div>
-          <div class="text-[10px] tracking-widest text-[#8a7f76] font-semibold uppercase">SHINNAE DAEMYUNG 11</div>
+          <div class="text-[9px] sm:text-[10px] tracking-wider sm:tracking-widest text-[#8a7f76] font-semibold uppercase truncate">SHINNAE DAEMYUNG 11</div>
         </div>
       </a>
 
@@ -139,22 +142,22 @@
       </div>
 
       <!-- Action Button (Google Sheets Connected Modal) -->
-      <div class="flex items-center space-x-3">
-        <button onclick="openProposalModal()" class="bg-[#b8734a] hover:bg-[#a26139] text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 rounded-xl shadow-sm hover:shadow-md transition-all flex items-center gap-2">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+      <div class="flex items-center shrink-0">
+        <button onclick="openProposalModal()" class="bg-[#b8734a] hover:bg-[#a26139] text-white text-xs sm:text-sm font-bold px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl shadow-sm hover:shadow-md transition-all flex items-center gap-1.5 sm:gap-2 whitespace-nowrap">
+          <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
           <span>온라인 안건 제안</span>
         </button>
       </div>
     </div>
-        <!-- Mobile Sub Navigation Bar (Horizontal Scrollable) -->
-    <div class="flex lg:hidden overflow-x-auto py-2.5 px-4 space-x-2 border-t border-[#f0eae3] bg-[#faf8f5] no-scrollbar text-xs font-bold text-[#5a514a]">
-      <button onclick="navigateTo('home')" id="m-nav-btn-home" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#b8734a] text-white font-bold">홈</button>
-      <button onclick="navigateTo('about')" id="m-nav-btn-about" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold">단지 소개</button>
-      <button onclick="navigateTo('redevelopment')" id="m-nav-btn-redevelopment" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold">재건축</button>
-      <button onclick="navigateTo('resident')" id="m-nav-btn-resident" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold">입주민 안건 (33)</button>
-      <button onclick="navigateTo('online')" id="m-nav-btn-online" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold">온라인 안건 현황</button>
-      <button onclick="navigateTo('market')" id="m-nav-btn-market" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold">시세·실거래</button>
-      <button onclick="navigateTo('council')" id="m-nav-btn-council" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold">대표회의 의결 (137)</button>
+    <!-- Mobile Sub Navigation Bar (Horizontal Scrollable) -->
+    <div class="flex lg:hidden overflow-x-auto py-2 px-3.5 gap-1.5 border-t border-[#f0eae3] bg-[#faf8f5] no-scrollbar text-xs font-bold text-[#5a514a]">
+      <button onclick="navigateTo('home')" id="m-nav-btn-home" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#b8734a] text-white font-bold shrink-0">홈</button>
+      <button onclick="navigateTo('about')" id="m-nav-btn-about" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold shrink-0">단지 소개</button>
+      <button onclick="navigateTo('redevelopment')" id="m-nav-btn-redevelopment" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold shrink-0">재건축</button>
+      <button onclick="navigateTo('resident')" id="m-nav-btn-resident" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold shrink-0">입주민 안건 (33)</button>
+      <button onclick="navigateTo('online')" id="m-nav-btn-online" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold shrink-0">온라인 안건 현황</button>
+      <button onclick="navigateTo('market')" id="m-nav-btn-market" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold shrink-0">시세·실거래</button>
+      <button onclick="navigateTo('council')" id="m-nav-btn-council" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold shrink-0">대표회의 의결 (137)</button>
     </div>
 </nav>
 
@@ -163,7 +166,7 @@
   <!-- ======================================================== -->
   <main class="flex-1">
 
-    <div id="view-home" class="page-view space-y-16 pb-20">
+    <div id="view-home" class="page-view space-y-12 sm:space-y-16 pb-16 sm:pb-20">
       
       <!-- Hero Banner -->
       <section class="relative bg-[#1c1917] text-white overflow-hidden">
@@ -174,40 +177,40 @@
           <div class="absolute inset-0 bg-gradient-to-b from-[#181513]/75 via-[#181513]/60 to-[#181513]"></div>
         </div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 pt-16 pb-24 text-center flex flex-col items-center justify-center">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[#e5b394] text-xs font-semibold tracking-wider uppercase mb-5">
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 pt-10 pb-14 sm:pt-16 sm:pb-24 text-center flex flex-col items-center justify-center">
+          <div class="inline-flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[#e5b394] text-[11px] sm:text-xs font-semibold tracking-wider uppercase mb-4 sm:mb-5">
             <span>봉화산로 193</span>
             <span>•</span>
             <span>804세대 공식 자치 포털</span>
           </div>
-          <h1 class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white uppercase max-w-4xl font-condensed leading-tight">
+          <h1 class="text-2xl sm:text-5xl md:text-6xl font-black tracking-tight text-white uppercase max-w-4xl font-condensed leading-tight">
             OUR COMMUNITY & VISION
           </h1>
-          <p class="mt-4 text-sm sm:text-base text-[#d8cec5] max-w-2xl font-normal leading-relaxed">
+          <p class="mt-3 sm:mt-4 text-xs sm:text-base text-[#d8cec5] max-w-2xl font-normal leading-relaxed">
             원하시는 항목 버튼을 누르시면 해당 전용 페이지로 깔끔하게 이동하여 상세 내용을 확인하실 수 있습니다.<br class="hidden sm:inline">
             면목선 대응, 스마트 주차, 실시간 시세 분석까지 투명하게 공개합니다.
           </p>
 
           <!-- 4 Core Stats Bar -->
-          <div class="mt-10 w-full max-w-5xl grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-5 text-left">
-            <div class="border-r border-white/10 last:border-none pr-3">
+          <div class="mt-8 sm:mt-10 w-full max-w-5xl grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 sm:p-5 text-left">
+            <div class="border-r border-b md:border-b-0 border-white/10 pr-2.5 sm:pr-3 pb-3 md:pb-0">
               <div class="text-[11px] text-[#b8734a] font-bold uppercase">단지 규모</div>
-              <div class="text-2xl font-black text-white mt-0.5">804<span class="text-xs font-normal text-[#a3988f] ml-1">세대</span></div>
+              <div class="text-xl sm:text-2xl font-black text-white mt-0.5 whitespace-nowrap">804<span class="text-xs font-normal text-[#a3988f] ml-1">세대</span></div>
               <div class="text-[11px] text-[#a3988f]">총 6개동 / 최고 15층</div>
             </div>
-            <div class="border-r border-white/10 last:border-none pr-3 pl-0 md:pl-3">
+            <div class="border-b md:border-b-0 md:border-r border-white/10 pl-1 md:pl-3 pr-0 md:pr-3 pb-3 md:pb-0">
               <div class="text-[11px] text-[#b8734a] font-bold uppercase">주민 안건</div>
-              <div class="text-2xl font-black text-white mt-0.5">33<span class="text-xs font-normal text-[#a3988f] ml-1">건</span></div>
+              <div class="text-xl sm:text-2xl font-black text-white mt-0.5 whitespace-nowrap">33<span class="text-xs font-normal text-[#a3988f] ml-1">건</span></div>
               <div class="text-[11px] text-[#a3988f]">면목선·주차·시설 등</div>
             </div>
-            <div class="border-r border-white/10 last:border-none pr-3 pl-0 md:pl-3">
+            <div class="border-r border-white/10 pr-2.5 sm:pr-3 pl-0 md:pl-3 pt-1 md:pt-0">
               <div class="text-[11px] text-[#b8734a] font-bold uppercase">최고 실거래가</div>
-              <div class="text-2xl font-black text-[#e5b394] mt-0.5">6.4억<span class="text-xs font-normal text-[#a3988f] ml-1">원</span></div>
+              <div class="text-xl sm:text-2xl font-black text-[#e5b394] mt-0.5 whitespace-nowrap">6.4억<span class="text-xs font-normal text-[#a3988f] ml-1">원</span></div>
               <div class="text-[11px] text-[#a3988f]">전용 49㎡ (2026.10)</div>
             </div>
-            <div class="pl-0 md:pl-3">
+            <div class="pl-1 md:pl-3 pt-1 md:pt-0">
               <div class="text-[11px] text-[#b8734a] font-bold uppercase">최신 회의 의결</div>
-              <div class="text-2xl font-black text-white mt-0.5">10.21<span class="text-xs font-normal text-[#a3988f] ml-1">의결</span></div>
+              <div class="text-xl sm:text-2xl font-black text-white mt-0.5 whitespace-nowrap">10.21<span class="text-xs font-normal text-[#a3988f] ml-1">의결</span></div>
               <div class="text-[11px] text-[#a3988f]">파크골프장 주차비 등</div>
             </div>
           </div>
@@ -315,20 +318,20 @@
 
       <!-- Fast Online Proposal Banner on Home -->
       <section class="max-w-7xl mx-auto px-4 sm:px-8">
-        <div class="bg-gradient-to-r from-[#231f1d] to-[#3a322d] text-white rounded-3xl p-8 sm:p-10 flex flex-col md:flex-row justify-between items-center gap-6 shadow-md border border-[#443b35]">
+        <div class="bg-gradient-to-r from-[#231f1d] to-[#3a322d] text-white rounded-2xl sm:rounded-3xl p-6 sm:p-10 flex flex-col md:flex-row justify-between items-center gap-5 sm:gap-6 shadow-md border border-[#443b35]">
           <div class="space-y-2 text-center md:text-left">
             <span class="text-xs font-bold text-[#b8734a] uppercase tracking-wider">ONLINE RESIDENT VOICE</span>
-            <h3 class="text-2xl sm:text-3xl font-black font-condensed">단지 개선 제안이 있으신가요?</h3>
-            <p class="text-xs sm:text-sm text-[#c9beb5]">
+            <h3 class="text-xl sm:text-3xl font-black font-condensed">단지 개선 제안이 있으신가요?</h3>
+            <p class="text-xs sm:text-sm text-[#c9beb5] leading-relaxed">
               온라인으로 접수하시면 관리자의 구글 시트에 실시간으로 기록되며, 동대표회의 검토 안건으로 정식 상정됩니다.
             </p>
           </div>
-          <div class="flex flex-wrap items-center justify-center gap-3 shrink-0">
-            <button onclick="navigateTo('online')" class="bg-white/10 hover:bg-white/20 text-white border border-white/25 font-bold text-sm px-5 py-3.5 rounded-xl transition-all flex items-center gap-2">
+          <div class="flex flex-col sm:flex-row w-full md:w-auto items-stretch sm:items-center justify-center gap-2.5 sm:gap-3 shrink-0">
+            <button onclick="navigateTo('online')" class="bg-white/10 hover:bg-white/20 text-white border border-white/25 font-bold text-xs sm:text-sm px-5 py-3 sm:py-3.5 rounded-xl transition-all flex items-center justify-center gap-2">
               <span>📋 온라인 안건 접수 현황 보기</span>
             </button>
-            <button onclick="openProposalModal()" class="bg-[#b8734a] hover:bg-[#a26139] text-white font-bold text-sm px-6 py-3.5 rounded-xl shadow-lg transition-all flex items-center gap-2">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+            <button onclick="openProposalModal()" class="bg-[#b8734a] hover:bg-[#a26139] text-white font-bold text-xs sm:text-sm px-6 py-3 sm:py-3.5 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
+              <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
               <span>지금 안건 제안하기</span>
             </button>
           </div>
@@ -338,35 +341,32 @@
     </div>
 
     <!-- ====================================================== -->
-
-            <!-- ====================================================== -->
-        <!-- ====================================================== -->
     <!-- [VIEW 6] 재건축 & 미래 가치 전용 페이지 (요약 + 다이어그램)  -->
     <!-- ====================================================== -->
-    <div id="view-redevelopment" class="page-view hidden space-y-12 pb-24">
+    <div id="view-redevelopment" class="page-view hidden space-y-8 sm:space-y-12 pb-20 sm:pb-24">
       
       <!-- Sub-page Header Banner -->
-      <div class="bg-gradient-to-r from-[#231f1d] via-[#2c2623] to-[#1a1715] text-white py-12 px-4 sm:px-8 border-b border-[#3b332e] relative overflow-hidden">
+      <div class="bg-gradient-to-r from-[#231f1d] via-[#2c2623] to-[#1a1715] text-white py-8 sm:py-12 px-4 sm:px-8 border-b border-[#3b332e] relative overflow-hidden">
         <div class="absolute right-0 top-0 w-96 h-full bg-[#b8734a]/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-5 sm:gap-6 relative z-10">
           <div>
-            <div class="flex items-center gap-2 text-xs text-[#b8734a] font-bold uppercase mb-2">
+            <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-[#b8734a] font-bold uppercase mb-2">
               <button onclick="navigateTo('home')" class="hover:underline text-[#d8cec5]">홈</button>
               <span>/</span>
               <span>단지 미래 가치</span>
               <span>/</span>
               <span class="text-[#e5b394]">재건축 & 노후계획도시 종합 가이드</span>
             </div>
-            <h1 class="text-3xl sm:text-4xl font-black tracking-tight text-white flex flex-wrap items-center gap-3">
+            <h1 class="text-2xl sm:text-4xl font-black tracking-tight text-white flex flex-wrap items-center gap-2 sm:gap-3">
               <span>신내대명11단지 재건축 & 미래 비전</span>
-              <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-[#b8734a] text-white">공식 출처 검증 완료</span>
+              <span class="text-[11px] sm:text-xs font-bold px-2.5 py-1 rounded-full bg-[#b8734a] text-white shrink-0">공식 출처 검증 완료</span>
             </h1>
             <p class="text-xs sm:text-sm text-[#b5a99f] mt-2 max-w-3xl leading-relaxed">
               신내대명11단지의 재건축 여건과 서울시 신내택지개발지구 마스터플랜, 노후계획도시 특별법, 면목선 경전철 현황을 
               <strong>핵심 요약 설명과 시각 다이어그램</strong>으로 알기 쉽게 정리했습니다.
             </p>
           </div>
-          <div class="flex flex-wrap items-center gap-3 shrink-0">
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto shrink-0">
             <div class="grid grid-cols-2 gap-2.5 text-center bg-white/5 border border-white/10 p-3 rounded-2xl">
               <div class="px-2.5 py-0.5 border-r border-white/10">
                 <div class="text-xs text-[#b5a99f]">현재 용적률</div>
@@ -377,7 +377,7 @@
                 <div class="text-lg font-black text-[#e5b394]">최대 500%</div>
               </div>
             </div>
-            <button onclick="openProposalModal()" class="px-4 py-2.5 rounded-xl bg-[#b8734a] hover:bg-[#a26139] text-xs font-bold text-white shadow transition-all flex items-center gap-1.5">
+            <button onclick="openProposalModal()" class="px-4 py-3 sm:py-2.5 rounded-xl bg-[#b8734a] hover:bg-[#a26139] text-xs font-bold text-white shadow transition-all flex items-center justify-center gap-1.5">
               <span>✍️ 재건축 의견 제안</span>
             </button>
           </div>
@@ -478,20 +478,20 @@
         <!-- ===================================================================== -->
         <!-- PART 2: 사업성 분석 (좌측: 핵심 해설 & 비교표 / 우측: 용적률·세대수 다이어그램) -->
         <!-- ===================================================================== -->
-        <section class="bg-white rounded-3xl p-6 sm:p-8 border border-[#e8e2d9] shadow-sm space-y-6">
-          <div class="border-b border-[#f0eae3] pb-4">
+        <section class="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-[#e8e2d9] shadow-sm space-y-5 sm:space-y-6">
+          <div class="border-b border-[#f0eae3] pb-3.5 sm:pb-4">
             <span class="text-xs font-extrabold text-[#b8734a] uppercase tracking-wider">PART 02 • FEASIBILITY & HOUSEHOLD SIMULATION</span>
-            <h2 class="text-xl sm:text-2xl font-black text-[#231f1d] mt-0.5">사업성 핵심 분석: 용적률 상향에 따른 예상 세대수 및 일반분양 변화</h2>
+            <h2 class="text-lg sm:text-2xl font-black text-[#231f1d] mt-0.5 leading-snug">사업성 핵심 분석: 용적률 상향에 따른 예상 세대수 및 일반분양 변화</h2>
           </div>
 
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
             
             <!-- 좌측 (7칸): 용적률 대비 세대수 변화 분석 설명 + 핵심 비교표 -->
-            <div class="lg:col-span-7 flex flex-col justify-between space-y-5">
-              <div class="bg-[#faf8f5] p-5 rounded-2xl border border-[#eee7df] space-y-2.5">
-                <h3 class="text-sm font-black text-[#231f1d] flex items-center gap-2">
-                  <span class="w-2.5 h-2.5 rounded-full bg-[#b8734a]"></span>
-                  용적률 207% ➔ 300% ➔ 500% 변화 시 세대수는 어떻게 달라지나?
+            <div class="lg:col-span-7 flex flex-col justify-between space-y-4 sm:space-y-5 min-w-0">
+              <div class="bg-[#faf8f5] p-4 sm:p-5 rounded-2xl border border-[#eee7df] space-y-2.5">
+                <h3 class="text-xs sm:text-sm font-black text-[#231f1d] flex items-start sm:items-center gap-2 leading-snug">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#b8734a] shrink-0 mt-1 sm:mt-0"></span>
+                  <span>용적률 207% ➔ 300% ➔ 500% 변화 시 세대수는 어떻게 달라지나?</span>
                 </h3>
                 <p class="text-xs text-[#524942] leading-relaxed">
                   우리 단지는 현재 <strong>804세대(평균 전용 약 49.8㎡, 용적률 207%)</strong>로 구성되어 있습니다. 재건축 시 기존 소유주들이 국민평형(전용 59·84㎡)으로 평형을 넓혀 가는 것을 감안하면, <strong>일반 단독 재건축(용적률 ~300%)</strong> 추진 시 총 세대수는 <strong>약 980~1,080세대(+180~270세대 증가)</strong>에 그쳐 일반분양 수익이 적고 분담금 부담이 큽니다.
@@ -502,40 +502,40 @@
               </div>
 
               <!-- 일반 재건축 vs 통합 특별정비 비교표 (세대수 변화 행 추가) -->
-              <div class="overflow-x-auto">
-                <table class="w-full text-xs text-left border-collapse border border-[#e8e2d9] rounded-xl overflow-hidden">
+              <div class="overflow-x-auto -mx-1 px-1">
+                <table class="w-full min-w-[300px] text-[11px] sm:text-xs text-left border-collapse border border-[#e8e2d9] rounded-xl overflow-hidden">
                   <thead class="bg-[#231f1d] text-white">
                     <tr>
-                      <th class="p-3 font-bold border border-[#3b332e] w-1/4">구분 항목</th>
-                      <th class="p-3 font-bold border border-[#3b332e] text-[#d8cec5]">일반 단독 재건축 (도정법)</th>
-                      <th class="p-3 font-bold border border-[#3b332e] text-[#e5b394]">통합 · 역세권 특별정비 (지구단위계획·특별법)</th>
+                      <th class="p-2 sm:p-3 font-bold border border-[#3b332e] w-[24%] sm:w-1/4">구분 항목</th>
+                      <th class="p-2 sm:p-3 font-bold border border-[#3b332e] text-[#d8cec5] w-[38%]">일반 단독 재건축 (도정법)</th>
+                      <th class="p-2 sm:p-3 font-bold border border-[#3b332e] text-[#e5b394] w-[38%]">통합 · 역세권 특별정비 (지구단위계획·특별법)</th>
                     </tr>
                   </thead>
-                  <tbody class="divide-y divide-[#eee7df] bg-white text-[#4a423b]">
+                  <tbody class="divide-y divide-[#eee7df] bg-white text-[#4a423b] leading-snug">
                     <tr>
-                      <td class="p-3 font-bold bg-[#faf8f5]">법정 용적률 상한</td>
-                      <td class="p-3">250% ~ 최대 300% (3종일반)</td>
-                      <td class="p-3 font-bold text-[#b8734a]">법정상한 150% 완화 · 역세권 종상향 시 최대 500%</td>
+                      <td class="p-2 sm:p-3 font-bold bg-[#faf8f5]">법정 용적률 상한</td>
+                      <td class="p-2 sm:p-3">250% ~ 최대 300% (3종일반)</td>
+                      <td class="p-2 sm:p-3 font-bold text-[#b8734a]">법정상한 150% 완화 · 역세권 종상향 시 최대 500%</td>
                     </tr>
                     <tr class="bg-[#fbf6f2]">
-                      <td class="p-3 font-black text-[#b8734a] bg-[#f4ebe4]">예상 총 세대수<br><span class="text-[11px] font-normal text-[#736961]">(11단지 부지 기준)</span></td>
-                      <td class="p-3 font-semibold">약 980 ~ 1,080세대<br><span class="text-[#8a7f76]">(기존 804 + 추가 180~270세대)</span></td>
-                      <td class="p-3 font-black text-[#231f1d]">약 1,450 ~ 1,680세대 <span class="text-[#b8734a]">(약 2배 증가)</span><br><span class="text-[#b8734a] font-bold">★일반분양·기여분 +650~870세대 추가 확보</span></td>
+                      <td class="p-2 sm:p-3 font-black text-[#b8734a] bg-[#f4ebe4]">예상 총 세대수<br><span class="text-[10px] sm:text-[11px] font-normal text-[#736961]">(11단지 부지 기준)</span></td>
+                      <td class="p-2 sm:p-3 font-semibold">약 980 ~ 1,080세대<br><span class="text-[10px] sm:text-xs text-[#8a7f76]">(기존 804 + 추가 180~270세대)</span></td>
+                      <td class="p-2 sm:p-3 font-black text-[#231f1d]">약 1,450 ~ 1,680세대 <span class="text-[#b8734a]">(약 2배 증가)</span><br><span class="text-[10px] sm:text-xs text-[#b8734a] font-bold">★일반분양·기여분 +650~870세대 추가 확보</span></td>
                     </tr>
                     <tr>
-                      <td class="p-3 font-bold bg-[#faf8f5]">안전진단 여부</td>
-                      <td class="p-3">정밀안전진단 통과 필수 (비용·기간 소요)</td>
-                      <td class="p-3 font-bold text-emerald-700">통합 재건축 및 공공기여 시 안전진단 면제/완화</td>
+                      <td class="p-2 sm:p-3 font-bold bg-[#faf8f5]">안전진단 여부</td>
+                      <td class="p-2 sm:p-3">정밀안전진단 통과 필수 (비용·기간 소요)</td>
+                      <td class="p-2 sm:p-3 font-bold text-emerald-700">통합 재건축 및 공공기여 시 안전진단 면제/완화</td>
                     </tr>
                     <tr>
-                      <td class="p-3 font-bold bg-[#faf8f5]">추진 단위 · 단지 규모</td>
-                      <td class="p-3">11단지 나홀로 정비 (1,000세대급)</td>
-                      <td class="p-3 font-bold text-[#231f1d]">인접 단지(10단지 등) 통합 시 2,500~3,000세대+ 대단지</td>
+                      <td class="p-2 sm:p-3 font-bold bg-[#faf8f5]">추진 단위 · 단지 규모</td>
+                      <td class="p-2 sm:p-3">11단지 나홀로 정비 (1,000세대급)</td>
+                      <td class="p-2 sm:p-3 font-bold text-[#231f1d]">인접 단지(10단지 등) 통합 시 2,500~3,000세대+ 대단지</td>
                     </tr>
                     <tr>
-                      <td class="p-3 font-bold bg-[#faf8f5]">인허가 속도</td>
-                      <td class="p-3">건축·교통·환경 개별 심의 (3~5년)</td>
-                      <td class="p-3 font-bold text-blue-700">통합심의위원회 일괄 심의 (1~2년으로 단축)</td>
+                      <td class="p-2 sm:p-3 font-bold bg-[#faf8f5]">인허가 속도</td>
+                      <td class="p-2 sm:p-3">건축·교통·환경 개별 심의 (3~5년)</td>
+                      <td class="p-2 sm:p-3 font-bold text-blue-700">통합심의위원회 일괄 심의 (1~2년으로 단축)</td>
                     </tr>
                   </tbody>
                 </table>
@@ -543,64 +543,64 @@
             </div>
 
             <!-- 우측 (5칸): 용적률 & 세대수 변화 누적 다이어그램 -->
-            <div class="lg:col-span-5 bg-[#faf8f5] rounded-2xl p-5 sm:p-6 border border-[#eee7df] flex flex-col justify-between">
+            <div class="lg:col-span-5 bg-[#faf8f5] rounded-2xl p-3.5 sm:p-6 border border-[#eee7df] flex flex-col justify-between min-w-0">
               <div class="text-center">
-                <span class="text-xs font-extrabold text-[#b8734a]">📊 용적률 상향에 따른 세대수 증가 시뮬레이션 (11단지 기준)</span>
-                <p class="text-xs text-[#736961] mt-0.5">기존 804세대 위에 추가되는 일반분양·공공기여 세대수 비교</p>
+                <span class="text-xs font-extrabold text-[#b8734a] block leading-snug">📊 용적률 상향에 따른 세대수 증가 시뮬레이션 (11단지 기준)</span>
+                <p class="text-[11px] sm:text-xs text-[#736961] mt-1">기존 804세대 위에 추가되는 일반분양·공공기여 세대수 비교</p>
               </div>
 
-              <!-- Stacked Bar Chart (바닥 기준선 및 804세대 96px 높이 100% 일치) -->
-              <div class="grid grid-cols-3 gap-4 items-end pt-4 px-2" style="border-bottom: 2px solid #231f1d; word-break: keep-all;">
+              <!-- Stacked Bar Chart (모바일에서도 텍스트 잘림·깨짐 0% 보장) -->
+              <div class="grid grid-cols-3 gap-1.5 sm:gap-4 items-end pt-4 px-0.5 sm:px-2" style="border-bottom: 2px solid #231f1d;">
                 
                 <!-- Bar 1: 현재 단지 (207%, 804세대 -> 하단 정확히 96px) -->
-                <div class="flex flex-col items-center justify-end">
-                  <div class="text-center mb-2">
-                    <div class="text-xs font-bold text-[#736961]">현재 (207%)</div>
-                    <div class="text-sm sm:text-base font-black text-[#231f1d]">총 804세대</div>
+                <div class="flex flex-col items-center justify-end min-w-0">
+                  <div class="text-center mb-1.5 sm:mb-2">
+                    <div class="text-[10px] sm:text-xs font-bold text-[#736961] whitespace-nowrap">현재 (207%)</div>
+                    <div class="text-xs sm:text-base font-black text-[#231f1d] whitespace-nowrap">총 804세대</div>
                   </div>
-                  <div class="w-full rounded-t-xl bg-[#6e645c] text-white flex flex-col justify-center items-center text-center shadow-inner" style="max-width: 108px; height: 96px; border: 2px solid #524942; border-bottom: none; box-sizing: border-box;">
-                    <span class="text-xs opacity-90">기존 소유주</span>
-                    <span class="text-sm font-black mt-0.5">804세대</span>
-                  </div>
-                </div>
-
-                <!-- Bar 2: 일반 재건축 (~300%, 약 1,030세대 -> 상단 54px + 하단 96px = 150px) -->
-                <div class="flex flex-col items-center justify-end">
-                  <div class="text-center mb-2">
-                    <div class="text-xs font-bold text-amber-700">일반 (~300%)</div>
-                    <div class="text-sm sm:text-base font-black text-amber-900">약 1,030세대</div>
-                  </div>
-                  <div class="w-full rounded-t-xl overflow-hidden flex flex-col shadow" style="max-width: 108px; height: 150px; border: 2px solid #b45309; border-bottom: none; box-sizing: border-box;">
-                    <!-- 추가 세대수 (상단 54px) -->
-                    <div class="bg-amber-500 text-white flex flex-col justify-center items-center px-1 text-center" style="height: 54px; border-bottom: 1px solid rgba(180,83,9,0.5); box-sizing: border-box;">
-                      <span class="text-xs font-black leading-tight">+180~270세대</span>
-                      <span class="text-xs opacity-95 leading-tight">일반분양 소량</span>
-                    </div>
-                    <!-- 기존 조합원 (하단 정확히 96px) -->
-                    <div class="bg-[#6e645c] text-white flex flex-col justify-center items-center text-center" style="height: 96px; box-sizing: border-box;">
-                      <span class="text-xs opacity-90">조합원</span>
-                      <span class="text-sm font-black mt-0.5">804세대</span>
-                    </div>
+                  <div class="w-full rounded-t-xl bg-[#6e645c] text-white flex flex-col justify-center items-center text-center shadow-inner px-1" style="max-width: 112px; height: 96px; border: 2px solid #524942; border-bottom: none; box-sizing: border-box;">
+                    <span class="text-[10px] sm:text-xs opacity-90 whitespace-nowrap">기존 소유주</span>
+                    <span class="text-xs sm:text-sm font-black mt-0.5 whitespace-nowrap">804세대</span>
                   </div>
                 </div>
 
-                <!-- Bar 3: 통합·역세권 특례 (최대 500%, 약 1,600세대+ -> 상단 114px + 하단 96px = 210px) -->
-                <div class="flex flex-col items-center justify-end">
-                  <div class="text-center mb-2">
-                    <span class="inline-block px-2 py-0.5 rounded-full bg-[#b8734a] text-white text-xs font-black mb-0.5">최대 500%</span>
-                    <div class="text-sm sm:text-base font-black text-[#b8734a]">약 1,600세대+</div>
+                <!-- Bar 2: 일반 재건축 (~300%, 약 1,030세대 -> 상단 60px + 하단 96px = 156px) -->
+                <div class="flex flex-col items-center justify-end min-w-0">
+                  <div class="text-center mb-1.5 sm:mb-2">
+                    <div class="text-[10px] sm:text-xs font-bold text-amber-700 whitespace-nowrap">일반 (~300%)</div>
+                    <div class="text-xs sm:text-base font-black text-amber-900 whitespace-nowrap">약 1,030세대</div>
                   </div>
-                  <div class="w-full rounded-t-xl overflow-hidden flex flex-col shadow-xl" style="max-width: 112px; height: 210px; border: 2px solid #b8734a; border-bottom: none; box-sizing: border-box;">
-                    <!-- 추가 세대수 (상단 114px) -->
-                    <div class="bg-gradient-to-b from-[#d4885c] to-[#b8734a] text-white flex flex-col justify-center items-center p-1.5 text-center" style="height: 114px; border-bottom: 1px solid rgba(255,255,255,0.45); box-sizing: border-box;">
-                      <span class="text-xs font-black bg-black/25 px-1.5 py-0.5 rounded">+650~870세대</span>
-                      <span class="text-xs font-bold mt-1">일반분양 극대화</span>
-                      <span class="text-xs opacity-90">(분담금 대폭 절감)</span>
+                  <div class="w-full rounded-t-xl overflow-hidden flex flex-col shadow" style="max-width: 112px; height: 156px; border: 2px solid #b45309; border-bottom: none; box-sizing: border-box;">
+                    <!-- 추가 세대수 (상단 60px) -->
+                    <div class="bg-amber-500 text-white flex flex-col justify-center items-center px-0.5 sm:px-1 text-center" style="height: 60px; border-bottom: 1px solid rgba(180,83,9,0.5); box-sizing: border-box;">
+                      <span class="text-[10px] sm:text-xs font-black leading-tight whitespace-nowrap tracking-tighter">+180~270세대</span>
+                      <span class="text-[10px] sm:text-xs opacity-95 leading-tight whitespace-nowrap tracking-tighter mt-0.5">일반분양 소량</span>
                     </div>
                     <!-- 기존 조합원 (하단 정확히 96px) -->
-                    <div class="bg-[#231f1d] text-white flex flex-col justify-center items-center text-center" style="height: 96px; box-sizing: border-box;">
-                      <span class="text-xs text-[#e5b394]">조합원</span>
-                      <span class="text-sm font-black mt-0.5">804세대</span>
+                    <div class="bg-[#6e645c] text-white flex flex-col justify-center items-center text-center px-1" style="height: 96px; box-sizing: border-box;">
+                      <span class="text-[10px] sm:text-xs opacity-90 whitespace-nowrap">조합원</span>
+                      <span class="text-xs sm:text-sm font-black mt-0.5 whitespace-nowrap">804세대</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bar 3: 통합·역세권 특례 (최대 500%, 약 1,600세대+ -> 상단 120px + 하단 96px = 216px) -->
+                <div class="flex flex-col items-center justify-end min-w-0">
+                  <div class="text-center mb-1.5 sm:mb-2">
+                    <span class="inline-block px-1.5 sm:px-2 py-0.5 rounded-full bg-[#b8734a] text-white text-[10px] sm:text-xs font-black mb-0.5 whitespace-nowrap">최대 500%</span>
+                    <div class="text-xs sm:text-base font-black text-[#b8734a] whitespace-nowrap">약 1,600세대+</div>
+                  </div>
+                  <div class="w-full rounded-t-xl overflow-hidden flex flex-col shadow-xl" style="max-width: 112px; height: 216px; border: 2px solid #b8734a; border-bottom: none; box-sizing: border-box;">
+                    <!-- 추가 세대수 (상단 120px) -->
+                    <div class="bg-gradient-to-b from-[#d4885c] to-[#b8734a] text-white flex flex-col justify-center items-center px-0.5 sm:p-1.5 text-center" style="height: 120px; border-bottom: 1px solid rgba(255,255,255,0.45); box-sizing: border-box;">
+                      <span class="text-[10px] sm:text-xs font-black bg-black/25 px-1 sm:px-1.5 py-0.5 rounded whitespace-nowrap tracking-tighter">+650~870세대</span>
+                      <span class="text-[10px] sm:text-xs font-bold mt-1 leading-tight whitespace-nowrap tracking-tighter">일반분양 극대화</span>
+                      <span class="text-[9px] sm:text-xs opacity-90 leading-tight whitespace-nowrap tracking-tighter mt-0.5">(분담금 대폭 절감)</span>
+                    </div>
+                    <!-- 기존 조합원 (하단 정확히 96px) -->
+                    <div class="bg-[#231f1d] text-white flex flex-col justify-center items-center text-center px-1" style="height: 96px; box-sizing: border-box;">
+                      <span class="text-[10px] sm:text-xs text-[#e5b394] whitespace-nowrap">조합원</span>
+                      <span class="text-xs sm:text-sm font-black mt-0.5 whitespace-nowrap">804세대</span>
                     </div>
                   </div>
                 </div>
@@ -609,12 +609,12 @@
 
               <!-- X축 하단 라벨 & 주석 -->
               <div class="space-y-2 pt-3">
-                <div class="grid grid-cols-3 gap-2 text-center text-xs">
-                  <div class="font-bold text-[#5c534c]">현재 (15층)</div>
-                  <div class="font-bold text-amber-800">일반 단독정비</div>
-                  <div class="font-black text-[#b8734a]">통합·역세권 특례</div>
+                <div class="grid grid-cols-3 gap-1 sm:gap-2 text-center text-[11px] sm:text-xs">
+                  <div class="font-bold text-[#5c534c] whitespace-nowrap">현재 (15층)</div>
+                  <div class="font-bold text-amber-800 whitespace-nowrap">일반 단독정비</div>
+                  <div class="font-black text-[#b8734a] whitespace-nowrap">통합·역세권 특례</div>
                 </div>
-                <div class="text-xs text-[#736961] bg-white p-2.5 rounded-xl border border-[#e8e2d9] leading-relaxed">
+                <div class="text-[11px] sm:text-xs text-[#736961] bg-white p-2.5 rounded-xl border border-[#e8e2d9] leading-relaxed">
                   ※ 평형 확대(기존 평균 전용 49.8㎡ ➔ 재건축 59·84㎡ 중심) 반영 추정치이며, 인접 단지와 대블록 통합 시 <strong>총 2,500~3,000세대+</strong> 규모로 확장됩니다.
                 </div>
               </div>
@@ -626,24 +626,24 @@
         <!-- ===================================================================== -->
         <!-- PART 3: 공간·교통 분석 (좌측: 지구단위계획·면목선 설명 / 우측: 입지 개념도) -->
         <!-- ===================================================================== -->
-        <section class="bg-white rounded-3xl p-6 sm:p-8 border border-[#e8e2d9] shadow-sm space-y-6">
-          <div class="border-b border-[#f0eae3] pb-4">
+        <section class="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-[#e8e2d9] shadow-sm space-y-5 sm:space-y-6">
+          <div class="border-b border-[#f0eae3] pb-3.5 sm:pb-4">
             <span class="text-xs font-extrabold text-emerald-700 uppercase tracking-wider">PART 03 • URBAN PLAN & MYEONMOK LINE</span>
-            <h2 class="text-xl sm:text-2xl font-black text-[#231f1d] mt-0.5">공간·교통 핵심 분석: 5개 구역 통합안과 면목선 정거장 위치의 중요성</h2>
+            <h2 class="text-lg sm:text-2xl font-black text-[#231f1d] mt-0.5 leading-snug">공간·교통 핵심 분석: 5개 구역 통합안과 면목선 정거장 위치의 중요성</h2>
           </div>
 
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
             
             <!-- 좌측 (6칸): 상세 배경 설명 -->
             <div class="lg:col-span-6 space-y-4">
               
               <!-- 설명 박스 1: 신내지구 5개 구역 통합안 -->
-              <div class="p-5 rounded-2xl bg-blue-50/60 border border-blue-200 space-y-2">
-                <div class="flex items-center justify-between">
-                  <span class="px-2.5 py-0.5 rounded bg-blue-700 text-white text-xs font-bold">서울시 공고 제2026-977호</span>
-                  <span class="text-xs text-blue-800 font-semibold">신내지구 지구단위계획 결정(변경)(안)</span>
+              <div class="p-4 sm:p-5 rounded-2xl bg-blue-50/60 border border-blue-200 space-y-2">
+                <div class="flex flex-wrap items-center justify-between gap-1.5">
+                  <span class="px-2.5 py-0.5 rounded bg-blue-700 text-white text-[11px] sm:text-xs font-bold shrink-0">서울시 공고 제2026-977호</span>
+                  <span class="text-[11px] sm:text-xs text-blue-800 font-semibold">신내지구 지구단위계획 결정(변경)(안)</span>
                 </div>
-                <h3 class="text-base font-black text-blue-950">① 왜 15개 단지를 5개 구역으로 묶는가?</h3>
+                <h3 class="text-sm sm:text-base font-black text-blue-950 leading-snug">① 왜 15개 단지를 5개 구역으로 묶는가?</h3>
                 <p class="text-xs text-blue-900 leading-relaxed">
                   서울시는 신내택지개발지구(약 124만㎡) 내 단지들이 개별적으로 소규모 나홀로 재건축을 할 경우 기반시설 부족과 난개발이 우려됨에 따라, 
                   <strong>왕복 6차선(폭 25m) 이상의 간선도로를 기준으로 15개 단지를 5개 대블록 구역으로 묶어 통합 재건축</strong>하도록 밑그림을 제시했습니다.
@@ -654,12 +654,12 @@
               </div>
 
               <!-- 설명 박스 2: 면목선 중랑구청사거리역 위치 협의 -->
-              <div class="p-5 rounded-2xl bg-emerald-50/70 border border-emerald-200 space-y-2">
-                <div class="flex items-center justify-between">
-                  <span class="px-2.5 py-0.5 rounded bg-emerald-700 text-white text-xs font-bold">2026.08.13 공청회 핵심 쟁점</span>
-                  <span class="text-xs text-emerald-800 font-semibold">청량리~신내 9.05km (2034 개통 목표)</span>
+              <div class="p-4 sm:p-5 rounded-2xl bg-emerald-50/70 border border-emerald-200 space-y-2">
+                <div class="flex flex-wrap items-center justify-between gap-1.5">
+                  <span class="px-2.5 py-0.5 rounded bg-emerald-700 text-white text-[11px] sm:text-xs font-bold shrink-0">2026.08.13 공청회 핵심 쟁점</span>
+                  <span class="text-[11px] sm:text-xs text-emerald-800 font-semibold">청량리~신내 9.05km (2034 개통 목표)</span>
                 </div>
-                <h3 class="text-base font-black text-emerald-950">② 왜 '중랑구청사거리역' 위치가 재건축 종상향을 좌우하는가?</h3>
+                <h3 class="text-sm sm:text-base font-black text-emerald-950 leading-snug">② 왜 '중랑구청사거리역' 위치가 재건축 종상향을 좌우하는가?</h3>
                 <p class="text-xs text-emerald-900 leading-relaxed">
                   서울시 역세권 고밀개발(준주거 종상향, 용적률 최대 500%) 특례는 <strong>지하철 승강장으로부터 반경 250m~350m 이내 포함 여부</strong>가 핵심 기준입니다.
                 </p>
@@ -672,69 +672,70 @@
             </div>
 
             <!-- 우측 (6칸): 공간·노선 위치 개념 다이어그램 -->
-            <div class="lg:col-span-6 bg-[#f4f1ec] rounded-2xl p-5 border border-[#ded5ca] space-y-3.5">
+            <div class="lg:col-span-6 bg-[#f4f1ec] rounded-2xl p-3.5 sm:p-5 border border-[#ded5ca] space-y-3 sm:space-y-3.5">
               <div class="text-center">
-                <span class="text-xs font-bold text-[#231f1d]">🗺️ 신내대명11단지 통합구역 & 면목선 역세권 위치 관계도</span>
+                <span class="text-xs font-bold text-[#231f1d] leading-snug block">🗺️ 신내대명11단지 통합구역 & 면목선 역세권 위치 관계도</span>
               </div>
 
               <!-- 북측 녹지 -->
-              <div class="bg-emerald-800/15 border border-emerald-700/30 rounded-xl py-2 px-4 flex items-center justify-between text-xs font-bold text-emerald-900">
-                <span>🌲 봉화산 자연공원 녹지축 (보행녹지 네트워크 연결)</span>
-                <span>북측</span>
+              <div class="bg-emerald-800/15 border border-emerald-700/30 rounded-xl py-2 px-3 sm:px-4 flex items-center justify-between gap-2 text-[11px] sm:text-xs font-bold text-emerald-900">
+                <span class="leading-snug">🌲 봉화산 자연공원 녹지축 (보행녹지 네트워크 연결)</span>
+                <span class="shrink-0 px-2 py-0.5 rounded bg-emerald-800/10">북측</span>
               </div>
 
-              <!-- 중단 단지 배치 -->
+              <!-- 중단 단지 배치 (모바일 세로 스택 / 태블릿·PC 가로 7:5 분할) -->
               <div class="grid grid-cols-12 gap-3 items-stretch">
-                <div class="col-span-7 bg-white rounded-2xl p-4 border-2 border-[#b8734a] shadow-sm">
-                  <div class="inline-block px-2 py-0.5 rounded bg-[#b8734a] text-white text-xs font-bold mb-2">
+                <div class="col-span-12 sm:col-span-7 bg-white rounded-2xl p-3.5 sm:p-4 border-2 border-[#b8734a] shadow-sm">
+                  <div class="inline-block px-2 py-0.5 rounded bg-[#b8734a] text-white text-[11px] sm:text-xs font-bold mb-2.5">
                     서울시 5개 구역 통합정비 권역
                   </div>
                   <div class="grid grid-cols-2 gap-2">
-                    <div class="bg-[#231f1d] text-white p-3 rounded-xl text-center">
-                      <div class="text-xs text-[#e5b394] font-bold">우리 단지</div>
-                      <div class="text-sm font-black mt-0.5">신내대명11단지</div>
-                      <div class="text-xs text-[#b5a99f] mt-0.5">804세대 (207%)</div>
+                    <div class="bg-[#231f1d] text-white p-2.5 sm:p-3 rounded-xl text-center flex flex-col justify-center">
+                      <div class="text-[11px] sm:text-xs text-[#e5b394] font-bold">우리 단지</div>
+                      <div class="text-xs sm:text-sm font-black mt-0.5 whitespace-nowrap">신내대명11단지</div>
+                      <div class="text-[11px] sm:text-xs text-[#b5a99f] mt-0.5 whitespace-nowrap">804세대 (207%)</div>
                     </div>
-                    <div class="bg-[#faf8f5] text-[#231f1d] p-3 rounded-xl border border-dashed border-[#b8734a] text-center flex flex-col justify-center">
-                      <div class="text-xs text-[#b8734a] font-bold">인접 단지 연계</div>
-                      <div class="text-sm font-black mt-0.5">신내10단지 등</div>
-                      <div class="text-xs text-[#736961] mt-0.5">대블록 통합 구상</div>
+                    <div class="bg-[#faf8f5] text-[#231f1d] p-2.5 sm:p-3 rounded-xl border border-dashed border-[#b8734a] text-center flex flex-col justify-center">
+                      <div class="text-[11px] sm:text-xs text-[#b8734a] font-bold">인접 단지 연계</div>
+                      <div class="text-xs sm:text-sm font-black mt-0.5 whitespace-nowrap">신내10단지 등</div>
+                      <div class="text-[11px] sm:text-xs text-[#736961] mt-0.5 whitespace-nowrap">대블록 통합 구상</div>
                     </div>
                   </div>
                 </div>
 
-                <div class="col-span-5 bg-emerald-950 text-white rounded-2xl p-4 flex flex-col justify-between border border-emerald-700">
+                <div class="col-span-12 sm:col-span-5 bg-emerald-950 text-white rounded-2xl p-3.5 sm:p-4 flex flex-col justify-between border border-emerald-700">
                   <div>
-                    <span class="px-2 py-0.5 rounded bg-emerald-400 text-emerald-950 text-xs font-black">역세권 반경 기준</span>
+                    <span class="inline-block px-2 py-0.5 rounded bg-emerald-400 text-emerald-950 text-[11px] sm:text-xs font-black">역세권 반경 기준</span>
                     <h4 class="text-sm font-black mt-1.5 text-emerald-200">승강장 250~350m 내</h4>
                     <p class="text-xs text-emerald-100/80 mt-1 leading-relaxed">
                       반경 내 편입 시 역세권 고밀개발(최대 500%) 수혜 직결
                     </p>
                   </div>
-                  <div class="text-xs text-emerald-300 font-bold pt-2 border-t border-emerald-800">
+                  <div class="text-xs text-emerald-300 font-bold pt-2 mt-2 border-t border-emerald-800">
                     ✓ 정거장 거리 단축이 핵심
                   </div>
                 </div>
               </div>
 
               <!-- 하단 면목선 정거장 이동 협의 다이어그램 -->
-              <div class="bg-[#231f1d] text-white rounded-2xl p-4 border border-[#3b332e]">
-                <div class="flex items-center justify-between text-xs text-[#b5a99f] mb-2">
+              <div class="bg-[#231f1d] text-white rounded-2xl p-3.5 sm:p-4 border border-[#3b332e]">
+                <div class="flex flex-wrap items-center justify-between gap-1 text-[11px] sm:text-xs text-[#b5a99f] mb-2.5">
                   <span class="font-bold text-white">🚇 면목선 중랑구청사거리역 위치 협의 현황</span>
                   <span>구청·서울시 협의 진행 중</span>
                 </div>
-                <div class="flex flex-col sm:flex-row items-center justify-between bg-white/10 rounded-xl p-3 gap-2">
+                <div class="flex flex-col sm:flex-row items-center justify-between bg-white/10 rounded-xl p-2.5 sm:p-3 gap-2">
                   <div class="w-full sm:flex-1 bg-emerald-600 text-white p-2.5 rounded-xl border-2 border-white text-center">
                     <div class="text-xs font-black">📍 중랑구청사거리 (11단지 방향)</div>
-                    <div class="text-xs opacity-90 mt-0.5">주민·구청 요구: 승강장·출입구 당기기</div>
+                    <div class="text-[11px] sm:text-xs opacity-90 mt-0.5">주민·구청 요구: 승강장·출입구 당기기</div>
                   </div>
-                  <div class="flex flex-col items-center px-2 shrink-0">
-                    <span class="text-xs font-black text-emerald-300">◀ 위치 조정 요청</span>
-                    <div class="w-14 h-1 bg-gradient-to-r from-emerald-400 to-amber-400 rounded my-1"></div>
+                  <div class="flex flex-col items-center px-2 py-0.5 sm:py-0 shrink-0">
+                    <span class="text-[11px] sm:text-xs font-black text-emerald-300 sm:hidden">▲ 위치 조정 요청</span>
+                    <span class="text-xs font-black text-emerald-300 hidden sm:inline">◀ 위치 조정 요청</span>
+                    <div class="w-1.5 h-3.5 sm:w-14 sm:h-1 bg-gradient-to-b sm:bg-gradient-to-r from-emerald-400 to-amber-400 rounded my-1"></div>
                   </div>
                   <div class="w-full sm:flex-1 bg-white/10 text-[#d8cec5] p-2.5 rounded-xl border border-white/20 text-center">
                     <div class="text-xs font-bold">가락공판장 측 (공청회 초안)</div>
-                    <div class="text-xs opacity-75 mt-0.5">전력구 이설비 이슈로 이동 제시</div>
+                    <div class="text-[11px] sm:text-xs opacity-75 mt-0.5">전력구 이설비 이슈로 이동 제시</div>
                   </div>
                 </div>
               </div>
@@ -747,20 +748,20 @@
         <!-- ===================================================================== -->
         <!-- PART 4: 신내대명11단지에 미치는 실질적 영향 3대 요약 (다크 카드)          -->
         <!-- ===================================================================== -->
-        <section class="bg-[#231f1d] text-white rounded-3xl p-6 sm:p-8 border border-[#3b332e] shadow-lg space-y-6">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#3b332e] pb-4">
+        <section class="bg-[#231f1d] text-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-[#3b332e] shadow-lg space-y-5 sm:space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3 border-b border-[#3b332e] pb-4">
             <div>
               <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#b8734a] text-white uppercase tracking-wider">IMPACT SUMMARY</span>
-              <h2 class="text-xl sm:text-2xl font-black mt-2 text-white">📌 신내대명11단지에 미치는 실질적 영향 3가지 요약</h2>
+              <h2 class="text-lg sm:text-2xl font-black mt-2 text-white leading-snug">📌 신내대명11단지에 미치는 실질적 영향 3가지 요약</h2>
             </div>
-            <span class="text-xs text-[#b5a99f]">입주민이 꼭 알아야 할 핵심 결론</span>
+            <span class="text-xs text-[#b5a99f] shrink-0">입주민이 꼭 알아야 할 핵심 결론</span>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div class="bg-[#2d2724] rounded-2xl p-5 border border-[#423934] flex flex-col justify-between space-y-3">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+            <div class="bg-[#2d2724] rounded-2xl p-4 sm:p-5 border border-[#423934] flex flex-col justify-between space-y-3">
               <div class="space-y-2">
                 <div class="text-xs font-black text-[#e5b394]">01 • 사업성 & 분담금</div>
-                <h3 class="text-base font-black text-white">용적률 207% 한계 돌파 및 분담금 절감</h3>
+                <h3 class="text-sm sm:text-base font-black text-white">용적률 207% 한계 돌파 및 분담금 절감</h3>
                 <p class="text-xs text-[#d8cec5] leading-relaxed">
                   일반 재건축(300% 상한) 추진 시 부족했던 일반분양 물량을 <strong>노후계획도시 특별법 및 역세권 종상향(최대 450~500%)</strong>으로 확충하여 조합원 분담금을 낮출 수 있습니다.
                 </p>
@@ -768,10 +769,10 @@
               <div class="pt-2.5 border-t border-[#3e3530] text-xs font-bold text-[#e5b394]">➜ 일반분양 세대수 확충으로 사업성 개선</div>
             </div>
 
-            <div class="bg-[#2d2724] rounded-2xl p-5 border border-[#423934] flex flex-col justify-between space-y-3">
+            <div class="bg-[#2d2724] rounded-2xl p-4 sm:p-5 border border-[#423934] flex flex-col justify-between space-y-3">
               <div class="space-y-2">
                 <div class="text-xs font-black text-blue-300">02 • 속도 & 단지 규모</div>
-                <h3 class="text-base font-black text-white">5개 구역 통합 재건축 & 안전진단 면제</h3>
+                <h3 class="text-sm sm:text-base font-black text-white">5개 구역 통합 재건축 & 안전진단 면제</h3>
                 <p class="text-xs text-[#d8cec5] leading-relaxed">
                   서울시 지구단위계획(5개 구역 통합안)에 맞춰 인접 단지(10단지 등)와 통합 정비를 추진하면 <strong>까다로운 안전진단이 면제</strong>되고 1,500~2,000세대급 대단지 프리미엄을 확보합니다.
                 </p>
@@ -779,10 +780,10 @@
               <div class="pt-2.5 border-t border-[#3e3530] text-xs font-bold text-blue-300">➜ 단독 vs 통합 재건축 유불리 정밀 비교 필요</div>
             </div>
 
-            <div class="bg-[#2d2724] rounded-2xl p-5 border border-[#423934] flex flex-col justify-between space-y-3">
+            <div class="bg-[#2d2724] rounded-2xl p-4 sm:p-5 border border-[#423934] flex flex-col justify-between space-y-3">
               <div class="space-y-2">
                 <div class="text-xs font-black text-emerald-300">03 • 역세권 종상향 조건</div>
-                <h3 class="text-base font-black text-white">면목선 구청사거리역 위치가 종상향 좌우</h3>
+                <h3 class="text-sm sm:text-base font-black text-white">면목선 구청사거리역 위치가 종상향 좌우</h3>
                 <p class="text-xs text-[#d8cec5] leading-relaxed">
                   역세권 500% 고밀개발 특례는 <strong>지하철 승강장 반경 250~350m 포함 여부</strong>가 기준이므로, 정거장·출입구를 11단지 인접 방향(구청사거리)으로 당기는 것이 가장 중요합니다.
                 </p>
@@ -795,138 +796,138 @@
         <!-- ===================================================================== -->
         <!-- PART 5: 6단계 재건축 추진 로드맵 (시각 진행바 + 단계별 상세 내용 카드)    -->
         <!-- ===================================================================== -->
-        <section class="bg-white rounded-3xl p-6 sm:p-8 border border-[#e8e2d9] shadow-sm space-y-6">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#f0eae3] pb-4">
+        <section class="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-[#e8e2d9] shadow-sm space-y-5 sm:space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 border-b border-[#f0eae3] pb-4">
             <div>
               <span class="text-xs font-extrabold text-[#b8734a] uppercase tracking-wider">PART 04 • 6-STEP MASTER ROADMAP</span>
-              <h2 class="text-xl sm:text-2xl font-black text-[#231f1d] mt-0.5">🗺️ 신내대명11단지 재건축 6단계 추진 로드맵</h2>
+              <h2 class="text-lg sm:text-2xl font-black text-[#231f1d] mt-0.5 leading-snug">🗺️ 신내대명11단지 재건축 6단계 추진 로드맵</h2>
             </div>
-            <span class="px-3 py-1.5 rounded-full bg-[#b8734a] text-white text-xs font-bold">📍 현재 단계: STEP 01 (기초 준비 및 소유주 의견 수렴)</span>
+            <span class="px-3 py-1.5 rounded-xl sm:rounded-full bg-[#b8734a] text-white text-[11px] sm:text-xs font-bold leading-snug inline-block">📍 현재 단계: STEP 01 (기초 준비 및 소유주 의견 수렴)</span>
           </div>
 
           <!-- 상단 진행 파이프라인 바 -->
-          <div class="bg-[#faf8f5] p-4 rounded-2xl border border-[#eee7df]">
+          <div class="bg-[#faf8f5] p-3.5 sm:p-4 rounded-2xl border border-[#eee7df]">
             <div class="w-full h-3 bg-[#e8e2d9] rounded-full overflow-hidden">
               <div class="w-1/6 h-full bg-gradient-to-r from-[#b8734a] to-[#e5986b] rounded-full"></div>
             </div>
-            <div class="grid grid-cols-3 sm:grid-cols-6 gap-2 text-xs font-bold text-[#8a7f76] mt-2 text-center">
-              <span class="text-[#b8734a] font-black">● 1단계: 준비·설문</span>
-              <span>2단계: 정비구역 입안</span>
-              <span>3단계: 서울시 통합심의</span>
-              <span>4단계: 조합설립인가</span>
-              <span>5단계: 시공사 선정</span>
-              <span>6단계: 착공·입주</span>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-bold text-[#8a7f76] mt-3 sm:mt-2 text-left sm:text-center">
+              <span class="text-[#b8734a] font-black bg-white sm:bg-transparent px-2.5 py-1.5 sm:p-0 rounded-lg border border-[#b8734a]/40 sm:border-0">● 1단계: 준비·설문</span>
+              <span class="bg-white/70 sm:bg-transparent px-2.5 py-1.5 sm:p-0 rounded-lg border border-[#e8e2d9] sm:border-0">2단계: 정비구역 입안</span>
+              <span class="bg-white/70 sm:bg-transparent px-2.5 py-1.5 sm:p-0 rounded-lg border border-[#e8e2d9] sm:border-0">3단계: 서울시 통합심의</span>
+              <span class="bg-white/70 sm:bg-transparent px-2.5 py-1.5 sm:p-0 rounded-lg border border-[#e8e2d9] sm:border-0">4단계: 조합설립인가</span>
+              <span class="bg-white/70 sm:bg-transparent px-2.5 py-1.5 sm:p-0 rounded-lg border border-[#e8e2d9] sm:border-0">5단계: 시공사 선정</span>
+              <span class="bg-white/70 sm:bg-transparent px-2.5 py-1.5 sm:p-0 rounded-lg border border-[#e8e2d9] sm:border-0">6단계: 착공·입주</span>
             </div>
           </div>
 
           <!-- 6단계 카드 (다이어그램 연결선 + 구체적 설명 포함) -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             
             <!-- STEP 1 -->
-            <div class="step-connector rounded-2xl p-5 bg-gradient-to-b from-[#fbf5f0] to-white border-2 border-[#b8734a] shadow-sm flex flex-col justify-between">
+            <div class="step-connector rounded-2xl p-4 sm:p-5 bg-gradient-to-b from-[#fbf5f0] to-white border-2 border-[#b8734a] shadow-sm flex flex-col justify-between">
               <div>
-                <div class="flex items-center justify-between mb-2.5">
+                <div class="flex flex-wrap items-center justify-between gap-1.5 mb-2.5">
                   <span class="px-2.5 py-1 rounded-lg bg-[#b8734a] text-white font-black text-xs">STEP 01 · 현재 단계</span>
                   <span class="text-xs font-bold text-[#b8734a]">준공 30년 도래</span>
                 </div>
-                <h3 class="text-base font-black text-[#231f1d] mb-2">재건축 추진준비위 구성 & 방식 비교</h3>
+                <h3 class="text-sm sm:text-base font-black text-[#231f1d] mb-2">재건축 추진준비위 구성 & 방식 비교</h3>
                 <p class="text-xs text-[#524942] leading-relaxed mb-3">
                   소유주 소통망을 구축하고 추진준비위원회를 결성하여, <strong>11단지 단독 재건축 vs 인접 단지(10단지 등) 5개 구역 통합 재건축</strong>의 사업성을 비교·설문하는 첫 단계입니다.
                 </p>
               </div>
-              <div class="pt-2.5 border-t border-[#ebd8cb] flex justify-between text-xs">
-                <span class="text-[#8a7f76]">핵심 과제</span>
-                <span class="font-bold text-[#b8734a]">소유주 설문 및 면목선 출입구 대응</span>
+              <div class="pt-2.5 border-t border-[#ebd8cb] flex flex-wrap justify-between items-center gap-1 text-xs">
+                <span class="text-[#8a7f76] shrink-0">핵심 과제</span>
+                <span class="font-bold text-[#b8734a] text-right">소유주 설문 및 면목선 출입구 대응</span>
               </div>
             </div>
 
             <!-- STEP 2 -->
-            <div class="step-connector rounded-2xl p-5 bg-[#faf8f5] border border-[#e8e2d9] flex flex-col justify-between">
+            <div class="step-connector rounded-2xl p-4 sm:p-5 bg-[#faf8f5] border border-[#e8e2d9] flex flex-col justify-between">
               <div>
-                <div class="flex items-center justify-between mb-2.5">
+                <div class="flex flex-wrap items-center justify-between gap-1.5 mb-2.5">
                   <span class="px-2.5 py-1 rounded-lg bg-[#231f1d] text-white font-black text-xs">STEP 02</span>
                   <span class="text-xs font-bold text-emerald-700">안전진단 면제 특례</span>
                 </div>
-                <h3 class="text-base font-black text-[#231f1d] mb-2">특별정비구역 입안 제안 & 사전컨설팅</h3>
+                <h3 class="text-sm sm:text-base font-black text-[#231f1d] mb-2">특별정비구역 입안 제안 & 사전컨설팅</h3>
                 <p class="text-xs text-[#524942] leading-relaxed mb-3">
                   서울시·중랑구청 사전 자문을 거쳐 기존 용적률 207%를 <strong>최대 450~500%로 상향하는 정비계획안</strong>을 수립하고, 통합정비 요건을 통해 안전진단 면제를 적용받습니다.
                 </p>
               </div>
-              <div class="pt-2.5 border-t border-[#eee7df] flex justify-between text-xs">
-                <span class="text-[#8a7f76]">법정 동의율</span>
-                <span class="font-bold text-[#231f1d]">토지등소유자 과반수 (50~60%+)</span>
+              <div class="pt-2.5 border-t border-[#eee7df] flex flex-wrap justify-between items-center gap-1 text-xs">
+                <span class="text-[#8a7f76] shrink-0">법정 동의율</span>
+                <span class="font-bold text-[#231f1d] text-right">토지등소유자 과반수 (50~60%+)</span>
               </div>
             </div>
 
             <!-- STEP 3 -->
-            <div class="rounded-2xl p-5 bg-[#faf8f5] border border-[#e8e2d9] flex flex-col justify-between">
+            <div class="rounded-2xl p-4 sm:p-5 bg-[#faf8f5] border border-[#e8e2d9] flex flex-col justify-between">
               <div>
-                <div class="flex items-center justify-between mb-2.5">
+                <div class="flex flex-wrap items-center justify-between gap-1.5 mb-2.5">
                   <span class="px-2.5 py-1 rounded-lg bg-[#231f1d] text-white font-black text-xs">STEP 03</span>
                   <span class="text-xs font-bold text-blue-700">인허가 기간 단축</span>
                 </div>
-                <h3 class="text-base font-black text-[#231f1d] mb-2">서울시 통합심의 & 특별정비구역 고시</h3>
+                <h3 class="text-sm sm:text-base font-black text-[#231f1d] mb-2">서울시 통합심의 & 특별정비구역 고시</h3>
                 <p class="text-xs text-[#524942] leading-relaxed mb-3">
                   도시계획·건축·경관·교통·환경영향평가를 개별 심의하지 않고 <strong>서울시 통합심의위원회에서 일괄 심의</strong>하여 인허가 기간을 기존 3~5년에서 1~2년으로 단축합니다.
                 </p>
               </div>
-              <div class="pt-2.5 border-t border-[#eee7df] flex justify-between text-xs">
-                <span class="text-[#8a7f76]">승인 주체</span>
-                <span class="font-bold text-blue-700">서울특별시 통합심의위원회</span>
+              <div class="pt-2.5 border-t border-[#eee7df] flex flex-wrap justify-between items-center gap-1 text-xs">
+                <span class="text-[#8a7f76] shrink-0">승인 주체</span>
+                <span class="font-bold text-blue-700 text-right">서울특별시 통합심의위원회</span>
               </div>
             </div>
 
             <!-- STEP 4 -->
-            <div class="step-connector rounded-2xl p-5 bg-[#faf8f5] border border-[#e8e2d9] flex flex-col justify-between">
+            <div class="step-connector rounded-2xl p-4 sm:p-5 bg-[#faf8f5] border border-[#e8e2d9] flex flex-col justify-between">
               <div>
-                <div class="flex items-center justify-between mb-2.5">
+                <div class="flex flex-wrap items-center justify-between gap-1.5 mb-2.5">
                   <span class="px-2.5 py-1 rounded-lg bg-[#231f1d] text-white font-black text-xs">STEP 04</span>
                   <span class="text-xs font-bold text-purple-700">사업 주체 확정</span>
                 </div>
-                <h3 class="text-base font-black text-[#231f1d] mb-2">추진위 승인 & 조합설립인가 (또는 신탁)</h3>
+                <h3 class="text-sm sm:text-base font-black text-[#231f1d] mb-2">추진위 승인 & 조합설립인가 (또는 신탁)</h3>
                 <p class="text-xs text-[#524942] leading-relaxed mb-3">
                   소유주 총회를 통해 <strong>조합 직접 시행 방식 또는 신탁사 지정개발자 방식</strong>을 확정하고, 창립총회를 거쳐 중랑구청으로부터 조합설립인가를 취득합니다.
                 </p>
               </div>
-              <div class="pt-2.5 border-t border-[#eee7df] flex justify-between text-xs">
-                <span class="text-[#8a7f76]">법정 동의율</span>
-                <span class="font-bold text-purple-800">전체 구분소유자 75% 이상 동의</span>
+              <div class="pt-2.5 border-t border-[#eee7df] flex flex-wrap justify-between items-center gap-1 text-xs">
+                <span class="text-[#8a7f76] shrink-0">법정 동의율</span>
+                <span class="font-bold text-purple-800 text-right">전체 구분소유자 75% 이상 동의</span>
               </div>
             </div>
 
             <!-- STEP 5 -->
-            <div class="step-connector rounded-2xl p-5 bg-[#faf8f5] border border-[#e8e2d9] flex flex-col justify-between">
+            <div class="step-connector rounded-2xl p-4 sm:p-5 bg-[#faf8f5] border border-[#e8e2d9] flex flex-col justify-between">
               <div>
-                <div class="flex items-center justify-between mb-2.5">
+                <div class="flex flex-wrap items-center justify-between gap-1.5 mb-2.5">
                   <span class="px-2.5 py-1 rounded-lg bg-[#231f1d] text-white font-black text-xs">STEP 05</span>
                   <span class="text-xs font-bold text-[#b8734a]">시공사 조기 선정</span>
                 </div>
-                <h3 class="text-base font-black text-[#231f1d] mb-2">1군 시공사 선정 & 사업시행계획인가</h3>
+                <h3 class="text-sm sm:text-base font-black text-[#231f1d] mb-2">1군 시공사 선정 & 사업시행계획인가</h3>
                 <p class="text-xs text-[#524942] leading-relaxed mb-3">
                   서울시 조례 개정에 따라 <strong>조합설립인가 직후 1군 하이엔드 브랜드 건설사를 조기 선정</strong>하고, 스카이라운지·대형 주차장 등 특화설계를 반영해 사업시행인가를 받습니다.
                 </p>
               </div>
-              <div class="pt-2.5 border-t border-[#eee7df] flex justify-between text-xs">
-                <span class="text-[#8a7f76]">선정 방식</span>
-                <span class="font-bold text-[#231f1d]">조합원 총회 경쟁입찰 선정</span>
+              <div class="pt-2.5 border-t border-[#eee7df] flex flex-wrap justify-between items-center gap-1 text-xs">
+                <span class="text-[#8a7f76] shrink-0">선정 방식</span>
+                <span class="font-bold text-[#231f1d] text-right">조합원 총회 경쟁입찰 선정</span>
               </div>
             </div>
 
             <!-- STEP 6 -->
-            <div class="rounded-2xl p-5 bg-[#faf8f5] border border-[#e8e2d9] flex flex-col justify-between">
+            <div class="rounded-2xl p-4 sm:p-5 bg-[#faf8f5] border border-[#e8e2d9] flex flex-col justify-between">
               <div>
-                <div class="flex items-center justify-between mb-2.5">
+                <div class="flex flex-wrap items-center justify-between gap-1.5 mb-2.5">
                   <span class="px-2.5 py-1 rounded-lg bg-emerald-700 text-white font-black text-xs">STEP 06</span>
                   <span class="text-xs font-bold text-emerald-700">완성 및 입주</span>
                 </div>
-                <h3 class="text-base font-black text-[#231f1d] mb-2">관리처분인가 · 이주/착공 · 신축 입주</h3>
+                <h3 class="text-sm sm:text-base font-black text-[#231f1d] mb-2">관리처분인가 · 이주/착공 · 신축 입주</h3>
                 <p class="text-xs text-[#524942] leading-relaxed mb-3">
                   조합원 평형 신청 및 감정평가(관리처분계획인가) 후 이주·철거 및 착공을 진행하며, <strong>2034년 면목선 경전철 개통 시점과 맞물려 신내지구 대표 랜드마크로 입주</strong>합니다.
                 </p>
               </div>
-              <div class="pt-2.5 border-t border-[#eee7df] flex justify-between text-xs">
-                <span class="text-[#8a7f76]">최종 목표</span>
-                <span class="font-bold text-emerald-700">신내지구 초역세권 명품 대단지</span>
+              <div class="pt-2.5 border-t border-[#eee7df] flex flex-wrap justify-between items-center gap-1 text-xs">
+                <span class="text-[#8a7f76] shrink-0">최종 목표</span>
+                <span class="font-bold text-emerald-700 text-right">신내지구 초역세권 명품 대단지</span>
               </div>
             </div>
 
@@ -1105,51 +1106,51 @@
 
         <!-- 4 Summary KPI Cards -->
 
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
 
-          <div class="bg-white rounded-2xl p-5 border border-[#e8e2d9] shadow-sm">
+          <div class="bg-white rounded-2xl p-3.5 sm:p-5 border border-[#e8e2d9] shadow-sm">
 
-            <div class="text-xs font-bold text-[#8a7f76]">온라인 누적 접수</div>
+            <div class="text-[11px] sm:text-xs font-bold text-[#8a7f76]">온라인 누적 접수</div>
 
-            <div class="text-2xl sm:text-3xl font-black text-[#231f1d] mt-1"><span id="online-stat-total">0</span><span class="text-sm font-normal text-[#8a7f76] ml-1">건</span></div>
+            <div class="text-2xl sm:text-3xl font-black text-[#231f1d] mt-1"><span id="online-stat-total">0</span><span class="text-xs sm:text-sm font-normal text-[#8a7f76] ml-1">건</span></div>
 
             <div class="text-[11px] text-[#b8734a] font-semibold mt-1">구글 스프레드시트 기록</div>
 
           </div>
 
-          <div class="bg-white rounded-2xl p-5 border border-[#e8e2d9] shadow-sm">
+          <div class="bg-white rounded-2xl p-3.5 sm:p-5 border border-[#e8e2d9] shadow-sm">
 
-            <div class="text-xs font-bold text-[#8a7f76]">접수완료 · 검토대기</div>
+            <div class="text-[11px] sm:text-xs font-bold text-[#8a7f76]">접수완료 · 검토대기</div>
 
-            <div class="text-2xl sm:text-3xl font-black text-amber-600 mt-1"><span id="online-stat-pending">0</span><span class="text-sm font-normal text-[#8a7f76] ml-1">건</span></div>
+            <div class="text-2xl sm:text-3xl font-black text-amber-600 mt-1"><span id="online-stat-pending">0</span><span class="text-xs sm:text-sm font-normal text-[#8a7f76] ml-1">건</span></div>
 
             <div class="text-[11px] text-[#786e66] mt-1">관리소 실사 및 상정 검토</div>
 
           </div>
 
-          <div class="bg-white rounded-2xl p-5 border border-[#e8e2d9] shadow-sm">
+          <div class="bg-white rounded-2xl p-3.5 sm:p-5 border border-[#e8e2d9] shadow-sm">
 
-            <div class="text-xs font-bold text-[#8a7f76]">상정 · 진행 · 조치완료</div>
+            <div class="text-[11px] sm:text-xs font-bold text-[#8a7f76]">상정 · 진행 · 조치완료</div>
 
-            <div class="text-2xl sm:text-3xl font-black text-emerald-700 mt-1"><span id="online-stat-processed">0</span><span class="text-sm font-normal text-[#8a7f76] ml-1">건</span></div>
+            <div class="text-2xl sm:text-3xl font-black text-emerald-700 mt-1"><span id="online-stat-processed">0</span><span class="text-xs sm:text-sm font-normal text-[#8a7f76] ml-1">건</span></div>
 
             <div class="text-[11px] text-[#786e66] mt-1">입대의 안건 상정 및 현장 조치</div>
 
           </div>
 
-          <div class="bg-[#231f1d] text-white rounded-2xl p-5 border border-[#3a322d] shadow-sm flex flex-col justify-between">
+          <div class="bg-[#231f1d] text-white rounded-2xl p-3.5 sm:p-5 border border-[#3a322d] shadow-sm flex flex-col justify-between">
 
             <div>
 
-              <div class="text-xs font-bold text-[#e5b394] flex items-center gap-1.5">
+              <div class="text-[11px] sm:text-xs font-bold text-[#e5b394] flex items-center gap-1.5">
 
-                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                <span class="w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span>
 
                 <span>안건 처리 프로세스</span>
 
               </div>
 
-              <p class="text-[11px] text-[#d8cec5] mt-1.5 leading-relaxed">
+              <p class="text-[10px] sm:text-[11px] text-[#d8cec5] mt-1.5 leading-snug sm:leading-relaxed">
 
                 ① 온라인 제안 접수 → ② 구글 시트 자동 기록 → ③ 관리사무소 현장 확인 → ④ 입주자대표회의 정기회의 상정
 
@@ -1403,42 +1404,42 @@
         </div>
 
         <!-- 4 Quick Key Indicators -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div class="p-4 rounded-2xl bg-white border border-[#eee7df] shadow-sm">
-            <div class="text-[11px] text-[#8e8278] font-bold uppercase">준공년월 / 단지제원</div>
-            <div class="text-xl font-black text-[#231f1d] mt-1">1996.03 <span class="text-xs font-semibold text-[#b8734a]">(30년차)</span></div>
-            <div class="text-xs text-[#70665e] mt-0.5">총 804세대 · 용적률 207%</div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+          <div class="p-3.5 sm:p-4 rounded-2xl bg-white border border-[#eee7df] shadow-sm">
+            <div class="text-[10px] sm:text-[11px] text-[#8e8278] font-bold uppercase">준공년월 / 단지제원</div>
+            <div class="text-base sm:text-xl font-black text-[#231f1d] mt-1 whitespace-nowrap">1996.03 <span class="text-[11px] sm:text-xs font-semibold text-[#b8734a]">(30년차)</span></div>
+            <div class="text-[11px] sm:text-xs text-[#70665e] mt-0.5">총 804세대 · 용적률 207%</div>
           </div>
-          <div class="p-4 rounded-2xl bg-white border border-[#eee7df] shadow-sm">
-            <div class="text-[11px] text-[#8e8278] font-bold uppercase">최근 최고 실거래 (신고가)</div>
-            <div class="text-xl font-black text-[#b8734a] mt-1">6억 4,000만 <span class="text-xs font-semibold text-gray-500">원</span></div>
-            <div class="text-xs text-[#70665e] mt-0.5">68㎡(전용 49.77㎡) 8층 (2026.10)</div>
+          <div class="p-3.5 sm:p-4 rounded-2xl bg-white border border-[#eee7df] shadow-sm">
+            <div class="text-[10px] sm:text-[11px] text-[#8e8278] font-bold uppercase">최근 최고 실거래 (신고가)</div>
+            <div class="text-base sm:text-xl font-black text-[#b8734a] mt-1 whitespace-nowrap">6억 4,000만 <span class="text-[11px] sm:text-xs font-semibold text-gray-500">원</span></div>
+            <div class="text-[11px] sm:text-xs text-[#70665e] mt-0.5">68㎡(전용 49.77㎡) 8층 (2026.10)</div>
           </div>
-          <div class="p-4 rounded-2xl bg-white border border-[#eee7df] shadow-sm">
-            <div class="text-[11px] text-[#8e8278] font-bold uppercase">평균 전세가율 / 실투자 갭</div>
-            <div class="text-xl font-black text-[#231f1d] mt-1">52% ~ 57% <span class="text-xs font-semibold text-emerald-600">안정권</span></div>
-            <div class="text-xs text-[#70665e] mt-0.5">전세 2.35~4.5억 · 갭 1.9~2.8억</div>
+          <div class="p-3.5 sm:p-4 rounded-2xl bg-white border border-[#eee7df] shadow-sm">
+            <div class="text-[10px] sm:text-[11px] text-[#8e8278] font-bold uppercase">평균 전세가율 / 실투자 갭</div>
+            <div class="text-base sm:text-xl font-black text-[#231f1d] mt-1 whitespace-nowrap">52% ~ 57% <span class="text-[11px] sm:text-xs font-semibold text-emerald-600">안정권</span></div>
+            <div class="text-[11px] sm:text-xs text-[#70665e] mt-0.5">전세 2.35~4.5억 · 갭 1.9~2.8억</div>
           </div>
-          <div class="p-4 rounded-2xl bg-white border border-[#eee7df] shadow-sm">
-            <div class="text-[11px] text-[#8e8278] font-bold uppercase">핵심 가치 상승 동력</div>
-            <div class="text-xl font-black text-indigo-700 mt-1">노특법 · 면목선</div>
-            <div class="text-xs text-[#70665e] mt-0.5">5개구역 통합정비 & 중랑구청역</div>
+          <div class="p-3.5 sm:p-4 rounded-2xl bg-white border border-[#eee7df] shadow-sm">
+            <div class="text-[10px] sm:text-[11px] text-[#8e8278] font-bold uppercase">핵심 가치 상승 동력</div>
+            <div class="text-base sm:text-xl font-black text-indigo-700 mt-1 whitespace-nowrap">노특법 · 면목선</div>
+            <div class="text-[11px] sm:text-xs text-[#70665e] mt-0.5">5개구역 통합정비 & 중랑구청역</div>
           </div>
         </div>
 
         <!-- Type Switcher Tabs Navigation -->
         <div class="flex flex-wrap gap-2 border-b border-[#e8e2d9] pb-3" id="realestate-tab-buttons">
-          <button onclick="switchRealEstateTab('tab-all')" id="btn-tab-all" class="re-tab-btn active px-4 py-2 rounded-xl text-xs font-bold transition-all bg-[#231f1d] text-white shadow">
+          <button onclick="switchRealEstateTab('tab-all')" id="btn-tab-all" class="re-tab-btn active w-full sm:w-auto px-4 py-2.5 sm:py-2 rounded-xl text-xs font-bold transition-all bg-[#231f1d] text-white shadow text-center">
             전체 평형 종합 비교
           </button>
-          <button onclick="switchRealEstateTab('tab-54')" id="btn-tab-54" class="re-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-[#f4f0eb] text-[#5c534c] hover:bg-[#eae3db]">
+          <button onclick="switchRealEstateTab('tab-54')" id="btn-tab-54" class="re-tab-btn w-full sm:w-auto px-4 py-2.5 sm:py-2 rounded-xl text-xs font-bold transition-all bg-[#f4f0eb] text-[#5c534c] hover:bg-[#eae3db] text-center">
             54㎡ (전용 39.76㎡ / 16·17평형 · 239세대)
           </button>
-          <button onclick="switchRealEstateTab('tab-68')" id="btn-tab-68" class="re-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-[#f4f0eb] text-[#5c534c] hover:bg-[#eae3db] flex items-center gap-1.5">
+          <button onclick="switchRealEstateTab('tab-68')" id="btn-tab-68" class="re-tab-btn w-full sm:w-auto px-4 py-2.5 sm:py-2 rounded-xl text-xs font-bold transition-all bg-[#f4f0eb] text-[#5c534c] hover:bg-[#eae3db] flex items-center justify-center gap-1.5">
             <span>68㎡ (전용 49.77㎡ / 20·21평형 · 326세대)</span>
-            <span class="px-1.5 py-0.2 bg-[#b8734a] text-white text-[10px] rounded-full">주력</span>
+            <span class="px-1.5 py-0.2 bg-[#b8734a] text-white text-[10px] rounded-full shrink-0">주력</span>
           </button>
-          <button onclick="switchRealEstateTab('tab-81')" id="btn-tab-81" class="re-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-[#f4f0eb] text-[#5c534c] hover:bg-[#eae3db]">
+          <button onclick="switchRealEstateTab('tab-81')" id="btn-tab-81" class="re-tab-btn w-full sm:w-auto px-4 py-2.5 sm:py-2 rounded-xl text-xs font-bold transition-all bg-[#f4f0eb] text-[#5c534c] hover:bg-[#eae3db] text-center">
             81㎡ (전용 59.76㎡ / 24·25평형 · 239세대)
           </button>
         </div>
@@ -1448,7 +1449,7 @@
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             <!-- 54 Type -->
-            <div class="bg-white rounded-2xl p-6 border border-[#ece4dc] shadow-sm flex flex-col justify-between">
+            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-[#ece4dc] shadow-sm flex flex-col justify-between">
               <div>
                 <div class="flex justify-between items-start mb-3">
                   <span class="px-2.5 py-1 rounded bg-[#ece4dc] text-[#5a5047] text-xs font-bold">16·17평형</span>
@@ -1457,21 +1458,21 @@
                 <h3 class="text-xl font-black text-[#231f1d]">54㎡ 타입</h3>
                 <div class="text-xs text-[#7d7269] mt-0.5">공급 54.45㎡ / 전용 39.76㎡ (방 2, 욕실 1)</div>
                 <div class="mt-4 pt-4 border-t border-[#eee7df] space-y-2 text-xs">
-                  <div class="flex justify-between"><span class="text-[#8e8278]">KB 매매 일반가</span><span class="font-bold text-[#231f1d]">4억 7,000만 원</span></div>
-                  <div class="flex justify-between"><span class="text-[#8e8278]">KB 매매 시세 밴드</span><span class="font-semibold text-[#5a5047]">4.45억 ~ 4.95억</span></div>
-                  <div class="flex justify-between"><span class="text-[#8e8278]">국토부 실거래가</span><span class="font-bold text-[#b8734a]">4.12억(3층) ~ 4.80억</span></div>
-                  <div class="flex justify-between"><span class="text-[#8e8278]">KB 전세 시세 밴드</span><span class="font-semibold text-[#231f1d]">2.10억 ~ 2.60억 (일반 2.35억)</span></div>
-                  <div class="flex justify-between pt-2 border-t border-[#eee7df] text-[11px]"><span class="text-[#8e8278]">전세가율 / 실투자 갭</span><span class="font-bold text-emerald-700">50.0~52.2% (갭 2.0~2.35억)</span></div>
+                  <div class="flex justify-between gap-2"><span class="text-[#8e8278] shrink-0">KB 매매 일반가</span><span class="font-bold text-[#231f1d] text-right">4억 7,000만 원</span></div>
+                  <div class="flex justify-between gap-2"><span class="text-[#8e8278] shrink-0">KB 매매 시세 밴드</span><span class="font-semibold text-[#5a5047] text-right">4.45억 ~ 4.95억</span></div>
+                  <div class="flex justify-between gap-2"><span class="text-[#8e8278] shrink-0">국토부 실거래가</span><span class="font-bold text-[#b8734a] text-right">4.12억(3층) ~ 4.80억</span></div>
+                  <div class="flex justify-between gap-2"><span class="text-[#8e8278] shrink-0">KB 전세 시세 밴드</span><span class="font-semibold text-[#231f1d] text-right">2.10억 ~ 2.60억 (일반 2.35억)</span></div>
+                  <div class="flex justify-between gap-2 pt-2 border-t border-[#eee7df] text-[11px]"><span class="text-[#8e8278] shrink-0">전세가율 / 실투자 갭</span><span class="font-bold text-emerald-700 text-right">50.0~52.2% (갭 2.0~2.35억)</span></div>
                 </div>
               </div>
-              <button onclick="switchRealEstateTab('tab-54')" class="mt-4 w-full py-2 bg-[#faf8f5] hover:bg-[#f2ece5] text-[#b8734a] font-bold text-xs rounded-xl border border-[#ded4ca] transition-colors">
+              <button onclick="switchRealEstateTab('tab-54')" class="mt-4 w-full py-2.5 sm:py-2 bg-[#faf8f5] hover:bg-[#f2ece5] text-[#b8734a] font-bold text-xs rounded-xl border border-[#ded4ca] transition-colors">
                 54㎡ 상세 실거래 분석 보기 →
               </button>
             </div>
 
             <!-- 68 Type (Highlighted) -->
-            <div class="bg-white rounded-2xl p-6 border-2 border-[#b8734a] shadow-md relative flex flex-col justify-between">
-              <div class="absolute -top-3 right-6 bg-[#b8734a] text-white text-[10px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider">
+            <div class="bg-white rounded-2xl p-5 sm:p-6 border-2 border-[#b8734a] shadow-md relative flex flex-col justify-between mt-2 md:mt-0">
+              <div class="absolute -top-3 left-4 right-4 sm:left-auto sm:right-6 bg-[#b8734a] text-white text-[10px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider text-center whitespace-nowrap">
                 거래량 1위 · 최근 신고가 경신 주력 평형
               </div>
               <div>
@@ -1482,20 +1483,20 @@
                 <h3 class="text-xl font-black text-[#231f1d]">68㎡ 타입</h3>
                 <div class="text-xs text-[#7d7269] mt-0.5">공급 68.15㎡ / 전용 49.77㎡ (방 2, 거실, 욕실 1)</div>
                 <div class="mt-4 pt-4 border-t border-[#eee7df] space-y-2 text-xs">
-                  <div class="flex justify-between"><span class="text-[#8e8278]">KB 매매 일반가</span><span class="font-bold text-[#231f1d]">6억 2,000만 원</span></div>
-                  <div class="flex justify-between"><span class="text-[#8e8278]">매물 호가 밴드</span><span class="font-semibold text-[#5a5047]">6.20억 ~ 6.50억</span></div>
-                  <div class="flex justify-between"><span class="text-[#8e8278]">최근 최고 실거래</span><span class="font-black text-[#b8734a] text-sm">6억 4,000만 원 (8층, 26.10)</span></div>
-                  <div class="flex justify-between"><span class="text-[#8e8278]">전세 시세 / 실거래</span><span class="font-semibold text-[#231f1d]">일반 3.35억 (실거래 3.46~4.5억)</span></div>
-                  <div class="flex justify-between pt-2 border-t border-[#eee7df] text-[11px]"><span class="text-[#8e8278]">전세가율 / 실투자 갭</span><span class="font-bold text-emerald-700">54.0~60.0% (갭 1.9~2.85억)</span></div>
+                  <div class="flex justify-between gap-2"><span class="text-[#8e8278] shrink-0">KB 매매 일반가</span><span class="font-bold text-[#231f1d] text-right">6억 2,000만 원</span></div>
+                  <div class="flex justify-between gap-2"><span class="text-[#8e8278] shrink-0">매물 호가 밴드</span><span class="font-semibold text-[#5a5047] text-right">6.20억 ~ 6.50억</span></div>
+                  <div class="flex justify-between gap-2"><span class="text-[#8e8278] shrink-0">최근 최고 실거래</span><span class="font-black text-[#b8734a] text-xs sm:text-sm text-right">6억 4,000만 원 (8층, 26.10)</span></div>
+                  <div class="flex justify-between gap-2"><span class="text-[#8e8278] shrink-0">전세 시세 / 실거래</span><span class="font-semibold text-[#231f1d] text-right">일반 3.35억 (실거래 3.46~4.5억)</span></div>
+                  <div class="flex justify-between gap-2 pt-2 border-t border-[#eee7df] text-[11px]"><span class="text-[#8e8278] shrink-0">전세가율 / 실투자 갭</span><span class="font-bold text-emerald-700 text-right">54.0~60.0% (갭 1.9~2.85억)</span></div>
                 </div>
               </div>
-              <button onclick="switchRealEstateTab('tab-68')" class="mt-4 w-full py-2 bg-[#b8734a] hover:bg-[#a26139] text-white font-bold text-xs rounded-xl transition-colors shadow">
+              <button onclick="switchRealEstateTab('tab-68')" class="mt-4 w-full py-2.5 sm:py-2 bg-[#b8734a] hover:bg-[#a26139] text-white font-bold text-xs rounded-xl transition-colors shadow">
                 68㎡ 상세 실거래 분석 보기 →
               </button>
             </div>
 
             <!-- 81 Type -->
-            <div class="bg-white rounded-2xl p-6 border border-[#ece4dc] shadow-sm flex flex-col justify-between">
+            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-[#ece4dc] shadow-sm flex flex-col justify-between">
               <div>
                 <div class="flex justify-between items-start mb-3">
                   <span class="px-2.5 py-1 rounded bg-[#ece4dc] text-[#5a5047] text-xs font-bold">24·25평형</span>
@@ -1504,14 +1505,14 @@
                 <h3 class="text-xl font-black text-[#231f1d]">81㎡ 타입</h3>
                 <div class="text-xs text-[#7d7269] mt-0.5">공급 81.84㎡ / 전용 59.76㎡ (방 3, 거실, 욕실 1)</div>
                 <div class="mt-4 pt-4 border-t border-[#eee7df] space-y-2 text-xs">
-                  <div class="flex justify-between"><span class="text-[#8e8278]">KB 매매 일반가</span><span class="font-bold text-[#231f1d]">6억 3,000만 원</span></div>
-                  <div class="flex justify-between"><span class="text-[#8e8278]">KB 매매 시세 밴드</span><span class="font-semibold text-[#5a5047]">5.90억 ~ 6.60억</span></div>
-                  <div class="flex justify-between"><span class="text-[#8e8278]">국토부 실거래가</span><span class="font-bold text-[#b8734a]">5.98억(14층, 26.06) ~ 6.35억</span></div>
-                  <div class="flex justify-between"><span class="text-[#8e8278]">KB 전세 시세 밴드</span><span class="font-semibold text-[#231f1d]">3.35억 ~ 3.85억 (일반 3.60억)</span></div>
-                  <div class="flex justify-between pt-2 border-t border-[#eee7df] text-[11px]"><span class="text-[#8e8278]">전세가율 / 실투자 갭</span><span class="font-bold text-emerald-700">57.1% (갭 2.35~2.70억)</span></div>
+                  <div class="flex justify-between gap-2"><span class="text-[#8e8278] shrink-0">KB 매매 일반가</span><span class="font-bold text-[#231f1d] text-right">6억 3,000만 원</span></div>
+                  <div class="flex justify-between gap-2"><span class="text-[#8e8278] shrink-0">KB 매매 시세 밴드</span><span class="font-semibold text-[#5a5047] text-right">5.90억 ~ 6.60억</span></div>
+                  <div class="flex justify-between gap-2"><span class="text-[#8e8278] shrink-0">국토부 실거래가</span><span class="font-bold text-[#b8734a] text-right">5.98억(14층, 26.06) ~ 6.35억</span></div>
+                  <div class="flex justify-between gap-2"><span class="text-[#8e8278] shrink-0">KB 전세 시세 밴드</span><span class="font-semibold text-[#231f1d] text-right">3.35억 ~ 3.85억 (일반 3.60억)</span></div>
+                  <div class="flex justify-between gap-2 pt-2 border-t border-[#eee7df] text-[11px]"><span class="text-[#8e8278] shrink-0">전세가율 / 실투자 갭</span><span class="font-bold text-emerald-700 text-right">57.1% (갭 2.35~2.70억)</span></div>
                 </div>
               </div>
-              <button onclick="switchRealEstateTab('tab-81')" class="mt-4 w-full py-2 bg-[#faf8f5] hover:bg-[#f2ece5] text-[#b8734a] font-bold text-xs rounded-xl border border-[#ded4ca] transition-colors">
+              <button onclick="switchRealEstateTab('tab-81')" class="mt-4 w-full py-2.5 sm:py-2 bg-[#faf8f5] hover:bg-[#f2ece5] text-[#b8734a] font-bold text-xs rounded-xl border border-[#ded4ca] transition-colors">
                 81㎡ 상세 실거래 분석 보기 →
               </button>
             </div>
@@ -1520,7 +1521,11 @@
 
           <!-- Comparison Table -->
           <div class="overflow-x-auto bg-white rounded-2xl border border-[#eee7df] shadow-sm">
-            <table class="w-full text-xs text-left border-collapse">
+            <div class="sm:hidden px-3.5 py-2 bg-[#faf8f5] border-b border-[#eee7df] text-[11px] text-[#b8734a] font-bold flex items-center justify-between">
+              <span>📊 평형별 상세 비교표</span>
+              <span class="font-normal text-[#8a7f76]">좌우로 밀어서 확인 ➔</span>
+            </div>
+            <table class="w-full min-w-[600px] text-xs text-left border-collapse">
               <thead>
                 <tr class="bg-[#231f1d] text-white">
                   <th class="p-3.5 rounded-l-xl font-bold">비교 항목</th>
@@ -1583,15 +1588,15 @@
 
         <!-- TAB 2: 54 DETAIL -->
         <div id="tab-54" class="re-tab-content hidden space-y-6">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start bg-white p-6 rounded-2xl border border-[#eee7df]">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start bg-white p-5 sm:p-6 rounded-2xl border border-[#eee7df]">
             <div class="lg:col-span-7 space-y-4">
               <span class="inline-block px-3 py-1 rounded bg-[#f4ebe4] text-[#b8734a] text-xs font-bold">소형 가성비 & 1~2인 실거주·소액 갭투자 최적화</span>
-              <h3 class="text-2xl font-black text-[#231f1d]">54㎡ 타입 (전용 39.76㎡ / 16·17평형)</h3>
+              <h3 class="text-xl sm:text-2xl font-black text-[#231f1d]">54㎡ 타입 (전용 39.76㎡ / 16·17평형)</h3>
               <p class="text-xs text-[#70665e] leading-relaxed">
                 신내대명11단지 전체 804세대 중 239세대(29.7%)를 차지하는 소형 평형입니다. 방 2개와 욕실 1개 구조로 신혼부부 및 1~2인 직장인 실수요 진입 장벽이 낮으며, 
                 2억 원대 초반의 실투자금으로 재건축(신내택지 5개 구역 통합정비 및 면목선 역세권) 미래 가치를 선점할 수 있는 타입입니다.
               </p>
-              <div class="grid grid-cols-2 gap-4 pt-2 text-xs">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-2 text-xs">
                 <div class="bg-[#faf7f3] p-4 rounded-xl border border-[#eee7df]">
                   <div class="text-[#8e8278]">KB 매매 시세 밴드 / 실거래</div>
                   <div class="text-lg font-black text-[#231f1d] mt-1">4.45억 ~ 4.95억</div>
@@ -1604,13 +1609,13 @@
                 </div>
               </div>
             </div>
-            <div class="lg:col-span-5 bg-[#faf7f3] p-5 rounded-2xl border border-[#eee7df] space-y-3">
+            <div class="lg:col-span-5 bg-[#faf7f3] p-4 sm:p-5 rounded-2xl border border-[#eee7df] space-y-3">
               <h4 class="text-sm font-bold text-[#231f1d]">국토교통부 실거래 & 시세 기록</h4>
               <ul class="space-y-2 text-xs text-[#524942]">
-                <li class="flex justify-between py-1.5 border-b border-[#eee7df]"><span>최근 중고층 실거래 (11층)</span><span class="font-bold text-[#231f1d]">매매 4억 8,000만</span></li>
-                <li class="flex justify-between py-1.5 border-b border-[#eee7df]"><span>2026년 중순 실거래 (3층)</span><span class="font-bold text-[#231f1d]">매매 4억 1,200만</span></li>
-                <li class="flex justify-between py-1.5 border-b border-[#eee7df]"><span>KB 매매 일반가 기준</span><span class="font-semibold text-[#5a5047]">시세 4억 7,000만</span></li>
-                <li class="flex justify-between py-1.5"><span>최근 전세 체결 기준</span><span class="font-semibold text-emerald-700">전세 2억 3,500만 ~ 2억 6,000만</span></li>
+                <li class="flex justify-between gap-2 py-1.5 border-b border-[#eee7df]"><span>최근 중고층 실거래 (11층)</span><span class="font-bold text-[#231f1d] text-right">매매 4억 8,000만</span></li>
+                <li class="flex justify-between gap-2 py-1.5 border-b border-[#eee7df]"><span>2026년 중순 실거래 (3층)</span><span class="font-bold text-[#231f1d] text-right">매매 4억 1,200만</span></li>
+                <li class="flex justify-between gap-2 py-1.5 border-b border-[#eee7df]"><span>KB 매매 일반가 기준</span><span class="font-semibold text-[#5a5047] text-right">시세 4억 7,000만</span></li>
+                <li class="flex justify-between gap-2 py-1.5"><span>최근 전세 체결 기준</span><span class="font-semibold text-emerald-700 text-right">전세 2억 3,500만 ~ 2억 6,000만</span></li>
               </ul>
             </div>
           </div>
@@ -1618,15 +1623,15 @@
 
         <!-- TAB 3: 68 DETAIL -->
         <div id="tab-68" class="re-tab-content hidden space-y-6">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start bg-white p-6 rounded-2xl border-2 border-[#b8734a]">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start bg-white p-5 sm:p-6 rounded-2xl border-2 border-[#b8734a]">
             <div class="lg:col-span-7 space-y-4">
               <span class="inline-block px-3 py-1 rounded bg-[#b8734a] text-white text-xs font-bold">단지 내 최대 세대수(326세대) & 2026.10 신고가 경신</span>
-              <h3 class="text-2xl font-black text-[#231f1d]">68㎡ 타입 (전용 49.77㎡ / 20·21평형)</h3>
+              <h3 class="text-xl sm:text-2xl font-black text-[#231f1d]">68㎡ 타입 (전용 49.77㎡ / 20·21평형)</h3>
               <p class="text-xs text-[#70665e] leading-relaxed">
                 신내대명11단지의 대표 주력 평형(40.5%, 326세대)입니다. 독립된 거실과 방 2개, 욕실 1개의 실속형 구조로 환금성이 가장 뛰어나며, 
                 <strong>2026년 10월 8층 매물이 6억 4,000만 원에 실거래 신고</strong>되며 단지 시세 상승을 견인하고 있습니다. 전세 역시 15층이 3억 4,650만 원, 리모델링 호실은 최대 4억 5,000만 원까지 실거래되었습니다.
               </p>
-              <div class="grid grid-cols-2 gap-4 pt-2 text-xs">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-2 text-xs">
                 <div class="bg-[#faf7f3] p-4 rounded-xl border border-[#eee7df]">
                   <div class="text-[#8e8278]">KB 일반 매매가 / 호가</div>
                   <div class="text-lg font-black text-[#231f1d] mt-1">6억 2,000만 원</div>
@@ -1639,13 +1644,13 @@
                 </div>
               </div>
             </div>
-            <div class="lg:col-span-5 bg-[#faf7f3] p-5 rounded-2xl border border-[#eee7df] space-y-3">
+            <div class="lg:col-span-5 bg-[#faf7f3] p-4 sm:p-5 rounded-2xl border border-[#eee7df] space-y-3">
               <h4 class="text-sm font-bold text-[#231f1d]">국토교통부 실거래 & 시세 기록</h4>
               <ul class="space-y-2 text-xs text-[#524942]">
-                <li class="flex justify-between py-1.5 border-b border-[#eee7df] bg-rose-50 px-2 rounded"><span class="font-bold text-rose-800">2026.10 (8층) ★최고 실거래</span><span class="font-black text-rose-600">매매 6억 4,000만</span></li>
-                <li class="flex justify-between py-1.5 border-b border-[#eee7df]"><span>직전 실거래 및 KB 일반가</span><span class="font-bold text-[#231f1d]">매매 6억 2,000만</span></li>
-                <li class="flex justify-between py-1.5 border-b border-[#eee7df]"><span>전세 실거래 (15층)</span><span class="font-semibold text-emerald-700">전세 3억 4,650만</span></li>
-                <li class="flex justify-between py-1.5"><span>전세 최고 실거래 / KB 일반가</span><span class="font-semibold text-emerald-700">최고 4.50억 (일반 3.35억)</span></li>
+                <li class="flex justify-between gap-2 py-1.5 border-b border-[#eee7df] bg-rose-50 px-2 rounded"><span class="font-bold text-rose-800">2026.10 (8층) ★최고 실거래</span><span class="font-black text-rose-600 text-right">매매 6억 4,000만</span></li>
+                <li class="flex justify-between gap-2 py-1.5 border-b border-[#eee7df]"><span>직전 실거래 및 KB 일반가</span><span class="font-bold text-[#231f1d] text-right">매매 6억 2,000만</span></li>
+                <li class="flex justify-between gap-2 py-1.5 border-b border-[#eee7df]"><span>전세 실거래 (15층)</span><span class="font-semibold text-emerald-700 text-right">전세 3억 4,650만</span></li>
+                <li class="flex justify-between gap-2 py-1.5"><span>전세 최고 실거래 / KB 일반가</span><span class="font-semibold text-emerald-700 text-right">최고 4.50억 (일반 3.35억)</span></li>
               </ul>
             </div>
           </div>
@@ -1653,15 +1658,15 @@
 
         <!-- TAB 4: 81 DETAIL -->
         <div id="tab-81" class="re-tab-content hidden space-y-6">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start bg-white p-6 rounded-2xl border border-[#eee7df]">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start bg-white p-5 sm:p-6 rounded-2xl border border-[#eee7df]">
             <div class="lg:col-span-7 space-y-4">
               <span class="inline-block px-3 py-1 rounded bg-[#f4ebe4] text-[#b8734a] text-xs font-bold">단지 내 유일 방 3개 쓰리룸 · 대지지분 최상위</span>
-              <h3 class="text-2xl font-black text-[#231f1d]">81㎡ 타입 (전용 59.76㎡ / 24·25평형)</h3>
+              <h3 class="text-xl sm:text-2xl font-black text-[#231f1d]">81㎡ 타입 (전용 59.76㎡ / 24·25평형)</h3>
               <p class="text-xs text-[#70665e] leading-relaxed">
                 단지 내 가장 넓은 면적으로 총 239세대(29.7%)로 구성됩니다. 방 3개, 거실, 주방, 욕실 1개를 갖춘 정통 59㎡(24~25평형) 쓰리룸 구조로 3~4인 가족 실거주 선호도가 매우 높으며, 
                 향후 재건축 추진 시 가장 큰 대지지분을 바탕으로 국민평형(전용 84㎡) 배정에 가장 유리한 핵심 타입입니다.
               </p>
-              <div class="grid grid-cols-2 gap-4 pt-2 text-xs">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-2 text-xs">
                 <div class="bg-[#faf7f3] p-4 rounded-xl border border-[#eee7df]">
                   <div class="text-[#8e8278]">KB 매매 시세 밴드 / 일반가</div>
                   <div class="text-lg font-black text-[#231f1d] mt-1">5.90억 ~ 6.60억</div>
@@ -1674,13 +1679,13 @@
                 </div>
               </div>
             </div>
-            <div class="lg:col-span-5 bg-[#faf7f3] p-5 rounded-2xl border border-[#eee7df] space-y-3">
+            <div class="lg:col-span-5 bg-[#faf7f3] p-4 sm:p-5 rounded-2xl border border-[#eee7df] space-y-3">
               <h4 class="text-sm font-bold text-[#231f1d]">국토교통부 실거래 & 시세 기록</h4>
               <ul class="space-y-2 text-xs text-[#524942]">
-                <li class="flex justify-between py-1.5 border-b border-[#eee7df]"><span>최근 고층 실거래 (12층)</span><span class="font-bold text-[#231f1d]">매매 6억 3,500만</span></li>
-                <li class="flex justify-between py-1.5 border-b border-[#eee7df]"><span>2026.06 실거래 (14층)</span><span class="font-bold text-[#231f1d]">매매 5억 9,800만</span></li>
-                <li class="flex justify-between py-1.5 border-b border-[#eee7df]"><span>KB 매매 상위 평균가</span><span class="font-semibold text-[#5a5047]">시세 6억 6,000만</span></li>
-                <li class="flex justify-between py-1.5"><span>최근 전세 체결 기준</span><span class="font-semibold text-emerald-700">전세 3억 6,000만 ~ 3억 8,500만</span></li>
+                <li class="flex justify-between gap-2 py-1.5 border-b border-[#eee7df]"><span>최근 고층 실거래 (12층)</span><span class="font-bold text-[#231f1d] text-right">매매 6억 3,500만</span></li>
+                <li class="flex justify-between gap-2 py-1.5 border-b border-[#eee7df]"><span>2026.06 실거래 (14층)</span><span class="font-bold text-[#231f1d] text-right">매매 5억 9,800만</span></li>
+                <li class="flex justify-between gap-2 py-1.5 border-b border-[#eee7df]"><span>KB 매매 상위 평균가</span><span class="font-semibold text-[#5a5047] text-right">시세 6억 6,000만</span></li>
+                <li class="flex justify-between gap-2 py-1.5"><span>최근 전세 체결 기준</span><span class="font-semibold text-emerald-700 text-right">전세 3억 6,000만 ~ 3억 8,500만</span></li>
               </ul>
             </div>
           </div>
@@ -1715,15 +1720,15 @@
         </div>
       </div>
 
-      <div class="max-w-7xl mx-auto px-4 sm:px-8 space-y-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-8 space-y-8 sm:space-y-12">
         
         <!-- About 2 Columns -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-white p-8 rounded-3xl border border-[#e8e2d9]">
-          <div class="lg:col-span-6 space-y-5">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-12 items-center bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-[#e8e2d9]">
+          <div class="lg:col-span-6 space-y-4 sm:space-y-5">
             <span class="inline-block px-3 py-1 rounded bg-[#f4ebe4] text-[#b8734a] text-xs font-bold uppercase">
               GOOD LIFESTYLE & COMMUNITY
             </span>
-            <h2 class="text-3xl font-black text-[#231f1d] font-condensed leading-tight">
+            <h2 class="text-2xl sm:text-3xl font-black text-[#231f1d] font-condensed leading-tight">
               A NEW CONCEPT IN OUR APARTMENTS<br>
               <span class="text-[#b8734a]">입주민 중심</span>으로 도약하는 스마트 신내대명
             </h2>
@@ -1761,11 +1766,11 @@
         </div>
 
         <!-- 6 Partner Logos Strip -->
-        <div class="bg-white rounded-3xl p-8 border border-[#e8e2d9] text-center space-y-6">
+        <div class="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-[#e8e2d9] text-center space-y-5 sm:space-y-6">
           <div class="text-xs font-bold text-[#9e938a] uppercase tracking-widest">
             COOPERATION & PUBLIC INSTITUTIONS
           </div>
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-center justify-items-center opacity-80">
+          <div class="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 items-center justify-items-center opacity-80">
             <div class="flex flex-col items-center gap-1.5"><div class="w-12 h-12 rounded-lg bg-[#faf8f5] border border-[#e6e0d8] flex items-center justify-center text-[#5c544d] font-bold text-xs">중랑구청</div><span class="text-[11px] font-semibold text-[#5c544d]">중랑구청</span></div>
             <div class="flex flex-col items-center gap-1.5"><div class="w-12 h-12 rounded-lg bg-[#faf8f5] border border-[#e6e0d8] flex items-center justify-center text-[#5c544d] font-bold text-xs">서울시</div><span class="text-[11px] font-semibold text-[#5c544d]">서울시 교통실</span></div>
             <div class="flex flex-col items-center gap-1.5"><div class="w-12 h-12 rounded-lg bg-[#faf8f5] border border-[#e6e0d8] flex items-center justify-center text-[#5c544d] font-bold text-xs">부동산원</div><span class="text-[11px] font-semibold text-[#5c544d]">한국부동산원</span></div>
@@ -2026,9 +2031,9 @@
       container.innerHTML = filtered.map(item => {
         const typeBadge = item.meeting_type === '임시' ? 'bg-amber-100 text-amber-800 border-amber-200' : 'bg-[#f4ebe4] text-[#b8734a] border-[#edd9cd]';
         return `
-          <div class="bg-white border border-[#e8e2d9] rounded-2xl p-5 shadow-sm hover:border-[#b8734a] transition-all">
+          <div class="bg-white border border-[#e8e2d9] rounded-2xl p-4 sm:p-5 shadow-sm hover:border-[#b8734a] transition-all">
             <div class="flex flex-wrap justify-between items-start gap-2 mb-2">
-              <div class="flex items-center gap-2">
+              <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
                 <span class="text-[11px] font-black px-2.5 py-0.5 rounded-lg border ${typeBadge}">${item.meeting_type}회의</span>
                 <span class="text-xs font-bold text-[#b8734a]">제${item.agenda_no}호</span>
                 ${item.category ? `<span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-gray-100 text-gray-700">${item.category}</span>` : ''}
@@ -2036,7 +2041,7 @@
               <span class="text-xs text-[#8a7f76] font-medium">회의일: ${item.date}</span>
             </div>
 
-            <h4 class="text-base font-black text-[#231f1d] mb-2.5">${item.title}</h4>
+            <h4 class="text-sm sm:text-base font-black text-[#231f1d] mb-2.5 leading-snug">${item.title}</h4>
 
             <div class="bg-[#faf8f5] p-3.5 rounded-xl border border-[#eee7df] text-xs text-[#4a423d] leading-relaxed whitespace-pre-line">
               <strong class="text-[#231f1d] block mb-1">📋 심의·의결 결과:</strong>
@@ -2044,7 +2049,7 @@
             </div>
 
             ${item.vote ? `
-              <div class="mt-2.5 flex items-center gap-2 text-[11px] text-[#736a61]">
+              <div class="mt-2.5 flex flex-wrap items-center gap-2 text-[11px] text-[#736a61]">
                 <span class="font-bold">표결 결과:</span>
                 <span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 font-semibold border border-emerald-200">${item.vote}</span>
               </div>
@@ -2064,18 +2069,18 @@
         else if (item.comp_type.includes('과거')) typeBadge = 'bg-amber-100 text-amber-800 border-amber-200';
 
         return `
-          <div class="bg-white border border-[#e8e2d9] rounded-2xl p-6 shadow-sm">
+          <div class="bg-white border border-[#e8e2d9] rounded-2xl p-4 sm:p-6 shadow-sm">
             <div class="flex flex-wrap justify-between items-center gap-2 pb-3 border-b border-[#eee7df] mb-4">
-              <div class="flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-[#b8734a] text-white flex items-center justify-center font-bold text-xs">${idx + 1}</span>
-                <h4 class="text-base font-black text-[#231f1d]">${item.topic}</h4>
+              <div class="flex items-center gap-2 min-w-0">
+                <span class="w-6 h-6 shrink-0 rounded-full bg-[#b8734a] text-white flex items-center justify-center font-bold text-xs">${idx + 1}</span>
+                <h4 class="text-sm sm:text-base font-black text-[#231f1d] leading-snug">${item.topic}</h4>
               </div>
-              <span class="text-xs font-bold px-2.5 py-0.5 rounded-full border ${typeBadge}">${item.comp_type}</span>
+              <span class="text-xs font-bold px-2.5 py-0.5 rounded-full border shrink-0 ${typeBadge}">${item.comp_type}</span>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4">
               <!-- Left: Resident Side -->
-              <div class="bg-[#faf8f5] p-4 rounded-xl border border-[#eee7df]">
+              <div class="bg-[#faf8f5] p-3.5 sm:p-4 rounded-xl border border-[#eee7df]">
                 <div class="flex items-center gap-1.5 text-xs font-bold text-[#b8734a] mb-2">
                   <span>👥 입주민 안건 (오픈채팅/건의함)</span>
                 </div>
@@ -2085,7 +2090,7 @@
               </div>
 
               <!-- Right: Council Side -->
-              <div class="bg-[#faf8f5] p-4 rounded-xl border border-[#eee7df]">
+              <div class="bg-[#faf8f5] p-3.5 sm:p-4 rounded-xl border border-[#eee7df]">
                 <div class="flex items-center gap-1.5 text-xs font-bold text-[#231f1d] mb-2">
                   <span>🏛️ 대표회의 공식 의결 및 처리</span>
                 </div>
@@ -2096,8 +2101,8 @@
             </div>
 
             ${item.analysis_text ? `
-              <div class="mt-4 p-3 bg-amber-50/60 rounded-xl border border-amber-200/70 text-xs text-amber-900 leading-relaxed">
-                <strong class="font-bold">💡 분석 및 확인사항:</strong> ${item.analysis_text}
+              <div class="mt-3.5 sm:mt-4 p-3.5 bg-amber-50/60 rounded-xl border border-amber-200/70 text-xs text-amber-900 leading-relaxed whitespace-pre-line">
+                <strong class="font-bold block mb-1">💡 분석 및 확인사항:</strong>${item.analysis_text}
               </div>
             ` : ''}
           </div>
@@ -2270,23 +2275,23 @@
         const dateRange = (item.first || item.last) ? `${item.first || ''} ~ ${item.last || ''}` : '2026 하반기 논의';
 
         return `
-          <div class="bg-white border border-[#e8e2d9] rounded-2xl p-6 shadow-sm hover:border-[#b8734a] hover:shadow-md transition-all">
+          <div class="bg-white border border-[#e8e2d9] rounded-2xl p-4 sm:p-6 shadow-sm hover:border-[#b8734a] hover:shadow-md transition-all">
             <div class="flex flex-wrap justify-between items-start gap-2 mb-2.5">
-              <div class="flex items-center gap-2">
+              <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
                 <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-lg bg-[#f4ebe4] text-[#b8734a]">${item.category}</span>
                 <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${badgeColor}">${item.status}</span>
               </div>
               <span class="text-[11px] text-[#998f86]">논의 기간: ${dateRange}</span>
             </div>
             
-            <h4 class="text-base font-black text-[#231f1d] mb-2.5">${item.task}</h4>
+            <h4 class="text-sm sm:text-base font-black text-[#231f1d] mb-2.5 leading-snug">${item.task}</h4>
             
-            <p class="text-xs text-[#5a524a] whitespace-pre-line leading-relaxed mb-3 bg-[#faf7f3] p-4 rounded-xl border border-[#f0eae3]">
+            <p class="text-xs text-[#5a524a] whitespace-pre-line leading-relaxed mb-3 bg-[#faf7f3] p-3.5 sm:p-4 rounded-xl border border-[#f0eae3]">
               ${item.notes}
             </p>
 
             ${item.verify ? `
-              <div class="text-[11px] text-[#916b53] bg-[#fbf3ee] p-3 rounded-xl border border-[#ebd8cb] flex items-start gap-1.5">
+              <div class="text-[11px] text-[#916b53] bg-[#fbf3ee] p-3 rounded-xl border border-[#ebd8cb] flex flex-col sm:flex-row items-start gap-1 sm:gap-1.5 leading-relaxed">
                 <span class="font-bold shrink-0">🔍 원본 확인사항:</span>
                 <span>${item.verify}</span>
               </div>
@@ -2530,9 +2535,9 @@
         const maskedAuthor = maskDongHo(item.dong);
 
         return `
-          <div class="bg-white border border-[#e8e2d9] rounded-2xl p-6 shadow-sm hover:border-[#b8734a] hover:shadow-md transition-all">
+          <div class="bg-white border border-[#e8e2d9] rounded-2xl p-4 sm:p-6 shadow-sm hover:border-[#b8734a] hover:shadow-md transition-all">
             <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
-              <div class="flex flex-wrap items-center gap-2">
+              <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
                 <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-lg bg-[#231f1d] text-white">${item.id || 'ONLINE'}</span>
                 <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-lg bg-[#f4ebe4] text-[#b8734a]">${item.category}</span>
                 <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${badgeStyle}">${st}</span>
@@ -2544,12 +2549,12 @@
               </div>
             </div>
 
-            <h4 class="text-base font-black text-[#231f1d] mb-2.5">${item.title}</h4>
+            <h4 class="text-sm sm:text-base font-black text-[#231f1d] mb-2.5 leading-snug">${item.title}</h4>
 
-            <p class="text-xs text-[#524942] whitespace-pre-line leading-relaxed mb-3 bg-[#faf7f3] p-4 rounded-xl border border-[#f0eae3]">${item.content}</p>
+            <p class="text-xs text-[#524942] whitespace-pre-line leading-relaxed mb-3 bg-[#faf7f3] p-3.5 sm:p-4 rounded-xl border border-[#f0eae3]">${item.content}</p>
 
-            <div class="text-[11px] text-[#6e5a4f] bg-[#fbf5f0] px-3.5 py-2.5 rounded-xl border border-[#ebd8cb] flex items-center justify-between gap-2">
-              <div>
+            <div class="text-[11px] text-[#6e5a4f] bg-[#fbf5f0] px-3.5 py-2.5 rounded-xl border border-[#ebd8cb] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1.5 sm:gap-2">
+              <div class="leading-relaxed">
                 <span class="font-bold text-[#b8734a]">📌 처리 현황:</span>
                 <span class="ml-1">${item.adminNote || '구글 스프레드시트 실시간 접수 완료 · 관리사무소 및 입주자대표회의 검토 예정'}</span>
               </div>
