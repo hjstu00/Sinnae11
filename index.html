@@ -1866,8 +1866,8 @@
       <form id="proposal-form" onsubmit="handleProposalSubmit(event)" class="flex-1 overflow-y-auto p-5 sm:p-6 space-y-4 text-xs text-[#4a423d]">
         <div class="grid grid-cols-2 gap-3">
           <div>
-            <label class="block font-bold text-[#231f1d] mb-1">동 / 호수 <span class="text-red-500">*</span></label>
-            <input type="text" id="form-dong" name="dong" required placeholder="예: 1104동 702호" 
+            <label class="block font-bold text-[#231f1d] mb-1">아파트 동 <span class="text-red-500">*</span></label>
+            <input type="text" id="form-dong" name="dong" required placeholder="예: 1104동" 
                    class="w-full px-3 py-2 border border-[#d8cfc5] rounded-lg focus:outline-none focus:border-[#b8734a] bg-white text-[#2c2724]">
           </div>
           <div>
@@ -2362,13 +2362,11 @@
     function maskDongHo(dongStr) {
       if (!dongStr) return '신내대명11단지 입주민';
       const str = String(dongStr).trim();
-      // 예: "1104동 702호" -> "1104동 ***호", "1104-702" -> "1104동 ***호"
       const matchDong = str.match(/(110[1-6])\s*동?/);
       if (matchDong) {
-        return matchDong[1] + '동 ***호';
+        return matchDong[1] + '동';
       }
-      // 기타 호수 숫자 마스킹
-      return str.replace(/(\d+)\s*호/, '***호');
+      return str.replace(/(\d+)\s*호/, '').trim() || str;
     }
 
     function getLocalOnlineProposals() {
