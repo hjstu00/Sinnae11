@@ -209,7 +209,7 @@
                 </div>
                 <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#f4ebe4] text-[#b8734a]">33건 전수 DB</span>
               </div>
-              <h3 class="text-lg font-black text-[#231f1d] group-hover:text-[#b8734a] transition-colors mb-2">33대 주민 안건 현황</h3>
+              <h3 class="text-lg font-black text-[#231f1d] group-hover:text-[#b8734a] transition-colors mb-2">단지 안건 종합 현황</h3>
               <p class="text-xs text-[#736961] leading-relaxed line-clamp-3">
                 면목선 경전철 유치 대응, 스마트 주차단속 및 차단기, 옥상·주차장 방수공사, 재건축 방식 등 단지 6대 과제 및 33건 안건 상세 브라우저.
               </p>
@@ -305,6 +305,9 @@
     <!-- ====================================================== -->
     <!-- [VIEW 2] 33대 주민 안건 전용 페이지                       -->
     <!-- ====================================================== -->
+        <!-- ====================================================== -->
+    <!-- [VIEW 2] 안건 종합 현황 (입주민 vs 대표회의 완전 분리 뷰)   -->
+    <!-- ====================================================== -->
     <div id="view-agendas" class="page-view hidden space-y-10 pb-20">
       
       <!-- Sub-page Header Banner -->
@@ -314,11 +317,11 @@
             <div class="flex items-center gap-2 text-xs text-[#b8734a] font-bold uppercase mb-2">
               <button onclick="navigateTo('home')" class="hover:underline text-[#d8cec5]">홈</button>
               <span>/</span>
-              <span>주민 안건 트래킹 DB</span>
+              <span>단지 안건 종합 센터</span>
             </div>
-            <h1 class="text-3xl font-black">신내대명11단지 33대 안건 현황</h1>
+            <h1 class="text-3xl font-black">신내대명11단지 안건 종합 현황</h1>
             <p class="text-xs sm:text-sm text-[#b5a99f] mt-1">
-              입주민 오픈채팅과 동대표회의에서 논의된 모든 안건의 배경, 추진 일정 및 진행 상태를 전수 관리합니다.
+              입주민 제안 안건과 입주자대표회의 공식 의결 안건을 분리하여 투명하게 비교·열람하실 수 있습니다.
             </p>
           </div>
           <button onclick="navigateTo('home')" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-semibold text-white border border-white/20 transition-all flex items-center gap-1.5">
@@ -329,65 +332,147 @@
 
       <div class="max-w-7xl mx-auto px-4 sm:px-8 space-y-8">
         
-        <!-- 6 Core Agenda Cards Row -->
-        <div>
-          <h2 class="text-xl font-black text-[#231f1d] mb-4 flex items-center gap-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-[#b8734a]"></span>
-            단지 6대 핵심 추진 과제
-          </h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            <!-- 6 Cards -->
-            <div onclick="filterAgendaCategory('면목선')" class="cursor-pointer bg-[#b8734a] text-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all">
-              <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-white/20">공청회 대응</span>
-              <h3 class="text-base font-black mt-2 mb-1">면목선 경전철 권익 사수</h3>
-              <p class="text-xs text-[#faede6] leading-relaxed line-clamp-2">중랑구청사거리 승강장 단지 방향 이전, 정거장 축소 근거 규명, 차량기지 반대 TF.</p>
-            </div>
-
-            <div onclick="filterAgendaCategory('주차')" class="cursor-pointer bg-[#231f1d] text-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all border border-[#38312d]">
-              <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800">시행 & 의결</span>
-              <h3 class="text-base font-black mt-2 mb-1">스마트 주차 체계 현대화</h3>
-              <p class="text-xs text-[#bcb2aa] leading-relaxed line-clamp-2">단속앱 도입(월 14.2만), 번호인식형 차단기 검토, 파크골프장 주차비 부과 의결.</p>
-            </div>
-
-            <div onclick="filterAgendaCategory('보안')" class="cursor-pointer bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all border border-[#e8e2d9]">
-              <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-[#f4ebe4] text-[#b8734a]">의견 수렴</span>
-              <h3 class="text-base font-black text-[#231f1d] mt-2 mb-1">단지 보안 & 출입 통제</h3>
-              <p class="text-xs text-[#756c64] leading-relaxed line-clamp-2">동별 공동현관 자동문 설치 건의, 고화질 CCTV 사각지대 전수 점검.</p>
-            </div>
-
-            <div onclick="filterAgendaCategory('시설')" class="cursor-pointer bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all border border-[#e8e2d9]">
-              <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-800">경쟁입찰심의</span>
-              <h3 class="text-base font-black text-[#231f1d] mt-2 mb-1">시설 유지보수 & 공사</h3>
-              <p class="text-xs text-[#756c64] leading-relaxed line-clamp-2">옥상방수 및 지하주차장 재도장 경쟁입찰, 1102·1103동 난방 횡주관 긴급보수.</p>
-            </div>
-
-            <div onclick="filterAgendaCategory('생활')" class="cursor-pointer bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all border border-[#e8e2d9]">
-              <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">캠페인</span>
-              <h3 class="text-base font-black text-[#231f1d] mt-2 mb-1">쾌적한 주거 커뮤니티</h3>
-              <p class="text-xs text-[#756c64] leading-relaxed line-clamp-2">지정 흡연구역 매너 준수, 쓰레기 무단투기 근절, 정문 앞 횡단보도 신호등 건의.</p>
-            </div>
-
-            <div onclick="filterAgendaCategory('재건축')" class="cursor-pointer bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all border border-[#e8e2d9]">
-              <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-purple-100 text-purple-800">미래 가치</span>
-              <h3 class="text-base font-black text-[#231f1d] mt-2 mb-1">재건축 비전 & 종상향</h3>
-              <p class="text-xs text-[#756c64] leading-relaxed line-clamp-2">노특법 vs 도정법 비교 분석, 10단지 통합 vs 단독 실익, 역세권 종상향 대비.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Filter & Search Toolbar -->
-        <div class="bg-white rounded-2xl p-5 border border-[#e8e2d9] shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-          <div class="flex flex-wrap gap-1.5" id="agenda-page-category-container"></div>
+        <!-- 대분류 분리 탭 (입주민 안건 vs 대표회의 안건 vs 연계 비교) -->
+        <div class="bg-white p-2 rounded-2xl border border-[#e8e2d9] shadow-sm flex flex-wrap gap-2">
+          <button onclick="switchAgendaSection('resident')" id="agenda-sec-btn-resident" class="agenda-sec-btn flex-1 min-w-[200px] py-3.5 px-4 rounded-xl text-xs sm:text-sm font-black transition-all bg-[#231f1d] text-white shadow-sm flex items-center justify-center gap-2">
+            <span>👥 입주민 제안 안건</span>
+            <span class="px-2 py-0.5 rounded-full bg-[#b8734a] text-white text-[11px] font-bold">33건</span>
+          </button>
           
-          <div class="relative w-full md:w-72">
-            <input type="text" id="agenda-page-search" oninput="renderAgendaPageList()" placeholder="안건명 또는 키워드 검색..." 
-                   class="w-full text-xs pl-8 pr-3 py-2.5 rounded-xl border border-[#ded5ca] focus:outline-none focus:border-[#b8734a] bg-[#faf8f5] text-[#2c2724]">
-            <svg class="w-4 h-4 text-[#9c9085] absolute left-2.5 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-          </div>
+          <button onclick="switchAgendaSection('council')" id="agenda-sec-btn-council" class="agenda-sec-btn flex-1 min-w-[200px] py-3.5 px-4 rounded-xl text-xs sm:text-sm font-black transition-all bg-[#faf8f5] text-[#5c534c] hover:bg-[#f2ece5] flex items-center justify-center gap-2">
+            <span>🏛️ 대표회의 공식 의결 안건</span>
+            <span class="px-2 py-0.5 rounded-full bg-[#e8dfd7] text-[#5c534c] text-[11px] font-bold">2026년 65건</span>
+          </button>
+
+          <button onclick="switchAgendaSection('compare')" id="agenda-sec-btn-compare" class="agenda-sec-btn flex-1 min-w-[200px] py-3.5 px-4 rounded-xl text-xs sm:text-sm font-black transition-all bg-[#faf8f5] text-[#5c534c] hover:bg-[#f2ece5] flex items-center justify-center gap-2">
+            <span>⚖️ 주민안건 ↔ 대표회의 연계 비교</span>
+            <span class="px-2 py-0.5 rounded-full bg-[#e8dfd7] text-[#5c534c] text-[11px] font-bold">14대 주제</span>
+          </button>
         </div>
 
-        <!-- 33 Agenda Items List Container -->
-        <div id="agenda-page-list-container" class="space-y-4"></div>
+        <!-- ============================================== -->
+        <!-- SUB-SECTION 1: 입주민 제안 안건 33건              -->
+        <!-- ============================================== -->
+        <div id="agenda-section-resident" class="agenda-section-view space-y-8">
+          
+          <div class="bg-[#faf8f5] p-5 rounded-2xl border border-[#ece4dc] flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+            <div>
+              <div class="text-xs font-bold text-[#b8734a] uppercase">RESIDENT PROPOSALS & COMPLAINTS</div>
+              <h2 class="text-lg font-black text-[#231f1d]">입주민 오픈채팅 및 소통방 제안 안건 (33건)</h2>
+              <p class="text-xs text-[#736961] mt-0.5">입주민들이 일상에서 제기한 민원과 건의사항을 카테고리별로 전수 관리합니다.</p>
+            </div>
+            <button onclick="openProposalModal()" class="shrink-0 bg-[#b8734a] hover:bg-[#a26139] text-white font-bold text-xs px-4 py-2 rounded-xl transition-all flex items-center gap-1.5 shadow-sm">
+              <span>+ 새 안건 제안하기</span>
+            </button>
+          </div>
+
+          <!-- 6대 핵심 과제 요약 카드 -->
+          <div>
+            <h3 class="text-sm font-bold text-[#231f1d] mb-3 flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#b8734a]"></span>
+              입주민 6대 핵심 과제
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div onclick="filterAgendaCategory('면목선')" class="cursor-pointer bg-[#b8734a] text-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-all">
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/20">공청회 대응</span>
+                <h4 class="text-sm font-black mt-1.5 mb-1">면목선 경전철 권익 사수</h4>
+                <p class="text-[11px] text-[#faede6] leading-relaxed line-clamp-2">중랑구청사거리 승강장 단지 방향 이전, 정거장 축소 규명, 차량기지 반대 TF.</p>
+              </div>
+              <div onclick="filterAgendaCategory('주차')" class="cursor-pointer bg-[#231f1d] text-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-all border border-[#38312d]">
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300">시행 & 의결</span>
+                <h4 class="text-sm font-black mt-1.5 mb-1">스마트 주차 체계 현대화</h4>
+                <p class="text-[11px] text-[#bcb2aa] leading-relaxed line-clamp-2">단속앱 도입(월 14.2만), 번호인식형 차단기 검토, 파크골프장 주차비 부과 의결.</p>
+              </div>
+              <div onclick="filterAgendaCategory('보안')" class="cursor-pointer bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-all border border-[#e8e2d9]">
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#f4ebe4] text-[#b8734a]">의견 수렴</span>
+                <h4 class="text-sm font-black text-[#231f1d] mt-1.5 mb-1">단지 보안 & 출입 통제</h4>
+                <p class="text-[11px] text-[#756c64] leading-relaxed line-clamp-2">동별 공동현관 자동문 설치 건의, 고화질 CCTV 사각지대 전수 점검.</p>
+              </div>
+              <div onclick="filterAgendaCategory('시설')" class="cursor-pointer bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-all border border-[#e8e2d9]">
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-800">경쟁입찰</span>
+                <h4 class="text-sm font-black text-[#231f1d] mt-1.5 mb-1">시설 유지보수 & 공사</h4>
+                <p class="text-[11px] text-[#756c64] leading-relaxed line-clamp-2">옥상방수 및 지하주차장 재도장 경쟁입찰, 1102·1103동 난방 횡주관 긴급보수.</p>
+              </div>
+              <div onclick="filterAgendaCategory('생활')" class="cursor-pointer bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-all border border-[#e8e2d9]">
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">캠페인</span>
+                <h4 class="text-sm font-black text-[#231f1d] mt-1.5 mb-1">쾌적한 주거 커뮤니티</h4>
+                <p class="text-[11px] text-[#756c64] leading-relaxed line-clamp-2">지정 흡연구역 매너 준수, 쓰레기 무단투기 근절, 정문 앞 횡단보도 신호등 건의.</p>
+              </div>
+              <div onclick="filterAgendaCategory('재건축')" class="cursor-pointer bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-all border border-[#e8e2d9]">
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-purple-100 text-purple-800">미래 가치</span>
+                <h4 class="text-sm font-black text-[#231f1d] mt-1.5 mb-1">재건축 비전 & 종상향</h4>
+                <p class="text-[11px] text-[#756c64] leading-relaxed line-clamp-2">노특법 vs 도정법 비교 분석, 10단지 통합 vs 단독 실익, 역세권 종상향 대비.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 입주민 안건 툴바 -->
+          <div class="bg-white rounded-2xl p-4 border border-[#e8e2d9] shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+            <div class="flex flex-wrap gap-1.5" id="agenda-page-category-container"></div>
+            <div class="relative w-full md:w-64">
+              <input type="text" id="agenda-page-search" oninput="renderAgendaPageList()" placeholder="입주민 안건 검색..." 
+                     class="w-full text-xs pl-8 pr-3 py-2 rounded-xl border border-[#ded5ca] focus:outline-none focus:border-[#b8734a] bg-[#faf8f5] text-[#2c2724]">
+              <svg class="w-4 h-4 text-[#9c9085] absolute left-2.5 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </div>
+          </div>
+
+          <!-- 입주민 안건 카드 리스트 -->
+          <div id="agenda-page-list-container" class="space-y-4"></div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- SUB-SECTION 2: 대표회의 공식 의결 안건 (137건)    -->
+        <!-- ============================================== -->
+        <div id="agenda-section-council" class="agenda-section-view hidden space-y-8">
+          
+          <div class="bg-[#faf8f5] p-5 rounded-2xl border border-[#ece4dc] flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+            <div>
+              <div class="text-xs font-bold text-[#b8734a] uppercase">OFFICIAL COUNCIL RESOLUTIONS</div>
+              <h2 class="text-lg font-black text-[#231f1d]">입주자대표회의 공식 상정 & 의결 안건</h2>
+              <p class="text-xs text-[#736961] mt-0.5">2026년 최신 65건 및 2025년 72건의 정기·임시 회의록 공식 심의·의결 전문입니다.</p>
+            </div>
+            <span class="text-xs font-bold px-3 py-1.5 rounded-xl bg-white border border-[#ded5ca] text-[#231f1d]">
+              공식 회의록 전수 DB (137건)
+            </span>
+          </div>
+
+          <!-- 대표회의 필터 툴바 -->
+          <div class="bg-white rounded-2xl p-4 border border-[#e8e2d9] shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+            <div class="flex flex-wrap gap-1.5" id="council-period-filter-container">
+              <button onclick="filterCouncilPeriod('all-2026')" class="council-btn active px-3 py-1.5 text-xs rounded-xl border bg-[#231f1d] text-white font-bold">2026년 전체 (65건)</button>
+              <button onclick="filterCouncilPeriod('2026-10')" class="council-btn px-3 py-1.5 text-xs rounded-xl border bg-[#faf8f5] text-[#5c534c] hover:bg-[#f2ece5]">10월 정기</button>
+              <button onclick="filterCouncilPeriod('2026-09')" class="council-btn px-3 py-1.5 text-xs rounded-xl border bg-[#faf8f5] text-[#5c534c] hover:bg-[#f2ece5]">9월 정기</button>
+              <button onclick="filterCouncilPeriod('2026-08')" class="council-btn px-3 py-1.5 text-xs rounded-xl border bg-[#faf8f5] text-[#5c534c] hover:bg-[#f2ece5]">8월 정기/임시</button>
+              <button onclick="filterCouncilPeriod('2026-07')" class="council-btn px-3 py-1.5 text-xs rounded-xl border bg-[#faf8f5] text-[#5c534c] hover:bg-[#f2ece5]">7월 정기/임시</button>
+              <button onclick="filterCouncilPeriod('2026-H1')" class="council-btn px-3 py-1.5 text-xs rounded-xl border bg-[#faf8f5] text-[#5c534c] hover:bg-[#f2ece5]">2026 상반기</button>
+              <button onclick="filterCouncilPeriod('all-2025')" class="council-btn px-3 py-1.5 text-xs rounded-xl border bg-[#faf8f5] text-[#5c534c] hover:bg-[#f2ece5]">2025년 전체 (72건)</button>
+            </div>
+            
+            <div class="relative w-full md:w-64">
+              <input type="text" id="council-search" oninput="renderCouncilList()" placeholder="안건명 또는 의결내용 검색..." 
+                     class="w-full text-xs pl-8 pr-3 py-2 rounded-xl border border-[#ded5ca] focus:outline-none focus:border-[#b8734a] bg-[#faf8f5] text-[#2c2724]">
+              <svg class="w-4 h-4 text-[#9c9085] absolute left-2.5 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </div>
+          </div>
+
+          <!-- 대표회의 카드 리스트 -->
+          <div id="council-list-container" class="space-y-4"></div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- SUB-SECTION 3: 안건 연계 비교 (14개 주제)          -->
+        <!-- ============================================== -->
+        <div id="agenda-section-compare" class="agenda-section-view hidden space-y-8">
+          
+          <div class="bg-[#faf8f5] p-5 rounded-2xl border border-[#ece4dc]">
+            <div class="text-xs font-bold text-[#b8734a] uppercase">CROSS-CHECK & MATCHING ANALYSIS</div>
+            <h2 class="text-lg font-black text-[#231f1d]">주민 안건 ↔ 대표회의 의결 연계 비교 분석</h2>
+            <p class="text-xs text-[#736961] mt-0.5">입주민 단톡방의 건의사항이 대표회의에서 어떻게 공식 논의되고 의결되었는지 1:1로 교차 검증합니다.</p>
+          </div>
+
+          <!-- 비교 카드 리스트 -->
+          <div id="comparison-list-container" class="space-y-6"></div>
+        </div>
 
       </div>
     </div>
@@ -1037,10 +1122,330 @@
   <!-- ========================================== -->
   <script>
     // 33 Agenda Real Data
-    const rawAgendaData = [{"task": "[면목선] 중랑구청사거리 정거장 승강장 위치 조정", "category": "면목선", "status": "진행 중 (원안 불가 공식화)", "first": "2026-08-12", "last": "2026-10-01", "notes": "원안(110, 하나로마트 인근)에서 가락공판장 쪽으로 이동한 안에 대해, 승강장을 중랑구청사거리 쪽으로 최대한 당기고 출입구를 담주한의원 앞 등에 두자는 의견을 모음. 사업비가 예타 대비 15% 이상 늘면 재타 대상이라 원복은 어렵다는 것이 서울시·구청 입장.\n▶ 주요 일자: 8/13 공청회 · 8/20 주민간담회 · 8/26 구청 홈페이지 답변(구청 방향으로 최대한 조정 요청) · 9/28 구의회 답변(요청은 했다) · 10/1 서울시 공고(원안 불가 공식화)", "verify": "정거장 번호 109/110 혼선(원안 110, 변경안 109 또는 108 표기). 종상향 거리 기준 250m vs 350m 발언 엇갈림."}, {"task": "[면목선] 중랑구 정거장 2개 축소 및 형평성", "category": "면목선", "status": "확정 방향", "first": "2026-08-13", "last": "2026-08-26", "notes": "예타 12개 정거장 중 동대문구 4개는 유지, 중랑구 8개는 6개로 축소. 서울시 설명은 역간거리(동대문 약 900m~1km, 중랑 일부 약 500~600m) 조정. 주민은 왜 중랑구만 줄이느냐며 근거 공개를 요구.\n▶ 주요 일자: 8/13 공청회 · 8/20 간담회 · 8/26 구청 답변", "verify": "역간거리 수치와 축소 대상 역 선정 근거는 채팅에 자료 없음(전언)."}, {"task": "[면목선] 차량기지 위치 변경 (신내동 동진학교 인근)", "category": "면목선", "status": "반대 의견 지속", "first": "2026-08-13", "last": "2026-09-01", "notes": "기존 양원 쪽에서 신내동 동진학교 인근으로 옮겨진 안에 반대. 교육환경(소음·분진), 부지 활용 제약(알박기), 6단지 등 인근 주민 반발. 대안으로 면목선 태릉CC 연장과 차량기지 이전을 제시.\n▶ 주요 일자: 8/13 공청회 · 8/20 간담회 · 8/21 간담회 정리 공유 · 9/1 7단지 차량기지 반대 소식", "verify": "이전 사유(양원 민원 회피 vs 사업비)는 주민 추정. '90% 찬성' 보도는 구청이 정정하겠다고 함."}, {"task": "[면목선] 기본계획(안) 주민 의견서 제출", "category": "면목선", "status": "마감 종료 (8/18)", "first": "2026-08-12", "last": "2026-08-18", "notes": "의견서는 서울시 서식 작성 후 메일·팩스·현장접수. 자유 양식은 안 된다는 안내가 있었고, 한글(hwpx) 서식 때문에 PDF·스캔·한컴독스 활용 팁이 공유됨. 8/13 공청회에서 의견 건수 '3건' 발표가 논란이 됨.\n▶ 주요 일자: 8/12 구청 답변 공유 · 8/14 서식 확인 · 8/18 마감 · 9/8은 전략환경평가서 의견 마감", "verify": "공청회 '의견 3건'이 사전 질문 접수 건수였는지 확인 필요."}, {"task": "[면목선] 단지 차원 서명·의견 전달 및 TF 구성", "category": "면목선", "status": "제안 단계", "first": "2026-08-21", "last": "2026-08-22", "notes": "동대표회의에 면목선 건의를 올려 단지 의견·서명을 서울시·국토부·국회의원에 전달하자는 제안. 2동 동대표가 연명장 초안을 작성했고 TF 구성을 요청. 회의에서는 다른 동대표의 반응이 거의 없었다고 전해짐.\n▶ 주요 일자: 8/21 건의 · 8/22 동대표회의 참관 및 TF 제안", "verify": "서명부 제출 여부와 TF 구성 결과는 이후 대화에 없음."}, {"task": "[면목선] 주민 간담회·설명회 개최 요청", "category": "면목선", "status": "건의 단계", "first": "2026-08-20", "last": "2026-10-13", "notes": "8/20 간담회는 구청 공식 공지 없이 포스터·통장 전달로 알려져 참석이 어려웠다는 불만. 10/13에는 동성3차 등 다른 단지 간담회는 단지 요청으로 열렸다는 설명이 나와 11단지도 요청하면 가능하다는 의견.\n▶ 주요 일자: 8/20 간담회 · 10/13 타 단지 간담회 설명", "verify": "8/20 인터넷 기사·캡처(동대문 4개 유지 등)는 구청 교통정책과 확인 결과 공청회 자료와 차이 없음(전언)."}, {"task": "[주차] 주차 차단기 설치", "category": "주차", "status": "보류 (동대표회의 반대 우세)", "first": "2026-08-18", "last": "2026-10-21", "notes": "외부차량·장기주차 문제로 차단기 설치 제안. 번호인식·방문차량 사전등록 방식 견적이 약 900~1,700만원(차단기 2대 기준)으로 공유됨. 8/22 동대표회의에서 오르막·교차로 정체·비용·상가 방문차량 문제로 반대가 강했음. 양쪽 설치·도로 확장안은 포기.\n▶ 주요 일자: 8/18 제안 · 8/19 견적 공유 · 8/22 동대표회의 반대 · 10/21 설치 완료 여부 언급(미확인)", "verify": "견적은 주민이 조사한 금액으로 업체 견적서 근거 없음. 10/21 한 주민이 설치가 이미 끝난 것 같다고 했으나 8/22 반대 우세와 상충. 설치 여부 확인 필요."}, {"task": "[주차] 외부차량·불법주차 단속 (앱·스티커)", "category": "주차", "status": "시행 중", "first": "2026-08-18", "last": "2026-10-21", "notes": "관리프로그램(단속고고 앱) 시험운영 후 QR 코드로 주민·방문차량 등록. 월 약 14만원. 불법주차 차량을 찾아 비용을 내게 했고, 방문증으로 대체하는 차량이 약 100대. 세차해야 떼지는 강력 스티커 도입 중. 단속 후 주차난이 많이 좋아졌다는 체감 공유. 10/21에도 외부차량 단속이 잘 되고 있고, 2동 동대표의 의견 취합이 주차 개선에 컸다는 평가.\n▶ 주요 일자: 8/18 주차난 호소·개선 체감 · 8/22 앱·스티커 보고 · 8/27 경비실 QR 안내 · 9/28 앱 적발 기능 확인 · 10/21 개선 평가", "verify": "'불법주차 100대'는 동대표 발언이며 집계 방법 불명."}, {"task": "[주차] 코너 부분 주차", "category": "주차", "status": "건의 단계", "first": "2026-08-30", "last": "2026-08-30", "notes": "코너에 주차해 진입·회전이 어렵다는 제보. 관리사무소를 통해 빗금 또는 주차금지 표시를 하자는 의견.\n▶ 주요 일자: 8/30", "verify": ""}, {"task": "[보안] 공동현관문 설치", "category": "보안", "status": "미상정 (직접 제안 필요)", "first": "2026-09-01", "last": "2026-10-21", "notes": "공동현관문이 없어 외부인 무단 출입, 이상행동자 출몰, 택배 분실이 반복된다는 문제 제기. 장기수선충당금 사용 가능성과 입주민 동의 확보 방안을 검토. 9/2 '공동현관·CCTV 설치 안건자료' PDF 공유. 9/14 기준 아직 회의 안건 미상정. 10/21에는 공동현관의 보안 효과(택배 기사 간 비밀번호 공유, 복도 창호가 없어 1층으로 진입하면 한계), 뒷동 주민의 이중 통과 불편, 창호 설치 시 반대 가능성이 논의됨. 대안으로 무인택배함과 CCTV 추가 설치, 층별 엘리베이터 앞 설치 희망 의견. 회의 기록에는 없고, 직접 제안하면 기타안건으로 기록된다는 안내.\n▶ 주요 일자: 9/1 문제 제기 · 9/2 안건자료 공유 · 9/14 미상정 확인 · 9/17 재언급 · 10/21 효과·대안 논의", "verify": "설치 비용·동의 요건은 근거 없음. 공동현관의 보안 효과는 주민 의견일 뿐 검증 자료 없음."}, {"task": "[보안] CCTV 작동 점검 및 사각지대", "category": "보안", "status": "확인 완료 / 개선 검토", "first": "2026-09-01", "last": "2026-09-02", "notes": "계단·우편함 CCTV가 모형이라는 얘기로 문의. 5동 등은 1층 CCTV 정상 작동 확인. 9/2 관리사무소 확인 결과 설치된 CCTV는 정상 작동, 우편함 쪽은 촬영 안 되는 사각지대. 올해 2월 CCTV 설치·케이블 교체 공사 이력.\n▶ 주요 일자: 9/1 문의 · 9/2 관리사무소 확인", "verify": "'모형' 발언은 경비원 전언이며 9/2 확인 내용과 상충."}, {"task": "[보안] 외부인 출입 및 택배·우편 분실", "category": "보안", "status": "논의 중", "first": "2026-08-20", "last": "2026-10-21", "notes": "고층에서도 모르는 사람이 출입하고, 택배·우편 분실, 종교 권유 방문, 벨튀 등 사례가 연이어 공유됨. 무인택배함 설치, 각 층 엘리베이터 CCTV 설치 의견. 10/21에는 관리사무실이 택배 분실·거수자 발견 시 경비실에 알려 달라고 방송한다는 언급.\n▶ 주요 일자: 8/20 이상 행동자 제보 · 9/1 우편물 분실 · 9/17 방문 소음 제보 · 10/21 방송 안내", "verify": "경찰 출동은 '별일 아님'으로 정리됨(8/20)."}, {"task": "[시설] 옥상·지하주차장 방수공사", "category": "시설", "status": "공사 진행 중 (주민 전언)", "first": "2026-08-22", "last": "2026-10-21", "notes": "공개입찰. 설명회 참석 업체만 입찰 가능, 동대표회의에서 적격심사. 덧방 시공 시 재발 우려, 무조건 싼 업체 선정 우려를 제기. 철거·면처리 과정을 주민이 함께 확인하자는 제안. 10/13 업체 선정 공유(최저가 낙찰). 10/21 옥상 방수공사가 순조롭게 진행 중이라는 언급. 타 단지에서는 최상층 외 실익이 없어 반대가 나오기도 한다는 사례 공유.\n▶ 주요 일자: 8/22 입찰 예정 · 8/26 명절 전 일정 문의 · 8/28 임시회의 · 9/1 결과 공유 · 9/14 설명회 · 9/21~22 심사 · 10/13 선정 · 10/21 공사 진행 언급", "verify": "낙찰 기준(최저가 vs 적격심사), 업체명·금액·하자보수 기간은 채팅에 없음. 공사 진행 상황은 주민 전언(10/21)."}, {"task": "[시설] 어린이 놀이터 바닥 보수", "category": "시설", "status": "건의 단계", "first": "2026-10-07", "last": "2026-10-07", "notes": "바닥 우레탄 보수와 모래 없는 놀이터 조성 요청. 중랑구 공동주택 지원사업(어린이놀이터 개보수 대상)을 2027년에 신청하는 방안 제안. 과거 신청 마감은 2/27, 예산 약 7억원으로 소개됨.\n▶ 주요 일자: 10/7", "verify": "지원사업 금액·마감은 주민 전언. 구청 공고 확인 필요."}, {"task": "[시설] 4동 베란다 우수관 소음", "category": "시설", "status": "확인 요청", "first": "2026-10-19", "last": "2026-10-19", "notes": "며칠째 우수관에서 물 내려가는 소리가 계속됨. 세탁기 사용과 무관해 보임. 관리사무소 점검 요청 예정.\n▶ 주요 일자: 10/19", "verify": ""}, {"task": "[시설] 복도 야간 조명", "category": "시설", "status": "의견 수렴", "first": "2026-09-28", "last": "2026-09-28", "notes": "복도식 구조로 야간에 복도가 어두움. 센서등은 앞집 민폐 우려가 있고 벌레 문제로 일부 소등한다는 의견도 있음.\n▶ 주요 일자: 9/28", "verify": ""}, {"task": "[시설] 관리사무소 방송 스피커 새벽 소음", "category": "시설", "status": "확인 필요", "first": "2026-09-28", "last": "2026-09-28", "notes": "새벽에 관리사무소 세팅 중 방송 스피커에서 소리가 계속 나 수면 방해. 컴퓨터·마이크 설정 오류로 추정.\n▶ 주요 일자: 9/28", "verify": "원인은 주민 추정."}, {"task": "[생활] 흡연 구역·흡연 매너", "category": "생활", "status": "건의 단계", "first": "2026-10-07", "last": "2026-10-07", "notes": "2동 앞, 1~2동 사이 통로 등에서 흡연으로 간접흡연 불편. 흡연통 위치 이동, 금연구역 지정 요청.\n▶ 주요 일자: 10/7", "verify": "금연구역 지정 요건은 확인 안 됨."}, {"task": "[생활] 음식물쓰레기·쓰레기 무단투기", "category": "생활", "status": "문제 제기", "first": "2026-08-19", "last": "2026-10-07", "notes": "음식물쓰레기 카드 없이 다른 통에 버리는 사례(8/19, 동대표회의 문제 제기 8/22). 10/7에는 차량 쓰레기 투기, 외부 쓰레기통 부족, 분리수거장 비닐 투기 제보.\n▶ 주요 일자: 8/19 · 8/22 · 10/7", "verify": ""}, {"task": "[생활] 공용수도 세차", "category": "생활", "status": "문제 제기", "first": "2026-08-22", "last": "2026-08-22", "notes": "공용 수도로 세차하는 주민. 차량번호가 보이게 사진을 찍어 신고하는 방법 안내.\n▶ 주요 일자: 8/22 동대표회의 문제 제기", "verify": ""}, {"task": "[생활] 층간소음", "category": "생활", "status": "개인 간 문제", "first": "2026-10-04", "last": "2026-10-04", "notes": "화장실 문, 대화, 진동 소리가 들린다는 호소에 다수가 공감. 공동 조치 안건으로 올라가지는 않음.\n▶ 주요 일자: 10/4", "verify": ""}, {"task": "[생활] 횡단보도 신호 설치", "category": "생활", "status": "건의 단계", "first": "2026-09-02", "last": "2026-09-02", "notes": "좌회전 시 보행자가 신호 없이 건너 불안하니 횡단보도 신호등을 설치하자는 건의.\n▶ 주요 일자: 9/2", "verify": "구청 교통 소관 여부 미확인."}, {"task": "[재건축] 재건축 추진 주체·소통창구 요청", "category": "재건축", "status": "민원 접수 (10/19)", "first": "2026-08-13", "last": "2026-10-21", "notes": "4~9단지는 추진준비위·네이버 밴드까지 만들었지만 11단지는 입주자대표가 소극적이라는 문제의식. 10/19 서울시·구청 홈페이지에 재건축 추진 지원과 공식 소통밴드 개설을 요청하는 민원 접수. 10/21에는 대표·동대표의 역할과 단톡방 참여를 두고 논쟁. 10/21 오후에는 대표·동대표가 주축이 되지 않으면 누가 추진하느냐는 질문과 함께 5단지 추진준비위원회 출범이 언급됨. 재건축조합과 입주자대표회의는 별개이고 추진위도 무급 봉사직이라는 설명, 추진은 대표가 하더라도 아는 사람이 이끄는 편이 낫다는 의견, 면대면 모임이 생기면 참여하자는 분위기. 2동 주민이 동대표와 일부 상의 중이라고 밝힘.\n▶ 주요 일자: 8/13 4~7단지 대면회의 결과 공유 · 8/22 대표 답변 전언 · 9/1 7단지 추진준비위 · 10/16 밴드 확인 · 10/19 민원 접수 · 10/21 추진 주체 논의", "verify": "입주자대표가 재건축에 관심 없다고 말했다는 내용은 전언. 민원 처리 결과 미확인. 조합·입대위 별개, 추진위 무급이라는 설명은 한 주민의 의견(타 단지 사례 포함)."}, {"task": "[재건축] 재건축 방식 (단독 vs 10단지 연계, 도정법·노특법)", "category": "재건축", "status": "논의 중", "first": "2026-08-21", "last": "2026-09-22", "notes": "초안상 10·11단지가 한 그룹으로 묶여 있어 임대 단지와의 연계 우려. 단독 추진이 빠르다는 의견이 우세. 용적률 시뮬레이션(500% 등)과 임대 비율 차이도 공유됨. 조합 설립까지 단계를 밟아두는 것이 중요하다는 의견.\n▶ 주요 일자: 8/21 연계·시뮬레이션 · 9/2 3종 용적률 상향 법안 · 9/22 단계 밟기 중요", "verify": "용적률·임대 수치는 채팅 내 추정 계산. 법안 통과 여부 미확인."}, {"task": "[재건축] 역세권 종상향(승강장 250m 기준)", "category": "재건축", "status": "정거장 위치에 연동", "first": "2026-08-13", "last": "2026-09-28", "notes": "역세권 준주거 종상향은 승강장 기준 250m가 중요하고 출입구는 해당되지 않는다는 설명. 승강장을 약 50m 서쪽으로 당기면 단지가 250m 안에 들어온다는 제안.\n▶ 주요 일자: 8/13 · 8/14 · 9/28", "verify": "250m vs 350m 발언 엇갈림. 서울시 심의에서 결정."}, {"task": "[단지운영] 동대표회의 참관 및 주민 의견 전달 방식", "category": "단지운영", "status": "소통 방식 논의 중 (취합 전달 예정)", "first": "2026-08-21", "last": "2026-10-21", "notes": "주민은 관리사무소에 신청해 입주자대표회의 참관 가능. 10/21 정리: 원칙은 하루 전 신청이나 당일 신청도 가능하고 18시 전 입장해야 하며, 방청자는 입주자대표 승인하에 발언, 관리소장 참석. 단톡방 의견은 2동 동대표가 회의에 전달해 왔으나 10/21 갈등으로 해당 동대표가 단톡방을 나감. 쟁점은 회의 시간(평일 18시)·참석 부담과 대표의 단톡방 참여 여부. 대안으로 공식 절차(회의 방문·서면·메일, 관리사무소 접수), 안건 정리본 전달, 아파트아이 앱 알림, 엘리베이터 QR 공지, 회의 공지 글 게시가 제안됨. 한 주민이 AI로 대화를 요약한 안건 정리본(이미지)과 엑셀을 공유했고 한 달 단위 갱신이 가능하다고 함. 2동·4동 주민이 취합해 입주자대표회의에 올리기로 함.\n▶ 주요 일자: 8/22 참관 보고 · 8/28 임시회의 신청 안내 · 9/21 방수 안건 참관 안내 · 10/21 갈등·참관 절차·정리본 공유", "verify": "대표가 단톡방에 안 들어오는 이유는 채팅에 없음. 참관 신청 규정이 하루 전 원칙과 당일 가능으로 엇갈림(관리규약 확인 필요)."}, {"task": "[단지운영] 동대표·입주자대표 선출 및 임기", "category": "단지운영", "status": "다음 선거 내년", "first": "2026-08-22", "last": "2026-10-21", "notes": "후보가 없어 봉사로 하는 동이 많고, 동대표 임기는 2년으로 다음 선거는 2027년. 후보 신청·선거 공지를 한 달 전쯤 눈에 띄게 해달라는 요청.\n▶ 주요 일자: 8/22 · 10/16 · 10/21 10/21 오후에는 동대표 업무량이 많아 다음 선거에서도 무출마가 우려된다는 이야기(일부 동은 과거 2~3회 무출마)와 임기가 약 1년 남았다는 언급. 퇴장한 동대표에게 복귀를 권해 보겠다는 의견.", "verify": "임기 표현이 '내년까지'와 '2년'으로 엇갈림."}, {"task": "[단지운영] 골프연습장(파크골프) 텃밭 펜스 철거", "category": "단지운영", "status": "3년 보류", "first": "2026-08-22", "last": "2026-10-21", "notes": "골프연습장 건물 앞 텃밭 펜스 철거 요구. 텃밭이 국고지원을 받아 3년간 철거가 어렵고 철거 후 주차장 예정이라 보고됨. 10/21 파크골프장 관련 간담회 참석률 언급.\n▶ 주요 일자: 8/22 · 10/21", "verify": "국고지원 조건과 반환 여부는 전언."}, {"task": "[단지운영] 네이버부동산 등 단지 정보 정정", "category": "단지운영", "status": "처리 중", "first": "2026-08-21", "last": "2026-09-02", "notes": "대표 단지 사진 업데이트와 거래내역 순서 변경을 네이버부동산에 요청. 잘못 올라온 매물 정보(남향 24평 등)는 중개사에 정정 요청.\n▶ 주요 일자: 8/21 · 8/27 · 9/2", "verify": ""}, {"task": "[단지운영] 입주자대표회의 개최 시간(평일 18시) 조정", "category": "단지운영", "status": "건의 단계", "first": "2026-10-21", "last": "2026-10-21", "notes": "평일 18시 회의는 퇴근 후 참석이 어려워 시간 조정 의견을 내자는 요청. 문의 결과 당일 참여 신청은 가능하나 18시 전 입장해야 하고 중간 참여는 어렵다고 함. 오늘 회의 참석 예정자가 상황을 보고 의견을 내보겠다고 답함.\n▶ 주요 일자: 10/21", "verify": "조정 건의 결과는 이후 대화에 없음."}, {"task": "[단지운영] 공식 온라인 소통창구(대표 참여·공지 채널) 마련", "category": "단지운영", "status": "논의 중", "first": "2026-10-21", "last": "2026-10-21", "notes": "대표의 단톡방 참여, 대표 주관 새 방·밴드·공식 카페 개설, 관리사무소 경유 공지, 아파트아이 앱 알림 활용이 거론됨. 반대로 대화량이 많아 대표에게 부담이고 비공식 채널이며, 의견은 공식 절차(회의·서면·메일)로 남겨야 근거가 된다는 의견. 당장은 어렵고 시간이 필요하다는 정리.\n▶ 주요 일자: 10/21", "verify": "단톡방은 신원 확인이 안 되는 비공식 채널이라는 주민 언급."}, {"task": "[단지운영] 공동체 활성화 단체 지원", "category": "단지운영", "status": "정보 공유", "first": "2026-10-21", "last": "2026-10-21", "notes": "10/21 입주자대표회의 안건 중 입주민 모임 등을 할 수 있는 공동체 활성화 단체 지원이 있다는 공유(사진 첨부).\n▶ 주요 일자: 10/21", "verify": "사진 내용은 텍스트로 확인 안 됨. 지원 요건·금액 미확인."}, {"task": "[단지운영] 구청·서울시 공문(설명회 안내) 게시", "category": "단지운영", "status": "문제 제기", "first": "2026-10-21", "last": "2026-10-21", "notes": "과거 지구단위계획 발표 후 중랑구청 설명회 안내문이 우리 단지만 붙지 않다가 민원이 들어오자 하루 전 급히 게시됐다는 지적. 원하는 사람이 있든 없든 서울시·구청 공문은 게시해야 하며, 앞으로는 알게 되면 관리사무소에 바로 연락하겠다는 의견.\n▶ 주요 일자: 10/21 (과거 사례 언급)", "verify": "해당 설명회 날짜와 게시 지연 경위는 주민 전언."}];
+    const rawAgendaData = [{"task": "[면목선] 중랑구청사거리 정거장 승강장 위치 조정", "category": "면목선", "status": "진행 중 (원안 불가 공식화)", "first": "2026-08-12", "last": "2026-10-01", "notes": "원안(110, 하나로마트 인근)에서 가락공판장 쪽으로 이동한 안에 대해, 승강장을 중랑구청사거리 쪽으로 최대한 당기고 출입구를 담주한의원 앞 등에 두자는 의견을 모음. 사업비가 예타 대비 15% 이상 늘면 재타 대상이라 원복은 어렵다는 것이 서울시·구청 입장.
+▶ 주요 일자: 8/13 공청회 · 8/20 주민간담회 · 8/26 구청 홈페이지 답변(구청 방향으로 최대한 조정 요청) · 9/28 구의회 답변(요청은 했다) · 10/1 서울시 공고(원안 불가 공식화)", "verify": "정거장 번호 109/110 혼선(원안 110, 변경안 109 또는 108 표기). 종상향 거리 기준 250m vs 350m 발언 엇갈림."}, {"task": "[면목선] 중랑구 정거장 2개 축소 및 형평성", "category": "면목선", "status": "확정 방향", "first": "2026-08-13", "last": "2026-08-26", "notes": "예타 12개 정거장 중 동대문구 4개는 유지, 중랑구 8개는 6개로 축소. 서울시 설명은 역간거리(동대문 약 900m~1km, 중랑 일부 약 500~600m) 조정. 주민은 왜 중랑구만 줄이느냐며 근거 공개를 요구.
+▶ 주요 일자: 8/13 공청회 · 8/20 간담회 · 8/26 구청 답변", "verify": "역간거리 수치와 축소 대상 역 선정 근거는 채팅에 자료 없음(전언)."}, {"task": "[면목선] 차량기지 위치 변경 (신내동 동진학교 인근)", "category": "면목선", "status": "반대 의견 지속", "first": "2026-08-13", "last": "2026-09-01", "notes": "기존 양원 쪽에서 신내동 동진학교 인근으로 옮겨진 안에 반대. 교육환경(소음·분진), 부지 활용 제약(알박기), 6단지 등 인근 주민 반발. 대안으로 면목선 태릉CC 연장과 차량기지 이전을 제시.
+▶ 주요 일자: 8/13 공청회 · 8/20 간담회 · 8/21 간담회 정리 공유 · 9/1 7단지 차량기지 반대 소식", "verify": "이전 사유(양원 민원 회피 vs 사업비)는 주민 추정. '90% 찬성' 보도는 구청이 정정하겠다고 함."}, {"task": "[면목선] 기본계획(안) 주민 의견서 제출", "category": "면목선", "status": "마감 종료 (8/18)", "first": "2026-08-12", "last": "2026-08-18", "notes": "의견서는 서울시 서식 작성 후 메일·팩스·현장접수. 자유 양식은 안 된다는 안내가 있었고, 한글(hwpx) 서식 때문에 PDF·스캔·한컴독스 활용 팁이 공유됨. 8/13 공청회에서 의견 건수 '3건' 발표가 논란이 됨.
+▶ 주요 일자: 8/12 구청 답변 공유 · 8/14 서식 확인 · 8/18 마감 · 9/8은 전략환경평가서 의견 마감", "verify": "공청회 '의견 3건'이 사전 질문 접수 건수였는지 확인 필요."}, {"task": "[면목선] 단지 차원 서명·의견 전달 및 TF 구성", "category": "면목선", "status": "제안 단계", "first": "2026-08-21", "last": "2026-08-22", "notes": "동대표회의에 면목선 건의를 올려 단지 의견·서명을 서울시·국토부·국회의원에 전달하자는 제안. 2동 동대표가 연명장 초안을 작성했고 TF 구성을 요청. 회의에서는 다른 동대표의 반응이 거의 없었다고 전해짐.
+▶ 주요 일자: 8/21 건의 · 8/22 동대표회의 참관 및 TF 제안", "verify": "서명부 제출 여부와 TF 구성 결과는 이후 대화에 없음."}, {"task": "[면목선] 주민 간담회·설명회 개최 요청", "category": "면목선", "status": "건의 단계", "first": "2026-08-20", "last": "2026-10-13", "notes": "8/20 간담회는 구청 공식 공지 없이 포스터·통장 전달로 알려져 참석이 어려웠다는 불만. 10/13에는 동성3차 등 다른 단지 간담회는 단지 요청으로 열렸다는 설명이 나와 11단지도 요청하면 가능하다는 의견.
+▶ 주요 일자: 8/20 간담회 · 10/13 타 단지 간담회 설명", "verify": "8/20 인터넷 기사·캡처(동대문 4개 유지 등)는 구청 교통정책과 확인 결과 공청회 자료와 차이 없음(전언)."}, {"task": "[주차] 주차 차단기 설치", "category": "주차", "status": "보류 (동대표회의 반대 우세)", "first": "2026-08-18", "last": "2026-10-21", "notes": "외부차량·장기주차 문제로 차단기 설치 제안. 번호인식·방문차량 사전등록 방식 견적이 약 900~1,700만원(차단기 2대 기준)으로 공유됨. 8/22 동대표회의에서 오르막·교차로 정체·비용·상가 방문차량 문제로 반대가 강했음. 양쪽 설치·도로 확장안은 포기.
+▶ 주요 일자: 8/18 제안 · 8/19 견적 공유 · 8/22 동대표회의 반대 · 10/21 설치 완료 여부 언급(미확인)", "verify": "견적은 주민이 조사한 금액으로 업체 견적서 근거 없음. 10/21 한 주민이 설치가 이미 끝난 것 같다고 했으나 8/22 반대 우세와 상충. 설치 여부 확인 필요."}, {"task": "[주차] 외부차량·불법주차 단속 (앱·스티커)", "category": "주차", "status": "시행 중", "first": "2026-08-18", "last": "2026-10-21", "notes": "관리프로그램(단속고고 앱) 시험운영 후 QR 코드로 주민·방문차량 등록. 월 약 14만원. 불법주차 차량을 찾아 비용을 내게 했고, 방문증으로 대체하는 차량이 약 100대. 세차해야 떼지는 강력 스티커 도입 중. 단속 후 주차난이 많이 좋아졌다는 체감 공유. 10/21에도 외부차량 단속이 잘 되고 있고, 2동 동대표의 의견 취합이 주차 개선에 컸다는 평가.
+▶ 주요 일자: 8/18 주차난 호소·개선 체감 · 8/22 앱·스티커 보고 · 8/27 경비실 QR 안내 · 9/28 앱 적발 기능 확인 · 10/21 개선 평가", "verify": "'불법주차 100대'는 동대표 발언이며 집계 방법 불명."}, {"task": "[주차] 코너 부분 주차", "category": "주차", "status": "건의 단계", "first": "2026-08-30", "last": "2026-08-30", "notes": "코너에 주차해 진입·회전이 어렵다는 제보. 관리사무소를 통해 빗금 또는 주차금지 표시를 하자는 의견.
+▶ 주요 일자: 8/30", "verify": ""}, {"task": "[보안] 공동현관문 설치", "category": "보안", "status": "미상정 (직접 제안 필요)", "first": "2026-09-01", "last": "2026-10-21", "notes": "공동현관문이 없어 외부인 무단 출입, 이상행동자 출몰, 택배 분실이 반복된다는 문제 제기. 장기수선충당금 사용 가능성과 입주민 동의 확보 방안을 검토. 9/2 '공동현관·CCTV 설치 안건자료' PDF 공유. 9/14 기준 아직 회의 안건 미상정. 10/21에는 공동현관의 보안 효과(택배 기사 간 비밀번호 공유, 복도 창호가 없어 1층으로 진입하면 한계), 뒷동 주민의 이중 통과 불편, 창호 설치 시 반대 가능성이 논의됨. 대안으로 무인택배함과 CCTV 추가 설치, 층별 엘리베이터 앞 설치 희망 의견. 회의 기록에는 없고, 직접 제안하면 기타안건으로 기록된다는 안내.
+▶ 주요 일자: 9/1 문제 제기 · 9/2 안건자료 공유 · 9/14 미상정 확인 · 9/17 재언급 · 10/21 효과·대안 논의", "verify": "설치 비용·동의 요건은 근거 없음. 공동현관의 보안 효과는 주민 의견일 뿐 검증 자료 없음."}, {"task": "[보안] CCTV 작동 점검 및 사각지대", "category": "보안", "status": "확인 완료 / 개선 검토", "first": "2026-09-01", "last": "2026-09-02", "notes": "계단·우편함 CCTV가 모형이라는 얘기로 문의. 5동 등은 1층 CCTV 정상 작동 확인. 9/2 관리사무소 확인 결과 설치된 CCTV는 정상 작동, 우편함 쪽은 촬영 안 되는 사각지대. 올해 2월 CCTV 설치·케이블 교체 공사 이력.
+▶ 주요 일자: 9/1 문의 · 9/2 관리사무소 확인", "verify": "'모형' 발언은 경비원 전언이며 9/2 확인 내용과 상충."}, {"task": "[보안] 외부인 출입 및 택배·우편 분실", "category": "보안", "status": "논의 중", "first": "2026-08-20", "last": "2026-10-21", "notes": "고층에서도 모르는 사람이 출입하고, 택배·우편 분실, 종교 권유 방문, 벨튀 등 사례가 연이어 공유됨. 무인택배함 설치, 각 층 엘리베이터 CCTV 설치 의견. 10/21에는 관리사무실이 택배 분실·거수자 발견 시 경비실에 알려 달라고 방송한다는 언급.
+▶ 주요 일자: 8/20 이상 행동자 제보 · 9/1 우편물 분실 · 9/17 방문 소음 제보 · 10/21 방송 안내", "verify": "경찰 출동은 '별일 아님'으로 정리됨(8/20)."}, {"task": "[시설] 옥상·지하주차장 방수공사", "category": "시설", "status": "공사 진행 중 (주민 전언)", "first": "2026-08-22", "last": "2026-10-21", "notes": "공개입찰. 설명회 참석 업체만 입찰 가능, 동대표회의에서 적격심사. 덧방 시공 시 재발 우려, 무조건 싼 업체 선정 우려를 제기. 철거·면처리 과정을 주민이 함께 확인하자는 제안. 10/13 업체 선정 공유(최저가 낙찰). 10/21 옥상 방수공사가 순조롭게 진행 중이라는 언급. 타 단지에서는 최상층 외 실익이 없어 반대가 나오기도 한다는 사례 공유.
+▶ 주요 일자: 8/22 입찰 예정 · 8/26 명절 전 일정 문의 · 8/28 임시회의 · 9/1 결과 공유 · 9/14 설명회 · 9/21~22 심사 · 10/13 선정 · 10/21 공사 진행 언급", "verify": "낙찰 기준(최저가 vs 적격심사), 업체명·금액·하자보수 기간은 채팅에 없음. 공사 진행 상황은 주민 전언(10/21)."}, {"task": "[시설] 어린이 놀이터 바닥 보수", "category": "시설", "status": "건의 단계", "first": "2026-10-07", "last": "2026-10-07", "notes": "바닥 우레탄 보수와 모래 없는 놀이터 조성 요청. 중랑구 공동주택 지원사업(어린이놀이터 개보수 대상)을 2027년에 신청하는 방안 제안. 과거 신청 마감은 2/27, 예산 약 7억원으로 소개됨.
+▶ 주요 일자: 10/7", "verify": "지원사업 금액·마감은 주민 전언. 구청 공고 확인 필요."}, {"task": "[시설] 4동 베란다 우수관 소음", "category": "시설", "status": "확인 요청", "first": "2026-10-19", "last": "2026-10-19", "notes": "며칠째 우수관에서 물 내려가는 소리가 계속됨. 세탁기 사용과 무관해 보임. 관리사무소 점검 요청 예정.
+▶ 주요 일자: 10/19", "verify": ""}, {"task": "[시설] 복도 야간 조명", "category": "시설", "status": "의견 수렴", "first": "2026-09-28", "last": "2026-09-28", "notes": "복도식 구조로 야간에 복도가 어두움. 센서등은 앞집 민폐 우려가 있고 벌레 문제로 일부 소등한다는 의견도 있음.
+▶ 주요 일자: 9/28", "verify": ""}, {"task": "[시설] 관리사무소 방송 스피커 새벽 소음", "category": "시설", "status": "확인 필요", "first": "2026-09-28", "last": "2026-09-28", "notes": "새벽에 관리사무소 세팅 중 방송 스피커에서 소리가 계속 나 수면 방해. 컴퓨터·마이크 설정 오류로 추정.
+▶ 주요 일자: 9/28", "verify": "원인은 주민 추정."}, {"task": "[생활] 흡연 구역·흡연 매너", "category": "생활", "status": "건의 단계", "first": "2026-10-07", "last": "2026-10-07", "notes": "2동 앞, 1~2동 사이 통로 등에서 흡연으로 간접흡연 불편. 흡연통 위치 이동, 금연구역 지정 요청.
+▶ 주요 일자: 10/7", "verify": "금연구역 지정 요건은 확인 안 됨."}, {"task": "[생활] 음식물쓰레기·쓰레기 무단투기", "category": "생활", "status": "문제 제기", "first": "2026-08-19", "last": "2026-10-07", "notes": "음식물쓰레기 카드 없이 다른 통에 버리는 사례(8/19, 동대표회의 문제 제기 8/22). 10/7에는 차량 쓰레기 투기, 외부 쓰레기통 부족, 분리수거장 비닐 투기 제보.
+▶ 주요 일자: 8/19 · 8/22 · 10/7", "verify": ""}, {"task": "[생활] 공용수도 세차", "category": "생활", "status": "문제 제기", "first": "2026-08-22", "last": "2026-08-22", "notes": "공용 수도로 세차하는 주민. 차량번호가 보이게 사진을 찍어 신고하는 방법 안내.
+▶ 주요 일자: 8/22 동대표회의 문제 제기", "verify": ""}, {"task": "[생활] 층간소음", "category": "생활", "status": "개인 간 문제", "first": "2026-10-04", "last": "2026-10-04", "notes": "화장실 문, 대화, 진동 소리가 들린다는 호소에 다수가 공감. 공동 조치 안건으로 올라가지는 않음.
+▶ 주요 일자: 10/4", "verify": ""}, {"task": "[생활] 횡단보도 신호 설치", "category": "생활", "status": "건의 단계", "first": "2026-09-02", "last": "2026-09-02", "notes": "좌회전 시 보행자가 신호 없이 건너 불안하니 횡단보도 신호등을 설치하자는 건의.
+▶ 주요 일자: 9/2", "verify": "구청 교통 소관 여부 미확인."}, {"task": "[재건축] 재건축 추진 주체·소통창구 요청", "category": "재건축", "status": "민원 접수 (10/19)", "first": "2026-08-13", "last": "2026-10-21", "notes": "4~9단지는 추진준비위·네이버 밴드까지 만들었지만 11단지는 입주자대표가 소극적이라는 문제의식. 10/19 서울시·구청 홈페이지에 재건축 추진 지원과 공식 소통밴드 개설을 요청하는 민원 접수. 10/21에는 대표·동대표의 역할과 단톡방 참여를 두고 논쟁. 10/21 오후에는 대표·동대표가 주축이 되지 않으면 누가 추진하느냐는 질문과 함께 5단지 추진준비위원회 출범이 언급됨. 재건축조합과 입주자대표회의는 별개이고 추진위도 무급 봉사직이라는 설명, 추진은 대표가 하더라도 아는 사람이 이끄는 편이 낫다는 의견, 면대면 모임이 생기면 참여하자는 분위기. 2동 주민이 동대표와 일부 상의 중이라고 밝힘.
+▶ 주요 일자: 8/13 4~7단지 대면회의 결과 공유 · 8/22 대표 답변 전언 · 9/1 7단지 추진준비위 · 10/16 밴드 확인 · 10/19 민원 접수 · 10/21 추진 주체 논의", "verify": "입주자대표가 재건축에 관심 없다고 말했다는 내용은 전언. 민원 처리 결과 미확인. 조합·입대위 별개, 추진위 무급이라는 설명은 한 주민의 의견(타 단지 사례 포함)."}, {"task": "[재건축] 재건축 방식 (단독 vs 10단지 연계, 도정법·노특법)", "category": "재건축", "status": "논의 중", "first": "2026-08-21", "last": "2026-09-22", "notes": "초안상 10·11단지가 한 그룹으로 묶여 있어 임대 단지와의 연계 우려. 단독 추진이 빠르다는 의견이 우세. 용적률 시뮬레이션(500% 등)과 임대 비율 차이도 공유됨. 조합 설립까지 단계를 밟아두는 것이 중요하다는 의견.
+▶ 주요 일자: 8/21 연계·시뮬레이션 · 9/2 3종 용적률 상향 법안 · 9/22 단계 밟기 중요", "verify": "용적률·임대 수치는 채팅 내 추정 계산. 법안 통과 여부 미확인."}, {"task": "[재건축] 역세권 종상향(승강장 250m 기준)", "category": "재건축", "status": "정거장 위치에 연동", "first": "2026-08-13", "last": "2026-09-28", "notes": "역세권 준주거 종상향은 승강장 기준 250m가 중요하고 출입구는 해당되지 않는다는 설명. 승강장을 약 50m 서쪽으로 당기면 단지가 250m 안에 들어온다는 제안.
+▶ 주요 일자: 8/13 · 8/14 · 9/28", "verify": "250m vs 350m 발언 엇갈림. 서울시 심의에서 결정."}, {"task": "[단지운영] 동대표회의 참관 및 주민 의견 전달 방식", "category": "단지운영", "status": "소통 방식 논의 중 (취합 전달 예정)", "first": "2026-08-21", "last": "2026-10-21", "notes": "주민은 관리사무소에 신청해 입주자대표회의 참관 가능. 10/21 정리: 원칙은 하루 전 신청이나 당일 신청도 가능하고 18시 전 입장해야 하며, 방청자는 입주자대표 승인하에 발언, 관리소장 참석. 단톡방 의견은 2동 동대표가 회의에 전달해 왔으나 10/21 갈등으로 해당 동대표가 단톡방을 나감. 쟁점은 회의 시간(평일 18시)·참석 부담과 대표의 단톡방 참여 여부. 대안으로 공식 절차(회의 방문·서면·메일, 관리사무소 접수), 안건 정리본 전달, 아파트아이 앱 알림, 엘리베이터 QR 공지, 회의 공지 글 게시가 제안됨. 한 주민이 AI로 대화를 요약한 안건 정리본(이미지)과 엑셀을 공유했고 한 달 단위 갱신이 가능하다고 함. 2동·4동 주민이 취합해 입주자대표회의에 올리기로 함.
+▶ 주요 일자: 8/22 참관 보고 · 8/28 임시회의 신청 안내 · 9/21 방수 안건 참관 안내 · 10/21 갈등·참관 절차·정리본 공유", "verify": "대표가 단톡방에 안 들어오는 이유는 채팅에 없음. 참관 신청 규정이 하루 전 원칙과 당일 가능으로 엇갈림(관리규약 확인 필요)."}, {"task": "[단지운영] 동대표·입주자대표 선출 및 임기", "category": "단지운영", "status": "다음 선거 내년", "first": "2026-08-22", "last": "2026-10-21", "notes": "후보가 없어 봉사로 하는 동이 많고, 동대표 임기는 2년으로 다음 선거는 2027년. 후보 신청·선거 공지를 한 달 전쯤 눈에 띄게 해달라는 요청.
+▶ 주요 일자: 8/22 · 10/16 · 10/21 10/21 오후에는 동대표 업무량이 많아 다음 선거에서도 무출마가 우려된다는 이야기(일부 동은 과거 2~3회 무출마)와 임기가 약 1년 남았다는 언급. 퇴장한 동대표에게 복귀를 권해 보겠다는 의견.", "verify": "임기 표현이 '내년까지'와 '2년'으로 엇갈림."}, {"task": "[단지운영] 골프연습장(파크골프) 텃밭 펜스 철거", "category": "단지운영", "status": "3년 보류", "first": "2026-08-22", "last": "2026-10-21", "notes": "골프연습장 건물 앞 텃밭 펜스 철거 요구. 텃밭이 국고지원을 받아 3년간 철거가 어렵고 철거 후 주차장 예정이라 보고됨. 10/21 파크골프장 관련 간담회 참석률 언급.
+▶ 주요 일자: 8/22 · 10/21", "verify": "국고지원 조건과 반환 여부는 전언."}, {"task": "[단지운영] 네이버부동산 등 단지 정보 정정", "category": "단지운영", "status": "처리 중", "first": "2026-08-21", "last": "2026-09-02", "notes": "대표 단지 사진 업데이트와 거래내역 순서 변경을 네이버부동산에 요청. 잘못 올라온 매물 정보(남향 24평 등)는 중개사에 정정 요청.
+▶ 주요 일자: 8/21 · 8/27 · 9/2", "verify": ""}, {"task": "[단지운영] 입주자대표회의 개최 시간(평일 18시) 조정", "category": "단지운영", "status": "건의 단계", "first": "2026-10-21", "last": "2026-10-21", "notes": "평일 18시 회의는 퇴근 후 참석이 어려워 시간 조정 의견을 내자는 요청. 문의 결과 당일 참여 신청은 가능하나 18시 전 입장해야 하고 중간 참여는 어렵다고 함. 오늘 회의 참석 예정자가 상황을 보고 의견을 내보겠다고 답함.
+▶ 주요 일자: 10/21", "verify": "조정 건의 결과는 이후 대화에 없음."}, {"task": "[단지운영] 공식 온라인 소통창구(대표 참여·공지 채널) 마련", "category": "단지운영", "status": "논의 중", "first": "2026-10-21", "last": "2026-10-21", "notes": "대표의 단톡방 참여, 대표 주관 새 방·밴드·공식 카페 개설, 관리사무소 경유 공지, 아파트아이 앱 알림 활용이 거론됨. 반대로 대화량이 많아 대표에게 부담이고 비공식 채널이며, 의견은 공식 절차(회의·서면·메일)로 남겨야 근거가 된다는 의견. 당장은 어렵고 시간이 필요하다는 정리.
+▶ 주요 일자: 10/21", "verify": "단톡방은 신원 확인이 안 되는 비공식 채널이라는 주민 언급."}, {"task": "[단지운영] 공동체 활성화 단체 지원", "category": "단지운영", "status": "정보 공유", "first": "2026-10-21", "last": "2026-10-21", "notes": "10/21 입주자대표회의 안건 중 입주민 모임 등을 할 수 있는 공동체 활성화 단체 지원이 있다는 공유(사진 첨부).
+▶ 주요 일자: 10/21", "verify": "사진 내용은 텍스트로 확인 안 됨. 지원 요건·금액 미확인."}, {"task": "[단지운영] 구청·서울시 공문(설명회 안내) 게시", "category": "단지운영", "status": "문제 제기", "first": "2026-10-21", "last": "2026-10-21", "notes": "과거 지구단위계획 발표 후 중랑구청 설명회 안내문이 우리 단지만 붙지 않다가 민원이 들어오자 하루 전 급히 게시됐다는 지적. 원하는 사람이 있든 없든 서울시·구청 공문은 게시해야 하며, 앞으로는 알게 되면 관리사무소에 바로 연락하겠다는 의견.
+▶ 주요 일자: 10/21 (과거 사례 언급)", "verify": "해당 설명회 날짜와 게시 지연 경위는 주민 전언."}];
+    const rawCouncilData = [{"date": "2026-10-21", "meeting_type": "정기", "agenda_no": "1", "title": "09월분 관리비 부과명세서 심의 건.", "decision": "관리비 부과에 대하여 원안대로 승인의결 함. (※3개월 이상 체납 세대에 대하여 지속적인 독려 요망함.)", "category": "의결", "vote": ""}, {"date": "2026-10-21", "meeting_type": "정기", "agenda_no": "2", "title": "동절기 염화칼슘 구입 건", "decision": "동절기 제설작업용 염화칼슘(현재 재고량:약74포)을 사전 구입하여 제설작업에 사용하고자 (100포 구매) 견적서 3개 업체 중 최저가업체인 (주)뉴스타케미칼에서970,000원(부가세별도) 으로 전원 찬성으로 구입하기로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-10-21", "meeting_type": "정기", "agenda_no": "3", "title": "수도계량기 보온덮게 구입 건", "decision": "급탕, 수도계량기 동파 방지용 보온 덮게 810개를 최저가업체인(주)젤릉:1,610,900원(부가세별도) 로 전원 찬성으로 구입하여 세대에 배포하기로 의결함", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-10-21", "meeting_type": "정기", "agenda_no": "4", "title": "공동체 활성화 단체 지원 건", "decision": "관리규약 제56조(공동체 활성화 단체 활동 지원) ① 제54조 제2항 따라 구성 승인된 공동체 활 성화 단체가 활동 지원을 받고자 할 때는 사업의 목적, 대상, 기간, 추진방법, 기대효과 및 소요비용 등이 포함된 [별지 제5-2호서식] \"사업비 지원신청서\"를 입주자대표회의에 제출하고 승인을 받아야 한다. 는 규정의 의거 공동체 활성화 단체의사업계획서을 승인하며, 하반기 사업비(200,000원)를 지 원하기로 전원의 찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-10-21", "meeting_type": "정기", "agenda_no": "5", "title": "파크골프연습장 주차비 등 부과 및 납입 논의건", "decision": "아파트 단지 내 주차장은 입주민의 공동재산으로, 외부인의 장기 또는 반복적인 차량 이용으로 인해 입주민의 주차 불편이 발생하고 있습니다. 이에 파크골프연습장 이용 차량의 주차질서를 확립 및 유지관리 차원으로,입,대,의 구성원6명(찬성(5명, 반대1명)으로 주차비등 원안대로 요금을 부과하 기로 하며 2026년 10월,11월, 12월은 (월)20만원(VAT포함) 부과하고, 2027년도 1월 1일~2036년까지 (월)30만원(VAT 포함)을 부과하되, 정문 입구 상가방면(안내간판:가로 1.5mx세로 1.3m) 설치하기로 승인 의결하다.(단,안내간판 : 법률 위반 및 운전자 시야 방해로 민원 등 현저히 이해충돌이 있을시 이전 또는 철거하기로 함) (※계약 기간 : 2026.10.01.~2036.09.30.10(년))", "category": "의결", "vote": "찬성 5명, 반대 1명"}, {"date": "2026-10-21", "meeting_type": "정기", "agenda_no": "6", "title": "입주자등 외부 미등록 차량 조치의 건", "decision": "수차례 미등록 차량 등록 안내 및 차량 등록(주차요금 예고납부) 안내를 받았음에도 현재 까지 미등록 등으로 1세대 2, 3차량 주차요금 납부를 회피하는 세대가 확인되고 있습니다. 관리규약, 주차관리규정 또는 입주자대표회의 의결에 따라 최종 조치할 예정입니다. 미등록 차량은 세대방문협조, 차량 출입등록 제한, 주차요금 강제부과 등 주차관리규정에 정한 조치를 시행할 수밖에 없습니다. 등록을 회피하거나 관리업무를 방해하는 경우에는 추가 조치를 진행할 예정이며, 미등록 차량 입주자등께서는 공정한 주차질서 유지를 위해 적극적인 협조하여 주시기 바랍니다..", "category": "의결", "vote": ""}, {"date": "2026-10-21", "meeting_type": "정기", "agenda_no": "7", "title": "(기타) 공동체 활성화단체 지원금 집행 적정성 검토의 건.", "decision": "공동주택관리 관련 규정에 의거 공동체 활성화 사업보조금(지원금)의 사업계획서에 따른 집행 적정 성 및 정산명세서 등을 검토하기로 의결하다.(※예정일 : 2027.2월경)", "category": "의결", "vote": ""}, {"date": "2026-09-22", "meeting_type": "정기", "agenda_no": "1", "title": "08월분 관리비 부과명세서 심의 건.", "decision": "관리비 부과에 대하여 원안대로 승인의결 함. (※3개월 이상 체납 세대에 대하여 지속적인 독려 요망함.)", "category": "의결", "vote": ""}, {"date": "2026-09-22", "meeting_type": "정기", "agenda_no": "2", "title": "옥상 방수 및 지하주차장 재도장공사 서류심사 및 업체 선정심의 건.", "decision": "옥상 및 지하주차장 방수공사 후 10~15년이 지남에 따라 옥상 및 지하주차장 바닥층의 노후화(크랙, 들뜸, 누수들)가 진행되고, 최상층세대의 누수 피해 민원이 지속해서 발생하고, 지하주차장의 바닥 면이 노후화되어 전면적인 방수공사가 필요함에 따라 2026.08.31.(월)(임시회의) 공정한 경쟁 확보를 위해 국토교통부 사업자선정 지침에 따라(k-apt 전자입찰방식) 입찰의 종류와 낙찰자선정방법에 의거제한 경쟁입찰 적격심사제로 실시한바, 현장설명회(30개) 업체에서 참가하였으나,(21개) 업체에서 응찰함에 따 라 서류심사 및 제 한서를 검토하여 적격심사제 세부평가 배점에 의거 최고점수를 득한 (주)부영 씨앤씨 (금액:140,000,000(vat별도) 업체를 선정 하여 공사하기로 참석인원 전원 찬성으로 승인 의결하다", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-09-22", "meeting_type": "정기", "agenda_no": "3-1", "title": "경전철 설치계획 변경에 따른 기존 동의 철회서 논의 건", "decision": "노선 변경 철회를 둘러싼 반대와 갈등이 심화하면 행정 승인 절차 자체가 계속 보류 및 사업이 장기 연기되거나 최악의 경우 전면폐기(백지화)될 가능성이 매우 커 추이를 보면서 진행하기로 하다.", "category": "보류", "vote": ""}, {"date": "2026-09-22", "meeting_type": "정기", "agenda_no": "3-2", "title": "옥상 난방, 급탕 횡 주관 긴급공사 추인의 건", "decision": "장기수선계획에 의한 수선주기 계획서에 의거, 1102동, 1103동, 난방 횡 주관 누수 및 급탕 횡 주관 볼밸브 고장으로 3개 업체 견적서 중 최저가(₩ 1,550,000원(부가가치세 별도) 업체인 노원 설비를 선정하여, 관리규약 제38조에 의거 수의계약으로 긴급보수 후 보고서를 갈음하여 소급추인하기로 참석인원 만장일치로 의결하다.", "category": "의결", "vote": "만장일치"}, {"date": "2026-09-22", "meeting_type": "정기", "agenda_no": "3-3", "title": "방문 차량 주차시간 적용 및 예외 운영기준 논의 건.", "decision": "단지 내 주차난 해소, 장기 불법 주차 방지, 입주민 주차권 보호를 위해 방문 차량의 주차허용 기간과 예외 적용 운영기준을 제정하기로 참석인원 전원 찬성 의결하다 ▪기본 방문 주차 운영기준 : - 각 세대에 방문하는 차량에 대해서는 월 120시간의 주차시간을 부여한다 - 월 120시간을 초과하여 주차하는 경우에는 10분당 20원의 초과요금을 부여한다 - 방문 차량은 원칙적으로 정해진 방문 차량 등록절차에 따라 등록하여야 한다 - (예외 적용대상)은 운영기준 제3조 각호에 따른다 - 시행일: 2026.09.23. 부터 실시하기로하다.(단.금액 부과적용은 잠정보류함)", "category": "보류", "vote": "전원 찬성"}, {"date": "2026-08-31", "meeting_type": "임시", "agenda_no": "1", "title": "옥상방수 및 지하주차장 재도장 경쟁입찰 재심의 건.", "decision": "•기존 공법 선정 과정에 대한 다양한 의견이 제기됨에 따라 공정성과 투명성을 확보하고, 공동주택의 품질 및 유지관리 측면에서 최적의 공법을 선정하기 위하여 재심의를 실시함. •재심의 결과, 특정 특허공법을 우선 적용할 객관적인 필요성이 충분하지 않다고 판단하였으며, 공정한 경쟁 확보를 위해 입찰의 종류와 낙찰자 선정방법에 의거 4개(안)중 4번항 제한경쟁입찰 적격심사제로 실시하되 방수공법관련 특허공법 협약서 1개이상 보유업체 을 적용하여 국토교통부 사업자 선정지침에 따라 (k-apt전자입찰 방식) 여러업체에서 입찰에 응찰 할수 있도록 확대적용 하여 업체를 선정 하기로 참석인원 전원 찬성으로 승인의결하다", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-08-31", "meeting_type": "임시", "agenda_no": "2", "title": "파크골프연습장 현안 논의 건", "decision": "아파트 단지내의 파크골프 연습장 부지 단독 사용 인정 여부 및 주차장 운영에 대한 법적·행정적 근거 마련에 대하여 파크골프장 대표이사와 논의하였으나, 결론이 나지않아 추후 재논의 하기로 하다.", "category": "", "vote": ""}, {"date": "2026-08-21", "meeting_type": "정기", "agenda_no": "1", "title": "07월분 관리비 부과명세서 심의 건.", "decision": "관리비 부과에 대하여 원안대로 승인의결 함. (※3개월 이상 체납 세대에 대하여 지속적인 독려 요망함.)", "category": "의결", "vote": ""}, {"date": "2026-08-21", "meeting_type": "정기", "agenda_no": "2", "title": "추석명절 상여금 지급의 건", "decision": "추석명절을 맞이하여직원들의 근무의욕과사기진작차원으로(관리,기전) 은 복리후생비 , 경비비, 청소비등항목으로전년도와동일한조건의 금원을 지급하기로 참석인원 전원 찬성 승인의결 .", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-08-21", "meeting_type": "정기", "agenda_no": "3", "title": "옥상 방수 및 주차장 바닥 재도장공사 공개입찰의 건", "decision": "옥상방수 및 지하주차장바닥 재도장공사는 10~15년이경과함에 따라 옥상 및 지하주차장 바닥층의 노후화(크랙,들뜸,누수등) 인해 최상층세대의 누수피해 민원이 지속적으로 발생하고,지하주차장의 바닥면또한 노후화 문제가 진행되고있어 2026년도 장기수선계획서에 의거 옥상방수 및 주 차장 바닥 재도장공사 업체 선정은 국토교통부 사업자 선정지침에 따라 (k-apt전자입찰 방식) 공개 경쟁입찰 최저가제로 공사업체를 선정하기 로 참석인원 전원 승인의결 하다.", "category": "의결", "vote": "전원 승인"}, {"date": "2026-08-21", "meeting_type": "정기", "agenda_no": "4-1", "title": "주차단속시스템도입 최종의결", "decision": "- 상호명: 코드온코드 - 계약기간:2026.09.01~2027.08.31.(1년) - 금액 : (월)142,500원(VAT별도) - 지출계정:시설유지비또는 주차장운영비", "category": "의결", "vote": ""}, {"date": "2026-07-27", "meeting_type": "임시", "agenda_no": "1", "title": "주차단속 시스템업체 제안설명 및 질의, 응답건", "decision": "주차단속서비스 운영 과정에서 문제점이 지속적으로 발생하고 있어 서비스의정확성및 공정성 등의 프로그램상의 시행착오가 발생하였기에,2026.07.27.(월)입주자대표회의 임시회의를 개최하여 단속고고업체를 호출하여 주차단속 시스템 도입의 문제점에 대하여(PT:프리젠 테이션)를 프로그램의 개최한바, 질의, 응답으로 개선책이 보완,수정이 최대화로 완료하기로하며, 다음과 같이 참석인원 전원 승인의결하다. - 업체명 : 단속고고(단,계약체결은 질의사항의 보안이 최대로 완성되어 업체의통보한날로부터 도달시점에서 3개항목 지출내역중 선택하여 계약 체결하기로 하다.) - 상품명: 삼성겔럭시 S22 *3대 728,700 (VAT포함) 구입하기로하다.(금액변동될수도있음.) - (월) 이용료 : kt알뜰폰시니어(1대당:7,900원x3대=23,700원(VAT포함:금액변동될수도있음) - 주차단속 조끼를 구입하기로 하다 ▪주차단속 강화 : 단지내 외부차량 및 주민등의주차난해소 방안차원으로 단속고고업체의 프로그램 시스템 도입으로 효율적으로 보강하여 불법주차에 대하여 강력히 단속 하기로 하다. (※ 추후 공고문참조)", "category": "의결", "vote": "전원 승인"}, {"date": "2026-07-27", "meeting_type": "임시", "agenda_no": "2", "title": "세대 방문차량 주차요금 부과에 관한 시스템 연동 관련문의 건.", "decision": "입주세대 방문차량의 주차 이용에 대한 체계적인 관리와 공정한 주차요금 부과를 위해 방문차량 등록 시스템과 주차관제 시스템을 연동하여 운영 효율성을 높이고자,관련시스템을 보완 업그레이드 하기로 관련업체에 요구함. 【다음과 같은 사항을 보한 조치】 - 주차관제 시스템과 방문차량 등록 시스템 간 연동 가능 여부 -개인정보 보호 및 차량정보 관리 방안 -무료 주차 기준 및 요금 (마일리지등)설정 - 장애 발생 시 수동 처리 절차 마련/시스템 운영 전 충분한 시험 운영 및 검증 실시", "category": "", "vote": ""}, {"date": "2026-07-22", "meeting_type": "정기", "agenda_no": "1", "title": "06월분 관리비 부과명세서 심의 건.", "decision": "관리비 부과에 대하여 원안대로 승인의결 함. (※3개월 이상 체납 세대에 대하여 지속적인 독려 요망함.)", "category": "의결", "vote": ""}, {"date": "2026-07-22", "meeting_type": "정기", "agenda_no": "2", "title": "판형 열교환기 세관작업 심의 건.", "decision": "아파트 기계실 열교환기 세관작업으로 열효율향상 및 수명연장 하기위해 응찰 3개업체중 최저업체를 선정하여 세관 작업 실시하기로 함. -업체명:한국난방관리(주) - 금액 : 2,060,000(vat별도) -계정과목 : 장기수선충당금", "category": "", "vote": ""}, {"date": "2026-07-22", "meeting_type": "정기", "agenda_no": "3", "title": "하계 휴가비 지급 건 .", "decision": "1) 관리소직원 및 경비,미화원 하계휴가를 실시하기로 함 2) 관리직원(6),경비,(12)미화원(5) 에 대하여 하계휴가비지급은 관리실 직원에게 전년도와 동일하게1인당 10만원씩 지급하고, 경비,미화원 대원에게 각 5 만원씩지급하기로 참석인원 전원의 찬성 으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-07-22", "meeting_type": "정기", "agenda_no": "4", "title": "세대별 차량 보유대수에 따른 주차요금부과(인상)의 건", "decision": "①우리 아파트의 주차공간 부족 문제가 지속되고 있으며, 세대별 차량 보유대수 증가로 인해 입주민 간주차 불편이 가중되고 있습니다. 이에 주차공간의 효율적 운영과 형평성 있는 비용 부담을 위하여 차량 보유대수에 따른 주차요금 차등 부과 제도를 시행하기로 참석인원 전원승인의결하다. ②주차장관리규정 제14조①~④항에 의거 주차장 사용의 기본대수 및 운영방법을 효율적으로 운영하고자 주차요금차등부과 하고자함. □ 주차장 관리규정에 의거 요금인상(※주차관리규정 (별표3)) [표] 1대: 현행 무료 / 2대: 현행 30,000 → 변경 40,000 / 3대: 현행 100,000 → 변경 110,000 / 시행일: 2026.9월관리비 부과분부터~", "category": "의결", "vote": "전원 승인"}, {"date": "2026-07-22", "meeting_type": "정기", "agenda_no": "5-1", "title": "기타(안) : 주차단속 시스탬 도입 업체 선정의 건", "decision": "주차단속서비스 운영 과정에서 다음과 같은 문제점이 지속적으로 발생하고 있어 서비스의 정확성, 공정성 등의 아래와 같은 내용으로 시행착오가 발생할수 있으므로 재검토가 필요하다는 의견으로 문제점이 개선될 때까지 서비스 확대 운영을 유보하고, 개선계획을 마련한 후 재도입 여부를 업체와 조율하여 임시회의를 개최하여 결정하기로 참석인원 전원 찬성의결하다. ▪단속 정확성 부족 불법주차 여부를 정확하게 판별하지 못해 정상 주차 차량까지 단속 대상에 포함되는 사례가 발생할 우려가 있습니다. ▪시스템 안정성 검증 부족 장애 발생 시 단속 누락 또는 오단속이 발생할 수 있으므로 시스템 안정성과 백업 체계를 재 검토및 시범운영 결과 및 객관적 민원 발생 현황에 대한 종합 분석", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-07-22", "meeting_type": "정기", "agenda_no": "5-2", "title": "주차단속 장비(스마트폰) 구입의 건.", "decision": "(상품명:삼성갤럭시S22 , 1대당:231,020부가세 포함) (월이용료) 9,900원(부가세 포함) 3대 구입 하기로 참석인원 전원찬성으로 승인의결 하다 (단, 업체 프리젠테이션마친후 최종결정)", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-06-23", "meeting_type": "정기", "agenda_no": "1", "title": "05월분 관리비 부과명세서 심의 건.", "decision": "관리비 부과에 대하여 원안대로 승인의결 함. (※3개월 이상 체납 세대에 대하여 지속적인 독려 요망함.)", "category": "의결", "vote": ""}, {"date": "2026-06-23", "meeting_type": "정기", "agenda_no": "2", "title": "사무실 복사기 임대계약 심의건", "decision": "사무실 복사기 임대계약 (25.08.19~26.08.19(1년))에 따라 관리규약제 72조 에의거하여 기존사업자 사업수행 실적을 적격심사 방법으로 평가하여 평가표를 게시판에 10일간 게시후 이의서 제출자가 전체 세대수의 10% 이하일 경우 재계약 하기로 참석인원 전원의찬성으로 승인의결함", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-06-23", "meeting_type": "정기", "agenda_no": "3", "title": "장기수선충당금 만기에따른금융기관 예치심의 건", "decision": "• 예금자 이용보호법에 근거한 금원을 배분하여 다음과 같이(예치/적금) 하기로 승인 의결하다. [표] 은행(예치): 1. 만기금액 160,624,824 → 동서울 농협 이율 3.50% 처분금액 80,000,000 / 새마을 금고 이율 3.50% 처분금액 80,624,824 / 기간 1년 [표] 은행(적금): 1. 월 적금 6,575,180 / 새마을 금고 이율 3.25% 처분금액 6,575,180 / 기간 1년", "category": "의결", "vote": ""}, {"date": "2026-06-23", "meeting_type": "정기", "agenda_no": "4", "title": "직원 하계 작업복 구입의 건.", "decision": "26년도 예산안에 의거하여 직원 하계작업복을 2개업체중 최저가 (업체인:지마켓) 인터넷 에서 구입하기로 전원 찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-06-23", "meeting_type": "정기", "agenda_no": "5-1", "title": "외부회계감사 수감 보고의 건", "decision": "공동주택관리법 시행령 제27조의 1항(관리비 등의 회계감사)에 의거 법무법인 모아세무회계에 의뢰하여 [기간:2025.01.01.~12.31(1년)] 수감 한바, 재무제표(재무상태, 경영성과, 이익잉여금처분 등) 는 회계정책의 적합성과 합리성, 투명성에 대한 감사의 의견은 공동주택 법령 및 관리규약에 규정한 회계 처리 기준에 따라 관리주체는 「적합』 하게 작성하고 있다는 평가임.", "category": "", "vote": ""}, {"date": "2026-06-23", "meeting_type": "정기", "agenda_no": "5-2", "title": "외,내부 도색공사 보고의 건.", "decision": "외, 내벽등 도색공사 계획에 의거 추진진행 과정과, 공사 완료결과를 보고하다. 단, 공사과정에서 발생한 지적사항에 대하여는 지속적으로 처리 통보 하기로함.", "category": "", "vote": ""}, {"date": "2026-06-23", "meeting_type": "정기", "agenda_no": "5-3", "title": "아파트 출입구 주차차단기 설치 공사 논의 건", "decision": "외부 차량의 무단 주차, 입주민 전용주차 공간확보 및 범죄 사고 발생시 차량확인 등 입주민의 재설치 요구로 입주자등의 제안한 정문주차 차단기 설치에 대하여 논의한바 해당 시설은 장기수선계획서에 포함되어있지않고, 장기수선충당금 사용,공사비용,주차관리 요원증원등 예산에 반영되지 않은점 과 관할관청 행위신고등, 2021.7월경기존 차단기 철거한점 을 고려하여 숙고한 끝에 잠정 보류하기로 참석인원 전원 승인의결하다.", "category": "보류", "vote": "전원 승인"}, {"date": "2026-06-23", "meeting_type": "정기", "agenda_no": "5-4", "title": "태화어린이집 용도변경에 따른 논의 건", "decision": "태화어린이집 파크골프 연습장으로 용도변경에 대하여 관계법령, 관리규약 및 관계기관의 질의서등을 검토결과 용도변경에 대한 관계법령에 따른 인, 허가등 특별한 제한사항이 없는 것으로 확인되었으므로, 해당시설을 파크골프 연습장 용도변경(안) 는 법적, 행정적 문제가 없다고 사료되어 용도변경 대로 사용할수있도록 참석인원 전원 찬성으로 승인의결하다.", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-05-19", "meeting_type": "정기", "agenda_no": "1", "title": "04월분 관리비 부과명세서 심의 건.", "decision": "관리비 부과에 대하여 원안대로 승인의결 함. (※3개월 이상 체납 세대에 대하여 지속적인 독려 요망함.)", "category": "의결", "vote": ""}, {"date": "2026-05-19", "meeting_type": "정기", "agenda_no": "2", "title": "1104동 장애자 램프 단순개선 심의 건", "decision": "공동주택관리법 제35조 제1항 및 같은 법 제15조에 의거 장애인의 편리를 위한 노약자 휠체어 통행 이 어려울 정도로 기존경사로 코너 부분이 협소하여, 원활한 안전운전을 위하여 2개 업체 견적서중 최저가 업체인 (주)대표건설(₩ 1,350,00원,부가세 별도)에 선정하여 보완 작업하기로 참석인원 전원 찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-05-19", "meeting_type": "정기", "agenda_no": "3", "title": "체력 단련비 지급 및 단합의 건", "decision": "직원들의 사기 앙양 및 단합 차원으로 예산에 따른 금원을 체력단련비로 참석인원 전원 찬성 으로 지급 하기로 의결하다.", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-05-19", "meeting_type": "정기", "agenda_no": "4-1", "title": "아파트 출입구 주차차단기 설치 공사의 건", "decision": "외부 차량의 무단 주차, 장기 방치차량 차단과 입주민 전용주차 공간확보 및 범죄 사고 발생시 차량확인 등으로 기, 설치하였으나, 2021년 7월경 진입 차량 복잡성등으로 인하여 입주자등의 민원 으로 철거한 점과 장기수선계획에 없고, 주차요원 인원증원 및 공사비용 등이 과대 예상되나, 주차 차단기의(LPR방식:차량번호인식 시스템) 시대적 상황 고려하여 입주민들의 편의 증대 및 주차난 해소를 위하여 주차차단기 전문가의 기술의견을 받아보기로 참석인원 전원찬성 으로 의결하다.", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-05-19", "meeting_type": "정기", "agenda_no": "4-2", "title": "기계실 난방, 온수 과전류계전기 긴급보수 추인의 건.", "decision": "기계실(서버) 과전류 계전기 수시오류가 발생하여 2개업체 견적서중 최저가업체인 대화전기 이엔지 ((주):530,000(VAT별도) 선정하여, 관리규약 제38조에 의거 수의계약으로 긴급보수 후 보고서를 갈음하여 소급 추인하기로 참석인원 만장일치로 의결하다.", "category": "의결", "vote": "만장일치"}, {"date": "2026-04-24", "meeting_type": "정기", "agenda_no": "1", "title": "03월분 관리비 부과명세서 심의 건.", "decision": "관리비 부과에 대하여 원안대로 승인의결 함. (※3개월 이상 체납 세대에 대하여 지속적인 독려 요망함.)", "category": "의결", "vote": ""}, {"date": "2026-04-24", "meeting_type": "정기", "agenda_no": "2", "title": "공인회계감사 선정 건", "decision": "제26조(회계감사)① 300세대 이상인 공동주택의 관리주체는 대통령령으로 정하는 바에 따라2025년도외부공인회계감사3개업체견적중 최저가업체인 회계법인 모아세무회계사무소 (800,000원 부가세별도)로 선정하여 회계감사를 실시하기로 전원의 찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-04-24", "meeting_type": "정기", "agenda_no": "3", "title": "부과명세서/전산업체 재계약 건", "decision": "부과명세서/전산업체인 백경인포시스템의 계약만료에 따라 관리규약 72조에 의하여 기존 사업자사업수행실적을평가하여(277,200원/월,26.07.01~27.06.30.1년)평가표를 게시판에 10일간 게시 후 이의서 제출자가 전체 세대수의 10%이하일 경우 재계약하기로 전원의 찬성으로 의결함", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-04-24", "meeting_type": "정기", "agenda_no": "4", "title": "소방시설 점검업체 재계약 건", "decision": "(주)경원소방 계약만료(26.06.30)에따라 (기간:26.07.01~27.06.30(1년)관리규약 제72조 에 의거하여 기존사업자 사업수행실적을 적격심사 방법으로 평가하여 평가표를 게시판 에 10일간 게시후이의서제출자가 전체 세대수의 10% 이하일 경우재계약 하기로 참석인원 전원의 찬성 으로 승인의결함", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-04-24", "meeting_type": "정기", "agenda_no": "5", "title": "경노당 어버이날 선물 구입의 건", "decision": "5월 8일 어버이날을 맞이하여 우리아파트 경노당 어르신 선물을 전년기준 50개, 개당@4,960원(주방세제4ℓ)을 공동체활성화 단체 지원비용으로 구입하여 선물하기로 전원의 찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-04-24", "meeting_type": "정기", "agenda_no": "6", "title": "단지내 광고업체 재계약 심의 건", "decision": "단지내 광고업체(원일기획) 의 계약만료(26.06.30)에따라(기간:26.07.01~28.06.30(2년))관리규약 제72조 에 의거하여 기존사업자 사업수행실적을 적격심사 방법으로 평가하여 평가표를 게시판 에10일간 게시후이의서제출자가 전체 세대수의 10%이하일 경우재계약 하기로 참석인원 전원의 찬성으로 의결함", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-04-16", "meeting_type": "임시", "agenda_no": "1", "title": "태화어린이집 폐원후 용도변경 및 공사관련 논의 건", "decision": "입주자 대표회의 발송공문(소명자료 및 행위허가서 제출)등 에 의거 집합건축물대장 및 행위허가서를 검토한바, 다음과 같이 의결 공고합니다. -다 음- - 업종 용도변경 허가 : 중랑구청 용도변경 행위신고함(행위대상: 입주자공유가 아닌 복리시설) (※ 행위내용: (기존)영육아보육시설 / (변경) 골프 연습장 (승인: 2026.03.19.) -공사중 발생되는 소음 및 분진등으로 인한 주민피해 최소화 조치 -단지내 이용차량 차량대수등 사전 협의등 상위내용의 근거와 향후 발생될 골프장운영 에 대한 최소화 대책강구 및 입주자등의편리 한 생활의 영위 삶을 위하여 관할구청에 행위허가 위법의심 및 현장점검등을 요청하기로 참석인원 전원 승인의결하다.", "category": "의결", "vote": "전원 승인"}, {"date": "2026-03-24", "meeting_type": "정기", "agenda_no": "1", "title": "02월분 관리비 부과명세서 심의 건.", "decision": "관리비 부과에 대하여 원안대로 승인의결 함. (※ 3개월 이상 체납 세대에 대하여 지속적인 독려 요망함.)", "category": "의결", "vote": ""}, {"date": "2026-03-24", "meeting_type": "정기", "agenda_no": "2", "title": "공동체 활성화단체 지원 건", "decision": "관리규약 제56조(공동체 활성화단체 활동 지원) ① 제54조 제2항 따라 구성 승인된 공동체 활 성화단체가 활동 지원을 받고자 할 때는 사업의 목적, 대상, 기간, 추진방법, 기대효과 및 소 요비용 등이 포함된 [별지 제5-2호서식] \"사업비 지원신청서\"를 입주자대표회의에 제출하고 승 인을 받아야 한다. 는 규정에 의거 공동체 활성화단체의 상반기사업계획서를 승인하며, 맥문동 식재,퇴비등 사업비(₩ 700,000월)를 지원하기로 전원의 찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-03-24", "meeting_type": "정기", "agenda_no": "3", "title": "장기수선충당금 적립 및 사용현황 보고", "decision": "2025년도 장기수선충당금 적립 및 사용현황 보고를 검토 심의결과 이상 없음을 확인하고, 게시판에 공고 하기로 전원찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-03-24", "meeting_type": "정기", "agenda_no": "4-1", "title": "1102동 승강기1호기 승강로 케이블교체및 1101동 외각 CCTV카메라 교체 추인의 건.", "decision": "장기수선계획에의한 수선주기가 도래하고,폐쇄회로 카메라등 확인결과 승강로 케이블 단선 및 케메라 고장으로 2개업체 견적서중 최저가 업체인(전우사(주)을 선정하여, 관리규약 제38조 에의거 수의계약으로 긴급보수후 보고서를 갈음하여 소급 추인하기로 참석인원 만장일치 로 의결하다.(공사금액:890,000원(vat별도)", "category": "의결", "vote": "만장일치"}, {"date": "2026-03-24", "meeting_type": "정기", "agenda_no": "4-2", "title": "관리사무소 사무용 컴퓨터 PC본체 구매 추인의 건.", "decision": "사무용 컴퓨터는 내용년수 및 노후화로 인하여 빈번한 애러로 원할한 업무수행을 위하여 우선적으로 구매하여 설치하였기에 소급 추인하기로 참석인원 만장일치로 의결하다.(구매액: 680,200원(vat별도) /구입처: 쿠팡", "category": "의결", "vote": "만장일치"}, {"date": "2026-03-24", "meeting_type": "정기", "agenda_no": "4-3", "title": "기타안건", "decision": "외벽균열보수 및 재도장공사에 준용한 산업안전보건법제73조(건설공사의 산업재해예방지도) 에의거 (주) 우신건설 안전기술단에 의뢰하여 산업재해 예방을 위한 지도계약을 체결하기로 참석인원 만장일치로 의결하다", "category": "의결", "vote": "만장일치"}, {"date": "2026-02-24", "meeting_type": "정기", "agenda_no": "1", "title": "2026년1월분 관리비 부과명세서 심의 건", "decision": "2026년도 1월분 관리비부과명세서는 원안대로 관리비 를 부과하기로 전원의찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-02-24", "meeting_type": "정기", "agenda_no": "2", "title": "화재보험,영업배상 책임보험등 재가입 의 건", "decision": "화재보험, 영업배상책임보험,어린이놀이시설,승강기사고배상책임보험(기간:2025.03.14.~2026.03.14.) 의 계약기간 만료일이도래하여 아래와 같은 금액으로 가입하기로 참석자 전원의 찬성으로 의결함 [보험 총금액:10,933,200원] - KB보험: 화재보험, 영업배상, 재난배상 책임보험 : 10,773,500원 - 삼성 :어린이 놀이터 배상보험 : 64,000원 - 메리츠 : 승강기 배상책임 보험 : 95,700원 (계약기간 : 2026.03.14~2027.03.14.) 26.02.28 25년차 이상 아파트의 보험가입 확인 결과, 영업배상 보험료의 인상 및 타 보험사 인수거절로 상위와 같이 가입하기로 전원의 찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-02-24", "meeting_type": "정기", "agenda_no": "3", "title": "외벽 균열보수 및 재도장공사 공개입찰 의 건.", "decision": "아파트 재도장은 건축물 노화방지, 단지 이미지 쇄신 및 미적인 기능을 부여하는 반면 단지 가치향상 및 입주민들의 쾌적한 환경개선 차원에서 2026년도 장기수선계획서에 의거 외벽균열보수 및 재도장공사 업체 선정은 국토교통부 사업자 선정지침에 따라 (k-apt전자입찰 방식) 공개 경쟁입찰 최저가제로 공사업체를 선정하기로 승인의결 하다.", "category": "의결", "vote": ""}, {"date": "2026-02-24", "meeting_type": "정기", "agenda_no": "4", "title": "SK텔레콤 중계기 임대 재계약 건", "decision": "SK 옥상중계기 계약만료에따른 재계약 요청에 대하여 검토한바, 전년과 같은 임차료 조건으로 (4,700,000원/년) 2026.04.05~ 2028.04. 04.(2년)으로 재계약하기로 전원의 찬성으로 의결함", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-02-24", "meeting_type": "정기", "agenda_no": "5", "title": "FY2025 결산서 및 이익잉여금 처분 건", "decision": "FY2025년도 회계년도 결산에 따라 결산보고 및 이익 잉여금 처분을 관리규약 제62조 잡수입의 집행및 회계 처리 공개에 따라 결산서를 검토하여, 승인하며 다음과 같이 이익 잉여금 처분계산서 와 같이이익잉여금을 처분하기로 전원의 찬성으로 의결함. • 처분내역(총 금액 : 90,967,549 원) -장기수선충당금 : 33,455,699원 - 예비비 적립금 : 11,000,000원 -관리비 차감금액 : 46,511,850원", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-02-24", "meeting_type": "정기", "agenda_no": "6", "title": "공동주택 지원사업신청 건", "decision": "중랑구 공고 제2026-140호 의거 중랑구에서는 공동 주택의 쾌적한 주거환경조성과 입주민의 화합 및 공동체 의식함양을 위하여 공고한 공동주택 지원사업 에 대하여 우리 아파트는 공용시설물의 유지관리 사업으로 외벽균열보수및재 도장공사등 사업을 선정하여(예상견적가:497,400,000원의 최고상한가 3,000만원 지원신청 (부가세별도) 신청하기로 의결하며, 공용시설물 유지관리사업 선정시 장기수선충당금 에서 지출하며, 공개경쟁입찰에 의거 k-apt에 전자입찰, 최저가 낙찰로 업체를 선정하여 공사를 진행하기로 전원의 찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-02-24", "meeting_type": "정기", "agenda_no": "7", "title": "기타의(안) : 1101동~1106동 복도 샷시 (신설)공사의 건.", "decision": "각동복도 샷시 (신설)공사 민원건은 사용검사일 기준 30년차로 장기수선계획서상.옥상우레탄방수, 외벽 크랙보수 및 도색공사등 시설물유지관리의 공사우선순위로인하여,동절기 결빙방지등의 차원의 문제로 설치주문은 충분히 이해가 되나, 장기수선 계획에 없고, 공사비용등이 과대 예상되므로 장기 수선적립액 등과 차기 장기수선계획 조정시 종합적으로 검토해 봄이 타당하다 사료되어 참석인원 전원 부결 처리하기로 결의하다.", "category": "부결", "vote": ""}, {"date": "2026-01-19", "meeting_type": "정기", "agenda_no": "1", "title": "12월분 관리비 부과명세서 심의 건.", "decision": "관리비 부과에 대하여 원안대로 승인의결 함. (※3개월 이상 체납 세대에 대하여 지속적인 독려 요망함.)", "category": "의결", "vote": ""}, {"date": "2026-01-19", "meeting_type": "정기", "agenda_no": "2", "title": "저수조 청소업체 재계약의 건.", "decision": "저수조청소업체(주)금강종합개발(계약기간:2025.03.01.~2026.02.28.)만료일이도래함에따라 (2,200,000원/1년/2회, (부가세 별도) 와 관리규약 72조에 의하여 기존사업자 사업수행실적을 평가하여 평가표를 게시판에 10일간 게시 후 이의서 제출자가 전체 세대수의 10% 이하일 경우 재계약하기로 전원의 찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-01-19", "meeting_type": "정기", "agenda_no": "3", "title": "낙엽 및 전 지목 처분 건", "decision": "우리 아파트 단지 내 낙엽 및 전지 목을 처분하고자 3개업체 견적서중 최저가 업체인 청정 산업을 선정하여 마대낙엽등 (5톤x1대당 600,000원.(vat별도) 2대 이상을 처분하기로 전원 찬성 으로 의결함", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-01-19", "meeting_type": "정기", "agenda_no": "4", "title": "수,변전설비 긴급 보수의 건", "decision": "2026년도 장기수선계획에 의거 장기수선충당금 사용계획서를 승인하며, 3개 업체 견적서중 최저가 업체인 (주) 성창파워택 (₩3,100,000원, 부가세 별도) 전기실 ASS(절환스위치)장비를 교체 하기로 전원찬성 으로 의결함", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-01-19", "meeting_type": "정기", "agenda_no": "5", "title": "공동체 활성화단체 지원 건", "decision": "관리규약 제56조(공동체 활성화단체 활동 지원) ① 제54조 제2항 따라 구성 승인된 공동체 활성화단체가 활동 지원을 받고자 할 때는 사업의 목적, 대상, 기간, 추진방법, 기대효과 및 소요비용 등이 포함된 [별지 제5-2호서식] \"사업비 지원신청서\"를 입주자대표회의에 제출하고 승인을 받아야 한다. 는 규정에 의거 공동체 활성화단체의 2026년도 사업계획서의 인상건에 대 하여는 입주자등의 의견을 반영하여 논의 한바, 위원들의 의견을 심사숙고 하여 전년도 동일한 금액으로1월분 사업비를 지원하기로 전원의 찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2026-01-19", "meeting_type": "정기", "agenda_no": "6", "title": "장기수선충당금 만기에 따른 금융기관 예치 심의 건.", "decision": "• 예금자 이용보호법에 근거한 금원을 배분하여 다음과 같이(예치) 하기로 승인 의결하다. [표] 은행(예치): 만기금액 437,713,759 → 1. 동서울 농협 이율 2.80% 처분금액 145,900,000 / 2. 새마을금고 이율 2.80% 처분금액 145,900,000 / 3. 국민은행 이율 2.84% 처분금액 145,913,759 / 예치기간 1년", "category": "의결", "vote": ""}, {"date": "2025-12-22", "meeting_type": "정기", "agenda_no": "1", "title": "11월분 관리비 부과명세서 심의 건.", "decision": "2025년도 11월분 관리비부과명세서는 원안대로 관리비를 부과하기로 전원의 찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-12-22", "meeting_type": "정기", "agenda_no": "2", "title": "사회복지 공동모금회 기부금 지출 심의 건", "decision": "매년 기부해오는 사회복지공동모금회 기부금 20만원을 불우이웃돕기 성금으로 잡지출 에서 기부하기로 전원의 찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-12-22", "meeting_type": "정기", "agenda_no": "3", "title": "주택관리업자 재 계약 건", "decision": "주택관리업자 선정시 경쟁입찰 및 수의계약 중요사항에대해 입주자등의 과반수 동의를 받도록의무화하는「공동주택관리법』일부개정법률안개정•공포(법률제 18937호, 22.6.10공포)에 따라 기존주택관리업자 (주)서일개발 와의 재계약(수의계약)을 최저임금 및 물가인상 요인등으로 다음과 같이 계약금액을 조정하여(계약기간연장) 하기로 전원찬성 으로 의결하고 선거관리위원회에서 입주자등의 과반수 동의업무를 요청하기로 의결함. - 다음 - [표] 현재금액 288,110원 / 변경금액 345,730원 / 인상(㎡당:1원) 57,620원/월 / 계약기간(2년) 2026.03.16.~2028.03.15 / 비고 VAT 별도", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-12-22", "meeting_type": "정기", "agenda_no": "4", "title": "장기수선 계획 검토 및 수립의 건.", "decision": "공동주택관리법제29조제2항 및 동법제30조 (장기수선계획수립) 에 의거 장기수선계획 (안)에 대하여 아래 목적에 부합하기위하여 참석인원 전원 찬성으로 승인의결하다 [장기수선계획서 목적] ① 시설물의 내용연수와 상태에 따라 언제 어떠한 수선을 해야 하는지를 미리 계획하여 이 에 따른 비용을 적립함으로써 시설물의 수명을 유지. ② 시설물에 대한 계획수선이 이루어져야 공동주택의 쾌적한 환경이 구현되며, 소유자의 자산 가치가 보존된다.", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-11-20", "meeting_type": "정기", "agenda_no": "1", "title": "10월분 관리비 부과명세서 심의 건.", "decision": "관리비 부과에 대하여 원안대로 승인의결 함. (※3개월 이상 체납 세대에 대하여 지속적인 독려 요망함.)", "category": "의결", "vote": ""}, {"date": "2025-11-20", "meeting_type": "정기", "agenda_no": "2", "title": "기계설비 성능점검 업체 선정 건.", "decision": "기계설비유지관리기준(국토교통부고시제2021-1031호2021.8.9.제정)500세대이상1천세대미만의공동주택 난방방식(지역난방방식을포함한다)에 의거 우리아파트는 1년1회 이상 기계설비 성능점검을 실시하여야 함에 따라 3개 업체의 견적서중 최저가업체인 (주)이케이 기계설비(1,800,000원,부가세별도)의 수의계약 으로 선정하여, 점검하기로 전원의 찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-11-20", "meeting_type": "정기", "agenda_no": "3", "title": "2025년도 예산안 및 사업계획서 심의 건", "decision": "고용노동부고시제2025-47호 의거 2026년도 최저임금이2,9% 인상되어, 이에맞춰 경비,미화, 관리직원 의 급여를 2,9 % 인상하여,2026년도사업계획 및 예산(안)을 전원의 찬성으로 의결함 (※시행일 : 2026년01월01일)", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-11-20", "meeting_type": "정기", "agenda_no": "4", "title": "내연차,전기차 공용주차 충전설비설치에 관한 심의 건.", "decision": "전기차 충전설비 설치에대하여는 향후전기차 수요증가 및 정부 충전시설 설치 지원금축소등으로 2026년 1월27일까지 설치는 최대무상 지원하며. (한국전력 인입선이용 및 지상설치시 조건부지원) 이후, 충전기설치 공사비용는 아파트 자부담이 발생할수 있다는 정부 정책에 따라, 전기차 충전설비 추가설치에 다음과 같이 승인의결하다. 1) 아파트 자체 변압기시설의 예비전력이 부족으로1106동패드(한국전력입입선)을 이용하여 충전시설설치 2) 설치 장소 : 1104동↔1106동 범위내에서: 5대 설치(무상설치) 3) 1105동앞 기존충전시설 5대 : 주차구크기 협소로 인하여 주민등의 민원이 있기에 내연차, 전기차 구분없이 겸용/병행주차로 전환하기로 한다. 4) 신설 충전시설 5대 : 법정주차대수 2%(5대) 의무설치 변경허가. 5) 설치 회사명 : 플러그 링크 (PLUG LINK)", "category": "의결", "vote": ""}, {"date": "2025-11-20", "meeting_type": "정기", "agenda_no": "5", "title": "기타(안) : 지하저수조 정수위밸브 자동센스공사 추인의 건", "decision": "장기수선계획에 의한 수선주기가 도래하고 현장확인 결과 정수위 밸브 센스등이상으로 2025년도 장기수선 계획에 의한 장기수선충당금 사용계획서를 추인하며 2개 업체의 견적서중 최저가 업체인 남성전자레밸(주) (780,000원, vat별도) 업체를 선정하여 관리규약 제38조에 의거수의계약 으로 긴급보수후보고서를 갈음하여 추인 하기로 참석인원 만장일치 로 의결하다.", "category": "의결", "vote": "만장일치"}, {"date": "2025-10-23", "meeting_type": "정기", "agenda_no": "1", "title": "09월분 관리비 부과명세서 심의 건.", "decision": "관리비 부과에 대하여 원안대로 승인의결 함. (※3개월 이상 체납 세대에 대하여 지속적인 독려 요망함.)", "category": "의결", "vote": ""}, {"date": "2025-10-23", "meeting_type": "정기", "agenda_no": "2", "title": "동절기 염화칼슘 구입 건", "decision": "동절기 제설작업용 염화칼슘(현재 재고량:약74포)을 사전 구입하여 제설작업에 사용하고자 (100포구매) 견적서3개업체중 최저가 업체인 (주)뉴스타케미칼에서 920,000원(부가세별도) 으로 전원찬성으로 구입하기로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-10-23", "meeting_type": "정기", "agenda_no": "3", "title": "수도계량기 보온덮게 구입 건", "decision": "온수, 냉수계량기 동파방지용보온덮게810개를 최저가업체인(주)젤릉:1,511,800원(부가세 별도)으로 전원찬성으로 구입하여 세대에 배포하기로 의결함", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-10-23", "meeting_type": "정기", "agenda_no": "4", "title": "승강기 쉬브등 교체 심의 건.", "decision": "1104동 입주자등의 승강기 소음민원으로 인해 다각도 로 현장을 조사한바, 옥상 기계 실에 설치되어 있는 승강기 쉬브에서 소음 발생으로 확인되었습니다, 따라서 2025년도 장 기수선계획에 의거 장기수선충당금 사용계획서를 승인하며, 3개 업체 견적중 최저가 업체 인 (대경엘리베이트: 4,120,000원, 부가세 별도) 에 의뢰하여 1104동2호기 쉬브X2개 를 교 체하기로 전원찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-10-23", "meeting_type": "정기", "agenda_no": "5", "title": "포커스 미디어 광고 재 계약 심의 건", "decision": "승강기TV광고업체 (포커스미디어(주) (402,000원/월/2년 (전기세/부가세포함,) 와 관리 규약 72조에 의하여 기존사업자 사업수행실적을 평가하여 평가표를 게시판에 10일간 게시 후 이의서 제출자가 전체 세대수의 10%이하일 경우 재계약하기로 전원의 찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-10-23", "meeting_type": "정기", "agenda_no": "6", "title": "공동체 활성화 단체 지원 건", "decision": "관리규약 제56조(공동체 활성화 단체 활동지원) ① 제54조제2항 따라 구성 승인된 공동체 활성화 단체가 활동지원을 받고자 할 때에는 사업의 목적, 대상, 기간, 추진방법, 기대효과 및 소요비용 등이 포함된 [별지 제5-2호서식] \"사업비 지원신청서를 입주자대표회의에 제출 하고 승인을 받아야 한다. 는 규정의 의거 공동체활성화 단체의사업계획서을 승인하며, 하반 기 사업비(200,000원)를 지원하기로 전원의 찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-10-23", "meeting_type": "정기", "agenda_no": "7", "title": "제2기계실 급탕열판 누수 긴급보수 추인의 건.", "decision": "장기수선계획에의한 수선주기가 도래하고, 누수현장 확인결과 제2기계실 급탕열판누수 가 발생하여 3개업체 견적서중 최저가 업체인 (한국난방(주)):1,420,000(VAT별도) 선정하여, 관리규약 제38조 에 의거 수의계약으로 긴급보수후 보고서를 갈음하여 소급 추인하기 로 참석인원 만장일치로 의결하다.", "category": "의결", "vote": "만장일치"}, {"date": "2025-09-23", "meeting_type": "정기", "agenda_no": "1", "title": "08월분 관리비 부과명세서 심의 건.", "decision": "관리비 부과에 대하여 원안대로 승인의결 함. (※3개월 이상 체납 세대에 대하여 지속적인 독려 요망함.)", "category": "의결", "vote": ""}, {"date": "2025-09-23", "meeting_type": "정기", "agenda_no": "2", "title": "추석명절 상여금 지급 의 건.", "decision": "추석명절을 맞이하여 직원들의근무의욕과 사기진작 차원으로 (복리후생/경비비/청소비) 비목으로 전년도와 동일한 조건의 금원을 지급하기로 승인의결 .", "category": "의결", "vote": ""}, {"date": "2025-09-23", "meeting_type": "정기", "agenda_no": "3", "title": "수목 전지작업 공개입찰 심의 건.", "decision": "단지내 수목 전지, 전정작업 하기로 의결함에 따라 전지작업 업체선정 k-apt전자입찰 공고전 입주자등에게 (찬,반) 동의 의견을 수렴 하여 입주자등 과반수이상 찬성 동의 일때 제한경쟁 최저가 입찰을 통하여 업체 선정하기로 승인의결하다.", "category": "의결", "vote": ""}, {"date": "2025-09-23", "meeting_type": "정기", "agenda_no": "4", "title": "장기수선계획 전문업체 재계약 심의 건.", "decision": "장기수선계획 전문업체 파트너스의 계약만료(55,000원/(월) (22.12.01~25.12.01(3년))에 따라 관리규약제72조 에 의거하여 기존사업자 사업수행실적을 적격심사 방법으로 평가하여 평가표를 게시판에10일간 게시후 이의서 제출자가 전체 세대수의 10%이하일 경우 재계약 하기 로 참석 인원 전원의찬성으로 승인의결함", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-09-23", "meeting_type": "정기", "agenda_no": "5", "title": "기타(안) : 외부회계감사 수감 보고의 건", "decision": "공동주택관리법 시행령 제27조의 1항(관리비 등의 회계감사)에 의거 법무법인 정평에 의뢰하여 [기간:2024.01.01.~12.31(1년)] 수감 한바, 재무제표(재무상태, 경영성과, 이익잉여금처분 등) 는 회계정책의 적합성과 합리성, 투명성에 대한 감사의 의견은 공동주택 법령 및 관리규약에 규정한 회계 처리 기준에 따라 관리주체는 「적합』 하게 작성하고 있다는 평가임.", "category": "", "vote": ""}, {"date": "2025-08-20", "meeting_type": "정기", "agenda_no": "1", "title": "07월분 관리비 부과명세서 심의 건.", "decision": "관리비 부과에 대하여 원안대로 승인의결 함. (※3개월 이상 체납 세대에 대하여 지속적인 독려 요망함.)", "category": "의결", "vote": ""}, {"date": "2025-08-20", "meeting_type": "정기", "agenda_no": "2", "title": "경비 용역업체 재계약의 건", "decision": "경비용역업체인 웅산산업개발의 계약만료(24.10.31) 에 따라(기간:25.11.01~27.10.31(2년)) 관리규약 제72조 에 의거하여 기존사업자 사업수행실적을 적격심사 방법으로 평가하여 평가표를 게시판 에10일간 게시후 이의서 제출자가 전체 세대수의 10%이하일 경우재계약 하기로 참석인원 전원의 찬성으로 승인의 결함", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-08-20", "meeting_type": "정기", "agenda_no": "3", "title": "공동체 활성화 단체 지원 건", "decision": "관리규약 제56조(공동체 활성화단체 활동 지원) ① 제54조 제2항 따라 구성 승인된 공동체 활성화단체의 [별지 제5-2호서식] \"사업비 지원신청서\"의 계획서 토대로 반영하여 하반기 지원사업비를 (₩ 300,000원) 지원하기로 승인의결.", "category": "의결", "vote": ""}, {"date": "2025-08-07", "meeting_type": "선정결과 공고", "agenda_no": "-", "title": "청소용역업체 선정결과 공고 (신내 대명아파트 관리소장 명의)", "decision": "주택관리업자 및 사업자 선정지침 제2024-193호 제11조에의거 청소용역업체 선정결과를 공고. 1.입찰공고내용 : 청소용역업체 선정 - 선정방법 : 제한경쟁입찰 /적격심사제 2.선정결과내용 : - 업체명 : 예주산업(주) - 계약금액 : (월)8,552,610원/(년)102,631,320 - 계약기간 : 계약일로부터 2년 3.적격심사결과 : 1 예주산업(주) 100 낙찰 / 2 (주)에코그린 96.5 / 3 (주)인동 94.5 / 4 (주)나라개발 97 / 5 (주)청아시스템 98 / 6 (주)신화BMC 94.5 / 7 (주)두원A&C 95.5 / 8 (주)듀델코리아 97 / 9 (주)승학 97 / 10 화이트시스템 97", "category": "", "vote": ""}, {"date": "2025-07-23", "meeting_type": "정기", "agenda_no": "1", "title": "06월분 관리비 부과명세서 심의 건.", "decision": "관리비 부과에 대하여 원안대로 승인의결 함. (※ 3개월 이상 체납 세대에 대하여 지속적인 독려 요망함.)", "category": "의결", "vote": ""}, {"date": "2025-07-23", "meeting_type": "정기", "agenda_no": "2", "title": "판형 열교환기 세관 작업 심의 건", "decision": "아파트 기계실 열교환기 세관작업으로 열효율향상 및 수명연장 하기위해 응찰 3개업체중 최저업체를 선정하여 세관 작업 실시하기로 함. -업체명:한국난방관리(주) - 금액 : 2,060,000(vat별도) - 계정과목 : 장기수선충당금", "category": "", "vote": ""}, {"date": "2025-07-23", "meeting_type": "정기", "agenda_no": "3", "title": "저수조 정수위밸브등 교체 심의 건.", "decision": "장기수선계획에 의한 수선주기가 도래하고 현장확인 결과 정수위 밸브(150φ) 고장으로 판명 이되어 2025년도 장기수선계획에의한 장기수선충당금 사용계획서를 승인하며 3개 업체의 견적서중 최저가 업체인 (주)남성전자레벨 (2,800,000원, 부가세별도) 으로 수의계약으로 선정하여 교체공사 하기로 전원의 찬성으로 승인의결 함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-07-23", "meeting_type": "정기", "agenda_no": "4", "title": "하계 휴가비 지급 건", "decision": "□ 관리소직원 및 경비,미화원 하계휴가를 실시하기로하며, 하계휴가비 지급에 대하여 아래와같이 참석인원 전원의 찬성 으로 의결함. 1) 관리직원(6), 에 대하여 하계휴가비지급은 관리실 직원에게 전년도와 동일하게 1인당 10만원씩 지급 하기로하다. 2) 경비,(12), 미화원(5) 대원에게 전년도와 동일하게 각 5만원씩「잡지출」로 지급하기로 하다.", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-07-23", "meeting_type": "정기", "agenda_no": "5", "title": "관리소직원 연차 휴가 조정 심의 건.", "decision": "(현행) ① 입사1년차미만 매월1일 발생(11일) 유급(수당)지급 1년지난기간 일수(15일) 에 대하여는 수당지급. ② 1년이상 기존직원 은 특별한 사유가 없는한 15일+2년(1일) 유급(수당)적용 ③ 하계휴가 → 「4일」유급적용 (조정) ① 입사1년차미만 매월1일 발생(11일) 하계휴가시 사용촉진 적용하고, 그외 대하여는 수당지급. ② 1년이상 기존직원 은 특별한 사유가 없는한 15일+2년(1일) 수당지급 ③ 하계휴가(4일)유급 (삭제 )→ 연차사용촉진 ④ 적용(시행)일 → 2025년07월1일부터 소급적용 ~", "category": "", "vote": ""}, {"date": "2025-07-23", "meeting_type": "정기", "agenda_no": "6-1", "title": "CCTV (폐쇄회로) 선로 긴급 보수공사 추인의 건.", "decision": "장기수선계획에 의한 수선주기가 도래하고 현장확인 결과 매입관 선로이상 등 2025년도 장기수선 계획에 의한 장기수선충당금 사용계획서를 추인하며 3개 업체의 견적서중 최저가 업체인 (주)전우사 (400,000원, 부가세별도) 업체를 선정하여 관리규약 제38조에 의거 수의계약으로 긴급보수후보고서 를 갈음하여 소급추인 하기로 참석인원 만장일치 로 의결하다.", "category": "의결", "vote": "만장일치"}, {"date": "2025-07-23", "meeting_type": "정기", "agenda_no": "6-2", "title": "청소용역업체 공개입찰 선정 및 근로자(미화원) 계약 추인의 건", "decision": "청소용역업체 강일기업(주)의 재정 및 경영악화로인해 파산선고(사건번호:2025하 합564:2025.7.14.)됨에 따라 다음과같이 승인 의결하기로 하다. 1) 청소용역업체 선정은 국토교통부 사업자 선정지침에 따라공개경쟁입찰 적격심사제로 k-apt전자입찰 방식으로 용역업체를 선정하기로 하다. 2) 당, 아파트 근로종사자(미화원(4명),외각청소(1명) 기간정함이 있는 계약서에 체결에 대하여 소급추인 하기로하며, 보전중인 금액(미지급여,퇴직금.연차수당등) 은 파산선고일부터 청소용역업체 선정, 계약일 까지 선정업체와 협의하여 지급하기로 하다.", "category": "의결", "vote": ""}, {"date": "2025-07-23", "meeting_type": "정기", "agenda_no": "6-3", "title": "각 동별 경비원 순회 배치의 건", "decision": "동별 업무효율성 및 경비원들간의 구역. 활동업무범위조정, 근무의욕과 근태 효율성 향상을 위하여 동별 순환배치 하기로 하다.(※공고문 참조)", "category": "", "vote": ""}, {"date": "2025-06-19", "meeting_type": "정기", "agenda_no": "1", "title": "05월분 관리비 부과명세서 심의 건.", "decision": "관리비 부과에 대하여 원안대로 승인의결 함. (※3개월 이상 체납 세대에 대하여 지속적인 독려 요망함.)", "category": "의결", "vote": ""}, {"date": "2025-06-19", "meeting_type": "정기", "agenda_no": "2", "title": "사무실 복사기 임대계약 심의건", "decision": "사무실 복사기 임대계약 (24.08.19~25.08.19(1년))에 따라 관리규약제72조 에 의거하여 기존사업자 사업수행실적을 적격심사 방법으로 평가하여 평가표를 게시판에10일간 게시후 이의서 제출자가 전체 세대수의 10%이하일 경우 재계약 하기로 참석인원 전원의찬성으로 승인의결함", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-06-19", "meeting_type": "정기", "agenda_no": "3", "title": "장기수선충당금 만기에따른금융기관 예치심의 건", "decision": "• 예금자 이용보호법에 근거한 금원을 배분하여 다음과 같이(예치/적금) 하기로 승인 의결하다. [표] 은행(예치): 1. 만기금액 370,100,201 → 동서울 농협 이율 2.70% 처분금액 145,599,020 / 우리 은행 이율 2,39% 처분금액 145,599,021 / 새마을 금고 이율 3.30% 처분금액 78,902,160 / 기간 1년 [표] 은행(적금): 1. 월 적금 6,575,180 / 새마을 금고 이율 3.30% 처분금액 6,575,180 / 기간 1년", "category": "의결", "vote": ""}, {"date": "2025-06-19", "meeting_type": "정기", "agenda_no": "4", "title": "직원 체력단련비 지급 및 단합의 건", "decision": "• 직원들의 사기앙양 및 단합차원으로 예산에 준한 금원을 체력단련비로 참석인원 전원찬성으로 지급하기로 의결하다. ~", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-06-19", "meeting_type": "정기", "agenda_no": "5-1", "title": "1103동 지하공동구 난방(PDCV: 차압유량계)교체 및 배관공사 긴급보수의 건.", "decision": "장기수선계획에의한 수선주기 계획서에 의거, 1103동지하공동구, 현장 확인결과 난방횡주관 차압유량계 누수가 발생하여 3개업체 견적서중 최저가(₩2,470,000원(VAT별도) 업체인 한국난방 공사(주)) 을 선정 하여, 관리규약 제38조에 의거 수의계약으로 긴급보수후 보고서를 갈음하여 소급추인 하기로 참석인원 만장일치 로 의결하다.", "category": "의결", "vote": "만장일치"}, {"date": "2025-05-22", "meeting_type": "정기", "agenda_no": "1", "title": "04월분 관리비 부과명세서 심의 건.", "decision": "관리비 부과에 대하여 원안대로 승인의결 함. (※3개월 이상 체납 세대에 대하여 지속적인 독려 요망함.)", "category": "의결", "vote": ""}, {"date": "2025-05-22", "meeting_type": "정기", "agenda_no": "2", "title": "소방시설 점검업체 선정의 건", "decision": "현, 소방시설점검업체인(주)서울소방(계약기간:2024.07.01.~2025.06.30.)의 계약만료에 따른 연장 재계약을 하지 않기로 의결하며, 서울소방 외1개업체 견적중 최저가 업체인 경원소방 (월350,000원/부가세별도)로 선정하기로 전원의 찬성으로 의결함", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-05-22", "meeting_type": "정기", "agenda_no": "3", "title": "어린이놀이터 바닥재교체 민원 건", "decision": "우리아파트 장기수선계획 정기조정 시(2023년~ 25년) 어린이놀이터 바닥재 교체공사 계획이 없으며, 현재까지의 우리아파트 장기수선충당금 적립 현황 및 옥상우레탄 방수, 노후시설물 보수 및 교체 등 시급한 현안을 종합적으로 검토 한 바, 어린이놀이터 이용에 다소 불편함이 있지만, 어린이놀이터 바닥재 교체사업을 우선적으로 선정할 수 없음을 참석인원 전원의 찬성 으로 부결처리함.", "category": "부결", "vote": "전원 찬성"}, {"date": "2025-05-22", "meeting_type": "정기", "agenda_no": "4", "title": "(기타) 알뜰시장 운영사업자 선정의 건.", "decision": "알뜰장 운영업체 선정은(k-apt)전자입찰2회에 거쳐공고하였으나,2회유찰로인하여 국토 교통부 사업자 선정지침 제「별표2」제4조3항관련 7항에의거 응찰업체 2개중 견적서 최고가를 제출한 ((주)다온유통)업체를 선정하기로 참석인원 만장일치로 찬성의결하다. (단,계약준수 및 계약기간내 계약체결 미, 이행시 차선응찰업체를 선택하여 계약하기로하다)", "category": "의결", "vote": "만장일치"}, {"date": "2025-04-22", "meeting_type": "정기", "agenda_no": "1", "title": "03월분 관리비 부과명세서 심의 건.", "decision": "관리비 부과에 대하여 원안대로 승인의결 함. (※3개월 이상 체납 세대에 대하여 지속적인 독려 요망함.)", "category": "의결", "vote": ""}, {"date": "2025-04-22", "meeting_type": "정기", "agenda_no": "2", "title": "공인회계감사 선정 건", "decision": "제26조(회계감사)① 300세대 이상인 공동주택의 관리주체는 대통령령으로 정하는 바에 따라 2024년도외부공인회계감사 3개업체 견적중 최저가업체인 회계법인 정평(800,000,부가세별도)로 선정하여 회계감사를 실시하기로 전원의 찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-04-22", "meeting_type": "정기", "agenda_no": "3", "title": "부과명세서/전산업체 재계약 건", "decision": "부과명세서/전산업체인 백경인포시스템의 계약만료에 따라 관리규약 72조에 의하여 기존사업자 사업수행 실적을 평가하여(277,200원/월, 24.07.01~ 25.06.30. 1년) 평가표를 게시판에 10일간 게 시 후 이의서 제출자가 전체 세대수의 10%이하일 경우 재계약하기로 전원의 찬성으로 의결함", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-04-22", "meeting_type": "정기", "agenda_no": "4", "title": "소방시설 점검업체 재계약 건", "decision": "소방시설점검업체인 (주) 서울소방의 계약만료에 따라 (415,000원/월, 25.07.01~ 26.06.30. (1년) 소방법개정등 요인으로 전년대비약25.76% 인상된 금액으로 재계약을 요청에 대하여 점검 비용을 하향 조정,요청하기로 통지 하며, 차기회의시 점검업체 선정하기로 전원의 찬성으로 의결함", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-04-22", "meeting_type": "정기", "agenda_no": "5", "title": "경로당 어버이날 선물 구입 건", "decision": "5월 8일 어버이날을 맞이하여 우리아파트 경로당 어르신 선물을 전년기준 50개, 개당 @5,040원 상당품(주방세제4ℓ)을 공동체활성화 단체 지원비용으로 구입하여 선물하기로 전원의 찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-04-22", "meeting_type": "정기", "agenda_no": "6", "title": "알뜰시장 운영사업자 선정 심의건", "decision": "알뜰시장 운영 연장에 대하여 회사내부사정으로 재계약 연장 포기함에 따라 K-apt 전자입찰을 통해 업체를 선정 하기로 참석인원 전원 찬성하기로 의결함", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-04-22", "meeting_type": "정기", "agenda_no": "7", "title": "공동체 활성화 사업비 지원 심의 건", "decision": "관리규약 제56조(공동체 활성화 단체 활동지원) ① 제54조제2항 따라 구성 승인된 공동체 활성화 단체가 활동지원을 받고자 할 때에는 사업의 목적, 대상, 기간, 추진방법, 기대효과 및 소요비용 등 이 포함된 [별지 제5-2호서식] \"사업비 지원신청서\"를 입주자대표회의에 제출하고 승인을 받아야 한다. 는 규정의 의거 공동체활성화 단체의사업계획서을 승인하며, 사업비(600,000원)를 지원하기로 전원의 찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-04-22", "meeting_type": "정기", "agenda_no": "8-1", "title": "1106동3,4라인 급탕입상관 긴급보수의 건.", "decision": "장기수선계획에의한 수선주기가 도래하고, 누수현장 확인결과 6동3,4라인 입상관 균열로 누수가 발생하여 2개업체 견적서중 최저가 업체인 (해동설비) 을 선정하여, 관리규약 제38조 에의거 수의계약으로 긴급보수후 보고서를 갈음하여 소급 추인하기로 참석인원 만장일치 로 의결하다.", "category": "의결", "vote": "만장일치"}, {"date": "2025-04-22", "meeting_type": "정기", "agenda_no": "8-2", "title": "기계실 급수 모터/펌프(심한)소음 베어링 교체 긴급 공사의 건.", "decision": "장기수선계획에의한 수선주기가 도래하고,기계실 급수모타/펌프(30HP*22KW) 현장확인결과 소음이 매우 심하여 2개업체 견적서중 최저가업체인(유광엔지니어링)선정하여 관리규약제38조 에의거 수의 계약으로 긴급보수후 보고서를 갈음하여 소급 추인하기로 참석인원 만장일치로 의결하다.", "category": "의결", "vote": "만장일치"}, {"date": "2025-04-22", "meeting_type": "정기", "agenda_no": "8-3", "title": "기타안건", "decision": "단지내 출입구 봄맞이 환경정비 차원으로 초화류을 식재하기로 결의하다. -구입처 : 금란화원 -장소: 조형물 3곳, 화분 2곳(메리골드외 1종) -금액 : 132,000원", "category": "의결", "vote": ""}, {"date": "2025-04-22", "meeting_type": "정기", "agenda_no": "8-4", "title": "기타안건", "decision": "공동체 활성화 단체(단지내 봉사단)에서 5월10일(토) 단지내 맥문동등 식재작업시 참여하는 관리원등 에게 점심식사 제공하기로 결의하다", "category": "의결", "vote": ""}, {"date": "2025-03-19", "meeting_type": "정기", "agenda_no": "1", "title": "02월분 관리비 부과명세서 심의 건.", "decision": "관리비 부과에 대하여 원안대로 승인의결 함. (※3개월 이상 체납 세대에 대하여 지속적인 독려 요망함.)", "category": "의결", "vote": ""}, {"date": "2025-03-19", "meeting_type": "정기", "agenda_no": "2", "title": "KT 중계기 임대 재계약 심의 건.", "decision": "옥상중계기 임대((주) KT) 임대차 재계약계약(2023.06.11~2025.06.10.) 만료일이 도래 하여 관리규약제72조에 의하여 기존사업자 사업수행실적을 평가하여 평가표를 게시판에 10일간 게시후이의서 제출자가 전체 세대수의10%이하일 경우재계약하기로 참석자 전원의 찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-03-19", "meeting_type": "정기", "agenda_no": "3", "title": "장기수선충당금 적립 및 사용현황 보고", "decision": "2024년도 장기수선충당금 적립 및 사용현황 보고를 검토 심의결과 이상 없음을 확인하고, 게시판에 공고 하기로 전원찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-03-19", "meeting_type": "정기", "agenda_no": "4", "title": "1106동 ○○○호 난방비 환불 요청의 건.", "decision": "난방비 환불 요건을 심사숙고한바,입주자등 원안에 대하여 인용하기로 하며. 난방 유량부 및 지시부 교체 비용에 환불금액으로 상계하기로 승인의결하다.", "category": "의결", "vote": ""}, {"date": "2025-02-19", "meeting_type": "정기", "agenda_no": "1", "title": "01월분 관리비 부과명세서 심의 건.", "decision": "관리비 부과에 대하여 원안대로 승인의결 함. (※3개월 이상 체납 세대에 대하여 지속적인 독려 요망함.)", "category": "의결", "vote": ""}, {"date": "2025-02-19", "meeting_type": "정기", "agenda_no": "2", "title": "청소용역업체 재계약 건", "decision": "청소용역업체(주)강일기업 (8,552,610원/월/23.05.01~25.04.30(2년)의 계약만료일이 도래 하여 관리규약제72조에 의하여 기존사업자 사업수행실적을 평가하여 평가표를 게시판에10일간 게시 후 이의서 제출자가 전체 세대수의 10%이하일 경우재계약하기로 참석자 전원의 찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-02-19", "meeting_type": "정기", "agenda_no": "3", "title": "알뜰시장 재계약 건", "decision": "알뜰시장 세명농산(주). (23.05.01~25.04.30.(2년)의계약만료일이도래하여 경기침체 및 시장경제 악화로 재계약 인하조정을 요청하기에 심사숙고한바, 제안 조정금액 (7,500,000원/vat포함)에 대하여 (계약기간:25.05.01~26.04.30(1년) 계약하되 관리규약제72조에 의하여 기존사업자 사업 수행실적을 평가하여 평가표를 게시판에 10일간 게시 후 이의서 제출자가 전체 세대수의 10% 이하일 경우 재계약하기로 참석자 전원의 찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-02-19", "meeting_type": "정기", "agenda_no": "4", "title": "화재, 영업배상등 보험 재가입 건", "decision": "화재보험,영업배상,어린이놀이시설,재난배상책임,승강기 사고배상보험의(2024.03.14.~2025.03.14.) 의 계약기간 만료일이 도래하여 아래 와같은 금액 으로 가입하기로 참석자 전원의 찬성으로 의결함. 【보험 총금액:10,958,400원】 -KB보험 :화재보험, 영업배상, 재난배상책임(10,749,300원) - 삼성 :어린이놀이터(61,400원) - 현대해상: 승강기배상책임 (147,700원) (※계약기간: 2025.03.14.~ 2026.03.14.)", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-02-19", "meeting_type": "정기", "agenda_no": "5", "title": "중계기 임대 (sk텔레콤) 재계약 건", "decision": "옥상중계기 임대(sk텔레콤) 임대차 재계약 1, 2안 제안 중 1안을 선택하여 재 계약하기로 참석인원 전원 찬성으로 승인 의결하고,SK텔레콤에 통보하기로 함. - 계약기간: 2025.04.05.~2026.04.04.(1년) -금액 : 4,700,000원 (vat별도) →전년도와 동일금액", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-02-19", "meeting_type": "정기", "agenda_no": "6", "title": "2024년도 결산보고 및 이익잉여금처분 건", "decision": "2024년도 회계년도 결산에 따라 결산보고 및 이익잉여금 처분을 관리규약 제62조 잡수입의 집행 및 회계처리 공개에 따라 결산서를 검토 승인하며 이익잉여금 처분 계산서와 같이 처분하기로 참석자 전원의 찬성으로 의결함. □ 처분내역(총금액:79,717,250원) - 장기수선 충당금 : 32,342,856원 - 예비비 적립금 : 1,400,000원 - 관리비 차감적립금 : 5,974,394원 - 수선충담금 적립금 : 40,000,000원", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-02-19", "meeting_type": "정기", "agenda_no": "7", "title": "포커스 미디어(주) 승강기 광고 임대료 계약 재조정 심의 건", "decision": "포커스 미디어(주)에서 임대료 계약 인하 조정 (2차) 제안에 대하여 숙고한바, 원안 을 수락하고, 계약기간 만료전 재차 협의 조정하기로, 참석자 전원 찬성하기로 승인의결하다.", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-01-22", "meeting_type": "정기", "agenda_no": "1", "title": "12월분 관리비 부과명세서 심의 건.", "decision": "관리비 부과에 대하여 원안대로 승인의결 함. (※3개월 이상 체납 세대에 대하여 지속적인 독려 요망함.)", "category": "의결", "vote": ""}, {"date": "2025-01-22", "meeting_type": "정기", "agenda_no": "2", "title": "전기안전관리 대행업체 재계약 건", "decision": "전기안전관리 대행업체 대화전기이엔지(308,000원/월/2년 (부가세 포함) 와 관리규약 72조 에 의하여 기존사업자 사업수행실적을 평가하여 평가표를 게시판에 10일간 게시 후 이의서 제출자 가 전체 세대수의 10% 이하일 경우 재계약하기로 전원의 찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-01-22", "meeting_type": "정기", "agenda_no": "3", "title": "소독용역업체 재계약 건", "decision": "소독 용역업체 지산 아이앤씨(353,440원/월, 2년(부가세 포함) )와 관리규약 72조에 의하여 기존 사업자 사업수행실적을 평가하여 평가표를 게시판에 10일간 게시 후 이의서 제출자가 전체 세대수 의 10% 이하일 경우 재계약하기로 전원의 찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-01-22", "meeting_type": "정기", "agenda_no": "4", "title": "장기수선충당금 만기에 따른 금융기관 예치 심의 건.", "decision": "• 예금자 이용보호법에 근거한 금원을 배분하여 다음과 같이(예치/적금) 하기로 승인 의결하다. [표] 은행(예치): 만기금액 437,710,488 → 1. 동서울 농협 이율 3.10% 처분금액 145,900,000 / 2. 새마을금고 이율 3.30% 처분금액 145,910,488 / 3. 국민은행 이율 3.14% 처분금액 145,900,000 / 예치기간 1년 [표] 은행(월, 적금): 1. 만기금액 6,304,900 / 새마을금고 이율 3.60% 처분금액 6,304,900 / 예치기간 2년", "category": "의결", "vote": ""}, {"date": "2025-01-22", "meeting_type": "정기", "agenda_no": "5", "title": "공동체 활성화단체 지원 건", "decision": "관리규약 제56조(공동체 활성화단체 활동 지원) ① 제54조 제2항 따라 구성 승인된 공동체 활성화단체가 활동 지원을 받고자 할 때는 사업의 목적, 대상, 기간, 추진방법, 기대효과 및 소요비용 등이 포함된 [별지 제5-2호서식] \"사업비 지원신청서\"를 입주자대표회의에 제출하고 승인을 받아야 한다. 는 규정에 의거 공동체 활성화단체의 2025년도 사업계획서를 승인하며. 1월분 사업비를 지원하기로 전원의 찬성으로 의결함.", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-01-22", "meeting_type": "정기", "agenda_no": "6", "title": "개정관리규약 인쇄 세대 배부 건", "decision": "중랑구청의 승인된 우리 아파트 (제13차) 관리규약 집을 인쇄하여 세대 전입 또는 입주자들의 필요하신분에게 배부할 수 있도록 인쇄 마을에 의뢰(금액:600,000 (vat별도) 하여 400매를 인쇄하기로 의결하다.", "category": "의결", "vote": ""}, {"date": "2025-01-22", "meeting_type": "정기", "agenda_no": "7", "title": "낙엽 및 전 지목 처분 건", "decision": "우리 아파트 단지 내 낙엽 및 전지 목을 처분하고자 재활용 차량 2대 이상 분량 중 엠에스 리사이 클링 재활용 업체에서 재활용 차량 1대분을 무상으로 처분하여 주기로하여, 전지목 은 재활용 차량 1대분 이상은 자부담(대당: 770,000원.(vat포함)으로 처분하기로 전원 찬성으로 의결함", "category": "의결", "vote": "전원 찬성"}, {"date": "2025-01-22", "meeting_type": "정기", "agenda_no": "8", "title": "(기타) 포커스 미디어(주) 승강기 광고 임대료 계약 조정 심의 건", "decision": "포커스 미디어(주)에서 임대료 계약 인하 조정 건의 제안에 대하여는 원안의 철회와 기존계약 대로 집행요구 하는 답변서를 통보하기로 의결하다.", "category": "의결", "vote": ""}];
+    const rawComparisonData = [{"topic": "주차 차단기 설치", "comp_type": "동일 안건", "resident_text": "[주차] 주차 차단기 설치 (입주민 안건 9행)
+상태: 보류(동대표회의 반대 우세) · 2026-08-18 ~ 2026-10-21
+외부차량·장기주차 문제로 설치 제안. 번호인식·방문차량 사전등록 방식 견적 약 900~1,700만원(차단기 2대 기준, 주민 조사). 8/22 동대표회의에서 오르막·교차로 정체·비용·상가 방문차량 문제로 반대가 강했음. 양쪽 설치·도로 확장안은 포기. 10/21 설치가 이미 끝난 것 같다는 언급(미확인).", "council_text": "■ 2026-05-19 제4-1호 아파트 출입구 주차차단기 설치 공사의 건
+외부 차량의 무단 주차, 장기 방치차량 차단과 입주민 전용주차 공간확보 및 범죄 사고 발생시 차량확인 등으로 기, 설치하였으나, 2021년 7월경 진입 차량 복잡성등으로 인하여 입주자등의 민원 으로 철거한 점과 장기수선계획에 없고, 주차요원 인원증원 및 공사비용 등이 과대 예상되나, 주차 차단기의(LPR방식:차량번호인식 시스템) 시대적 상황 고려하여 입주민들의 편의 증대 및 주차난 해소를 위하여 주차차단기 전문가의 기술의견을 받아보기로 참석인원 전원찬성 으로 의결하다.
+
+■ 2026-06-23 제5-3호 아파트 출입구 주차차단기 설치 공사 논의 건
+외부 차량의 무단 주차, 입주민 전용주차 공간확보 및 범죄 사고 발생시 차량확인 등 입주민의 재설치 요구로 입주자등의 제안한 정문주차 차단기 설치에 대하여 논의한바 해당 시설은 장기수선계획서에 포함되어있지않고, 장기수선충당금 사용,공사비용,주차관리 요원증원등 예산에 반영되지 않은점 과 관할관청 행위신고등, 2021.7월경기존 차단기 철거한점 을 고려하여 숙고한 끝에 잠정 보류하기로 참석인원 전원 승인의결하다.
+
+■ 2021-06-23 제기타-6호 정문 차단기 철거의 건
+정문 차단기가 노후가 많이 되어 철거하고 난간을 보강하기로 찬성6명,반대0명으로 결정함
+
+■ 2020-04-21 제6호 근로자의 날(5월 1일) 직원 단합대회의 건
+5월 1일 근로자의 날을 맞이하여 작년과 동일하게 경비원,미화원,관리실직원 식사로 대체 하기로 찬성6명 반대0명 으로 결정함 기타의 건 ① 직원 하복 구입의 건 : 여름 하복을 기전실 직원 4명에게 구입하도록 찬성6명 반대0명 으로 결정함 ② 출입구 차단기 재사용에 대한 논의 건 : 주차 차단기를 다시 사용하기 위해서 2명의 경비원을 더 고용하게 되므로 인건비 (최저임금 1인 1,828,990원) 2명 월 3,657,980원 의 지출과 단지입구가 너무 비탈져있어 한두대만 정문에 정체 되면 대로변 까지 정체가 되는 현상이 벌어져 안전상 문제로 발전될 가능성이 크므로 비용 문제와 안전 문제로 인해 주차 차단기 사용은 않하는걸로 찬성6명 반대0명 으로 결정함 ③ 단지내 목화사업 으로 화분,꽃 구입비는 수선비로 처리 하기로 찬성6명 반대0명 으로 결정함 ④ 메인 오수관 준설작업 비용은 예비비로 처리 하기로 찬성6명 반대0명 으로 결정함. ⑤ 소방 작동기능 점검 지적사항중 수신기 교체 비용은 장기수선 충당금으로 처리 하기로 찬성6명 반대0명 으로 결정함. ⑥ 지하주차장 전기충전기설치는 국가보조금 100% 지원으로 알아본후 진행 하기로 찬성6명 반대0명 으로 결정함.", "analysis_text": "· 외부 차량 문제를 이유로 한 주차 차단기 설치가 안건이라는 점
+· 비용 문제를 이유로 설치하지 않거나 보류
+· 공고 2026-06-23: 장기수선계획서 미포함, 주차관리 요원 증원 등 예산 미반영, 2021.7월경 기존 차단기 철거 등을 고려해 잠정 보류 — 채팅의 '보류' 상태와 같은 방향"}, {"topic": "외부차량·불법주차 단속 (앱·스티커)", "comp_type": "동일 안건", "resident_text": "[주차] 외부차량·불법주차 단속 (앱·스티커) (입주민 안건 10행)
+상태: 시행 중 · 2026-08-18 ~ 2026-10-21
+관리프로그램(단속고고 앱) 시험운영 후 QR 코드로 주민·방문차량 등록. 월 약 14만원. 세차해야 떼지는 강력 스티커 도입 중. 단속 후 주차난이 많이 좋아졌다는 체감 공유. 10/21에도 외부차량 단속이 잘 되고 있다는 평가.", "council_text": "■ 2026-07-22 제5-1호 기타(안) : 주차단속 시스탬 도입 업체 선정의 건
+주차단속서비스 운영 과정에서 다음과 같은 문제점이 지속적으로 발생하고 있어 서비스의 정확성, 공정성 등의 아래와 같은 내용으로 시행착오가 발생할수 있으므로 재검토가 필요하다는 의견으로 문제점이 개선될 때까지 서비스 확대 운영을 유보하고, 개선계획을 마련한 후 재도입 여부를 업체와 조율하여 임시회의를 개최하여 결정하기로 참석인원 전원 찬성의결하다. ▪단속 정확성 부족 불법주차 여부를 정확하게 판별하지 못해 정상 주차 차량까지 단속 대상에 포함되는 사례가 발생할 우려가 있습니다. ▪시스템 안정성 검증 부족 장애 발생 시 단속 누락 또는 오단속이 발생할 수 있으므로 시스템 안정성과 백업 체계를 재 검토및 시범운영 결과 및 객관적 민원 발생 현황에 대한 종합 분석
+
+■ 2026-07-22 제5-2호 주차단속 장비(스마트폰) 구입의 건.
+(상품명:삼성갤럭시S22 , 1대당:231,020부가세 포함) (월이용료) 9,900원(부가세 포함) 3대 구입 하기로 참석인원 전원찬성으로 승인의결 하다 (단, 업체 프리젠테이션마친후 최종결정)
+
+■ 2026-07-27 제1호 주차단속 시스템업체 제안설명 및 질의, 응답건
+주차단속서비스 운영 과정에서 문제점이 지속적으로 발생하고 있어 서비스의정확성및 공정성 등의 프로그램상의 시행착오가 발생하였기에,2026.07.27.(월)입주자대표회의 임시회의를 개최하여 단속고고업체를 호출하여 주차단속 시스템 도입의 문제점에 대하여(PT:프리젠 테이션)를 프로그램의 개최한바, 질의, 응답으로 개선책이 보완,수정이 최대화로 완료하기로하며, 다음과 같이 참석인원 전원 승인의결하다. - 업체명 : 단속고고(단,계약체결은 질의사항의 보안이 최대로 완성되어 업체의통보한날로부터 도달시점에서 3개항목 지출내역중 선택하여 계약 체결하기로 하다.) - 상품명: 삼성겔럭시 S22 *3대 728,700 (VAT포함) 구입하기로하다.(금액변동될수도있음.) - (월) 이용료 : kt알뜰폰시니어(1대당:7,900원x3대=23,700원(VAT포함:금액변동될수도있음) - 주차단속 조끼를 구입하기로 하다 ▪주차단속 강화 : 단지내 외부차량 및 주민등의주차난해소 방안차원으로 단속고고업체의 프로그램 시스템 도입으로 효율적으로 보강하여 불법주차에 대하여 강력히 단속 하기로 하다. (※ 추후 공고문참조)
+
+■ 2026-08-21 제4-1호 주차단속시스템도입 최종의결
+- 상호명: 코드온코드 - 계약기간:2026.09.01~2027.08.31.(1년) - 금액 : (월)142,500원(VAT별도) - 지출계정:시설유지비또는 주차장운영비", "analysis_text": "· 주차단속 시스템(앱) 도입과 강력스티커 부착이 모두 대표회의 안건에서 확인됨
+· 채팅의 '월 약 14만원'과 공고 2026-08-21의 월 142,500원(VAT 별도)이 근접함"}, {"topic": "강력스티커·불법주차 단속 (과거)", "comp_type": "과거 동일 주제", "resident_text": "[주차] 외부차량·불법주차 단속 (입주민 안건 10행) 중
+세차해야 떼지는 강력 스티커 도입 중. 불법주차 차량을 찾아 비용을 내게 했음.", "council_text": "■ 2024-07-22 제5-2호 주차단속 강화
+단지내 외부차량 및 주민등의주차난 해소방안차원으로 현수막부착후 불법주차차량 에 대하여 강력스티커 부착등으로 강력히 단속 하기로 하다
+
+■ 2022-11-24 제2호 차량 주차스티커 교체 건
+현재 사용하고 있는 주차스티커가 사용기간이 경과하면서 외부차량 및 미등록차량 증가하여 입주민의 주차 편의를 위하여 (교체기간 12월중 공고예정) 주차스티커를 교체하기로 전원의 찬성으로 의결하며, 교체기간 이후 재 등록 하지않은 차량은 강력스티커 (경고장)을 부착합니다.", "analysis_text": "· 강력스티커 부착을 통한 불법주차 단속이 이전에도 대표회의 안건이었음(2024-07-22 현수막 부착 후 강력스티커 부착, 2022-11-24 교체기간 이후 미등록 차량에 강력스티커(경고장) 부착)"}, {"topic": "방문차량 등록·주차요금", "comp_type": "관련 안건", "resident_text": "[주차] 외부차량·불법주차 단속 (입주민 안건 10행) 중
+QR 코드로 주민·방문차량 등록. 불법주차 차량을 찾아 비용을 내게 했고, 방문증으로 대체하는 차량이 약 100대(동대표 발언, 집계 방법 불명).", "council_text": "■ 2026-07-22 제4호 세대별 차량 보유대수에 따른 주차요금부과(인상)의 건
+①우리 아파트의 주차공간 부족 문제가 지속되고 있으며, 세대별 차량 보유대수 증가로 인해 입주민 간주차 불편이 가중되고 있습니다. 이에 주차공간의 효율적 운영과 형평성 있는 비용 부담을 위하여 차량 보유대수에 따른 주차요금 차등 부과 제도를 시행하기로 참석인원 전원승인의결하다. ②주차장관리규정 제14조①~④항에 의거 주차장 사용의 기본대수 및 운영방법을 효율적으로 운영하고자 주차요금차등부과 하고자함. □ 주차장 관리규정에 의거 요금인상(※주차관리규정 (별표3)) [표] 1대: 현행 무료 / 2대: 현행 30,000 → 변경 40,000 / 3대: 현행 100,000 → 변경 110,000 / 시행일: 2026.9월관리비 부과분부터~
+
+■ 2026-07-27 제2호 세대 방문차량 주차요금 부과에 관한 시스템 연동 관련문의 건.
+입주세대 방문차량의 주차 이용에 대한 체계적인 관리와 공정한 주차요금 부과를 위해 방문차량 등록 시스템과 주차관제 시스템을 연동하여 운영 효율성을 높이고자,관련시스템을 보완 업그레이드 하기로 관련업체에 요구함. 【다음과 같은 사항을 보한 조치】 - 주차관제 시스템과 방문차량 등록 시스템 간 연동 가능 여부 -개인정보 보호 및 차량정보 관리 방안 -무료 주차 기준 및 요금 (마일리지등)설정 - 장애 발생 시 수동 처리 절차 마련/시스템 운영 전 충분한 시험 운영 및 검증 실시
+
+■ 2026-09-22 제3-3호 방문 차량 주차시간 적용 및 예외 운영기준 논의 건.
+단지 내 주차난 해소, 장기 불법 주차 방지, 입주민 주차권 보호를 위해 방문 차량의 주차허용 기간과 예외 적용 운영기준을 제정하기로 참석인원 전원 찬성 의결하다 ▪기본 방문 주차 운영기준 : - 각 세대에 방문하는 차량에 대해서는 월 120시간의 주차시간을 부여한다 - 월 120시간을 초과하여 주차하는 경우에는 10분당 20원의 초과요금을 부여한다 - 방문 차량은 원칙적으로 정해진 방문 차량 등록절차에 따라 등록하여야 한다 - (예외 적용대상)은 운영기준 제3조 각호에 따른다 - 시행일: 2026.09.23. 부터 실시하기로하다.(단.금액 부과적용은 잠정보류함)
+
+■ 2026-10-21 제6호 입주자등 외부 미등록 차량 조치의 건
+수차례 미등록 차량 등록 안내 및 차량 등록(주차요금 예고납부) 안내를 받았음에도 현재 까지 미등록 등으로 1세대 2, 3차량 주차요금 납부를 회피하는 세대가 확인되고 있습니다. 관리규약, 주차관리규정 또는 입주자대표회의 의결에 따라 최종 조치할 예정입니다. 미등록 차량은 세대방문협조, 차량 출입등록 제한, 주차요금 강제부과 등 주차관리규정에 정한 조치를 시행할 수밖에 없습니다. 등록을 회피하거나 관리업무를 방해하는 경우에는 추가 조치를 진행할 예정이며, 미등록 차량 입주자등께서는 공정한 주차질서 유지를 위해 적극적인 협조하여 주시기 바랍니다..", "analysis_text": "· 방문차량 등록과 주차요금 부과 체계 정비가 주제라는 점(채팅의 QR 등록·방문증 ↔ 공고의 방문차량 등록 시스템·주차시간 운영기준)"}, {"topic": "옥상·지하주차장 방수공사", "comp_type": "동일 안건", "resident_text": "[시설] 옥상·지하주차장 방수공사 (입주민 안건 15행)
+상태: 공사 진행 중(주민 전언) · 2026-08-22 ~ 2026-10-21
+공개입찰. 설명회 참석 업체만 입찰 가능, 동대표회의에서 적격심사. 덧방 시공 시 재발 우려, 무조건 싼 업체 선정 우려 제기. 일정: 8/22 입찰 예정 · 8/28 임시회의 · 9/1 결과 공유 · 9/14 설명회 · 9/21~22 심사 · 10/13 업체 선정 공유(최저가 낙찰) · 10/21 공사 진행 언급.", "council_text": "■ 2026-08-21 제3호 옥상 방수 및 주차장 바닥 재도장공사 공개입찰의 건
+옥상방수 및 지하주차장바닥 재도장공사는 10~15년이경과함에 따라 옥상 및 지하주차장 바닥층의 노후화(크랙,들뜸,누수등) 인해 최상층세대의 누수피해 민원이 지속적으로 발생하고,지하주차장의 바닥면또한 노후화 문제가 진행되고있어 2026년도 장기수선계획서에 의거 옥상방수 및 주 차장 바닥 재도장공사 업체 선정은 국토교통부 사업자 선정지침에 따라 (k-apt전자입찰 방식) 공개 경쟁입찰 최저가제로 공사업체를 선정하기 로 참석인원 전원 승인의결 하다.
+
+■ 2026-08-31 제1호 옥상방수 및 지하주차장 재도장 경쟁입찰 재심의 건.
+•기존 공법 선정 과정에 대한 다양한 의견이 제기됨에 따라 공정성과 투명성을 확보하고, 공동주택의 품질 및 유지관리 측면에서 최적의 공법을 선정하기 위하여 재심의를 실시함. •재심의 결과, 특정 특허공법을 우선 적용할 객관적인 필요성이 충분하지 않다고 판단하였으며, 공정한 경쟁 확보를 위해 입찰의 종류와 낙찰자 선정방법에 의거 4개(안)중 4번항 제한경쟁입찰 적격심사제로 실시하되 방수공법관련 특허공법 협약서 1개이상 보유업체 을 적용하여 국토교통부 사업자 선정지침에 따라 (k-apt전자입찰 방식) 여러업체에서 입찰에 응찰 할수 있도록 확대적용 하여 업체를 선정 하기로 참석인원 전원 찬성으로 승인의결하다
+
+■ 2026-09-22 제2호 옥상 방수 및 지하주차장 재도장공사 서류심사 및 업체 선정심의 건.
+옥상 및 지하주차장 방수공사 후 10~15년이 지남에 따라 옥상 및 지하주차장 바닥층의 노후화(크랙, 들뜸, 누수들)가 진행되고, 최상층세대의 누수 피해 민원이 지속해서 발생하고, 지하주차장의 바닥 면이 노후화되어 전면적인 방수공사가 필요함에 따라 2026.08.31.(월)(임시회의) 공정한 경쟁 확보를 위해 국토교통부 사업자선정 지침에 따라(k-apt 전자입찰방식) 입찰의 종류와 낙찰자선정방법에 의거제한 경쟁입찰 적격심사제로 실시한바, 현장설명회(30개) 업체에서 참가하였으나,(21개) 업체에서 응찰함에 따 라 서류심사 및 제 한서를 검토하여 적격심사제 세부평가 배점에 의거 최고점수를 득한 (주)부영 씨앤씨 (금액:140,000,000(vat별도) 업체를 선정 하여 공사하기로 참석인원 전원 찬성으로 승인 의결하다", "analysis_text": "· 옥상·지하주차장 방수공사를 k-apt 공개입찰로 진행하고, 설명회 참가 업체 중 서류심사·적격심사로 업체를 정한 점
+· 채팅의 '8/28 임시회의'와 공고의 2026-08-31 임시회의(공법 재심의), 채팅의 '9/21~22 심사'와 공고 2026-09-22 서류심사·업체 선정이 같은 흐름
+· 공고 2026-09-22: 현장설명회 30개 업체 참가·21개 응찰, 적격심사 최고점수 (주)부영씨앤씨(140,000,000원, VAT 별도) 선정"}, {"topic": "경전철(면목선) 노선 변경 관련 주민 의견", "comp_type": "관련 안건", "resident_text": "[면목선] 단지 차원 서명·의견 전달 및 TF 구성 (입주민 안건 7행, 제안 단계 · 2026-08-21 ~ 08-22)
+동대표회의에 면목선 건의를 올려 단지 의견·서명을 서울시·국토부·국회의원에 전달하자는 제안. 2동 동대표가 연명장 초안 작성, TF 구성 요청. 회의에서 다른 동대표의 반응이 거의 없었다고 전해짐.
+그 밖의 [면목선] 안건(입주민 안건 3~6, 8행): 정거장 위치 조정, 정거장 2개 축소, 차량기지 위치, 의견서 제출, 간담회 요청.", "council_text": "■ 2026-09-22 제3-1호 경전철 설치계획 변경에 따른 기존 동의 철회서 논의 건
+노선 변경 철회를 둘러싼 반대와 갈등이 심화하면 행정 승인 절차 자체가 계속 보류 및 사업이 장기 연기되거나 최악의 경우 전면폐기(백지화)될 가능성이 매우 커 추이를 보면서 진행하기로 하다.", "analysis_text": "· 경전철 노선 변경에 대한 주민 동의·반대 문제를 대표회의가 다룬 점(채팅은 면목선, 공고는 '경전철 설치계획 변경')"}, {"topic": "공동체 활성화 단체 지원", "comp_type": "동일 안건", "resident_text": "[단지운영] 공동체 활성화 단체 지원 (입주민 안건 34행, 정보 공유 · 2026-10-21)
+10/21 입주자대표회의 안건 중 입주민 모임 등을 할 수 있는 공동체 활성화 단체 지원이 있다는 공유(사진 첨부). 지원 요건·금액은 미확인.", "council_text": "■ 2026-10-21 제4호 공동체 활성화 단체 지원 건
+관리규약 제56조(공동체 활성화 단체 활동 지원) ① 제54조 제2항 따라 구성 승인된 공동체 활 성화 단체가 활동 지원을 받고자 할 때는 사업의 목적, 대상, 기간, 추진방법, 기대효과 및 소요비용 등이 포함된 [별지 제5-2호서식] \"사업비 지원신청서\"를 입주자대표회의에 제출하고 승인을 받아야 한다. 는 규정의 의거 공동체 활성화 단체의사업계획서을 승인하며, 하반기 사업비(200,000원)를 지 원하기로 전원의 찬성으로 의결함.
+
+■ 2026-10-21 제7호 (기타) 공동체 활성화단체 지원금 집행 적정성 검토의 건.
+공동주택관리 관련 규정에 의거 공동체 활성화 사업보조금(지원금)의 사업계획서에 따른 집행 적정 성 및 정산명세서 등을 검토하기로 의결하다.(※예정일 : 2027.2월경)
+
+■ 2026-03-24 제2호 공동체 활성화단체 지원 건
+관리규약 제56조(공동체 활성화단체 활동 지원) ① 제54조 제2항 따라 구성 승인된 공동체 활 성화단체가 활동 지원을 받고자 할 때는 사업의 목적, 대상, 기간, 추진방법, 기대효과 및 소 요비용 등이 포함된 [별지 제5-2호서식] \"사업비 지원신청서\"를 입주자대표회의에 제출하고 승 인을 받아야 한다. 는 규정에 의거 공동체 활성화단체의 상반기사업계획서를 승인하며, 맥문동 식재,퇴비등 사업비(₩ 700,000월)를 지원하기로 전원의 찬성으로 의결함.
+
+■ 2026-01-19 제5호 공동체 활성화단체 지원 건
+관리규약 제56조(공동체 활성화단체 활동 지원) ① 제54조 제2항 따라 구성 승인된 공동체 활성화단체가 활동 지원을 받고자 할 때는 사업의 목적, 대상, 기간, 추진방법, 기대효과 및 소요비용 등이 포함된 [별지 제5-2호서식] \"사업비 지원신청서\"를 입주자대표회의에 제출하고 승인을 받아야 한다. 는 규정에 의거 공동체 활성화단체의 2026년도 사업계획서의 인상건에 대 하여는 입주자등의 의견을 반영하여 논의 한바, 위원들의 의견을 심사숙고 하여 전년도 동일한 금액으로1월분 사업비를 지원하기로 전원의 찬성으로 의결함.", "analysis_text": "· 2026-10-21 회의에 공동체 활성화 단체 지원 안건이 있었다는 채팅 공유가 공고와 일치(제4호)
+· 공고에서 지원 요건(관리규약 제56조, 사업비 지원신청서)과 금액(하반기 사업비 200,000원)이 확인됨"}, {"topic": "파크골프(연습장) 부지·주차", "comp_type": "관련 안건", "resident_text": "[단지운영] 골프연습장(파크골프) 텃밭 펜스 철거 (입주민 안건 30행, 3년 보류 · 2026-08-22 ~ 10-21)
+골프연습장 건물 앞 텃밭 펜스 철거 요구. 텃밭이 국고지원을 받아 3년간 철거가 어렵고 철거 후 주차장 예정이라 보고됨(전언). 10/21 파크골프장 관련 간담회 참석률 언급.", "council_text": "■ 2026-04-16 제1호 태화어린이집 폐원후 용도변경 및 공사관련 논의 건
+입주자 대표회의 발송공문(소명자료 및 행위허가서 제출)등 에 의거 집합건축물대장 및 행위허가서를 검토한바, 다음과 같이 의결 공고합니다. -다 음- - 업종 용도변경 허가 : 중랑구청 용도변경 행위신고함(행위대상: 입주자공유가 아닌 복리시설) (※ 행위내용: (기존)영육아보육시설 / (변경) 골프 연습장 (승인: 2026.03.19.) -공사중 발생되는 소음 및 분진등으로 인한 주민피해 최소화 조치 -단지내 이용차량 차량대수등 사전 협의등 상위내용의 근거와 향후 발생될 골프장운영 에 대한 최소화 대책강구 및 입주자등의편리 한 생활의 영위 삶을 위하여 관할구청에 행위허가 위법의심 및 현장점검등을 요청하기로 참석인원 전원 승인의결하다.
+
+■ 2026-06-23 제5-4호 태화어린이집 용도변경에 따른 논의 건
+태화어린이집 파크골프 연습장으로 용도변경에 대하여 관계법령, 관리규약 및 관계기관의 질의서등을 검토결과 용도변경에 대한 관계법령에 따른 인, 허가등 특별한 제한사항이 없는 것으로 확인되었으므로, 해당시설을 파크골프 연습장 용도변경(안) 는 법적, 행정적 문제가 없다고 사료되어 용도변경 대로 사용할수있도록 참석인원 전원 찬성으로 승인의결하다.
+
+■ 2026-08-31 제2호 파크골프연습장 현안 논의 건
+아파트 단지내의 파크골프 연습장 부지 단독 사용 인정 여부 및 주차장 운영에 대한 법적·행정적 근거 마련에 대하여 파크골프장 대표이사와 논의하였으나, 결론이 나지않아 추후 재논의 하기로 하다.
+
+■ 2026-10-21 제5호 파크골프연습장 주차비 등 부과 및 납입 논의건
+아파트 단지 내 주차장은 입주민의 공동재산으로, 외부인의 장기 또는 반복적인 차량 이용으로 인해 입주민의 주차 불편이 발생하고 있습니다. 이에 파크골프연습장 이용 차량의 주차질서를 확립 및 유지관리 차원으로,입,대,의 구성원6명(찬성(5명, 반대1명)으로 주차비등 원안대로 요금을 부과하 기로 하며 2026년 10월,11월, 12월은 (월)20만원(VAT포함) 부과하고, 2027년도 1월 1일~2036년까지 (월)30만원(VAT 포함)을 부과하되, 정문 입구 상가방면(안내간판:가로 1.5mx세로 1.3m) 설치하기로 승인 의결하다.(단,안내간판 : 법률 위반 및 운전자 시야 방해로 민원 등 현저히 이해충돌이 있을시 이전 또는 철거하기로 함) (※계약 기간 : 2026.10.01.~2036.09.30.10(년))", "analysis_text": "· 파크골프 연습장 부지와 주차장 운영이 대표회의에서도 반복해서 다뤄진 주제임(2026-04-16 용도변경 관련 요청, 06-23 용도변경 문제없음 승인, 08-31 부지 단독 사용·주차장 운영 논의, 10-21 주차비 부과)"}, {"topic": "어린이 놀이터 바닥 보수", "comp_type": "과거 동일 주제", "resident_text": "[시설] 어린이 놀이터 바닥 보수 (입주민 안건 16행, 건의 단계 · 2026-10-07)
+바닥 우레탄 보수와 모래 없는 놀이터 조성 요청. 중랑구 공동주택 지원사업(어린이놀이터 개보수 대상)을 2027년에 신청하는 방안 제안. 과거 신청 마감 2/27, 예산 약 7억원으로 소개(전언).", "council_text": "■ 2025-05-22 제3호 어린이놀이터 바닥재교체 민원 건
+우리아파트 장기수선계획 정기조정 시(2023년~ 25년) 어린이놀이터 바닥재 교체공사 계획이 없으며, 현재까지의 우리아파트 장기수선충당금 적립 현황 및 옥상우레탄 방수, 노후시설물 보수 및 교체 등 시급한 현안을 종합적으로 검토 한 바, 어린이놀이터 이용에 다소 불편함이 있지만, 어린이놀이터 바닥재 교체사업을 우선적으로 선정할 수 없음을 참석인원 전원의 찬성 으로 부결처리함.
+
+■ 2024-01-24 제7호 어린이놀이터 바닥재 교체 민원 건
+우리아파트 장기수선계획 정기조정 시(2023년~ 25년) 어린이놀이터 바닥재 교체공사 계획이 없으며, 공동주택 지원사업 신청 전 장기수선계획 수시 조정으로 입주 자의 50% 이상 동의를 받아야 하며, 단지 내 어린이놀이터 3곳 중 1곳만 우선 선정하 여 바닥재 교체공사를 시행하면 다른 곳과의 형평성 문제가 초래되며, 현재까지의 우리아파트 장기수선충당금 적립 현황 및 옥상우레탄 방수, 노후시설물 보수 및 교체 등 시급한 현안을 종합적으로 검토 한 바, 어린이놀이터 이용에 다소 불편함이 있지만, 공동주택지원사업으로 어린이놀이터 바닥재 교체사업을 최우선적으로 선정할 수 없음을 전원의 찬성으로 의결함.
+
+■ 2023-06-22 제5-2호 기타안건
+어린이놀이터 바닥 교체 민원건은 우리아파트 사용검사일 기준 28년차로 장기수선계획서 상 옥상우레탄방수, 외벽크랙보수 및 도색공사, 보도블럭 교체 공사, 지하횡주관 부분교체 공사와 별도의 단지 내 수목 전지작업 등 시설물 유지 및 공사 우선 순위와, 어린이 놀이 터 이용에 불편한 입주민 민원사항 등을 현재 장기수선충당금 적립액 등과 종합적으로 검토하여, 입주민 등에게 불편함이 없게 하기로 전원의 찬성으로 의결함.", "analysis_text": "· 어린이놀이터 바닥재 교체 요구가 이전에도 대표회의 안건이었음(2023-06, 2024-01, 2025-05)
+· 공고에서 장기수선계획(2023~25년)에 교체공사 계획이 없고, 공동주택 지원사업 신청 전 장기수선계획 수시조정으로 입주자 50% 이상 동의가 필요하다고 기재(2024-01-24)"}, {"topic": "코너 부분 주차·도로 협소", "comp_type": "과거 유사 주제", "resident_text": "[주차] 코너 부분 주차 (입주민 안건 11행, 건의 단계 · 2026-08-30)
+코너에 주차해 진입·회전이 어렵다는 제보. 관리사무소를 통해 빗금 또는 주차금지 표시를 하자는 의견.", "council_text": "■ 2024-08-21 제5-1호 단지내 도로확장공사의 건.
+① 단지내 도로확장공사:1101동 우측 코너부분 회전방향의 주차된 차량으로 인하여 도로면이 협소하여 진입곤란으로 차량간 추돌사고가 상존하다는 주민 민원으로 아래 업체를 선정하여 도로확장공사 하기로 의결함 - 업체명 : 대표건설(주) - 공사금액 :2,500,000원(vat별도) ② 공사내용: 경계석철거 및 설치공사 / 바닥다짐, 타설,포장공사 / 은행나무 뿌리 절단
+
+■ 2024-11-21 제4호 도로확장 및 어린이놀이시설 축소의 건
+• 1102동↔1104동 어린이 놀이터축소후 도로확장 민원건은 사용검사일 기준 29년차로 장기 수선계획서상. 옥상우레탄방수,외벽크랙보수 및 도색공사, 보도블럭교체공사와 단지내 수목(교목)강전 지작업등 시설물유지관리 및 공사우선순위와 어린이놀이시설 축소 및 도로확장공사 및 주민등의 차량 이용에 불편은 자명한 사실이고, 충분히 이해가 되나, 장기수선 계획에 없고, 공사비용등이 과 대 예상되므로 장기수선 적립액 등과 차기 장기수선계획 조정시 종합적으로 검토해 봄이 타당하다 사료되어 참석인원 전원 부결 처리하기로 결의하다.", "analysis_text": "· 코너 부분의 주차된 차량 때문에 도로가 좁아 진입·회전이 어렵다는 민원 내용이 같음(공고 2024-08-21은 1101동 우측 코너부분)"}, {"topic": "CCTV", "comp_type": "관련 안건", "resident_text": "[보안] CCTV 작동 점검 및 사각지대 (입주민 안건 13행, 확인 완료 / 개선 검토 · 2026-09-01 ~ 09-02)
+계단·우편함 CCTV가 모형이라는 문의. 9/2 관리사무소 확인 결과 설치된 CCTV는 정상 작동, 우편함 쪽은 사각지대. 올해 2월 CCTV 설치·케이블 교체 공사 이력.", "council_text": "■ 2026-03-24 제4-1호 1102동 승강기1호기 승강로 케이블교체및 1101동 외각 CCTV카메라 교체 추인의 건.
+장기수선계획에의한 수선주기가 도래하고,폐쇄회로 카메라등 확인결과 승강로 케이블 단선 및 케메라 고장으로 2개업체 견적서중 최저가 업체인(전우사(주)을 선정하여, 관리규약 제38조 에의거 수의계약으로 긴급보수후 보고서를 갈음하여 소급 추인하기로 참석인원 만장일치 로 의결하다.(공사금액:890,000원(vat별도)
+
+■ 2025-07-23 제6-1호 CCTV (폐쇄회로) 선로 긴급 보수공사 추인의 건.
+장기수선계획에 의한 수선주기가 도래하고 현장확인 결과 매입관 선로이상 등 2025년도 장기수선 계획에 의한 장기수선충당금 사용계획서를 추인하며 3개 업체의 견적서중 최저가 업체인 (주)전우사 (400,000원, 부가세별도) 업체를 선정하여 관리규약 제38조에 의거 수의계약으로 긴급보수후보고서 를 갈음하여 소급추인 하기로 참석인원 만장일치 로 의결하다.
+
+■ 2024-03-20 제4호 1102, 1106동 경비실 CCTV DVR 교체 건
+1102동, 1106동 CCTV DVR 교체를 위한 장기수선충당금 사용계획서를 승인하며, 2개 업체 견적중 최저가 업체 (포커스시큐리티 650,000원, 부가세 별도) 로 선정하여 1102동, 1106동 경비실 녹화기를 교체하기로 전원의 찬성으로 의결함.
+
+■ 2023-03-22 제8호 CCTV카메라 보수 건
+2023년도 장기수선계획에 의거 장기수선충당금 사용계획서를 승인하며, 2개 업체 견적중 최저가 업체인 (유토피아 1,580,000원, 부가세 별도) 외부CCTV 카메라 및 케이블을 교체하기로 전원찬성 으로 의결함", "analysis_text": "· 2026년에 CCTV 카메라·케이블 관련 공사가 있었다는 점이 공고와 부합함(2026-03-24 추인: 1101동 외곽 CCTV 카메라 교체)"}, {"topic": "층간소음", "comp_type": "과거 동일 주제", "resident_text": "[생활] 층간소음 (입주민 안건 23행, 개인 간 문제 · 2026-10-04)
+화장실 문, 대화, 진동 소리가 들린다는 호소에 다수가 공감. 공동 조치 안건으로 올라가지는 않음.", "council_text": "■ 2024-02-21 제2호 층간소음(흡연)관리위원회 구성 건
+관리규약 제94조(층간소음 관리위원회) ① 입주자대표회 의는 층간소음의 분쟁 조정, 예방, 교육 등을 위하여, 입주자와 사용자를 구성원으로 하는 층간소음 관리위 원회를 구성하여야 한다. 에 따라 층간소음 관리위원을 아래와 같이 (5인) 구성 하기로 전원의 찬성으로 의결함. 층간소음 관리위원: 대표회장(위원장), 사용자, 선거관리위원, 관리소장, 공동체활성화단체 (성명 생략)
+
+■ 2023-04-21 제5호 층간소음 관리위원회 구성 건
+관리규약 제94조(층간소음 관리위원회) ① 입주자대표회 의는 층간소음의 분쟁 조정, 예방, 교육 등을 위하여, 입주자와 사용자를 구성원으로 하는 층간소음 관리위원회를 구성하여야 한다. 에 따라 층간소음 관리위원을 아래와 같이 (5인) 구성 하기로 전원의 찬성으로 의결함. 층간소음 관리위원: 대표회장(위원장), 사용자, 선거관리위원, 관리소장, 공동체활성화단체 (성명 생략)
+
+■ 2020-09-22 제기타-2호 층간소음위원회 구성의 건
+2020년 신내대명아파트 층간소음위원회를 규정대로 구성하기로 찬성6명, 반대0명 으로 결정함.", "analysis_text": "· 층간소음이 이전에 대표회의에서 다뤄진 주제임(관리규약 제94조에 따른 층간소음 관리위원회 구성: 2020-09, 2023-04, 2024-02)"}, {"topic": "흡연", "comp_type": "과거 유사 주제", "resident_text": "[생활] 흡연 구역·흡연 매너 (입주민 안건 20행, 건의 단계 · 2026-10-07)
+2동 앞, 1~2동 사이 통로 등에서 흡연으로 간접흡연 불편. 흡연통 위치 이동, 금연구역 지정 요청.", "council_text": "■ 2024-02-21 제2호 층간소음(흡연)관리위원회 구성 건
+관리규약 제94조(층간소음 관리위원회) ① 입주자대표회 의는 층간소음의 분쟁 조정, 예방, 교육 등을 위하여, 입주자와 사용자를 구성원으로 하는 층간소음 관리위 원회를 구성하여야 한다. 에 따라 층간소음 관리위원을 아래와 같이 (5인) 구성 하기로 전원의 찬성으로 의결함. 층간소음 관리위원: 대표회장(위원장), 사용자, 선거관리위원, 관리소장, 공동체활성화단체 (성명 생략)
+
+■ 2020-06-22 제5호 1101.1103.1105동 외곽 벤치 설치의 건
+벤치를 설치 함으로써 흡연구역이 되어 입주민의 민원발생 요인이 되어 벤치 설치는 하지 않기로 찬성6명, 반대0명 으로 결정함. ① 관리동 cctv녹화기 교체비용 장기수선충당금 처리의 건 : 녹화기 교체비용 은 장기수선충당금 으로 처리하기로 결정함. ② 1101동 고가수조 정수위밸브 교체비용 예비비 처리의 건 : 고가수조 정수위밸브 교체비용 예비비 로 처리하기로 결정함. ③ 기전실 인터폰설치의 건 : 인터폰설치 대신 기전실 정문에 관리사무소 연락처 안내문을 부착하기로 결정함. ④ 기전실 tv 구입의 건 : 기전실 tv 구입은 하지 않는걸로 결정함. ⑤ 1102동 사고 보험처리 자기부담금 예비비 처리의 건 : 보험처리 자기부담금 예비비 로 처리하기로 결정함. ⑥ 자전거 보관소 이용의 건 : 7월부터 폐자전거 및 방치 자전거 정리 안내문을 부착하여 정리 하기로 결정함. ⑦ 신한은행 장기수선충당금 정기적금 만기 해지 및 재예치의 건 : 장기수선충당금 정기적금 만기 해지 하여 이율이 높은 은행으로 재예치 하기로 결정함.", "analysis_text": "· 흡연 관련 사항이 이전 안건에도 있음(2020-06-22: 외곽 벤치가 흡연구역이 되어 민원 요인이므로 설치하지 않기로, 2024-02-21: 층간소음(흡연)관리위원회 구성)"}, {"topic": "동·대표 선출 (선거관리위원회)", "comp_type": "과거 유사 주제", "resident_text": "[단지운영] 동대표·입주자대표 선출 및 임기 (입주민 안건 29행, 다음 선거 내년 · 2026-08-22 ~ 10-21)
+후보가 없어 봉사로 하는 동이 많고, 동대표 임기는 2년으로 다음 선거는 2027년. 후보 신청·선거 공지를 한 달 전쯤 눈에 띄게 해달라는 요청.", "council_text": "■ 2023-09-18 제4호 기타 안건
+제15기 동별대표자 선출을 위한 선거관리위원 모집을 10월초에 공고합니다.
+
+■ 2021-08-20 제2호 선거관리 위원회 모집의 건
+8월 말에 선거관리 위원회 소집하여 2021년 선거관리위원 모집 공고와 일정을 논의 하기로 함", "analysis_text": "· 선거관리위원 모집 공고와 일정이 대표회의 안건으로 다뤄진 선례임(2021-08-20, 2023-09-18: 제15기 동별대표자 선출을 위한 선거관리위원 모집을 10월 초 공고)"}];
 
     // Google Apps Script Web App URL
     const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxCxadqOyQAyHF6slu-H60gWAgrbYRswFZKQYGr10r_D8QIl5S46gATxS6dmY509ovAAA/exec";
+
+
+    // ==========================================
+    // AGENDA SECTION SWITCHER (입주민 vs 대표회의 vs 비교)
+    // ==========================================
+    let currentAgendaSection = 'resident';
+    let currentCouncilPeriod = 'all-2026';
+
+    function switchAgendaSection(sectionId) {
+      currentAgendaSection = sectionId;
+      document.querySelectorAll('.agenda-section-view').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.agenda-sec-btn').forEach(btn => {
+        btn.classList.remove('bg-[#231f1d]', 'text-white', 'shadow-sm');
+        btn.classList.add('bg-[#faf8f5]', 'text-[#5c534c]');
+      });
+
+      const activeView = document.getElementById('agenda-section-' + sectionId);
+      if (activeView) activeView.classList.remove('hidden');
+
+      const activeBtn = document.getElementById('agenda-sec-btn-' + sectionId);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-[#231f1d]', 'text-white', 'shadow-sm');
+        activeBtn.classList.remove('bg-[#faf8f5]', 'text-[#5c534c]');
+      }
+
+      if (sectionId === 'resident') {
+        renderAgendaPageList();
+      } else if (sectionId === 'council') {
+        renderCouncilList();
+      } else if (sectionId === 'compare') {
+        renderComparisonList();
+      }
+    }
+
+    // Council Period Filter
+    function filterCouncilPeriod(period) {
+      currentCouncilPeriod = period;
+      document.querySelectorAll('.council-btn').forEach(btn => {
+        btn.classList.remove('bg-[#231f1d]', 'text-white', 'font-bold');
+        btn.classList.add('bg-[#faf8f5]', 'text-[#5c534c]');
+      });
+      event.target.classList.add('bg-[#231f1d]', 'text-white', 'font-bold');
+      event.target.classList.remove('bg-[#faf8f5]', 'text-[#5c534c]');
+      renderCouncilList();
+    }
+
+    function renderCouncilList() {
+      const container = document.getElementById('council-list-container');
+      if (!container) return;
+
+      const searchInput = document.getElementById('council-search');
+      const keyword = (searchInput ? searchInput.value : '').trim().toLowerCase();
+
+      const filtered = rawCouncilData.filter(item => {
+        let matchesPeriod = true;
+        if (currentCouncilPeriod === 'all-2026') matchesPeriod = item.date.startsWith('2026');
+        else if (currentCouncilPeriod === '2026-10') matchesPeriod = item.date.startsWith('2026-10');
+        else if (currentCouncilPeriod === '2026-09') matchesPeriod = item.date.startsWith('2026-09');
+        else if (currentCouncilPeriod === '2026-08') matchesPeriod = item.date.startsWith('2026-08');
+        else if (currentCouncilPeriod === '2026-07') matchesPeriod = item.date.startsWith('2026-07');
+        else if (currentCouncilPeriod === '2026-H1') matchesPeriod = item.date.startsWith('2026-01') || item.date.startsWith('2026-02') || item.date.startsWith('2026-03') || item.date.startsWith('2026-04') || item.date.startsWith('2026-05') || item.date.startsWith('2026-06');
+        else if (currentCouncilPeriod === 'all-2025') matchesPeriod = item.date.startsWith('2025');
+
+        const matchesKeyword = !keyword || 
+          item.title.toLowerCase().includes(keyword) || 
+          item.decision.toLowerCase().includes(keyword) || 
+          item.date.includes(keyword) ||
+          item.agenda_no.includes(keyword);
+
+        return matchesPeriod && matchesKeyword;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="p-12 text-center text-[#8e8379] bg-white rounded-2xl border border-[#e8e2d9]">
+            <p class="text-sm font-semibold">조건에 일치하는 대표회의 의결 안건이 없습니다.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(item => {
+        const typeBadge = item.meeting_type === '임시' ? 'bg-amber-100 text-amber-800 border-amber-200' : 'bg-[#f4ebe4] text-[#b8734a] border-[#edd9cd]';
+        return `
+          <div class="bg-white border border-[#e8e2d9] rounded-2xl p-5 shadow-sm hover:border-[#b8734a] transition-all">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-2">
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-black px-2.5 py-0.5 rounded-lg border ${typeBadge}">${item.meeting_type}회의</span>
+                <span class="text-xs font-bold text-[#b8734a]">제${item.agenda_no}호</span>
+                ${item.category ? `<span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-gray-100 text-gray-700">${item.category}</span>` : ''}
+              </div>
+              <span class="text-xs text-[#8a7f76] font-medium">회의일: ${item.date}</span>
+            </div>
+
+            <h4 class="text-base font-black text-[#231f1d] mb-2.5">${item.title}</h4>
+
+            <div class="bg-[#faf8f5] p-3.5 rounded-xl border border-[#eee7df] text-xs text-[#4a423d] leading-relaxed whitespace-pre-line">
+              <strong class="text-[#231f1d] block mb-1">📋 심의·의결 결과:</strong>
+              ${item.decision}
+            </div>
+
+            ${item.vote ? `
+              <div class="mt-2.5 flex items-center gap-2 text-[11px] text-[#736a61]">
+                <span class="font-bold">표결 결과:</span>
+                <span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 font-semibold border border-emerald-200">${item.vote}</span>
+              </div>
+            ` : ''}
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderComparisonList() {
+      const container = document.getElementById('comparison-list-container');
+      if (!container) return;
+
+      container.innerHTML = rawComparisonData.map((item, idx) => {
+        let typeBadge = 'bg-blue-100 text-blue-800 border-blue-200';
+        if (item.comp_type.includes('동일')) typeBadge = 'bg-emerald-100 text-emerald-800 border-emerald-200';
+        else if (item.comp_type.includes('과거')) typeBadge = 'bg-amber-100 text-amber-800 border-amber-200';
+
+        return `
+          <div class="bg-white border border-[#e8e2d9] rounded-2xl p-6 shadow-sm">
+            <div class="flex flex-wrap justify-between items-center gap-2 pb-3 border-b border-[#eee7df] mb-4">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-[#b8734a] text-white flex items-center justify-center font-bold text-xs">${idx + 1}</span>
+                <h4 class="text-base font-black text-[#231f1d]">${item.topic}</h4>
+              </div>
+              <span class="text-xs font-bold px-2.5 py-0.5 rounded-full border ${typeBadge}">${item.comp_type}</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- Left: Resident Side -->
+              <div class="bg-[#faf8f5] p-4 rounded-xl border border-[#eee7df]">
+                <div class="flex items-center gap-1.5 text-xs font-bold text-[#b8734a] mb-2">
+                  <span>👥 입주민 안건 (오픈채팅/건의함)</span>
+                </div>
+                <div class="text-xs text-[#524942] whitespace-pre-line leading-relaxed">
+                  ${item.resident_text}
+                </div>
+              </div>
+
+              <!-- Right: Council Side -->
+              <div class="bg-[#faf8f5] p-4 rounded-xl border border-[#eee7df]">
+                <div class="flex items-center gap-1.5 text-xs font-bold text-[#231f1d] mb-2">
+                  <span>🏛️ 대표회의 공식 의결 및 처리</span>
+                </div>
+                <div class="text-xs text-[#524942] whitespace-pre-line leading-relaxed">
+                  ${item.council_text || '공식 대표회의 회의록 반영 내역 확인 중'}
+                </div>
+              </div>
+            </div>
+
+            ${item.analysis_text ? `
+              <div class="mt-4 p-3 bg-amber-50/60 rounded-xl border border-amber-200/70 text-xs text-amber-900 leading-relaxed">
+                <strong class="font-bold">💡 분석 및 확인사항:</strong> ${item.analysis_text}
+              </div>
+            ` : ''}
+          </div>
+        `;
+      }).join('');
+    }
 
     // Page Tab Navigation Function
     const views = ['home', 'agendas', 'market', 'council', 'about'];
