@@ -476,33 +476,32 @@
         </section>
 
         <!-- ===================================================================== -->
-        <!-- PART 2: 사업성 분석 (좌측: 핵심 해설 & 비교표 / 우측: 용적률 다이어그램) -->
+        <!-- PART 2: 사업성 분석 (좌측: 핵심 해설 & 비교표 / 우측: 용적률·세대수 다이어그램) -->
         <!-- ===================================================================== -->
         <section class="bg-white rounded-3xl p-6 sm:p-8 border border-[#e8e2d9] shadow-sm space-y-6">
           <div class="border-b border-[#f0eae3] pb-4">
-            <span class="text-xs font-extrabold text-[#b8734a] uppercase tracking-wider">PART 02 • FEASIBILITY & FAR ANALYSIS</span>
-            <h2 class="text-xl sm:text-2xl font-black text-[#231f1d] mt-0.5">사업성 핵심 분석: 왜 일반 재건축보다 '통합·역세권 특례'인가?</h2>
+            <span class="text-xs font-extrabold text-[#b8734a] uppercase tracking-wider">PART 02 • FEASIBILITY & HOUSEHOLD SIMULATION</span>
+            <h2 class="text-xl sm:text-2xl font-black text-[#231f1d] mt-0.5">사업성 핵심 분석: 용적률 상향에 따른 예상 세대수 및 일반분양 변화</h2>
           </div>
 
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             
-            <!-- 좌측 (7칸): 내용 파악 설명 + 핵심 비교표 -->
-            <div class="lg:col-span-7 space-y-5">
-              <div class="bg-[#faf8f5] p-5 rounded-2xl border border-[#eee7df] space-y-2">
+            <!-- 좌측 (7칸): 용적률 대비 세대수 변화 분석 설명 + 핵심 비교표 -->
+            <div class="lg:col-span-7 flex flex-col justify-between space-y-5">
+              <div class="bg-[#faf8f5] p-5 rounded-2xl border border-[#eee7df] space-y-2.5">
                 <h3 class="text-sm font-black text-[#231f1d] flex items-center gap-2">
                   <span class="w-2.5 h-2.5 rounded-full bg-[#b8734a]"></span>
-                  기존 용적률 207%의 한계와 분담금 절감 해법
+                  용적률 207% ➔ 300% ➔ 500% 변화 시 세대수는 어떻게 달라지나?
                 </h3>
                 <p class="text-xs text-[#524942] leading-relaxed">
-                  재건축 사업성은 <strong>기존 용적률과 새로 지을 용적률의 차이(일반분양 물량)</strong>에서 나옵니다. 
-                  신내대명11단지는 현재 용적률이 <strong>207%</strong>여서, 일반 재건축(3종일반주거 상한 250~300%)으로 단독 추진하면 늘어나는 용적률이 43~93%p에 불과해 조합원 분담금 부담이 커집니다.
+                  우리 단지는 현재 <strong>804세대(평균 전용 약 49.8㎡, 용적률 207%)</strong>로 구성되어 있습니다. 재건축 시 기존 소유주들이 국민평형(전용 59·84㎡)으로 평형을 넓혀 가는 것을 감안하면, <strong>일반 단독 재건축(용적률 ~300%)</strong> 추진 시 총 세대수는 <strong>약 980~1,080세대(+180~270세대 증가)</strong>에 그쳐 일반분양 수익이 적고 분담금 부담이 큽니다.
                 </p>
                 <p class="text-xs text-[#524942] leading-relaxed">
-                  반면 <strong>서울시 5개 구역 통합 재건축 + 노후계획도시 특별법 + 역세권 종상향(준주거 최대 500%)</strong>을 적용받으면 용적률을 최대 293%p까지 추가로 확보할 수 있어, 일반분양 세대수가 대폭 늘어나고 세대당 분담금을 획기적으로 낮출 수 있습니다.
+                  반면 <strong>노후계획도시 특별법 + 역세권 종상향(용적률 450~500%)</strong> 적용 시, 11단지 부지 기준으로도 총 세대수가 <strong>약 1,450~1,680세대(현재 대비 +650~870세대 급증)</strong>로 약 2배 가까이 늘어나며, 인접 단지(10단지 등)와 통합 시 <strong>2,500~3,000세대급 이상 매머드 대단지</strong>로 탈바꿈하게 됩니다.
                 </p>
               </div>
 
-              <!-- 일반 재건축 vs 통합 특별정비 비교표 -->
+              <!-- 일반 재건축 vs 통합 특별정비 비교표 (세대수 변화 행 추가) -->
               <div class="overflow-x-auto">
                 <table class="w-full text-xs text-left border-collapse border border-[#e8e2d9] rounded-xl overflow-hidden">
                   <thead class="bg-[#231f1d] text-white">
@@ -518,15 +517,20 @@
                       <td class="p-3">250% ~ 최대 300% (3종일반)</td>
                       <td class="p-3 font-bold text-[#b8734a]">법정상한 150% 완화 · 역세권 종상향 시 최대 500%</td>
                     </tr>
+                    <tr class="bg-[#fbf6f2]">
+                      <td class="p-3 font-black text-[#b8734a] bg-[#f4ebe4]">예상 총 세대수<br><span class="text-[11px] font-normal text-[#736961]">(11단지 부지 기준)</span></td>
+                      <td class="p-3 font-semibold">약 980 ~ 1,080세대<br><span class="text-[#8a7f76]">(기존 804 + 추가 180~270세대)</span></td>
+                      <td class="p-3 font-black text-[#231f1d]">약 1,450 ~ 1,680세대 <span class="text-[#b8734a]">(약 2배 증가)</span><br><span class="text-[#b8734a] font-bold">★일반분양·기여분 +650~870세대 추가 확보</span></td>
+                    </tr>
                     <tr>
                       <td class="p-3 font-bold bg-[#faf8f5]">안전진단 여부</td>
                       <td class="p-3">정밀안전진단 통과 필수 (비용·기간 소요)</td>
                       <td class="p-3 font-bold text-emerald-700">통합 재건축 및 공공기여 시 안전진단 면제/완화</td>
                     </tr>
                     <tr>
-                      <td class="p-3 font-bold bg-[#faf8f5]">추진 단위</td>
-                      <td class="p-3">11단지(804세대) 나홀로 정비</td>
-                      <td class="p-3 font-bold text-[#231f1d]">서울시 5개 구역 안 기준 인접 단지(10단지 등) 통합</td>
+                      <td class="p-3 font-bold bg-[#faf8f5]">추진 단위 · 단지 규모</td>
+                      <td class="p-3">11단지 나홀로 정비 (1,000세대급)</td>
+                      <td class="p-3 font-bold text-[#231f1d]">인접 단지(10단지 등) 통합 시 2,500~3,000세대+ 대단지</td>
                     </tr>
                     <tr>
                       <td class="p-3 font-bold bg-[#faf8f5]">인허가 속도</td>
@@ -538,50 +542,81 @@
               </div>
             </div>
 
-            <!-- 우측 (5칸): 용적률 점프업 다이어그램 -->
-            <div class="lg:col-span-5 bg-[#faf8f5] rounded-2xl p-6 border border-[#eee7df] flex flex-col justify-between">
-              <div class="text-center mb-2">
-                <span class="text-xs font-bold text-[#b8734a]">📊 용적률 & 일반분양 확보 스케일 비교 다이어그램</span>
+            <!-- 우측 (5칸): 용적률 & 세대수 변화 누적 다이어그램 -->
+            <div class="lg:col-span-5 bg-[#faf8f5] rounded-2xl p-5 sm:p-6 border border-[#eee7df] flex flex-col justify-between">
+              <div class="text-center">
+                <span class="text-xs font-extrabold text-[#b8734a]">📊 용적률 상향에 따른 세대수 증가 시뮬레이션 (11단지 기준)</span>
+                <p class="text-xs text-[#736961] mt-0.5">기존 804세대 위에 추가되는 일반분양·공공기여 세대수 비교</p>
               </div>
 
-              <div class="grid grid-cols-3 gap-3 items-end h-60 pt-6 px-2 border-b-2 border-[#231f1d]">
-                <!-- 현재 -->
-                <div class="flex flex-col items-center h-full justify-end">
-                  <span class="text-xs font-bold text-[#736961]">현재 (15층)</span>
-                  <span class="text-base font-black text-[#231f1d] mb-1.5">207%</span>
-                  <div class="w-full max-w-[84px] h-[42%] bg-[#8a7f76] rounded-t-xl border-2 border-[#6e635a] flex flex-col justify-end p-2 text-white text-center">
-                    <span class="text-xs font-bold">804세대</span>
+              <!-- Stacked Bar Chart (바닥 기준선 및 804세대 96px 높이 100% 일치) -->
+              <div class="grid grid-cols-3 gap-4 items-end pt-4 px-2" style="border-bottom: 2px solid #231f1d; word-break: keep-all;">
+                
+                <!-- Bar 1: 현재 단지 (207%, 804세대 -> 하단 정확히 96px) -->
+                <div class="flex flex-col items-center justify-end">
+                  <div class="text-center mb-2">
+                    <div class="text-xs font-bold text-[#736961]">현재 (207%)</div>
+                    <div class="text-sm sm:text-base font-black text-[#231f1d]">총 804세대</div>
+                  </div>
+                  <div class="w-full rounded-t-xl bg-[#6e645c] text-white flex flex-col justify-center items-center text-center shadow-inner" style="max-width: 108px; height: 96px; border: 2px solid #524942; border-bottom: none; box-sizing: border-box;">
+                    <span class="text-xs opacity-90">기존 소유주</span>
+                    <span class="text-sm font-black mt-0.5">804세대</span>
                   </div>
                 </div>
 
-                <!-- 일반 재건축 -->
-                <div class="flex flex-col items-center h-full justify-end">
-                  <span class="text-xs font-bold text-amber-700">+43~93%p</span>
-                  <span class="text-base font-black text-amber-800 mb-1.5">~300%</span>
-                  <div class="w-full max-w-[84px] h-[60%] bg-amber-600/85 rounded-t-xl border-2 border-amber-700 flex flex-col justify-between p-2 text-white text-center">
-                    <span class="text-xs font-bold bg-black/20 rounded py-0.5">일반분양 적음</span>
-                    <span class="text-xs font-bold">804세대</span>
+                <!-- Bar 2: 일반 재건축 (~300%, 약 1,030세대 -> 상단 54px + 하단 96px = 150px) -->
+                <div class="flex flex-col items-center justify-end">
+                  <div class="text-center mb-2">
+                    <div class="text-xs font-bold text-amber-700">일반 (~300%)</div>
+                    <div class="text-sm sm:text-base font-black text-amber-900">약 1,030세대</div>
                   </div>
-                </div>
-
-                <!-- 통합·역세권 특례 -->
-                <div class="flex flex-col items-center h-full justify-end">
-                  <span class="px-2 py-0.5 rounded-full bg-[#b8734a] text-white text-xs font-black mb-1">★최대 +293%p</span>
-                  <span class="text-lg font-black text-[#b8734a] mb-1.5">최대 500%</span>
-                  <div class="w-full max-w-[92px] h-[96%] bg-gradient-to-t from-[#231f1d] via-[#b8734a] to-[#d4885c] rounded-t-xl border-2 border-[#b8734a] flex flex-col justify-between p-2 text-white text-center shadow-lg">
-                    <div class="bg-white/20 rounded py-1.5 px-1 border border-white/30">
-                      <div class="text-xs font-black">일반분양 극대화</div>
-                      <div class="text-xs opacity-90">(분담금 절감)</div>
+                  <div class="w-full rounded-t-xl overflow-hidden flex flex-col shadow" style="max-width: 108px; height: 150px; border: 2px solid #b45309; border-bottom: none; box-sizing: border-box;">
+                    <!-- 추가 세대수 (상단 54px) -->
+                    <div class="bg-amber-500 text-white flex flex-col justify-center items-center px-1 text-center" style="height: 54px; border-bottom: 1px solid rgba(180,83,9,0.5); box-sizing: border-box;">
+                      <span class="text-xs font-black leading-tight">+180~270세대</span>
+                      <span class="text-xs opacity-95 leading-tight">일반분양 소량</span>
                     </div>
-                    <span class="text-xs font-bold bg-black/30 rounded py-0.5">804세대</span>
+                    <!-- 기존 조합원 (하단 정확히 96px) -->
+                    <div class="bg-[#6e645c] text-white flex flex-col justify-center items-center text-center" style="height: 96px; box-sizing: border-box;">
+                      <span class="text-xs opacity-90">조합원</span>
+                      <span class="text-sm font-black mt-0.5">804세대</span>
+                    </div>
                   </div>
                 </div>
+
+                <!-- Bar 3: 통합·역세권 특례 (최대 500%, 약 1,600세대+ -> 상단 114px + 하단 96px = 210px) -->
+                <div class="flex flex-col items-center justify-end">
+                  <div class="text-center mb-2">
+                    <span class="inline-block px-2 py-0.5 rounded-full bg-[#b8734a] text-white text-xs font-black mb-0.5">최대 500%</span>
+                    <div class="text-sm sm:text-base font-black text-[#b8734a]">약 1,600세대+</div>
+                  </div>
+                  <div class="w-full rounded-t-xl overflow-hidden flex flex-col shadow-xl" style="max-width: 112px; height: 210px; border: 2px solid #b8734a; border-bottom: none; box-sizing: border-box;">
+                    <!-- 추가 세대수 (상단 114px) -->
+                    <div class="bg-gradient-to-b from-[#d4885c] to-[#b8734a] text-white flex flex-col justify-center items-center p-1.5 text-center" style="height: 114px; border-bottom: 1px solid rgba(255,255,255,0.45); box-sizing: border-box;">
+                      <span class="text-xs font-black bg-black/25 px-1.5 py-0.5 rounded">+650~870세대</span>
+                      <span class="text-xs font-bold mt-1">일반분양 극대화</span>
+                      <span class="text-xs opacity-90">(분담금 대폭 절감)</span>
+                    </div>
+                    <!-- 기존 조합원 (하단 정확히 96px) -->
+                    <div class="bg-[#231f1d] text-white flex flex-col justify-center items-center text-center" style="height: 96px; box-sizing: border-box;">
+                      <span class="text-xs text-[#e5b394]">조합원</span>
+                      <span class="text-sm font-black mt-0.5">804세대</span>
+                    </div>
+                  </div>
+                </div>
+
               </div>
 
-              <div class="grid grid-cols-3 gap-2 pt-3 text-center text-xs">
-                <div class="font-bold text-[#5c534c]">현재 단지</div>
-                <div class="font-bold text-amber-800">일반 단독정비</div>
-                <div class="font-black text-[#b8734a]">통합·역세권 특례</div>
+              <!-- X축 하단 라벨 & 주석 -->
+              <div class="space-y-2 pt-3">
+                <div class="grid grid-cols-3 gap-2 text-center text-xs">
+                  <div class="font-bold text-[#5c534c]">현재 (15층)</div>
+                  <div class="font-bold text-amber-800">일반 단독정비</div>
+                  <div class="font-black text-[#b8734a]">통합·역세권 특례</div>
+                </div>
+                <div class="text-xs text-[#736961] bg-white p-2.5 rounded-xl border border-[#e8e2d9] leading-relaxed">
+                  ※ 평형 확대(기존 평균 전용 49.8㎡ ➔ 재건축 59·84㎡ 중심) 반영 추정치이며, 인접 단지와 대블록 통합 시 <strong>총 2,500~3,000세대+</strong> 규모로 확장됩니다.
+                </div>
               </div>
             </div>
 
