@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>신내대명11단지 아파트 - 공식 주민 소통 포털</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <style>
+    * { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    .font-condensed { font-family: 'Pretendard', 'Montserrat', -apple-system, sans-serif; letter-spacing: -0.02em; }
+    .terracotta-bg { background-color: #b8734a; }
+    .terracotta-text { color: #b8734a; }
+    .terracotta-border { border-color: #b8734a; }
+    .dark-card-bg { background-color: #231f1d; }
+    .cream-bg { background-color: #f7f5f1; }
+    .warm-bg { background-color: #faf8f5; }
+    .footer-bg { background-color: #1a1715; }
+    .smooth-transition { transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
+    
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #f1ede7; }
+    ::-webkit-scrollbar-thumb { background: #c5b8ac; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #b8734a; }
+  </style>
+</head>
+<body class="bg-[#faf8f5] text-[#2c2724] antialiased selection:bg-[#b8734a] selection:text-white">
+
+  <!-- 1. TOP HEADER BAR -->
+  <header class="w-full bg-[#181513] text-[#a99e96] text-xs py-2 px-4 sm:px-8 border-b border-[#2d2723]">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-2 text-[#d1c8c0]">
+          <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>신내대명11단지 공식 소통 포털</span>
+        </div>
+        <span class="hidden md:inline text-[#423b36]">|</span>
+        <span class="hidden md:inline">평일 09:00 ~ 18:00 (관리사무소 02-3422-1100)</span>
+      </div>
+      <div class="flex items-center space-x-4 text-xs">
+        <span class="hidden lg:flex items-center gap-1">
+          <svg class="w-3.5 h-3.5 text-[#b8734a]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+          서울 중랑구 봉화산로 193
+        </span>
+        <span class="hidden sm:inline text-[#423b36]">|</span>
+        <a href="#agenda-section" class="hover:text-white transition-colors">안건현황</a>
+        <a href="#council-section" class="hover:text-white transition-colors">대표회의공고</a>
+        <a href="#contact-section" class="hover:text-white transition-colors">오시는길</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. MAIN NAVIGATION -->
+  <nav class="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-[#e8e2d9] shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="#" class="flex items-center space-x-3 group">
+        <div class="w-11 h-11 rounded-lg bg-[#231f1d] flex items-center justify-center p-2 shadow-inner group-hover:bg-[#b8734a] transition-colors">
+          <svg viewBox="0 0 40 40" class="w-7 h-7 text-white fill-none stroke-current stroke-2">
+            <path d="M8 34V18C8 11.3726 13.3726 6 20 6C26.6274 6 32 11.3726 32 18V34" stroke-linecap="round"/>
+            <path d="M13 34V20C13 16.134 16.134 13 20 13C23.866 13 27 16.134 27 20V34" stroke-linecap="round"/>
+            <path d="M18 34V23C18 21.8954 18.8954 21 20 21C21.1046 21 22 21.8954 22 23V34" stroke-linecap="round"/>
+            <line x1="5" y1="34" x2="35" y2="34" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="font-black text-xl tracking-tight text-[#231f1d] group-hover:text-[#b8734a] transition-colors flex items-center gap-1.5">
+            신내대명11단지
+            <span class="text-[11px] font-medium px-2 py-0.5 rounded-full bg-[#f4ebe4] text-[#b8734a]">공식</span>
+          </div>
+          <div class="text-[10px] tracking-widest text-[#8a7f76] font-semibold uppercase">SHINNAE DAEMYUNG 11</div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="hidden lg:flex items-center space-x-8 font-semibold text-sm text-[#4a423d]">
+        <a href="#about-section" class="hover:text-[#b8734a] transition-colors">단지 소개</a>
+        <a href="#agenda-section" class="hover:text-[#b8734a] transition-colors flex items-center gap-1">
+          33대 안건 현황
+          <span class="w-2 h-2 rounded-full bg-[#b8734a]"></span>
+        </a>
+        <a href="#realestate-section" class="hover:text-[#b8734a] transition-colors flex items-center gap-1 font-bold text-[#b8734a]">
+          시세·실거래
+          <span class="text-[10px] bg-[#f4ebe4] px-1.5 py-0.2 rounded font-semibold text-[#b8734a]">NEW</span>
+        </a>
+        <a href="#checklist-section" class="hover:text-[#b8734a] transition-colors">대표회의 의결</a>
+        <a href="#facilities-section" class="hover:text-[#b8734a] transition-colors">시설 & 주차</a>
+        <a href="#future-section" class="hover:text-[#b8734a] transition-colors">재건축 비전</a>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center space-x-3">
+        <button onclick="openAgendaModal('전체')" class="p-2.5 rounded-lg text-[#5a5049] hover:bg-[#f3ede6] transition-colors" title="안건 검색">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        </button>
+        <button onclick="openProposalModal()" class="bg-[#b8734a] hover:bg-[#a26139] text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 rounded-md shadow-sm hover:shadow-md transition-all flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+          <span>온라인 안건 제안</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 3. HERO SECTION (OUR SERVICES & VISION) -->
+  <section class="relative bg-[#1c1917] text-white overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1920&q=80" 
+           alt="신내대명11단지 건축 전경" 
+           class="w-full h-full object-cover object-center opacity-35 filter brightness-90">
+      <div class="absolute inset-0 bg-gradient-to-b from-[#181513]/70 via-[#181513]/60 to-[#181513]"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 pt-20 pb-28 text-center flex flex-col items-center justify-center">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[#e5b394] text-xs font-semibold tracking-wider uppercase mb-5">
+        <span>HOME</span>
+        <span>•</span>
+        <span>OUR SERVICES & COMMUNITY</span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white uppercase max-w-4xl font-condensed leading-tight">
+        OUR SERVICES & VISION
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-[#d8cec5] max-w-2xl font-normal leading-relaxed">
+        입주민의 목소리에서 시작하여 투명한 의결로 완성되는 명품 주거공간<br class="hidden sm:inline">
+        면목선 유치 대응, 스마트 주차·시설 현대화, 804세대 공동체의 미래를 함께 만들어갑니다.
+      </p>
+
+      <!-- Quick Action Badges -->
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <button onclick="openAgendaModal('면목선')" class="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-semibold backdrop-blur text-white transition-all flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+          면목선 대응 현황
+        </button>
+        <button onclick="openAgendaModal('주차')" class="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-semibold backdrop-blur text-white transition-all flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          주차단속·차단기
+        </button>
+        <button onclick="openAgendaModal('시설')" class="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-semibold backdrop-blur text-white transition-all flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+          옥상방수·시설공사
+        </button>
+        <button onclick="openAgendaModal('재건축')" class="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-semibold backdrop-blur text-white transition-all flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+          재건축 & 종상향
+        </button>
+        <a href="#realestate-section" class="px-4 py-2 rounded-full bg-[#b8734a]/80 hover:bg-[#b8734a] border border-[#d69875] text-xs font-semibold backdrop-blur text-white transition-all flex items-center gap-1.5 shadow-sm">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
+          시세 & 실거래 분석
+        </a>
+      </div>
+
+      <!-- 4 Core Stats Strip -->
+      <div class="mt-14 w-full max-w-5xl grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-left">
+        <div class="border-r border-white/10 last:border-none pr-4">
+          <div class="text-xs text-[#b8734a] font-bold uppercase tracking-wider">단지 규모</div>
+          <div class="text-2xl sm:text-3xl font-black text-white mt-1">804<span class="text-sm font-normal text-[#a3988f] ml-1">세대</span></div>
+          <div class="text-xs text-[#a3988f] mt-0.5">총 6개동 / 최고 15층</div>
+        </div>
+        <div class="border-r border-white/10 last:border-none pr-4 pl-0 md:pl-4">
+          <div class="text-xs text-[#b8734a] font-bold uppercase tracking-wider">주민 안건</div>
+          <div class="text-2xl sm:text-3xl font-black text-white mt-1">33<span class="text-sm font-normal text-[#a3988f] ml-1">건</span></div>
+          <div class="text-xs text-[#a3988f] mt-0.5">면목선·주차·시설 전수관리</div>
+        </div>
+        <div class="border-r border-white/10 last:border-none pr-4 pl-0 md:pl-4">
+          <div class="text-xs text-[#b8734a] font-bold uppercase tracking-wider">최신 대표회의</div>
+          <div class="text-2xl sm:text-3xl font-black text-white mt-1">10.21<span class="text-sm font-normal text-[#a3988f] ml-1">의결</span></div>
+          <div class="text-xs text-[#a3988f] mt-0.5">파크골프장·동절기준비 등</div>
+        </div>
+        <div class="pl-0 md:pl-4">
+          <div class="text-xs text-[#b8734a] font-bold uppercase tracking-wider">소통 참여도</div>
+          <div class="text-2xl sm:text-3xl font-black text-white mt-1">94.2<span class="text-sm font-normal text-[#a3988f] ml-1">%</span></div>
+          <div class="text-xs text-[#a3988f] mt-0.5">온라인 단톡·주민의견 수렴</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. SECTION 1: A NEW CONCEPT IN OUR APARTMENTS -->
+  <section id="about-section" class="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Left Column: Text & Features -->
+      <div class="lg:col-span-6 space-y-6">
+        <div class="inline-block px-3 py-1 rounded bg-[#f4ebe4] text-[#b8734a] text-xs font-bold tracking-wider uppercase">
+          GOOD LIFESTYLE & COMMUNITY
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-[#231f1d] leading-tight font-condensed">
+          A NEW CONCEPT IN OUR APARTMENTS<br>
+          <span class="text-[#b8734a]">입주민 중심</span>으로 도약하는 스마트 신내대명
+        </h2>
+        <p class="text-sm sm:text-base text-[#675f58] leading-relaxed">
+          신내대명11단지는 중랑구 신내동의 핵심 주거지로서, 입주민의 능동적인 목소리를 행정에 반영하고 있습니다.
+          주민 단체 대화방의 제안에서부터 입주자대표회의 정식 상정, 관할 지자체·서울시 의견서 전달까지 
+          단지의 모든 의사결정이 투명하고 민주적인 절차를 통해 실현됩니다.
+        </p>
+
+        <div class="space-y-6 pt-2">
+          <!-- Item 1 -->
+          <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-[#ece6de]">
+            <div class="w-12 h-12 rounded-lg bg-[#f7ede7] text-[#b8734a] flex items-center justify-center shrink-0 border border-[#ecd9cd]">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M8 7h8m-8 4h8m-9 9l2-2h10l2 2m-13-5h12a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-[#231f1d]">면목선 경전철 유치 및 역세권 권익 보호</h3>
+              <p class="text-xs sm:text-sm text-[#736a63] mt-1 leading-relaxed">
+                중랑구청사거리 승강장을 단지 접근성이 높은 위치로 조정 요구하고, 신내동 차량기지 대안을 적극 제시하여 단지의 미래 가치를 극대화합니다.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="flex items-start gap-4 p-4 rounded-xl hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-[#ece6de]">
+            <div class="w-12 h-12 rounded-lg bg-[#f7ede7] text-[#b8734a] flex items-center justify-center shrink-0 border border-[#ecd9cd]">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-[#231f1d]">스마트 주차 체계 & 안전한 주거 환경</h3>
+              <p class="text-xs sm:text-sm text-[#736a63] mt-1 leading-relaxed">
+                모바일 주차단속 앱 도입, 번호인식형 차단기 검토, 옥상·지하주차장 방수공사 철저 감리, 파크골프장 주차비 부과를 통한 자산 보호를 실현합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Visual Card with Terracotta Offset Backing -->
+      <div class="lg:col-span-6 flex justify-center">
+        <div class="relative w-full max-w-lg">
+          <div class="absolute -top-3 -left-3 w-1/3 h-full bg-[#b8734a] rounded-2xl -z-0 opacity-90"></div>
+          <div class="absolute -bottom-3 -right-3 w-1/2 h-1/2 bg-[#ecdcd2] rounded-2xl -z-0"></div>
+          
+          <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-white">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80" 
+                 alt="현대적이고 쾌적한 아파트 인테리어 공간" 
+                 class="w-full h-80 sm:h-96 object-cover">
+            
+            <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-xl p-4 shadow-lg border border-[#e8dfd7] flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-[#f4ebe4] text-[#b8734a] flex items-center justify-center font-bold text-sm">
+                  11
+                </div>
+                <div>
+                  <div class="text-xs text-[#82776f] font-semibold">단지 환경 정비 프로젝트</div>
+                  <div class="text-sm font-bold text-[#231f1d]">지하주차장·옥상 방수 재도장</div>
+                </div>
+              </div>
+              <span class="text-xs font-bold px-2.5 py-1 rounded bg-emerald-100 text-emerald-800">시공 심의완료</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. SECTION 2: LOGO PARTNERS ROW -->
+  <section class="py-12 bg-white border-y border-[#ece6de]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="text-center text-xs font-bold text-[#9e938a] uppercase tracking-widest mb-8">
+        COOPERATION & PUBLIC INSTITUTIONS
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-center justify-items-center opacity-75 hover:opacity-100 transition-opacity">
+        <div class="flex flex-col items-center gap-2 p-3 text-center group">
+          <div class="w-12 h-12 rounded-lg bg-[#f7f5f2] border border-[#e6e0d8] flex items-center justify-center text-[#5c544d] group-hover:text-[#b8734a] group-hover:border-[#b8734a] transition-all">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <span class="text-xs font-semibold text-[#5c544d]">중랑구청</span>
+        </div>
+
+        <div class="flex flex-col items-center gap-2 p-3 text-center group">
+          <div class="w-12 h-12 rounded-lg bg-[#f7f5f2] border border-[#e6e0d8] flex items-center justify-center text-[#5c544d] group-hover:text-[#b8734a] group-hover:border-[#b8734a] transition-all">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h8m-8 4h8m-9 9l2-2h10l2 2m-13-5h12a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          </div>
+          <span class="text-xs font-semibold text-[#5c544d]">서울시 도시교통실</span>
+        </div>
+
+        <div class="flex flex-col items-center gap-2 p-3 text-center group">
+          <div class="w-12 h-12 rounded-lg bg-[#f7f5f2] border border-[#e6e0d8] flex items-center justify-center text-[#5c544d] group-hover:text-[#b8734a] group-hover:border-[#b8734a] transition-all">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          </div>
+          <span class="text-xs font-semibold text-[#5c544d]">한국부동산원</span>
+        </div>
+
+        <div class="flex flex-col items-center gap-2 p-3 text-center group">
+          <div class="w-12 h-12 rounded-lg bg-[#f7f5f2] border border-[#e6e0d8] flex items-center justify-center text-[#5c544d] group-hover:text-[#b8734a] group-hover:border-[#b8734a] transition-all">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          </div>
+          <span class="text-xs font-semibold text-[#5c544d]">LH 관리지원센터</span>
+        </div>
+
+        <div class="flex flex-col items-center gap-2 p-3 text-center group">
+          <div class="w-12 h-12 rounded-lg bg-[#f7f5f2] border border-[#e6e0d8] flex items-center justify-center text-[#5c544d] group-hover:text-[#b8734a] group-hover:border-[#b8734a] transition-all">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          </div>
+          <span class="text-xs font-semibold text-[#5c544d]">입주자대표회의</span>
+        </div>
+
+        <div class="flex flex-col items-center gap-2 p-3 text-center group">
+          <div class="w-12 h-12 rounded-lg bg-[#f7f5f2] border border-[#e6e0d8] flex items-center justify-center text-[#5c544d] group-hover:text-[#b8734a] group-hover:border-[#b8734a] transition-all">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <span class="text-xs font-semibold text-[#5c544d]">관리사무소</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. SECTION 3: 6 CORE AGENDAS GRID -->
+  <section id="agenda-section" class="py-24 px-4 sm:px-8 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
+      
+      <!-- Left Intro -->
+      <div class="lg:col-span-5 space-y-4">
+        <div class="inline-block px-3 py-1 rounded bg-[#f4ebe4] text-[#b8734a] text-xs font-bold tracking-wider uppercase">
+          APARTMENT AGENDAS & PRIORITIES
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-[#231f1d] leading-tight font-condensed">
+          STUNNING ADVANCEMENT,<br>
+          DESIGNED FOR COMMUNITY<br>
+          <span class="text-[#b8734a]">단지 혁신을 위한 6대 핵심 과제</span>
+        </h2>
+        <p class="text-sm text-[#6f665e] leading-relaxed">
+          2026년 입주민 채팅방 및 대표회의 의결을 전수 분석하여 선정한 6대 중점 추진 분야입니다.
+          각 카드를 클릭하시면 상세한 추진 일정, 배경 설명, 원본 확인 필요사항을 확인하실 수 있습니다.
+        </p>
+        <div class="pt-2">
+          <button onclick="openAgendaModal('전체')" class="bg-[#b8734a] hover:bg-[#a26139] text-white text-xs sm:text-sm font-bold px-5 py-3 rounded-md shadow-sm hover:shadow transition-all flex items-center gap-2">
+            <span>전체 33건 안건 브라우저 열기</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right/Bottom 6 Grid Cards -->
+      <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5">
+        
+        <!-- CARD 1 (Top Left - Warm Terracotta Accent Card #b8734a) -->
+        <div onclick="openAgendaModal('면목선')" class="cursor-pointer bg-[#b8734a] text-white rounded-2xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between group">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <div class="w-11 h-11 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M8 7h8m-8 4h8m-9 9l2-2h10l2 2m-13-5h12a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+              </div>
+              <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white">공청회 대응</span>
+            </div>
+            <h3 class="text-lg font-black tracking-tight text-white mb-2">면목선 경전철 권익 사수</h3>
+            <p class="text-xs text-[#faede6] leading-relaxed line-clamp-3">
+              중랑구청사거리 승강장 위치 단지 방향 조정(109/110호선), 중랑구 2개역 축소 형평성 규명, 동진학교 인근 차량기지 이전 반대 및 단지 서명부 제출 TF 구성.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-white/20 flex items-center justify-between text-xs font-semibold">
+            <span class="text-white/80">안건 6건 진행 중</span>
+            <span class="flex items-center gap-1 group-hover:translate-x-1 transition-transform">상세보기 →</span>
+          </div>
+        </div>
+
+        <!-- CARD 2 (Top Right - Deep Espresso / Charcoal Card #231f1d) -->
+        <div onclick="openAgendaModal('주차')" class="cursor-pointer bg-[#231f1d] text-white rounded-2xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between group border border-[#38312d]">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <div class="w-11 h-11 rounded-xl bg-[#b8734a] flex items-center justify-center text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 17V7h4a3 3 0 010 6H9m8 8H7a2 2 0 01-2-2V5a2 2 0 012-2h10a2 2 0 012 2v14a2 2 0 01-2 2z"/></svg>
+              </div>
+              <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800">시행 & 의결</span>
+            </div>
+            <h3 class="text-lg font-black tracking-tight text-white mb-2">스마트 주차 체계 현대화</h3>
+            <p class="text-xs text-[#bcb2aa] leading-relaxed line-clamp-3">
+              코드온코드 단속 앱 계약(월 14.2만), 강력스티커 부과, 번호인식형 차단기 도입 검토 및 파크골프장 주차비 월 20~30만원 부과 10년 계약 승인의결.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#38312d] flex items-center justify-between text-xs font-semibold">
+            <span class="text-[#a89d95]">주차 질서 대폭 개선</span>
+            <span class="text-[#b8734a] flex items-center gap-1 group-hover:translate-x-1 transition-transform">상세보기 →</span>
+          </div>
+        </div>
+
+        <!-- CARD 3 (White Card with Terracotta Accents) -->
+        <div onclick="openAgendaModal('보안')" class="cursor-pointer bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col justify-between border border-[#e8e2d9] group">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <div class="w-11 h-11 rounded-xl bg-[#f7ede7] text-[#b8734a] flex items-center justify-center border border-[#edd5c6]">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-[#f4ebe4] text-[#b8734a]">주민 건의</span>
+            </div>
+            <h3 class="text-lg font-black tracking-tight text-[#231f1d] mb-2 group-hover:text-[#b8734a] transition-colors">단지 보안 & 출입 통제</h3>
+            <p class="text-xs text-[#756c64] leading-relaxed line-clamp-3">
+              동별 1층 공동현관 자동문 설치 제안 수렴, CCTV 사각지대 전수 점검 및 외부인 출입에 따른 택배·우편물 분실 방지 보안 시스템 강화.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#f0eae3] flex items-center justify-between text-xs font-semibold text-[#8a7f76]">
+            <span>3건 안건 논의중</span>
+            <span class="group-hover:text-[#b8734a] flex items-center gap-1">상세보기 →</span>
+          </div>
+        </div>
+
+        <!-- CARD 4 (White Card with Terracotta Accents) -->
+        <div onclick="openAgendaModal('시설')" class="cursor-pointer bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col justify-between border border-[#e8e2d9] group">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <div class="w-11 h-11 rounded-xl bg-[#f7ede7] text-[#b8734a] flex items-center justify-center border border-[#edd5c6]">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-800">경쟁입찰심의</span>
+            </div>
+            <h3 class="text-lg font-black tracking-tight text-[#231f1d] mb-2 group-hover:text-[#b8734a] transition-colors">시설 유지보수 & 공사</h3>
+            <p class="text-xs text-[#756c64] leading-relaxed line-clamp-3">
+              10~15년 경과 옥상 방수 및 지하주차장 재도장 경쟁입찰, 1102·1103동 난방 횡주관 긴급보수, 동절기 보온덮개 810개 구입 및 어린이놀이터 보수.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#f0eae3] flex items-center justify-between text-xs font-semibold text-[#8a7f76]">
+            <span>공사 및 심사 진행</span>
+            <span class="group-hover:text-[#b8734a] flex items-center gap-1">상세보기 →</span>
+          </div>
+        </div>
+
+        <!-- CARD 5 (White Card with Terracotta Accents) -->
+        <div onclick="openAgendaModal('생활')" class="cursor-pointer bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col justify-between border border-[#e8e2d9] group">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <div class="w-11 h-11 rounded-xl bg-[#f7ede7] text-[#b8734a] flex items-center justify-center border border-[#edd5c6]">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">캠페인</span>
+            </div>
+            <h3 class="text-lg font-black tracking-tight text-[#231f1d] mb-2 group-hover:text-[#b8734a] transition-colors">쾌적한 주거 커뮤니티</h3>
+            <p class="text-xs text-[#756c64] leading-relaxed line-clamp-3">
+              단지 내 지정 흡연구역 매너 준수, 음식물쓰레기 무단투기 근절, 정문 앞 횡단보도 신호등 설치 구청 건의, 층간소음 자율 분쟁조정 체계 마련.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#f0eae3] flex items-center justify-between text-xs font-semibold text-[#8a7f76]">
+            <span>5건 안건 접수</span>
+            <span class="group-hover:text-[#b8734a] flex items-center gap-1">상세보기 →</span>
+          </div>
+        </div>
+
+        <!-- CARD 6 (White Card with Terracotta Accents) -->
+        <div onclick="openAgendaModal('재건축')" class="cursor-pointer bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col justify-between border border-[#e8e2d9] group">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <div class="w-11 h-11 rounded-xl bg-[#f7ede7] text-[#b8734a] flex items-center justify-center border border-[#edd5c6]">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+              </div>
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-purple-100 text-purple-800">미래가치</span>
+            </div>
+            <h3 class="text-lg font-black tracking-tight text-[#231f1d] mb-2 group-hover:text-[#b8734a] transition-colors">재건축 비전 & 종상향</h3>
+            <p class="text-xs text-[#756c64] leading-relaxed line-clamp-3">
+              도정법 vs 노특법(노후계획도시정비) 비교, 10단지 통합 vs 단독 재건축 실익 분석, 면목선 승강장 250m 반경 역세권 종상향 연동 사전 준비.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#f0eae3] flex items-center justify-between text-xs font-semibold text-[#8a7f76]">
+            <span>공식 민원접수 완료</span>
+            <span class="group-hover:text-[#b8734a] flex items-center gap-1">상세보기 →</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================== -->
+  <!-- NEW SECTION: REAL ESTATE & MARKET ANALYSIS (네이버·KB 연동) -->
+  <!-- ======================================================== -->
+  <section id="realestate-section" class="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
+    <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-[#e8e2d9]">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 pb-8 border-b border-[#f0eae3]">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#f4ebe4] text-[#b8734a] text-xs font-bold tracking-wider uppercase mb-3">
+            <span>REAL ESTATE & MARKET ANALYSIS</span>
+            <span>•</span>
+            <span>봉화산로 193</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-black text-[#231f1d] leading-tight font-condensed">
+            신내대명11단지 시세 & 실거래가 분석
+          </h2>
+          <p class="text-sm text-[#736961] mt-2 max-w-2xl leading-relaxed">
+            네이버부동산 매물 호가와 KB부동산 주간 시세를 기반으로 54㎡·68㎡·81㎡ 3개 평형의 시세 흐름, 최근 실거래가, 전세가율 및 갭투자 지표를 심층 분석합니다.
+          </p>
+        </div>
+
+        <!-- External Real Estate Link Buttons -->
+        <div class="flex flex-wrap items-center gap-3 shrink-0">
+          <!-- Naver Real Estate Button -->
+          <a href="https://naver.me/5kPGTqf1" target="_blank" rel="noopener noreferrer" 
+             class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#03C75A]/10 hover:bg-[#03C75A]/20 text-[#009e46] border border-[#03C75A]/30 text-xs font-bold transition-all shadow-sm group">
+            <span class="w-5 h-5 rounded-md bg-[#03C75A] text-white flex items-center justify-center font-black text-xs">N</span>
+            <span>네이버부동산 매물 보기</span>
+            <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+          
+          <!-- KB Real Estate Button -->
+          <a href="https://kbland.kr/se/l/c/2560" target="_blank" rel="noopener noreferrer" 
+             class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#FFCC00]/20 hover:bg-[#FFCC00]/30 text-[#856404] border border-[#FFCC00]/50 text-xs font-bold transition-all shadow-sm group">
+            <span class="w-5 h-5 rounded-md bg-[#FFB300] text-[#332a15] flex items-center justify-center font-black text-[10px]">KB</span>
+            <span>KB부동산 단지시세 보기</span>
+            <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 4 Quick Key Indicators Strip -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6">
+        <div class="p-4 rounded-2xl bg-[#faf7f3] border border-[#eee7df]">
+          <div class="text-[11px] text-[#8e8278] font-bold uppercase">준공년월 / 단지규모</div>
+          <div class="text-xl font-black text-[#231f1d] mt-1">1996.03 <span class="text-xs font-semibold text-[#b8734a]">(30년차)</span></div>
+          <div class="text-xs text-[#70665e] mt-0.5">총 804세대 (6개동)</div>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-[#faf7f3] border border-[#eee7df]">
+          <div class="text-[11px] text-[#8e8278] font-bold uppercase">최고 실거래가 (신고가)</div>
+          <div class="text-xl font-black text-[#b8734a] mt-1">6억 4,000만 <span class="text-xs font-semibold text-gray-500">원</span></div>
+          <div class="text-xs text-[#70665e] mt-0.5">전용 49㎡ 8층 (2026.10)</div>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-[#faf7f3] border border-[#eee7df]">
+          <div class="text-[11px] text-[#8e8278] font-bold uppercase">평균 전세가율</div>
+          <div class="text-xl font-black text-[#231f1d] mt-1">54.5% <span class="text-xs font-semibold text-emerald-600">안정권</span></div>
+          <div class="text-xs text-[#70665e] mt-0.5">실투자 갭 약 2.4억~3.0억</div>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-[#faf7f3] border border-[#eee7df]">
+          <div class="text-[11px] text-[#8e8278] font-bold uppercase">교통 개발 호재</div>
+          <div class="text-xl font-black text-indigo-700 mt-1">면목선 경전철</div>
+          <div class="text-xs text-[#70665e] mt-0.5">중랑구청사거리역 역세권</div>
+        </div>
+      </div>
+
+      <!-- Type Switcher Tabs Navigation -->
+      <div class="mt-4 flex flex-wrap gap-2 border-b border-[#e8e2d9] pb-4" id="realestate-tab-buttons">
+        <button onclick="switchRealEstateTab('tab-all')" id="btn-tab-all" class="re-tab-btn active px-4 py-2 rounded-xl text-xs font-bold transition-all bg-[#231f1d] text-white shadow">
+          전체 평형 종합 비교
+        </button>
+        <button onclick="switchRealEstateTab('tab-54')" id="btn-tab-54" class="re-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-[#f4f0eb] text-[#5c534c] hover:bg-[#eae3db]">
+          54㎡ (전용 39.76㎡ / 17평형 · 239세대)
+        </button>
+        <button onclick="switchRealEstateTab('tab-68')" id="btn-tab-68" class="re-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-[#f4f0eb] text-[#5c534c] hover:bg-[#eae3db] flex items-center gap-1.5">
+          <span>68㎡ (전용 49.77㎡ / 21평형 · 326세대)</span>
+          <span class="px-1.5 py-0.2 bg-[#b8734a] text-white text-[10px] rounded-full">주력</span>
+        </button>
+        <button onclick="switchRealEstateTab('tab-81')" id="btn-tab-81" class="re-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-[#f4f0eb] text-[#5c534c] hover:bg-[#eae3db]">
+          81㎡ (전용 59.76㎡ / 25평형 · 239세대)
+        </button>
+      </div>
+
+      <!-- TAB 1: ALL TYPES COMPARISON (OVERVIEW) -->
+      <div id="tab-all" class="re-tab-content pt-6 space-y-6">
+        
+        <!-- 3 Types Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Card 54 Type -->
+          <div class="bg-[#faf8f5] rounded-2xl p-6 border border-[#ece4dc] hover:border-[#b8734a] transition-all">
+            <div class="flex justify-between items-start mb-3">
+              <span class="px-2.5 py-1 rounded bg-[#ece4dc] text-[#5a5047] text-xs font-bold">17평형</span>
+              <span class="text-xs text-[#8e8278]">239세대 (30%)</span>
+            </div>
+            <h3 class="text-xl font-black text-[#231f1d]">54㎡ 타입</h3>
+            <div class="text-xs text-[#7d7269] mt-0.5">공급 54.45㎡ / 전용 39.76㎡ (방 2, 욕실 1)</div>
+            
+            <div class="mt-4 pt-4 border-t border-[#eee7df] space-y-2 text-xs">
+              <div class="flex justify-between">
+                <span class="text-[#8e8278]">KB 매매 일반가</span>
+                <span class="font-bold text-[#231f1d]">4억 7,000만 원</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-[#8e8278]">매매 시세 밴드</span>
+                <span class="font-semibold text-[#5a5047]">4.45억 ~ 4.95억</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-[#8e8278]">최근 실거래가</span>
+                <span class="font-bold text-[#b8734a]">4억 8,000만 원</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-[#8e8278]">KB 전세 일반가</span>
+                <span class="font-semibold text-[#231f1d]">2억 3,500만 원</span>
+              </div>
+              <div class="flex justify-between pt-2 border-t border-[#eee7df] text-[11px]">
+                <span class="text-[#8e8278]">전세가율 / 예상 갭</span>
+                <span class="font-bold text-emerald-700">52.2% (갭 약 2.35억)</span>
+              </div>
+            </div>
+            <button onclick="switchRealEstateTab('tab-54')" class="mt-4 w-full py-2 bg-white hover:bg-[#f2ece5] text-[#b8734a] font-bold text-xs rounded-xl border border-[#ded4ca] transition-colors">
+              54㎡ 상세 분석 보기 →
+            </button>
+          </div>
+
+          <!-- Card 68 Type (Highlighted) -->
+          <div class="bg-[#faf8f5] rounded-2xl p-6 border-2 border-[#b8734a] shadow-md relative">
+            <div class="absolute -top-3 right-6 bg-[#b8734a] text-white text-[10px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider">
+              가장 인기 많은 주력 평형
+            </div>
+            <div class="flex justify-between items-start mb-3">
+              <span class="px-2.5 py-1 rounded bg-[#f4ebe4] text-[#b8734a] text-xs font-bold">21평형</span>
+              <span class="text-xs text-[#8e8278]">326세대 (40%)</span>
+            </div>
+            <h3 class="text-xl font-black text-[#231f1d]">68㎡ 타입</h3>
+            <div class="text-xs text-[#7d7269] mt-0.5">공급 68.15㎡ / 전용 49.77㎡ (방 2, 거실, 욕실 1)</div>
+            
+            <div class="mt-4 pt-4 border-t border-[#eee7df] space-y-2 text-xs">
+              <div class="flex justify-between">
+                <span class="text-[#8e8278]">KB 매매 일반가</span>
+                <span class="font-bold text-[#231f1d]">6억 2,000만 원</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-[#8e8278]">네이버 호가 밴드</span>
+                <span class="font-semibold text-[#5a5047]">6.30억 ~ 6.50억</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-[#8e8278]">최근 최고 실거래</span>
+                <span class="font-black text-[#b8734a] text-sm">6억 4,000만 원 (신고가)</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-[#8e8278]">KB 전세 일반가</span>
+                <span class="font-semibold text-[#231f1d]">3억 3,500만 원</span>
+              </div>
+              <div class="flex justify-between pt-2 border-t border-[#eee7df] text-[11px]">
+                <span class="text-[#8e8278]">전세가율 / 예상 갭</span>
+                <span class="font-bold text-emerald-700">54.0% (갭 약 2.85억)</span>
+              </div>
+            </div>
+            <button onclick="switchRealEstateTab('tab-68')" class="mt-4 w-full py-2 bg-[#b8734a] hover:bg-[#a26139] text-white font-bold text-xs rounded-xl transition-colors shadow">
+              68㎡ 상세 분석 보기 →
+            </button>
+          </div>
+
+          <!-- Card 81 Type -->
+          <div class="bg-[#faf8f5] rounded-2xl p-6 border border-[#ece4dc] hover:border-[#b8734a] transition-all">
+            <div class="flex justify-between items-start mb-3">
+              <span class="px-2.5 py-1 rounded bg-[#ece4dc] text-[#5a5047] text-xs font-bold">25평형</span>
+              <span class="text-xs text-[#8e8278]">239세대 (30%)</span>
+            </div>
+            <h3 class="text-xl font-black text-[#231f1d]">81㎡ 타입</h3>
+            <div class="text-xs text-[#7d7269] mt-0.5">공급 81.84㎡ / 전용 59.76㎡ (방 3, 거실, 욕실 1)</div>
+            
+            <div class="mt-4 pt-4 border-t border-[#eee7df] space-y-2 text-xs">
+              <div class="flex justify-between">
+                <span class="text-[#8e8278]">KB 매매 일반가</span>
+                <span class="font-bold text-[#231f1d]">6억 3,000만 원</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-[#8e8278]">매매 시세 밴드</span>
+                <span class="font-semibold text-[#5a5047]">5.90억 ~ 6.60억</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-[#8e8278]">최근 실거래가</span>
+                <span class="font-bold text-[#b8734a]">6억 3,500만 원</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-[#8e8278]">KB 전세 일반가</span>
+                <span class="font-semibold text-[#231f1d]">3억 6,000만 원</span>
+              </div>
+              <div class="flex justify-between pt-2 border-t border-[#eee7df] text-[11px]">
+                <span class="text-[#8e8278]">전세가율 / 예상 갭</span>
+                <span class="font-bold text-emerald-700">57.1% (갭 약 2.70억)</span>
+              </div>
+            </div>
+            <button onclick="switchRealEstateTab('tab-81')" class="mt-4 w-full py-2 bg-white hover:bg-[#f2ece5] text-[#b8734a] font-bold text-xs rounded-xl border border-[#ded4ca] transition-colors">
+              81㎡ 상세 분석 보기 →
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Real Estate Comparative Summary Table -->
+        <div class="mt-8 overflow-x-auto">
+          <table class="w-full text-xs text-left border-collapse">
+            <thead>
+              <tr class="bg-[#231f1d] text-white">
+                <th class="p-3.5 rounded-l-xl font-bold">구분</th>
+                <th class="p-3.5 font-bold">54㎡ (17평)</th>
+                <th class="p-3.5 font-bold text-[#e5b394]">68㎡ (21평) ★주력</th>
+                <th class="p-3.5 rounded-r-xl font-bold">81㎡ (25평)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#eee7df] text-[#524942]">
+              <tr class="hover:bg-[#faf7f3]">
+                <td class="p-3.5 font-bold bg-[#faf7f3]">세대수 / 비율</td>
+                <td class="p-3.5">239세대 (29.7%)</td>
+                <td class="p-3.5 font-semibold text-[#231f1d]">326세대 (40.5%)</td>
+                <td class="p-3.5">239세대 (29.7%)</td>
+              </tr>
+              <tr class="hover:bg-[#faf7f3]">
+                <td class="p-3.5 font-bold bg-[#faf7f3]">공급 / 전용면적</td>
+                <td class="p-3.5">54.45㎡ / 39.76㎡</td>
+                <td class="p-3.5 font-semibold">68.15㎡ / 49.77㎡</td>
+                <td class="p-3.5">81.84㎡ / 59.76㎡</td>
+              </tr>
+              <tr class="hover:bg-[#faf7f3]">
+                <td class="p-3.5 font-bold bg-[#faf7f3]">방 / 욕실 구조</td>
+                <td class="p-3.5">방 2개, 욕실 1개 (복도식)</td>
+                <td class="p-3.5 font-semibold">방 2개, 거실, 욕실 1개 (복도식)</td>
+                <td class="p-3.5">방 3개, 거실, 욕실 1개 (복도식)</td>
+              </tr>
+              <tr class="hover:bg-[#faf7f3]">
+                <td class="p-3.5 font-bold bg-[#faf7f3]">KB 매매 일반가</td>
+                <td class="p-3.5 font-semibold text-[#231f1d]">4억 7,000만 원</td>
+                <td class="p-3.5 font-black text-[#b8734a]">6억 2,000만 원</td>
+                <td class="p-3.5 font-semibold text-[#231f1d]">6억 3,000만 원</td>
+              </tr>
+              <tr class="hover:bg-[#faf7f3]">
+                <td class="p-3.5 font-bold bg-[#faf7f3]">최근 최고 실거래가</td>
+                <td class="p-3.5">4억 8,000만 원 (11층)</td>
+                <td class="p-3.5 font-black text-rose-600">6억 4,000만 원 (8층, 2026.10)</td>
+                <td class="p-3.5">6억 3,500만 원 (12층)</td>
+              </tr>
+              <tr class="hover:bg-[#faf7f3]">
+                <td class="p-3.5 font-bold bg-[#faf7f3]">KB 전세 일반가</td>
+                <td class="p-3.5">2억 3,500만 원</td>
+                <td class="p-3.5 font-semibold">3억 3,500만 원</td>
+                <td class="p-3.5">3억 6,000만 원</td>
+              </tr>
+              <tr class="hover:bg-[#faf7f3]">
+                <td class="p-3.5 font-bold bg-[#faf7f3]">전세가율 & 실투자 갭</td>
+                <td class="p-3.5 text-emerald-700 font-semibold">52.2% / 갭 약 2.35억</td>
+                <td class="p-3.5 text-emerald-700 font-bold">54.0% / 갭 약 2.85억</td>
+                <td class="p-3.5 text-emerald-700 font-semibold">57.1% / 갭 약 2.70억</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <!-- TAB 2: 54 TYPE DETAIL -->
+      <div id="tab-54" class="re-tab-content hidden pt-6 space-y-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-7 space-y-4">
+            <div class="inline-block px-3 py-1 rounded bg-[#f4ebe4] text-[#b8734a] text-xs font-bold">소형 가성비 & 1~2인 가구 최적화</div>
+            <h3 class="text-2xl font-black text-[#231f1d]">54㎡ 타입 (전용 39.76㎡ / 17평형)</h3>
+            <p class="text-xs text-[#70665e] leading-relaxed">
+              신내대명11단지 239세대를 차지하는 17평형은 신혼부부 및 1~2인 가구의 실수요 진입 장벽이 낮고, 안정적인 임대 수익(월세/전세)을 기대할 수 있는 가성비 중심 타입입니다.
+            </p>
+            <div class="grid grid-cols-2 gap-4 pt-2 text-xs">
+              <div class="bg-[#faf7f3] p-4 rounded-xl border border-[#eee7df]">
+                <div class="text-[#8e8278]">매매가 범위</div>
+                <div class="text-lg font-black text-[#231f1d] mt-1">4.45억 ~ 4.95억</div>
+                <div class="text-[11px] text-[#8e8278] mt-0.5">평당 약 2,700~3,000만원</div>
+              </div>
+              <div class="bg-[#faf7f3] p-4 rounded-xl border border-[#eee7df]">
+                <div class="text-[#8e8278]">전세가 범위</div>
+                <div class="text-lg font-black text-[#b8734a] mt-1">2.10억 ~ 2.60억</div>
+                <div class="text-[11px] text-[#8e8278] mt-0.5">전세가율 51~55%</div>
+              </div>
+            </div>
+            <div class="p-4 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 leading-relaxed">
+              <strong>💡 투자 포인트:</strong> 취득세 감면 기준 및 디딤돌·보금자리론 정책 대출 요건 충족 비율이 높아 2030 세대의 실거주 매수세가 꾸준합니다.
+            </div>
+          </div>
+          <div class="lg:col-span-5 bg-[#faf7f3] p-6 rounded-2xl border border-[#eee7df] space-y-4">
+            <h4 class="text-sm font-bold text-[#231f1d]">최근 실거래 흐름 (국토교통부 기준)</h4>
+            <ul class="space-y-2 text-xs text-[#524942]">
+              <li class="flex justify-between py-1.5 border-b border-[#eee7df]">
+                <span>2026.08 (11층)</span>
+                <span class="font-bold text-[#231f1d]">매매 4억 8,000만</span>
+              </li>
+              <li class="flex justify-between py-1.5 border-b border-[#eee7df]">
+                <span>2026.06 (7층)</span>
+                <span class="font-bold text-[#231f1d]">매매 4억 6,500만</span>
+              </li>
+              <li class="flex justify-between py-1.5 border-b border-[#eee7df]">
+                <span>2026.09 (9층)</span>
+                <span class="font-semibold text-emerald-700">전세 2억 4,000만</span>
+              </li>
+              <li class="flex justify-between py-1.5">
+                <span>2026.05 (4층)</span>
+                <span class="font-semibold text-emerald-700">전세 2억 3,000만</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: 68 TYPE DETAIL (MAIN) -->
+      <div id="tab-68" class="re-tab-content hidden pt-6 space-y-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-7 space-y-4">
+            <div class="inline-block px-3 py-1 rounded bg-[#b8734a] text-white text-xs font-bold">단지 내 최대 세대수 & 최고 거래 선호도</div>
+            <h3 class="text-2xl font-black text-[#231f1d]">68㎡ 타입 (전용 49.77㎡ / 21평형)</h3>
+            <p class="text-xs text-[#70665e] leading-relaxed">
+              신내대명11단지의 주력 평형으로 총 326세대를 구성합니다. 독립된 거실과 안방, 작은방의 실속 있는 투룸 구조로 3인 가족까지 충분히 거주 가능하며, 2026년 10월 <strong>6억 4,000만 원(8층)</strong>에 실거래되어 단지 내 최고가를 경신했습니다.
+            </p>
+            <div class="grid grid-cols-2 gap-4 pt-2 text-xs">
+              <div class="bg-[#faf7f3] p-4 rounded-xl border border-[#eee7df]">
+                <div class="text-[#8e8278]">KB 일반 매매가 / 호가</div>
+                <div class="text-lg font-black text-[#231f1d] mt-1">6억 2,000만 원</div>
+                <div class="text-[11px] text-[#b8734a] mt-0.5 font-bold">호가 6.3억~6.5억 형성</div>
+              </div>
+              <div class="bg-[#faf7f3] p-4 rounded-xl border border-[#eee7df]">
+                <div class="text-[#8e8278]">KB 일반 전세가 / 최고가</div>
+                <div class="text-lg font-black text-[#b8734a] mt-1">3억 3,500만 원</div>
+                <div class="text-[11px] text-[#8e8278] mt-0.5">수리 매물 최대 4.5억 호가</div>
+              </div>
+            </div>
+            <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-950 leading-relaxed">
+              <strong>💡 신고가 분석 및 전망:</strong> 면목선 경전철 기본계획 공고에 따른 중랑구청사거리역 단지 방향 승강장 조정 이슈와 맞물려 역세권 프리미엄이 가장 강력하게 반영되는 타입입니다.
+            </div>
+          </div>
+          <div class="lg:col-span-5 bg-[#faf7f3] p-6 rounded-2xl border border-[#eee7df] space-y-4">
+            <h4 class="text-sm font-bold text-[#231f1d]">최근 실거래 내역</h4>
+            <ul class="space-y-2 text-xs text-[#524942]">
+              <li class="flex justify-between py-1.5 border-b border-[#eee7df] bg-rose-50/70 px-2 rounded">
+                <span class="font-bold text-rose-800">2026.10 (8층) ★신고가</span>
+                <span class="font-black text-rose-600">매매 6억 4,000만</span>
+              </li>
+              <li class="flex justify-between py-1.5 border-b border-[#eee7df]">
+                <span>2026.07 (4층)</span>
+                <span class="font-bold text-[#231f1d]">매매 6억 2,000만</span>
+              </li>
+              <li class="flex justify-between py-1.5 border-b border-[#eee7df]">
+                <span>2026.09 (15층)</span>
+                <span class="font-semibold text-emerald-700">전세 3억 4,650만</span>
+              </li>
+              <li class="flex justify-between py-1.5">
+                <span>2026.06 (6층)</span>
+                <span class="font-semibold text-emerald-700">전세 3억 3,000만</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: 81 TYPE DETAIL -->
+      <div id="tab-81" class="re-tab-content hidden pt-6 space-y-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-7 space-y-4">
+            <div class="inline-block px-3 py-1 rounded bg-[#f4ebe4] text-[#b8734a] text-xs font-bold">단지 내 유일 방 3개 쓰리룸 구조</div>
+            <h3 class="text-2xl font-black text-[#231f1d]">81㎡ 타입 (전용 59.76㎡ / 25평형)</h3>
+            <p class="text-xs text-[#70665e] leading-relaxed">
+              단지 내 가장 넓은 면적으로 총 239세대로 구성됩니다. 방 3개, 거실, 주방 구조를 갖추어 자녀를 둔 학부모 세대 및 장기 실거주 입주민의 선호도가 매우 높으며 매물 출회가 드문 희소 타입입니다.
+            </p>
+            <div class="grid grid-cols-2 gap-4 pt-2 text-xs">
+              <div class="bg-[#faf7f3] p-4 rounded-xl border border-[#eee7df]">
+                <div class="text-[#8e8278]">매매가 범위</div>
+                <div class="text-lg font-black text-[#231f1d] mt-1">5.90억 ~ 6.60억</div>
+                <div class="text-[11px] text-[#8e8278] mt-0.5">KB 일반가 6억 3,000만</div>
+              </div>
+              <div class="bg-[#faf7f3] p-4 rounded-xl border border-[#eee7df]">
+                <div class="text-[#8e8278]">전세가 범위</div>
+                <div class="text-lg font-black text-[#b8734a] mt-1">3.35억 ~ 3.85억</div>
+                <div class="text-[11px] text-[#8e8278] mt-0.5">전세가율 56~60%</div>
+              </div>
+            </div>
+            <div class="p-4 rounded-xl bg-purple-50 border border-purple-200 text-xs text-purple-950 leading-relaxed">
+              <strong>💡 재건축 및 자산가치:</strong> 향후 30년차 도래 후 노후계획도시정비특별법(노특법) 또는 도정법 재건축 추진 시 대지지분과 면적 배정에서 가장 우수한 평가를 받을 핵심 자산입니다.
+            </div>
+          </div>
+          <div class="lg:col-span-5 bg-[#faf7f3] p-6 rounded-2xl border border-[#eee7df] space-y-4">
+            <h4 class="text-sm font-bold text-[#231f1d]">최근 실거래 내역</h4>
+            <ul class="space-y-2 text-xs text-[#524942]">
+              <li class="flex justify-between py-1.5 border-b border-[#eee7df]">
+                <span>2026.08 (6층)</span>
+                <span class="font-bold text-[#231f1d]">매매 6억 2,500만</span>
+              </li>
+              <li class="flex justify-between py-1.5 border-b border-[#eee7df]">
+                <span>2026.06 (12층)</span>
+                <span class="font-bold text-[#231f1d]">매매 6억 3,500만</span>
+              </li>
+              <li class="flex justify-between py-1.5 border-b border-[#eee7df]">
+                <span>2026.07 (8층)</span>
+                <span class="font-semibold text-emerald-700">전세 3억 6,000만</span>
+              </li>
+              <li class="flex justify-between py-1.5">
+                <span>2026.04 (3층)</span>
+                <span class="font-semibold text-emerald-700">전세 3억 5,000만</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 7. SECTION 4: FULL-WIDTH CTA BANNER -->
+  <section class="relative py-28 bg-[#181513] text-white overflow-hidden text-center">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80" 
+           alt="건축적 곡선 외관" 
+           class="w-full h-full object-cover opacity-25 filter brightness-75">
+      <div class="absolute inset-0 bg-gradient-to-r from-[#181513]/90 via-[#181513]/75 to-[#181513]/90"></div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-8">
+      <div class="inline-block px-3 py-1 rounded-full bg-white/10 border border-white/20 text-[#e5b394] text-xs font-semibold tracking-wider uppercase mb-4">
+        RESIDENT PARTICIPATION & COUNCIL
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-black tracking-tight uppercase font-condensed">
+        SCHEDULE A COUNCIL VISIT & PROPOSAL
+      </h2>
+      <p class="mt-4 text-sm sm:text-base text-[#d8cec5] max-w-xl mx-auto leading-relaxed">
+        입주민 여러분의 한 분 한 분의 관심과 제안이 신내대명11단지의 품격과 내일을 완성합니다.<br>
+        매월 정기 입주자대표회의 참관 신청 및 온라인 안건 제안에 동참해 주세요.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <button onclick="openProposalModal()" class="bg-[#b8734a] hover:bg-[#a26139] text-white text-sm font-bold px-8 py-3.5 rounded-md shadow-lg hover:shadow-xl transition-all">
+          온라인 안건 제안서 작성하기
+        </button>
+        <button onclick="openAgendaModal('단지운영')" class="bg-white/10 hover:bg-white/20 border border-white/25 text-white text-sm font-semibold px-6 py-3.5 rounded-md backdrop-blur transition-all">
+          회의 참관 안내 보기
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. SECTION 5: OUTSTANDING LUXURY CHECKLIST (4 COLUMNS) -->
+  <section id="checklist-section" class="py-24 px-4 sm:px-8 max-w-7xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <div class="inline-block px-3 py-1 rounded bg-[#f4ebe4] text-[#b8734a] text-xs font-bold tracking-wider uppercase mb-2">
+        COUNCIL & LIVING CHECKLIST
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-black text-[#231f1d] font-condensed uppercase tracking-tight">
+        OUTSTANDING COMMUNITY VALUE
+      </h2>
+      <p class="text-xs sm:text-sm text-[#7a7068] mt-2">
+        최신 대표회의 의결 내용과 단지 생활 가이드가 투명하게 공개됩니다.
+      </p>
+    </div>
+
+    <!-- 4 White Checklist Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <!-- Column 1: 최신 회의 의결 (2026.10 정기) -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-[#e8e2d9] hover:shadow-md transition-shadow">
+        <div class="text-xs font-bold text-[#b8734a] uppercase tracking-wider mb-2">OCT 2026 COUNCIL</div>
+        <h3 class="text-base font-black text-[#231f1d] mb-4 pb-3 border-b border-[#f0eae3]">최신 회의 의결사항</h3>
+        <ul class="space-y-3 text-xs text-[#574f48]">
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#b8734a] mt-0.5 shrink-0 font-bold">✔</span>
+            <span>09월분 관리비 부과명세서 원안 승인의결</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#b8734a] mt-0.5 shrink-0 font-bold">✔</span>
+            <span>동절기 제설용 염화칼슘 100포 사전 구매</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#b8734a] mt-0.5 shrink-0 font-bold">✔</span>
+            <span>수도계량기 동파방지 보온덮개 810개 교체</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#b8734a] mt-0.5 shrink-0 font-bold">✔</span>
+            <span>파크골프장 주차비 월 20~30만원 부과 의결</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#b8734a] mt-0.5 shrink-0 font-bold">✔</span>
+            <span>단지 정문 입구 상가방면 안내간판 설치 의결</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#b8734a] mt-0.5 shrink-0 font-bold">✔</span>
+            <span>외부 미등록 장기차량 강력 스티커 단속 조치</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Column 2: 주민 참여 주요 안건 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-[#e8e2d9] hover:shadow-md transition-shadow">
+        <div class="text-xs font-bold text-[#b8734a] uppercase tracking-wider mb-2">RESIDENT VOICE</div>
+        <h3 class="text-base font-black text-[#231f1d] mb-4 pb-3 border-b border-[#f0eae3]">주민 참여 주요 안건</h3>
+        <ul class="space-y-3 text-xs text-[#574f48]">
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#b8734a] mt-0.5 shrink-0 font-bold">✔</span>
+            <span>면목선 중랑구청역 승강장 단지방향 이전 청원</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#b8734a] mt-0.5 shrink-0 font-bold">✔</span>
+            <span>중랑구 정거장 축소 근거 정보공개 요청</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#b8734a] mt-0.5 shrink-0 font-bold">✔</span>
+            <span>단지 차원 면목선 대응 서명부 및 TF 구성 건의</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#b8734a] mt-0.5 shrink-0 font-bold">✔</span>
+            <span>공식 온라인 소통창구 웹사이트 구축 제안</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#b8734a] mt-0.5 shrink-0 font-bold">✔</span>
+            <span>네이버부동산 단지 기본정보 오류 수정 추진</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#b8734a] mt-0.5 shrink-0 font-bold">✔</span>
+            <span>동대표회의 평일 18시 개최시간 조정 의견수렴</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Column 3: 시설 인프라 개선 현황 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-[#e8e2d9] hover:shadow-md transition-shadow">
+        <div class="text-xs font-bold text-[#b8734a] uppercase tracking-wider mb-2">INFRASTRUCTURE</div>
+        <h3 class="text-base font-black text-[#231f1d] mb-4 pb-3 border-b border-[#f0eae3]">시설 인프라 개선</h3>
+        <ul class="space-y-3 text-xs text-[#574f48]">
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#b8734a] mt-0.5 shrink-0 font-bold">✔</span>
+            <span>옥상 방수 및 지하주차장 바닥 재도장 경쟁입찰</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#b8734a] mt-0.5 shrink-0 font-bold">✔</span>
+            <span>1102동·1103동 난방 횡주관 누수 긴급보수</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#b8734a] mt-0.5 shrink-0 font-bold">✔</span>
+            <span>기계실 판형 열교환기 세관작업 (열효율 제고)</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#b8734a] mt-0.5 shrink-0 font-bold">✔</span>
+            <span>승강기 TV광고 임대차 인상 갱신계약 (잡수입 증대)</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#b8734a] mt-0.5 shrink-0 font-bold">✔</span>
+            <span>어린이놀이터 정기 안전검사 및 바닥재 보수 검토</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#b8734a] mt-0.5 shrink-0 font-bold">✔</span>
+            <span>단지 수목 전지작업 및 동절기 월동 피복 작업</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Column 4: 단지 안심 생활 수칙 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-[#e8e2d9] hover:shadow-md transition-shadow">
+        <div class="text-xs font-bold text-[#b8734a] uppercase tracking-wider mb-2">LIVING GUIDE</div>
+        <h3 class="text-base font-black text-[#231f1d] mb-4 pb-3 border-b border-[#f0eae3]">단지 안심 생활 수칙</h3>
+        <ul class="space-y-3 text-xs text-[#574f48]">
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#b8734a] mt-0.5 shrink-0 font-bold">✔</span>
+            <span>세대 방문차량 사전등록제 (앱 간편등록)</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#b8734a] mt-0.5 shrink-0 font-bold">✔</span>
+            <span>24시간 단지 보안순찰 및 지하주차장 비상벨</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#b8734a] mt-0.5 shrink-0 font-bold">✔</span>
+            <span>대형폐기물·소형가전 배출 요일 및 장소 안내</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#b8734a] mt-0.5 shrink-0 font-bold">✔</span>
+            <span>층간소음 자율조정위원회 지원 및 가이드</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#b8734a] mt-0.5 shrink-0 font-bold">✔</span>
+            <span>단지 내 시속 20km 서행 및 지정주차선 준수</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="text-[#b8734a] mt-0.5 shrink-0 font-bold">✔</span>
+            <span>관리사무소 직통 민원: 02-3422-1100</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 9. FOOTER -->
+  <footer id="contact-section" class="bg-[#181513] text-[#aba097] pt-16 pb-12 border-t border-[#29231f]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#29231f]">
+        
+        <!-- Col 1: Logo & Vision -->
+        <div class="md:col-span-4 space-y-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-lg bg-[#b8734a] flex items-center justify-center p-2 text-white">
+              <svg viewBox="0 0 40 40" class="w-6 h-6 stroke-current stroke-2 fill-none">
+                <path d="M8 34V18C8 11.3726 13.3726 6 20 6C26.6274 6 32 11.3726 32 18V34" stroke-linecap="round"/>
+                <path d="M13 34V20C13 16.134 16.134 13 20 13C23.866 13 27 16.134 27 20V34" stroke-linecap="round"/>
+                <line x1="5" y1="34" x2="35" y2="34" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-black text-lg text-white tracking-tight">신내대명11단지</div>
+              <div class="text-[10px] tracking-widest text-[#8a7f76] font-semibold">SHINNAE DAEMYUNG 11</div>
+            </div>
+          </div>
+          <p class="text-xs text-[#8a7e75] leading-relaxed max-w-sm">
+            신내대명11단지 아파트는 804세대 입주민의 안전과 행복, 자산 가치 향상을 위해 투명하고 공정한 자치 관리를 실현하고 있습니다.
+          </p>
+          <div class="pt-2 text-xs text-[#b8734a] font-semibold flex items-center gap-2">
+            <span>입주자대표회의</span>
+            <span>•</span>
+            <span>관리사무소 공식 포털</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Explore Navigation -->
+        <div class="md:col-span-2 space-y-3">
+          <div class="text-xs font-bold text-white uppercase tracking-wider">EXPLORE</div>
+          <ul class="space-y-2 text-xs text-[#8a7e75]">
+            <li><a href="#about-section" class="hover:text-white transition-colors">단지 소개</a></li>
+            <li><a href="#agenda-section" class="hover:text-white transition-colors">33대 주민 안건</a></li>
+            <li><a href="#checklist-section" class="hover:text-white transition-colors">대표회의 의결공고</a></li>
+            <li><a href="javascript:void(0)" onclick="openProposalModal()" class="hover:text-white transition-colors">온라인 안건 제안</a></li>
+            <li><a href="javascript:void(0)" onclick="openAgendaModal('주차')" class="hover:text-white transition-colors">주차단속·등록</a></li>
+            <li><a href="javascript:void(0)" onclick="openAgendaModal('면목선')" class="hover:text-white transition-colors">면목선 TF 현황</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Contact Details -->
+        <div class="md:col-span-3 space-y-3">
+          <div class="text-xs font-bold text-white uppercase tracking-wider">CONTACT</div>
+          <div class="text-xs text-[#8a7e75] space-y-2">
+            <p><strong class="text-[#d5ccc4]">관리사무소:</strong> 02-3422-1100</p>
+            <p><strong class="text-[#d5ccc4]">팩스 번호:</strong> 02-3422-1101</p>
+            <p><strong class="text-[#d5ccc4]">주소:</strong> 서울특별시 중랑구 봉화산로 193 (신내동 661, 신내대명아파트)</p>
+            <p><strong class="text-[#d5ccc4]">공식 이메일:</strong> daemyung11@apartment.kr</p>
+            <p><strong class="text-[#d5ccc4]">운영시간:</strong> 평일 09:00 - 18:00 (주말/공휴일 당직근무)</p>
+          </div>
+        </div>
+
+        <!-- Col 4: Newsletter / 알림톡 신청 -->
+        <div class="md:col-span-3 space-y-3">
+          <div class="text-xs font-bold text-white uppercase tracking-wider">NEWSLETTER & NOTICES</div>
+          <p class="text-xs text-[#8a7e75]">
+            입주자대표회의 주요 의결 및 단지 긴급 공지사항을 카카오 알림톡/이메일로 받아보세요.
+          </p>
+          <form onsubmit="handleSubscribe(event)" class="space-y-2">
+            <input type="text" id="subscribe-dong" required placeholder="동/호수 입력 (예: 1102동 501호)" 
+                   class="w-full text-xs px-3 py-2.5 rounded bg-[#25201d] border border-[#3b332e] text-white placeholder-[#6d635c] focus:outline-none focus:border-[#b8734a]">
+            <button type="submit" class="w-full bg-[#b8734a] hover:bg-[#a26139] text-white text-xs font-bold py-2.5 rounded transition-colors">
+              알림톡 구독 신청
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Bottom Copyright & Links -->
+      <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-[#6e635a] gap-4">
+        <div>
+          © 2026 신내대명11단지 입주자대표회의. All Rights Reserved.
+        </div>
+        <div class="flex space-x-6 text-xs">
+          <a href="#" class="hover:text-[#a89d93] transition-colors">개인정보처리방침</a>
+          <span>•</span>
+          <a href="#" class="hover:text-[#a89d93] transition-colors">공동주택 관리규약</a>
+          <span>•</span>
+          <a href="#" class="hover:text-[#a89d93] transition-colors">사이트맵</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================== -->
+  <!-- MODAL 1: 33대 안건 전체 브라우저 (REAL DATA FROM EXCEL) -->
+  <!-- ======================================================== -->
+  <div id="agenda-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-4xl max-h-[90vh] rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-[#e5ded5]">
+      
+      <!-- Modal Header -->
+      <div class="p-6 bg-[#231f1d] text-white flex justify-between items-center shrink-0">
+        <div>
+          <div class="text-xs font-bold text-[#b8734a] uppercase tracking-wider">신내대명11단지 입주민 안건 전수 DB</div>
+          <h2 class="text-xl font-black">33대 주요 안건 종합 브라우저</h2>
+        </div>
+        <button onclick="closeAgendaModal()" class="text-white/70 hover:text-white p-2 rounded-lg hover:bg-white/10 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <!-- Filters & Search Toolbar -->
+      <div class="p-4 bg-[#faf8f5] border-b border-[#ece6de] flex flex-wrap gap-2 items-center justify-between shrink-0">
+        <div class="flex flex-wrap gap-1.5" id="category-filter-container"></div>
+        <div class="relative w-full sm:w-64 mt-2 sm:mt-0">
+          <input type="text" id="agenda-search" oninput="renderAgendaList()" placeholder="안건명 또는 키워드 검색..." 
+                 class="w-full text-xs pl-8 pr-3 py-2 rounded-lg border border-[#ded5ca] focus:outline-none focus:border-[#b8734a] bg-white text-[#2c2724]">
+          <svg class="w-4 h-4 text-[#9c9085] absolute left-2.5 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        </div>
+      </div>
+
+      <!-- Agenda List Scrollable Area -->
+      <div class="flex-1 overflow-y-auto p-6 space-y-4" id="agenda-list-body"></div>
+
+      <!-- Modal Footer -->
+      <div class="p-4 bg-[#f4f0eb] border-t border-[#ece6de] flex justify-between items-center text-xs text-[#786e66] shrink-0">
+        <span id="agenda-count-badge">총 33건 안건 로드 완료</span>
+        <button onclick="openProposalModal()" class="bg-[#b8734a] hover:bg-[#a26139] text-white font-bold px-4 py-2 rounded shadow transition-colors">
+          + 신규 안건 제안하기
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL 2: 온라인 안건 제안서 (RESIDENT SUBMISSION FORM) -->
+  <!-- ======================================================== -->
+  <div id="proposal-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-lg rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-[#e5ded5]">
+      
+      <!-- Header -->
+      <div class="p-5 bg-[#b8734a] text-white flex justify-between items-center">
+        <div>
+          <div class="text-xs font-bold text-white/80 uppercase tracking-wider">신내대명11단지 온라인 소통창구</div>
+          <h2 class="text-lg font-black">주민 안건 및 민원 제안서 작성</h2>
+        </div>
+        <button onclick="closeProposalModal()" class="text-white/80 hover:text-white p-1.5 rounded-lg hover:bg-white/10 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <!-- Form Body -->
+      <form onsubmit="handleProposalSubmit(event)" class="p-6 space-y-4 text-xs text-[#4a423d]">
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-[#231f1d] mb-1">동 / 호수 <span class="text-red-500">*</span></label>
+            <input type="text" required placeholder="예: 1104동 702호" class="w-full px-3 py-2 border border-[#d8cfc5] rounded focus:outline-none focus:border-[#b8734a]">
+          </div>
+          <div>
+            <label class="block font-bold text-[#231f1d] mb-1">안건 분류 <span class="text-red-500">*</span></label>
+            <select required class="w-full px-3 py-2 border border-[#d8cfc5] rounded focus:outline-none focus:border-[#b8734a] bg-white">
+              <option value="면목선">면목선 경전철</option>
+              <option value="주차">주차 및 차량통제</option>
+              <option value="보안">단지 보안 / CCTV / 현관</option>
+              <option value="시설">시설 유지보수 및 공사</option>
+              <option value="생활">주거환경 및 소음·흡연</option>
+              <option value="재건축">재건축 및 자산가치</option>
+              <option value="단지운영">입대의 및 단지운영</option>
+              <option value="기타">기타 일반 제안</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-[#231f1d] mb-1">안건 제목 <span class="text-red-500">*</span></label>
+          <input type="text" required placeholder="핵심 제안 내용을 간결하게 적어주세요" class="w-full px-3 py-2 border border-[#d8cfc5] rounded focus:outline-none focus:border-[#b8734a]">
+        </div>
+
+        <div>
+          <label class="block font-bold text-[#231f1d] mb-1">상세 제안 배경 및 건의 사항 <span class="text-red-500">*</span></label>
+          <textarea rows="4" required placeholder="문제점, 개선 대안, 기대효과 등을 구체적으로 작성해 주시면 동대표회의 상정 검토에 큰 도움이 됩니다." class="w-full px-3 py-2 border border-[#d8cfc5] rounded focus:outline-none focus:border-[#b8734a]"></textarea>
+        </div>
+
+        <div class="p-3 bg-[#faf7f3] rounded border border-[#eae3db] text-[11px] text-[#736860] leading-relaxed">
+          <span class="font-bold text-[#231f1d]">ℹ️ 안내:</span> 접수된 안건은 단지 관리규약에 따라 입주자대표회의 안건 상정 및 관리사무소 현장 실사 과정을 거치며, 진행 현황은 '33대 안건 현황'에서 투명하게 공개됩니다.
+        </div>
+
+        <div class="flex items-center gap-2 pt-2">
+          <input type="checkbox" id="agree" required class="rounded text-[#b8734a]">
+          <label for="agree" class="text-[11px] text-[#615750]">입주민 건의 검토를 위한 정보 제공에 동의합니다.</label>
+        </div>
+
+        <div class="pt-3 flex justify-end gap-2">
+          <button type="button" onclick="closeProposalModal()" class="px-4 py-2 border border-[#d8cfc5] rounded text-[#615750] hover:bg-[#f3ece4]">취소</button>
+          <button type="submit" class="px-5 py-2 bg-[#b8734a] hover:bg-[#a26139] text-white font-bold rounded shadow transition-colors">안건 제안 접수</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 bg-[#231f1d] text-white px-5 py-3 rounded-xl shadow-2xl border border-[#b8734a] hidden flex items-center gap-3 transition-opacity duration-300">
+    <span class="text-[#b8734a] font-bold text-lg">✓</span>
+    <span id="toast-message" class="text-xs font-semibold">처리가 완료되었습니다.</span>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC (EMBEDDED DATA) -->
+  <script>
+    const rawAgendaData = [{"task": "[면목선] 중랑구청사거리 정거장 승강장 위치 조정", "category": "면목선", "status": "진행 중 (원안 불가 공식화)", "first": "2026-08-12", "last": "2026-10-01", "notes": "원안(110, 하나로마트 인근)에서 가락공판장 쪽으로 이동한 안에 대해, 승강장을 중랑구청사거리 쪽으로 최대한 당기고 출입구를 담주한의원 앞 등에 두자는 의견을 모음. 사업비가 예타 대비 15% 이상 늘면 재타 대상이라 원복은 어렵다는 것이 서울시·구청 입장.\n▶ 주요 일자: 8/13 공청회 · 8/20 주민간담회 · 8/26 구청 홈페이지 답변(구청 방향으로 최대한 조정 요청) · 9/28 구의회 답변(요청은 했다) · 10/1 서울시 공고(원안 불가 공식화)", "verify": "정거장 번호 109/110 혼선(원안 110, 변경안 109 또는 108 표기). 종상향 거리 기준 250m vs 350m 발언 엇갈림."}, {"task": "[면목선] 중랑구 정거장 2개 축소 및 형평성", "category": "면목선", "status": "확정 방향", "first": "2026-08-13", "last": "2026-08-26", "notes": "예타 12개 정거장 중 동대문구 4개는 유지, 중랑구 8개는 6개로 축소. 서울시 설명은 역간거리(동대문 약 900m~1km, 중랑 일부 약 500~600m) 조정. 주민은 왜 중랑구만 줄이느냐며 근거 공개를 요구.\n▶ 주요 일자: 8/13 공청회 · 8/20 간담회 · 8/26 구청 답변", "verify": "역간거리 수치와 축소 대상 역 선정 근거는 채팅에 자료 없음(전언)."}, {"task": "[면목선] 차량기지 위치 변경 (신내동 동진학교 인근)", "category": "면목선", "status": "반대 의견 지속", "first": "2026-08-13", "last": "2026-09-01", "notes": "기존 양원 쪽에서 신내동 동진학교 인근으로 옮겨진 안에 반대. 교육환경(소음·분진), 부지 활용 제약(알박기), 6단지 등 인근 주민 반발. 대안으로 면목선 태릉CC 연장과 차량기지 이전을 제시.\n▶ 주요 일자: 8/13 공청회 · 8/20 간담회 · 8/21 간담회 정리 공유 · 9/1 7단지 차량기지 반대 소식", "verify": "이전 사유(양원 민원 회피 vs 사업비)는 주민 추정. '90% 찬성' 보도는 구청이 정정하겠다고 함."}, {"task": "[면목선] 기본계획(안) 주민 의견서 제출", "category": "면목선", "status": "마감 종료 (8/18)", "first": "2026-08-12", "last": "2026-08-18", "notes": "의견서는 서울시 서식 작성 후 메일·팩스·현장접수. 자유 양식은 안 된다는 안내가 있었고, 한글(hwpx) 서식 때문에 PDF·스캔·한컴독스 활용 팁이 공유됨. 8/13 공청회에서 의견 건수 '3건' 발표가 논란이 됨.\n▶ 주요 일자: 8/12 구청 답변 공유 · 8/14 서식 확인 · 8/18 마감 · 9/8은 전략환경평가서 의견 마감", "verify": "공청회 '의견 3건'이 사전 질문 접수 건수였는지 확인 필요."}, {"task": "[면목선] 단지 차원 서명·의견 전달 및 TF 구성", "category": "면목선", "status": "제안 단계", "first": "2026-08-21", "last": "2026-08-22", "notes": "동대표회의에 면목선 건의를 올려 단지 의견·서명을 서울시·국토부·국회의원에 전달하자는 제안. 2동 동대표가 연명장 초안을 작성했고 TF 구성을 요청. 회의에서는 다른 동대표의 반응이 거의 없었다고 전해짐.\n▶ 주요 일자: 8/21 건의 · 8/22 동대표회의 참관 및 TF 제안", "verify": "서명부 제출 여부와 TF 구성 결과는 이후 대화에 없음."}, {"task": "[면목선] 주민 간담회·설명회 개최 요청", "category": "면목선", "status": "건의 단계", "first": "2026-08-20", "last": "2026-10-13", "notes": "8/20 간담회는 구청 공식 공지 없이 포스터·통장 전달로 알려져 참석이 어려웠다는 불만. 10/13에는 동성3차 등 다른 단지 간담회는 단지 요청으로 열렸다는 설명이 나와 11단지도 요청하면 가능하다는 의견.\n▶ 주요 일자: 8/20 간담회 · 10/13 타 단지 간담회 설명", "verify": "8/20 인터넷 기사·캡처(동대문 4개 유지 등)는 구청 교통정책과 확인 결과 공청회 자료와 차이 없음(전언)."}, {"task": "[주차] 주차 차단기 설치", "category": "주차", "status": "보류 (동대표회의 반대 우세)", "first": "2026-08-18", "last": "2026-10-21", "notes": "외부차량·장기주차 문제로 차단기 설치 제안. 번호인식·방문차량 사전등록 방식 견적이 약 900~1,700만원(차단기 2대 기준)으로 공유됨. 8/22 동대표회의에서 오르막·교차로 정체·비용·상가 방문차량 문제로 반대가 강했음. 양쪽 설치·도로 확장안은 포기.\n▶ 주요 일자: 8/18 제안 · 8/19 견적 공유 · 8/22 동대표회의 반대 · 10/21 설치 완료 여부 언급(미확인)", "verify": "견적은 주민이 조사한 금액으로 업체 견적서 근거 없음. 10/21 한 주민이 설치가 이미 끝난 것 같다고 했으나 8/22 반대 우세와 상충. 설치 여부 확인 필요."}, {"task": "[주차] 외부차량·불법주차 단속 (앱·스티커)", "category": "주차", "status": "시행 중", "first": "2026-08-18", "last": "2026-10-21", "notes": "관리프로그램(단속고고 앱) 시험운영 후 QR 코드로 주민·방문차량 등록. 월 약 14만원. 불법주차 차량을 찾아 비용을 내게 했고, 방문증으로 대체하는 차량이 약 100대. 세차해야 떼지는 강력 스티커 도입 중. 단속 후 주차난이 많이 좋아졌다는 체감 공유. 10/21에도 외부차량 단속이 잘 되고 있고, 2동 동대표의 의견 취합이 주차 개선에 컸다는 평가.\n▶ 주요 일자: 8/18 주차난 호소·개선 체감 · 8/22 앱·스티커 보고 · 8/27 경비실 QR 안내 · 9/28 앱 적발 기능 확인 · 10/21 개선 평가", "verify": "'불법주차 100대'는 동대표 발언이며 집계 방법 불명."}, {"task": "[주차] 코너 부분 주차", "category": "주차", "status": "건의 단계", "first": "2026-08-30", "last": "2026-08-30", "notes": "코너에 주차해 진입·회전이 어렵다는 제보. 관리사무소를 통해 빗금 또는 주차금지 표시를 하자는 의견.\n▶ 주요 일자: 8/30", "verify": ""}, {"task": "[보안] 공동현관문 설치", "category": "보안", "status": "미상정 (직접 제안 필요)", "first": "2026-09-01", "last": "2026-10-21", "notes": "공동현관문이 없어 외부인 무단 출입, 이상행동자 출몰, 택배 분실이 반복된다는 문제 제기. 장기수선충당금 사용 가능성과 입주민 동의 확보 방안을 검토. 9/2 '공동현관·CCTV 설치 안건자료' PDF 공유. 9/14 기준 아직 회의 안건 미상정. 10/21에는 공동현관의 보안 효과(택배 기사 간 비밀번호 공유, 복도 창호가 없어 1층으로 진입하면 한계), 뒷동 주민의 이중 통과 불편, 창호 설치 시 반대 가능성이 논의됨. 대안으로 무인택배함과 CCTV 추가 설치, 층별 엘리베이터 앞 설치 희망 의견. 회의 기록에는 없고, 직접 제안하면 기타안건으로 기록된다는 안내.\n▶ 주요 일자: 9/1 문제 제기 · 9/2 안건자료 공유 · 9/14 미상정 확인 · 9/17 재언급 · 10/21 효과·대안 논의", "verify": "설치 비용·동의 요건은 근거 없음. 공동현관의 보안 효과는 주민 의견일 뿐 검증 자료 없음."}, {"task": "[보안] CCTV 작동 점검 및 사각지대", "category": "보안", "status": "확인 완료 / 개선 검토", "first": "2026-09-01", "last": "2026-09-02", "notes": "계단·우편함 CCTV가 모형이라는 얘기로 문의. 5동 등은 1층 CCTV 정상 작동 확인. 9/2 관리사무소 확인 결과 설치된 CCTV는 정상 작동, 우편함 쪽은 촬영 안 되는 사각지대. 올해 2월 CCTV 설치·케이블 교체 공사 이력.\n▶ 주요 일자: 9/1 문의 · 9/2 관리사무소 확인", "verify": "'모형' 발언은 경비원 전언이며 9/2 확인 내용과 상충."}, {"task": "[보안] 외부인 출입 및 택배·우편 분실", "category": "보안", "status": "논의 중", "first": "2026-08-20", "last": "2026-10-21", "notes": "고층에서도 모르는 사람이 출입하고, 택배·우편 분실, 종교 권유 방문, 벨튀 등 사례가 연이어 공유됨. 무인택배함 설치, 각 층 엘리베이터 CCTV 설치 의견. 10/21에는 관리사무실이 택배 분실·거수자 발견 시 경비실에 알려 달라고 방송한다는 언급.\n▶ 주요 일자: 8/20 이상 행동자 제보 · 9/1 우편물 분실 · 9/17 방문 소음 제보 · 10/21 방송 안내", "verify": "경찰 출동은 '별일 아님'으로 정리됨(8/20)."}, {"task": "[시설] 옥상·지하주차장 방수공사", "category": "시설", "status": "공사 진행 중 (주민 전언)", "first": "2026-08-22", "last": "2026-10-21", "notes": "공개입찰. 설명회 참석 업체만 입찰 가능, 동대표회의에서 적격심사. 덧방 시공 시 재발 우려, 무조건 싼 업체 선정 우려를 제기. 철거·면처리 과정을 주민이 함께 확인하자는 제안. 10/13 업체 선정 공유(최저가 낙찰). 10/21 옥상 방수공사가 순조롭게 진행 중이라는 언급. 타 단지에서는 최상층 외 실익이 없어 반대가 나오기도 한다는 사례 공유.\n▶ 주요 일자: 8/22 입찰 예정 · 8/26 명절 전 일정 문의 · 8/28 임시회의 · 9/1 결과 공유 · 9/14 설명회 · 9/21~22 심사 · 10/13 선정 · 10/21 공사 진행 언급", "verify": "낙찰 기준(최저가 vs 적격심사), 업체명·금액·하자보수 기간은 채팅에 없음. 공사 진행 상황은 주민 전언(10/21)."}, {"task": "[시설] 어린이 놀이터 바닥 보수", "category": "시설", "status": "건의 단계", "first": "2026-10-07", "last": "2026-10-07", "notes": "바닥 우레탄 보수와 모래 없는 놀이터 조성 요청. 중랑구 공동주택 지원사업(어린이놀이터 개보수 대상)을 2027년에 신청하는 방안 제안. 과거 신청 마감은 2/27, 예산 약 7억원으로 소개됨.\n▶ 주요 일자: 10/7", "verify": "지원사업 금액·마감은 주민 전언. 구청 공고 확인 필요."}, {"task": "[시설] 4동 베란다 우수관 소음", "category": "시설", "status": "확인 요청", "first": "2026-10-19", "last": "2026-10-19", "notes": "며칠째 우수관에서 물 내려가는 소리가 계속됨. 세탁기 사용과 무관해 보임. 관리사무소 점검 요청 예정.\n▶ 주요 일자: 10/19", "verify": ""}, {"task": "[시설] 복도 야간 조명", "category": "시설", "status": "의견 수렴", "first": "2026-09-28", "last": "2026-09-28", "notes": "복도식 구조로 야간에 복도가 어두움. 센서등은 앞집 민폐 우려가 있고 벌레 문제로 일부 소등한다는 의견도 있음.\n▶ 주요 일자: 9/28", "verify": ""}, {"task": "[시설] 관리사무소 방송 스피커 새벽 소음", "category": "시설", "status": "확인 필요", "first": "2026-09-28", "last": "2026-09-28", "notes": "새벽에 관리사무소 세팅 중 방송 스피커에서 소리가 계속 나 수면 방해. 컴퓨터·마이크 설정 오류로 추정.\n▶ 주요 일자: 9/28", "verify": "원인은 주민 추정."}, {"task": "[생활] 흡연 구역·흡연 매너", "category": "생활", "status": "건의 단계", "first": "2026-10-07", "last": "2026-10-07", "notes": "2동 앞, 1~2동 사이 통로 등에서 흡연으로 간접흡연 불편. 흡연통 위치 이동, 금연구역 지정 요청.\n▶ 주요 일자: 10/7", "verify": "금연구역 지정 요건은 확인 안 됨."}, {"task": "[생활] 음식물쓰레기·쓰레기 무단투기", "category": "생활", "status": "문제 제기", "first": "2026-08-19", "last": "2026-10-07", "notes": "음식물쓰레기 카드 없이 다른 통에 버리는 사례(8/19, 동대표회의 문제 제기 8/22). 10/7에는 차량 쓰레기 투기, 외부 쓰레기통 부족, 분리수거장 비닐 투기 제보.\n▶ 주요 일자: 8/19 · 8/22 · 10/7", "verify": ""}, {"task": "[생활] 공용수도 세차", "category": "생활", "status": "문제 제기", "first": "2026-08-22", "last": "2026-08-22", "notes": "공용 수도로 세차하는 주민. 차량번호가 보이게 사진을 찍어 신고하는 방법 안내.\n▶ 주요 일자: 8/22 동대표회의 문제 제기", "verify": ""}, {"task": "[생활] 층간소음", "category": "생활", "status": "개인 간 문제", "first": "2026-10-04", "last": "2026-10-04", "notes": "화장실 문, 대화, 진동 소리가 들린다는 호소에 다수가 공감. 공동 조치 안건으로 올라가지는 않음.\n▶ 주요 일자: 10/4", "verify": ""}, {"task": "[생활] 횡단보도 신호 설치", "category": "생활", "status": "건의 단계", "first": "2026-09-02", "last": "2026-09-02", "notes": "좌회전 시 보행자가 신호 없이 건너 불안하니 횡단보도 신호등을 설치하자는 건의.\n▶ 주요 일자: 9/2", "verify": "구청 교통 소관 여부 미확인."}, {"task": "[재건축] 재건축 추진 주체·소통창구 요청", "category": "재건축", "status": "민원 접수 (10/19)", "first": "2026-08-13", "last": "2026-10-21", "notes": "4~9단지는 추진준비위·네이버 밴드까지 만들었지만 11단지는 입주자대표가 소극적이라는 문제의식. 10/19 서울시·구청 홈페이지에 재건축 추진 지원과 공식 소통밴드 개설을 요청하는 민원 접수. 10/21에는 대표·동대표의 역할과 단톡방 참여를 두고 논쟁. 10/21 오후에는 대표·동대표가 주축이 되지 않으면 누가 추진하느냐는 질문과 함께 5단지 추진준비위원회 출범이 언급됨. 재건축조합과 입주자대표회의는 별개이고 추진위도 무급 봉사직이라는 설명, 추진은 대표가 하더라도 아는 사람이 이끄는 편이 낫다는 의견, 면대면 모임이 생기면 참여하자는 분위기. 2동 주민이 동대표와 일부 상의 중이라고 밝힘.\n▶ 주요 일자: 8/13 4~7단지 대면회의 결과 공유 · 8/22 대표 답변 전언 · 9/1 7단지 추진준비위 · 10/16 밴드 확인 · 10/19 민원 접수 · 10/21 추진 주체 논의", "verify": "입주자대표가 재건축에 관심 없다고 말했다는 내용은 전언. 민원 처리 결과 미확인. 조합·입대위 별개, 추진위 무급이라는 설명은 한 주민의 의견(타 단지 사례 포함)."}, {"task": "[재건축] 재건축 방식 (단독 vs 10단지 연계, 도정법·노특법)", "category": "재건축", "status": "논의 중", "first": "2026-08-21", "last": "2026-09-22", "notes": "초안상 10·11단지가 한 그룹으로 묶여 있어 임대 단지와의 연계 우려. 단독 추진이 빠르다는 의견이 우세. 용적률 시뮬레이션(500% 등)과 임대 비율 차이도 공유됨. 조합 설립까지 단계를 밟아두는 것이 중요하다는 의견.\n▶ 주요 일자: 8/21 연계·시뮬레이션 · 9/2 3종 용적률 상향 법안 · 9/22 단계 밟기 중요", "verify": "용적률·임대 수치는 채팅 내 추정 계산. 법안 통과 여부 미확인."}, {"task": "[재건축] 역세권 종상향(승강장 250m 기준)", "category": "재건축", "status": "정거장 위치에 연동", "first": "2026-08-13", "last": "2026-09-28", "notes": "역세권 준주거 종상향은 승강장 기준 250m가 중요하고 출입구는 해당되지 않는다는 설명. 승강장을 약 50m 서쪽으로 당기면 단지가 250m 안에 들어온다는 제안.\n▶ 주요 일자: 8/13 · 8/14 · 9/28", "verify": "250m vs 350m 발언 엇갈림. 서울시 심의에서 결정."}, {"task": "[단지운영] 동대표회의 참관 및 주민 의견 전달 방식", "category": "단지운영", "status": "소통 방식 논의 중 (취합 전달 예정)", "first": "2026-08-21", "last": "2026-10-21", "notes": "주민은 관리사무소에 신청해 입주자대표회의 참관 가능. 10/21 정리: 원칙은 하루 전 신청이나 당일 신청도 가능하고 18시 전 입장해야 하며, 방청자는 입주자대표 승인하에 발언, 관리소장 참석. 단톡방 의견은 2동 동대표가 회의에 전달해 왔으나 10/21 갈등으로 해당 동대표가 단톡방을 나감. 쟁점은 회의 시간(평일 18시)·참석 부담과 대표의 단톡방 참여 여부. 대안으로 공식 절차(회의 방문·서면·메일, 관리사무소 접수), 안건 정리본 전달, 아파트아이 앱 알림, 엘리베이터 QR 공지, 회의 공지 글 게시가 제안됨. 한 주민이 AI로 대화를 요약한 안건 정리본(이미지)과 엑셀을 공유했고 한 달 단위 갱신이 가능하다고 함. 2동·4동 주민이 취합해 입주자대표회의에 올리기로 함.\n▶ 주요 일자: 8/22 참관 보고 · 8/28 임시회의 신청 안내 · 9/21 방수 안건 참관 안내 · 10/21 갈등·참관 절차·정리본 공유", "verify": "대표가 단톡방에 안 들어오는 이유는 채팅에 없음. 참관 신청 규정이 하루 전 원칙과 당일 가능으로 엇갈림(관리규약 확인 필요)."}, {"task": "[단지운영] 동대표·입주자대표 선출 및 임기", "category": "단지운영", "status": "다음 선거 내년", "first": "2026-08-22", "last": "2026-10-21", "notes": "후보가 없어 봉사로 하는 동이 많고, 동대표 임기는 2년으로 다음 선거는 2027년. 후보 신청·선거 공지를 한 달 전쯤 눈에 띄게 해달라는 요청.\n▶ 주요 일자: 8/22 · 10/16 · 10/21 10/21 오후에는 동대표 업무량이 많아 다음 선거에서도 무출마가 우려된다는 이야기(일부 동은 과거 2~3회 무출마)와 임기가 약 1년 남았다는 언급. 퇴장한 동대표에게 복귀를 권해 보겠다는 의견.", "verify": "임기 표현이 '내년까지'와 '2년'으로 엇갈림."}, {"task": "[단지운영] 골프연습장(파크골프) 텃밭 펜스 철거", "category": "단지운영", "status": "3년 보류", "first": "2026-08-22", "last": "2026-10-21", "notes": "골프연습장 건물 앞 텃밭 펜스 철거 요구. 텃밭이 국고지원을 받아 3년간 철거가 어렵고 철거 후 주차장 예정이라 보고됨. 10/21 파크골프장 관련 간담회 참석률 언급.\n▶ 주요 일자: 8/22 · 10/21", "verify": "국고지원 조건과 반환 여부는 전언."}, {"task": "[단지운영] 네이버부동산 등 단지 정보 정정", "category": "단지운영", "status": "처리 중", "first": "2026-08-21", "last": "2026-09-02", "notes": "대표 단지 사진 업데이트와 거래내역 순서 변경을 네이버부동산에 요청. 잘못 올라온 매물 정보(남향 24평 등)는 중개사에 정정 요청.\n▶ 주요 일자: 8/21 · 8/27 · 9/2", "verify": ""}, {"task": "[단지운영] 입주자대표회의 개최 시간(평일 18시) 조정", "category": "단지운영", "status": "건의 단계", "first": "2026-10-21", "last": "2026-10-21", "notes": "평일 18시 회의는 퇴근 후 참석이 어려워 시간 조정 의견을 내자는 요청. 문의 결과 당일 참여 신청은 가능하나 18시 전 입장해야 하고 중간 참여는 어렵다고 함. 오늘 회의 참석 예정자가 상황을 보고 의견을 내보겠다고 답함.\n▶ 주요 일자: 10/21", "verify": "조정 건의 결과는 이후 대화에 없음."}, {"task": "[단지운영] 공식 온라인 소통창구(대표 참여·공지 채널) 마련", "category": "단지운영", "status": "논의 중", "first": "2026-10-21", "last": "2026-10-21", "notes": "대표의 단톡방 참여, 대표 주관 새 방·밴드·공식 카페 개설, 관리사무소 경유 공지, 아파트아이 앱 알림 활용이 거론됨. 반대로 대화량이 많아 대표에게 부담이고 비공식 채널이며, 의견은 공식 절차(회의·서면·메일)로 남겨야 근거가 된다는 의견. 당장은 어렵고 시간이 필요하다는 정리.\n▶ 주요 일자: 10/21", "verify": "단톡방은 신원 확인이 안 되는 비공식 채널이라는 주민 언급."}, {"task": "[단지운영] 공동체 활성화 단체 지원", "category": "단지운영", "status": "정보 공유", "first": "2026-10-21", "last": "2026-10-21", "notes": "10/21 입주자대표회의 안건 중 입주민 모임 등을 할 수 있는 공동체 활성화 단체 지원이 있다는 공유(사진 첨부).\n▶ 주요 일자: 10/21", "verify": "사진 내용은 텍스트로 확인 안 됨. 지원 요건·금액 미확인."}, {"task": "[단지운영] 구청·서울시 공문(설명회 안내) 게시", "category": "단지운영", "status": "문제 제기", "first": "2026-10-21", "last": "2026-10-21", "notes": "과거 지구단위계획 발표 후 중랑구청 설명회 안내문이 우리 단지만 붙지 않다가 민원이 들어오자 하루 전 급히 게시됐다는 지적. 원하는 사람이 있든 없든 서울시·구청 공문은 게시해야 하며, 앞으로는 알게 되면 관리사무소에 바로 연락하겠다는 의견.\n▶ 주요 일자: 10/21 (과거 사례 언급)", "verify": "해당 설명회 날짜와 게시 지연 경위는 주민 전언."}];
+
+    let currentCategory = '전체';
+    const categories = ['전체', '면목선', '주차', '보안', '시설', '생활', '재건축', '단지운영'];
+
+    function initCategories() {
+      const container = document.getElementById('category-filter-container');
+      container.innerHTML = categories.map(cat => {
+        const count = cat === '전체' ? rawAgendaData.length : rawAgendaData.filter(i => i.category === cat).length;
+        const isActive = cat === currentCategory;
+        const activeClass = isActive 
+          ? 'bg-[#b8734a] text-white font-bold border-[#b8734a]' 
+          : 'bg-white text-[#5c544d] border-[#ded5ca] hover:bg-[#f2ece5]';
+        return `<button onclick="setCategoryFilter('${cat}')" class="px-3 py-1 text-xs rounded-full border transition-all ${activeClass}">
+          ${cat} <span class="opacity-80 text-[10px]">(${count})</span>
+        </button>`;
+      }).join('');
+    }
+
+    function setCategoryFilter(cat) {
+      currentCategory = cat;
+  
+    // Real Estate Tab Switching Function
+    function switchRealEstateTab(tabId) {
+      document.querySelectorAll('.re-tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.re-tab-btn').forEach(btn => {
+        btn.classList.remove('active', 'bg-[#231f1d]', 'text-white', 'shadow');
+        btn.classList.add('bg-[#f4f0eb]', 'text-[#5c534c]');
+      });
+
+      const activeContent = document.getElementById(tabId);
+      if (activeContent) {
+        activeContent.classList.remove('hidden');
+      }
+
+      const activeBtnId = 'btn-' + tabId;
+      const activeBtn = document.getElementById(activeBtnId);
+      if (activeBtn) {
+        activeBtn.classList.add('active', 'bg-[#231f1d]', 'text-white', 'shadow');
+        activeBtn.classList.remove('bg-[#f4f0eb]', 'text-[#5c534c]');
+      }
+    }
+
+    initCategories();
+      renderAgendaList();
+    }
+
+    function renderAgendaList() {
+      const listContainer = document.getElementById('agenda-list-body');
+      const searchKeyword = (document.getElementById('agenda-search').value || '').trim().toLowerCase();
+
+      const filtered = rawAgendaData.filter(item => {
+        const matchesCategory = currentCategory === '전체' || item.category === currentCategory;
+        const matchesSearch = !searchKeyword || 
+          item.task.toLowerCase().includes(searchKeyword) || 
+          item.notes.toLowerCase().includes(searchKeyword) || 
+          item.status.toLowerCase().includes(searchKeyword);
+        return matchesCategory && matchesSearch;
+      });
+
+      document.getElementById('agenda-count-badge').innerText = `총 33건 중 ${filtered.length}건 표시됨`;
+
+      if (filtered.length === 0) {
+        listContainer.innerHTML = `
+          <div class="p-12 text-center text-[#8e8379]">
+            <svg class="w-12 h-12 mx-auto mb-3 text-[#c4b9af]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <p class="text-sm font-semibold">검색 결과가 없습니다.</p>
+            <p class="text-xs mt-1">다른 검색어 또는 상단 카테고리를 선택해 보세요.</p>
+          </div>
+        `;
+        return;
+      }
+
+      listContainer.innerHTML = filtered.map((item, index) => {
+        let badgeColor = 'bg-gray-100 text-gray-800';
+        if (item.status.includes('완료') || item.status.includes('시행')) badgeColor = 'bg-emerald-100 text-emerald-800 border-emerald-200';
+        else if (item.status.includes('진행') || item.status.includes('심의')) badgeColor = 'bg-blue-100 text-blue-800 border-blue-200';
+        else if (item.status.includes('보류') || item.status.includes('반대')) badgeColor = 'bg-amber-100 text-amber-800 border-amber-200';
+        else if (item.status.includes('제안') || item.status.includes('접수')) badgeColor = 'bg-purple-100 text-purple-800 border-purple-200';
+
+        const dateRange = (item.first || item.last) ? `${item.first || ''} ~ ${item.last || ''}` : '2026 하반기 논의';
+
+        return `
+          <div class="bg-white border border-[#e8e2d9] rounded-xl p-5 shadow-sm hover:border-[#b8734a] hover:shadow-md transition-all">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-2">
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-[#f4ebe4] text-[#b8734a]">${item.category}</span>
+                <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${badgeColor}">${item.status}</span>
+              </div>
+              <span class="text-[11px] text-[#998f86]">논의 기간: ${dateRange}</span>
+            </div>
+            
+            <h4 class="text-base font-black text-[#231f1d] mb-2">${item.task}</h4>
+            
+            <p class="text-xs text-[#5a524a] whitespace-pre-line leading-relaxed mb-3 bg-[#faf7f3] p-3 rounded-lg border border-[#f0eae3]">
+              ${item.notes}
+            </p>
+
+            ${item.verify ? `
+              <div class="text-[11px] text-[#916b53] bg-[#fbf3ee] p-2.5 rounded border border-[#ebd8cb] flex items-start gap-1.5">
+                <span class="font-bold shrink-0">🔍 확인사항:</span>
+                <span>${item.verify}</span>
+              </div>
+            ` : ''}
+          </div>
+        `;
+      }).join('');
+    }
+
+    function openAgendaModal(category = '전체') {
+      currentCategory = category;
+  
+    // Real Estate Tab Switching Function
+    function switchRealEstateTab(tabId) {
+      document.querySelectorAll('.re-tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.re-tab-btn').forEach(btn => {
+        btn.classList.remove('active', 'bg-[#231f1d]', 'text-white', 'shadow');
+        btn.classList.add('bg-[#f4f0eb]', 'text-[#5c534c]');
+      });
+
+      const activeContent = document.getElementById(tabId);
+      if (activeContent) {
+        activeContent.classList.remove('hidden');
+      }
+
+      const activeBtnId = 'btn-' + tabId;
+      const activeBtn = document.getElementById(activeBtnId);
+      if (activeBtn) {
+        activeBtn.classList.add('active', 'bg-[#231f1d]', 'text-white', 'shadow');
+        activeBtn.classList.remove('bg-[#f4f0eb]', 'text-[#5c534c]');
+      }
+    }
+
+    initCategories();
+      renderAgendaList();
+      document.getElementById('agenda-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeAgendaModal() {
+      document.getElementById('agenda-modal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    function openProposalModal() {
+      document.getElementById('proposal-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeProposalModal() {
+      document.getElementById('proposal-modal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const msgElem = document.getElementById('toast-message');
+      msgElem.innerText = message;
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3500);
+    }
+
+    function handleProposalSubmit(e) {
+      e.preventDefault();
+      closeProposalModal();
+      showToast('안건 제안서가 관리사무소 및 입대의에 안전하게 접수되었습니다.');
+      e.target.reset();
+    }
+
+    function handleSubscribe(e) {
+      e.preventDefault();
+      const dong = document.getElementById('subscribe-dong').value;
+      showToast(`${dong} 입주민 알림톡 정기구독이 등록되었습니다.`);
+      e.target.reset();
+    }
+
+    window.addEventListener('click', (e) => {
+      const modal1 = document.getElementById('agenda-modal');
+      const modal2 = document.getElementById('proposal-modal');
+      if (e.target === modal1) closeAgendaModal();
+      if (e.target === modal2) closeProposalModal();
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeAgendaModal();
+        closeProposalModal();
+      }
+    });
+
+
+    // Real Estate Tab Switching Function
+    function switchRealEstateTab(tabId) {
+      document.querySelectorAll('.re-tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.re-tab-btn').forEach(btn => {
+        btn.classList.remove('active', 'bg-[#231f1d]', 'text-white', 'shadow');
+        btn.classList.add('bg-[#f4f0eb]', 'text-[#5c534c]');
+      });
+
+      const activeContent = document.getElementById(tabId);
+      if (activeContent) {
+        activeContent.classList.remove('hidden');
+      }
+
+      const activeBtnId = 'btn-' + tabId;
+      const activeBtn = document.getElementById(activeBtnId);
+      if (activeBtn) {
+        activeBtn.classList.add('active', 'bg-[#231f1d]', 'text-white', 'shadow');
+        activeBtn.classList.remove('bg-[#f4f0eb]', 'text-[#5c534c]');
+      }
+    }
+
+    initCategories();
+  </script>
+</body>
+</html>
