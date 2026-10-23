@@ -1187,69 +1187,55 @@
     </div>
   </div>
 
+    <!-- ======================================================== -->
+  <!-- MODAL 2: 온라인 안건 제안서 (구글 폼 & 스프레드시트 실시간 연동) -->
   <!-- ======================================================== -->
-  <!-- MODAL 2: 온라인 안건 제안서 (RESIDENT SUBMISSION FORM) -->
-  <!-- ======================================================== -->
-  <div id="proposal-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-white w-full max-w-lg rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-[#e5ded5]">
+  <div id="proposal-modal" class="fixed inset-0 z-50 bg-black/65 backdrop-blur-sm hidden flex items-center justify-center p-2 sm:p-4">
+    <div class="bg-white w-full max-w-2xl max-h-[96vh] rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-[#e5ded5]">
       
       <!-- Header -->
-      <div class="p-5 bg-[#b8734a] text-white flex justify-between items-center">
-        <div>
-          <div class="text-xs font-bold text-white/80 uppercase tracking-wider">신내대명11단지 온라인 소통창구</div>
-          <h2 class="text-lg font-black">주민 안건 및 민원 제안서 작성</h2>
+      <div class="p-4 sm:p-5 bg-[#b8734a] text-white flex justify-between items-center shrink-0">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-white/20 flex items-center justify-center text-white">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+          </div>
+          <div>
+            <div class="text-[11px] font-bold text-white/80 uppercase tracking-wider">신내대명11단지 온라인 소통창구</div>
+            <h2 class="text-base sm:text-lg font-black">주민 안건 제안 및 민원 접수</h2>
+          </div>
         </div>
-        <button onclick="closeProposalModal()" class="text-white/80 hover:text-white p-1.5 rounded-lg hover:bg-white/10 transition-colors">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-        </button>
+        <div class="flex items-center gap-2">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScEXlVIk2WaT55GM9BybZ60bKIYMAvTrVfueNqRvySW2MJQzA/viewform" target="_blank" rel="noopener noreferrer" 
+             class="inline-flex items-center gap-1 text-xs bg-white/20 hover:bg-white/30 px-3 py-1.5 rounded-lg text-white font-bold transition-colors shadow-sm" title="새 창으로 크게 열기">
+            <span>새 창으로 열기</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+          <button onclick="closeProposalModal()" class="text-white/80 hover:text-white p-1.5 rounded-lg hover:bg-white/20 transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+        </div>
       </div>
 
-      <!-- Form Body -->
-      <form onsubmit="handleProposalSubmit(event)" class="p-6 space-y-4 text-xs text-[#4a423d]">
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label class="block font-bold text-[#231f1d] mb-1">동 / 호수 <span class="text-red-500">*</span></label>
-            <input type="text" required placeholder="예: 1104동 702호" class="w-full px-3 py-2 border border-[#d8cfc5] rounded focus:outline-none focus:border-[#b8734a]">
-          </div>
-          <div>
-            <label class="block font-bold text-[#231f1d] mb-1">안건 분류 <span class="text-red-500">*</span></label>
-            <select required class="w-full px-3 py-2 border border-[#d8cfc5] rounded focus:outline-none focus:border-[#b8734a] bg-white">
-              <option value="면목선">면목선 경전철</option>
-              <option value="주차">주차 및 차량통제</option>
-              <option value="보안">단지 보안 / CCTV / 현관</option>
-              <option value="시설">시설 유지보수 및 공사</option>
-              <option value="생활">주거환경 및 소음·흡연</option>
-              <option value="재건축">재건축 및 자산가치</option>
-              <option value="단지운영">입대의 및 단지운영</option>
-              <option value="기타">기타 일반 제안</option>
-            </select>
-          </div>
-        </div>
+      <!-- Google Form Iframe Container -->
+      <div class="flex-1 w-full overflow-y-auto bg-[#faf7f3] relative" style="height: 640px; min-height: 520px;">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScEXlVIk2WaT55GM9BybZ60bKIYMAvTrVfueNqRvySW2MJQzA/viewform?embedded=true" 
+                class="w-full h-full border-0" 
+                style="min-height: 640px;"
+                frameborder="0" marginheight="0" marginwidth="0">
+          신내대명11단지 구글 설문지 로딩 중…
+        </iframe>
+      </div>
 
-        <div>
-          <label class="block font-bold text-[#231f1d] mb-1">안건 제목 <span class="text-red-500">*</span></label>
-          <input type="text" required placeholder="핵심 제안 내용을 간결하게 적어주세요" class="w-full px-3 py-2 border border-[#d8cfc5] rounded focus:outline-none focus:border-[#b8734a]">
-        </div>
-
-        <div>
-          <label class="block font-bold text-[#231f1d] mb-1">상세 제안 배경 및 건의 사항 <span class="text-red-500">*</span></label>
-          <textarea rows="4" required placeholder="문제점, 개선 대안, 기대효과 등을 구체적으로 작성해 주시면 동대표회의 상정 검토에 큰 도움이 됩니다." class="w-full px-3 py-2 border border-[#d8cfc5] rounded focus:outline-none focus:border-[#b8734a]"></textarea>
-        </div>
-
-        <div class="p-3 bg-[#faf7f3] rounded border border-[#eae3db] text-[11px] text-[#736860] leading-relaxed">
-          <span class="font-bold text-[#231f1d]">ℹ️ 안내:</span> 접수된 안건은 단지 관리규약에 따라 입주자대표회의 안건 상정 및 관리사무소 현장 실사 과정을 거치며, 진행 현황은 '33대 안건 현황'에서 투명하게 공개됩니다.
-        </div>
-
-        <div class="flex items-center gap-2 pt-2">
-          <input type="checkbox" id="agree" required class="rounded text-[#b8734a]">
-          <label for="agree" class="text-[11px] text-[#615750]">입주민 건의 검토를 위한 정보 제공에 동의합니다.</label>
-        </div>
-
-        <div class="pt-3 flex justify-end gap-2">
-          <button type="button" onclick="closeProposalModal()" class="px-4 py-2 border border-[#d8cfc5] rounded text-[#615750] hover:bg-[#f3ece4]">취소</button>
-          <button type="submit" class="px-5 py-2 bg-[#b8734a] hover:bg-[#a26139] text-white font-bold rounded shadow transition-colors">안건 제안 접수</button>
-        </div>
-      </form>
+      <!-- Modal Footer -->
+      <div class="p-3.5 bg-white border-t border-[#eee7df] flex flex-wrap justify-between items-center gap-2 text-xs text-[#786e66] shrink-0">
+        <span class="flex items-center gap-1.5 text-[11px] font-medium text-emerald-800">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          작성된 제안은 관리자의 구글 스프레드시트에 실시간으로 안전하게 자동 기록됩니다.
+        </span>
+        <button onclick="closeProposalModal()" class="px-4 py-1.5 rounded-lg bg-[#f2ece5] hover:bg-[#e6dfd7] text-[#4a423d] font-bold text-xs transition-colors">
+          창 닫기
+        </button>
+      </div>
 
     </div>
   </div>
