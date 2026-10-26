@@ -1926,6 +1926,13 @@
     </div>
   </div>
 
+  <!-- ONLINE AGENDA DETAIL SHEET (모바일: 아래에서 올라옴 / PC: 오른쪽 패널) -->
+  <div id="comment-sheet-overlay" onclick="closeCommentSheet()" class="fixed inset-0 z-[44] bg-black/40 hidden"></div>
+  <aside id="comment-sheet" class="fixed z-[45] inset-x-0 bottom-0 h-[85vh] rounded-t-3xl sm:inset-x-auto sm:top-0 sm:right-0 sm:h-full sm:w-[460px] sm:rounded-none bg-white shadow-2xl flex flex-col translate-y-full sm:translate-y-0 sm:translate-x-full transition-transform duration-300" aria-hidden="true">
+    <div class="pt-2.5 pb-1 flex justify-center sm:hidden"><div class="w-10 h-1 rounded-full bg-[#ddd3c8]"></div></div>
+    <div id="comment-sheet-body" class="flex-1 min-h-0 flex flex-col"></div>
+  </aside>
+
   <!-- TOAST NOTIFICATION -->
   <div id="toast" class="fixed bottom-5 right-5 z-50 bg-[#231f1d] text-white px-5 py-3 rounded-xl shadow-2xl border border-[#b8734a] hidden flex items-center gap-3 transition-opacity duration-300">
     <span class="text-[#b8734a] font-bold text-lg">✓</span>
@@ -2445,7 +2452,164 @@
       }
       delete voteDongSelection[key];
       renderOnlineProposals();
+      renderCommentSheet();
       showToast(`${dong}동 · ${choice === 'yes' ? '찬성' : '반대'} 투표가 반영되었습니다.`);
+    }
+
+    // 온라인 안건 주민 의견(댓글) (현재는 브라우저 localStorage에만 저장)
+    const COMMENT_STORAGE_KEY = 'sinnae11_online_comments_v1';
+    let openSheetKey = null;
+
+    function escapeHtml(str) {
+      return String(str).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    }
+
+    function getAllComments() {
+      try {
+        const parsed = JSON.parse(localStorage.getItem(COMMENT_STORAGE_KEY));
+        return parsed && typeof parsed === 'object' ? parsed : {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function getComments(item) {
+      return getAllComments()[voteKeyOf(item)] || [];
+    }
+
+    function addOnlineComment() {
+      const idx = renderedOnlineItems.findIndex(i => voteKeyOf(i) === openSheetKey);
+      const item = renderedOnlineItems[idx];
+      if (!item) return;
+      const dong = document.getElementById('comment-dong').value;
+      const textEl = document.getElementById('comment-text');
+      const text = textEl.value.trim();
+      if (!dong) {
+        showToast('거주 동을 선택해 주세요.');
+        return;
+      }
+      if (!text) {
+        showToast('의견 내용을 입력해 주세요.');
+        return;
+      }
+      const now = new Date();
+      const pad = n => String(n).padStart(2, '0');
+      try {
+        const all = getAllComments();
+        const key = voteKeyOf(item);
+        (all[key] = all[key] || []).push({
+          dong: dong,
+          text: text,
+          date: `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}`
+        });
+        localStorage.setItem(COMMENT_STORAGE_KEY, JSON.stringify(all));
+      } catch (e) {
+        console.warn('LocalStorage save warning:', e);
+      }
+      renderOnlineProposals();
+      renderCommentSheet();
+      const list = document.getElementById('comment-list');
+      if (list) list.scrollTop = list.scrollHeight;
+      showToast('의견이 등록되었습니다.');
+    }
+
+    function openCommentSheet(idx) {
+      const item = renderedOnlineItems[idx];
+      if (!item) return;
+      openSheetKey = voteKeyOf(item);
+      renderCommentSheet();
+      document.getElementById('comment-sheet-overlay').classList.remove('hidden');
+      const sheet = document.getElementById('comment-sheet');
+      sheet.classList.remove('translate-y-full', 'sm:translate-x-full');
+      sheet.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCommentSheet() {
+      openSheetKey = null;
+      document.getElementById('comment-sheet-overlay').classList.add('hidden');
+      const sheet = document.getElementById('comment-sheet');
+      sheet.classList.add('translate-y-full', 'sm:translate-x-full');
+      sheet.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function renderCommentSheet() {
+      if (!openSheetKey) return;
+      const idx = renderedOnlineItems.findIndex(i => voteKeyOf(i) === openSheetKey);
+      const item = renderedOnlineItems[idx];
+      const body = document.getElementById('comment-sheet-body');
+      if (!item || !body) {
+        closeCommentSheet();
+        return;
+      }
+      const tally = getVoteTally(item);
+      const comments = getComments(item);
+      const selectedDong = voteDongSelection[openSheetKey] || '';
+      const voteOptions = VOTE_DONGS.map(d => `<option value="${d}" ${selectedDong === d ? 'selected' : ''}>${d}</option>`).join('');
+      const commentOptions = VOTE_DONGS.map(d => `<option value="${d}">${d}</option>`).join('');
+
+      const commentRows = comments.length === 0
+        ? '<p class="text-xs text-[#8a7f76] py-8 text-center">아직 등록된 의견이 없습니다. 첫 의견을 남겨 주세요.</p>'
+        : comments.map(c => `
+          <div class="flex gap-2.5 py-2.5">
+            <div class="w-8 h-8 shrink-0 rounded-full bg-[#f4ebe4] text-[#b8734a] text-[10px] font-black flex items-center justify-center">${escapeHtml(String(c.dong).slice(2))}</div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-1.5 text-[11px]">
+                <span class="font-bold text-[#231f1d]">${escapeHtml(c.dong)}동 입주민</span>
+                <span class="text-[#a39890]">${escapeHtml(c.date)}</span>
+              </div>
+              <p class="text-[13px] text-[#3d3530] leading-relaxed whitespace-pre-line mt-0.5 break-words">${escapeHtml(c.text)}</p>
+            </div>
+          </div>
+        `).join('');
+
+      body.innerHTML = `
+        <div class="px-4 sm:px-5 pb-3 sm:pt-5 border-b border-[#f2ece5]">
+          <div class="flex justify-between items-start gap-2">
+            <div class="min-w-0">
+              <div class="flex flex-wrap gap-1 mb-1.5">
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-[#231f1d] text-white">${item.id || 'ONLINE'}</span>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-[#f4ebe4] text-[#b8734a]">${item.category}</span>
+              </div>
+              <h3 class="text-[15px] sm:text-base font-black text-[#231f1d] leading-snug">${item.title}</h3>
+            </div>
+            <button onclick="closeCommentSheet()" class="w-8 h-8 shrink-0 text-[#8a7f76] text-base" aria-label="닫기">✕</button>
+          </div>
+          <p class="text-xs text-[#524942] leading-relaxed whitespace-pre-line mt-2 max-h-24 overflow-y-auto">${item.content}</p>
+          <div class="mt-3 space-y-2.5">
+            <div class="space-y-1">
+              <div class="flex justify-between text-[10px] font-bold">
+                <span class="text-emerald-700">찬성 ${tally.yes}표 (${tally.yesPct}%)</span>
+                <span class="text-[#8a7f76]">총 ${tally.total}표</span>
+                <span class="text-rose-700">반대 ${tally.no}표 (${tally.noPct}%)</span>
+              </div>
+              <div class="h-1.5 rounded-full bg-[#efe8e0] overflow-hidden flex">
+                <div class="bg-emerald-500 transition-all" style="width:${tally.yesPct}%"></div>
+                <div class="bg-rose-400 transition-all" style="width:${tally.noPct}%"></div>
+              </div>
+            </div>
+            <div class="grid grid-cols-[76px_1fr_1fr] gap-1.5">
+              <select onchange="selectVoteDong(${idx}, this.value)" class="px-1.5 rounded-xl border border-[#ded5ca] bg-[#faf8f5] text-xs font-bold">
+                <option value="">동</option>${voteOptions}
+              </select>
+              <button onclick="castOnlineVote(${idx}, 'yes')" class="py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-black transition-all">👍 찬성</button>
+              <button onclick="castOnlineVote(${idx}, 'no')" class="py-2.5 rounded-xl bg-rose-500 hover:bg-rose-600 text-white text-xs font-black transition-all">👎 반대</button>
+            </div>
+          </div>
+        </div>
+        <div class="px-4 sm:px-5 pt-3 text-[13px] font-black text-[#231f1d]">💬 주민 의견 <span class="text-[#b8734a]">${comments.length}</span></div>
+        <div id="comment-list" class="flex-1 min-h-0 overflow-y-auto px-4 sm:px-5">${commentRows}</div>
+        <div class="p-3 border-t border-[#f2ece5] bg-white flex items-end gap-1.5">
+          <select id="comment-dong" class="h-10 px-1.5 rounded-xl border border-[#ded5ca] bg-[#faf8f5] text-xs font-bold shrink-0">
+            <option value="">동</option>${commentOptions}
+          </select>
+          <textarea id="comment-text" rows="1" maxlength="500" placeholder="의견을 입력하세요 (호수는 공개되지 않습니다)"
+            oninput="this.style.height='auto';this.style.height=Math.min(this.scrollHeight,96)+'px'"
+            class="flex-1 min-w-0 h-10 text-[13px] px-3 py-2.5 rounded-xl border border-[#ded5ca] bg-[#faf8f5] focus:outline-none focus:border-[#b8734a] resize-none"></textarea>
+          <button onclick="addOnlineComment()" class="h-10 px-3.5 rounded-xl bg-[#b8734a] hover:bg-[#a26139] text-white text-xs font-bold shrink-0">등록</button>
+        </div>
+      `;
     }
 
     function getAllOnlineProposals() {
@@ -2593,14 +2757,14 @@
         const dongOptions = VOTE_DONGS.map(d => `<option value="${d}" ${selectedDong === d ? 'selected' : ''}>${d}동</option>`).join('');
 
         return `
-          <div class="bg-white border border-[#e8e2d9] rounded-2xl p-4 sm:p-6 shadow-sm hover:border-[#b8734a] hover:shadow-md transition-all">
+          <div onclick="openCommentSheet(${idx})" class="cursor-pointer bg-white border border-[#e8e2d9] rounded-2xl p-4 sm:p-6 shadow-sm hover:border-[#b8734a] hover:shadow-md transition-all">
             <div class="flex flex-wrap justify-between items-center gap-2 mb-2">
               <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
                 <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-lg bg-[#231f1d] text-white">${item.id || 'ONLINE'}</span>
                 <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-lg bg-[#f4ebe4] text-[#b8734a]">${item.category}</span>
                 <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${badgeStyle}">${st}</span>
               </div>
-              <div class="flex flex-wrap items-center gap-1.5">
+              <div class="flex flex-wrap items-center gap-1.5" onclick="event.stopPropagation()">
                 <span class="text-[11px] font-black text-[#231f1d] mr-0.5">🗳 투표</span>
                 <select onchange="selectVoteDong(${idx}, this.value)" class="px-2 py-1 rounded-lg border border-[#ded5ca] bg-[#faf8f5] text-[11px] font-bold">
                   <option value="">동 선택</option>${dongOptions}
@@ -2637,6 +2801,11 @@
                 <span class="ml-1">${item.adminNote || '구글 스프레드시트 실시간 접수 완료 · 관리사무소 및 입주자대표회의 검토 예정'}</span>
               </div>
               <span class="text-[10px] font-bold text-emerald-700 shrink-0">✓ 시트 기록됨</span>
+            </div>
+
+            <div class="flex items-center justify-between mt-3 pt-3 border-t border-[#f2ece5] text-xs font-bold">
+              <span class="text-[#b8734a]">💬 의견 ${getComments(item).length}</span>
+              <span class="text-[#8a7f76]">의견 보기 · 남기기 ›</span>
             </div>
           </div>
         `;
@@ -2717,6 +2886,7 @@
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeProposalModal();
+        closeCommentSheet();
       }
     });
 
