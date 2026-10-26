@@ -123,10 +123,6 @@
         <button onclick="navigateTo('redevelopment')" id="nav-btn-redevelopment" class="nav-tab-link hover:text-[#b8734a] transition-colors py-2">
           재건축
         </button>
-        <button onclick="navigateTo('resident')" id="nav-btn-resident" class="nav-tab-link hover:text-[#b8734a] transition-colors py-2 flex items-center gap-1.5">
-          <span>입주민 안건</span>
-          <span class="text-[11px] px-1.5 py-0.2 rounded-full bg-[#f4ebe4] text-[#b8734a] font-bold">33</span>
-        </button>
         <button onclick="navigateTo('online')" id="nav-btn-online" class="nav-tab-link hover:text-[#b8734a] transition-colors py-2 flex items-center gap-1.5">
           <span>온라인 안건 현황</span>
           <span id="nav-online-badge" class="text-[10px] px-1.5 py-0.2 rounded-full bg-emerald-100 text-emerald-800 font-bold">LIVE</span>
@@ -134,6 +130,10 @@
         <button onclick="navigateTo('market')" id="nav-btn-market" class="nav-tab-link hover:text-[#b8734a] transition-colors py-2 flex items-center gap-1">
           <span>시세·실거래</span>
           <span class="text-[10px] bg-[#f4ebe4] text-[#b8734a] px-1.5 py-0.2 rounded font-semibold">NEW</span>
+        </button>
+        <button onclick="navigateTo('resident')" id="nav-btn-resident" class="nav-tab-link hover:text-[#b8734a] transition-colors py-2 flex items-center gap-1.5">
+          <span>입주민 안건</span>
+          <span class="text-[11px] px-1.5 py-0.2 rounded-full bg-[#f4ebe4] text-[#b8734a] font-bold">33</span>
         </button>
         <button onclick="navigateTo('council')" id="nav-btn-council" class="nav-tab-link hover:text-[#b8734a] transition-colors py-2 flex items-center gap-1.5">
           <span>대표회의 의결</span>
@@ -154,9 +154,9 @@
       <button onclick="navigateTo('home')" id="m-nav-btn-home" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#b8734a] text-white font-bold shrink-0">홈</button>
       <button onclick="navigateTo('about')" id="m-nav-btn-about" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold shrink-0">단지 소개</button>
       <button onclick="navigateTo('redevelopment')" id="m-nav-btn-redevelopment" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold shrink-0">재건축</button>
-      <button onclick="navigateTo('resident')" id="m-nav-btn-resident" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold shrink-0">입주민 안건 (33)</button>
       <button onclick="navigateTo('online')" id="m-nav-btn-online" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold shrink-0">온라인 안건 현황</button>
       <button onclick="navigateTo('market')" id="m-nav-btn-market" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold shrink-0">시세·실거래</button>
+      <button onclick="navigateTo('resident')" id="m-nav-btn-resident" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold shrink-0">입주민 안건 (33)</button>
       <button onclick="navigateTo('council')" id="m-nav-btn-council" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold shrink-0">대표회의 의결 (137)</button>
     </div>
 </nav>
@@ -1170,7 +1170,10 @@
 
         <div class="bg-white rounded-2xl p-4 border border-[#e8e2d9] shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
 
-          <div class="flex flex-wrap gap-1.5" id="online-category-container"></div>
+          <div class="flex flex-col gap-2">
+            <div class="flex flex-wrap gap-1.5" id="online-month-container"></div>
+            <div class="flex flex-wrap gap-1.5" id="online-category-container"></div>
+          </div>
 
           <div class="relative w-full md:w-72">
 
@@ -2366,6 +2369,7 @@
       '기타 일반 제안'
     ];
     let currentOnlineCategory = '전체';
+    let currentOnlineMonth = '전체';
 
     // 이전 샘플 데이터 제거 — 현재 시점부터 신규 접수되는 안건만 표시
     const defaultOnlineProposals = [];
@@ -2617,12 +2621,15 @@
       // Merge sheetFetchedProposals, localItems, and defaultOnlineProposals without duplicates
       const combined = [...localItems, ...sheetFetchedProposals, ...defaultOnlineProposals];
       const seen = new Set();
-      return combined.filter(item => {
+      const unique = combined.filter(item => {
         const key = (item.title || '') + '|' + (item.dong || '');
         if (seen.has(key)) return false;
         seen.add(key);
         return true;
       });
+      // 먼저 작성한 안건이 위로 (작성일시 오름차순, 날짜를 읽을 수 없는 항목은 맨 아래)
+      const ts = it => { const t = Date.parse(String(it.date || '').replace(' ', 'T')); return isNaN(t) ? Infinity : t; };
+      return unique.map((it, i) => [it, i]).sort((a, b) => (ts(a[0]) - ts(b[0])) || (a[1] - b[1]) || 0).map(p => p[0]);
     }
 
     async function fetchOnlineProposalsFromSheet() {
@@ -2669,8 +2676,33 @@
       showToast('온라인 안건 접수 현황 목록이 최신 상태로 업데이트되었습니다.');
     }
 
+    function getOnlineMonth(item) {
+      const m = String(item.date || '').match(/^(\d{4})-(\d{2})/);
+      return m ? m[1] + '-' + m[2] : '';
+    }
+
+    function filterOnlineMonth(month) {
+      currentOnlineMonth = month;
+      initOnlineCategories();
+      renderOnlineProposals();
+    }
+
     function initOnlineCategories() {
       const allItems = getAllOnlineProposals();
+      const monthContainer = document.getElementById('online-month-container');
+      if (monthContainer) {
+        const months = [...new Set(allItems.map(getOnlineMonth).filter(Boolean))].sort();
+        if (currentOnlineMonth !== '전체' && !months.includes(currentOnlineMonth)) currentOnlineMonth = '전체';
+        monthContainer.innerHTML = ['전체'].concat(months).map(m => {
+          const count = m === '전체' ? allItems.length : allItems.filter(i => getOnlineMonth(i) === m).length;
+          const activeClass = m === currentOnlineMonth
+            ? 'bg-[#b8734a] text-white font-bold border-[#b8734a]'
+            : 'bg-[#faf8f5] text-[#5c544d] border-[#ded5ca] hover:bg-[#f2ece5]';
+          return `<button onclick="filterOnlineMonth('${m}')" class="px-3 py-1.5 text-xs rounded-xl border transition-all ${activeClass}">
+          ${m === '전체' ? '전체 월' : m} <span class="opacity-80 text-[10px]">(${count})</span>
+        </button>`;
+        }).join('');
+      }
       const navBadge = document.getElementById('nav-online-badge');
       if (navBadge) {
         navBadge.textContent = allItems.length + '건';
@@ -2717,12 +2749,13 @@
 
       const filtered = allItems.filter(item => {
         const matchCat = currentOnlineCategory === '전체' || item.category === currentOnlineCategory;
+        const matchMonth = currentOnlineMonth === '전체' || getOnlineMonth(item) === currentOnlineMonth;
         const matchKw = !keyword ||
           (item.title || '').toLowerCase().includes(keyword) ||
           (item.content || '').toLowerCase().includes(keyword) ||
           (item.category || '').toLowerCase().includes(keyword) ||
           (item.dong || '').toLowerCase().includes(keyword);
-        return matchCat && matchKw;
+        return matchCat && matchMonth && matchKw;
       });
 
       if (filtered.length === 0) {
