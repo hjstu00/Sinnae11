@@ -79,12 +79,12 @@
           서울 중랑구 봉화산로 193 (신내동 661)
         </span>
         <span class="hidden sm:inline text-[#423b36]">|</span>
-        <a href="#about" onclick="navigateTo('about', event)" class="hover:text-white transition-colors whitespace-nowrap cursor-pointer">단지 소개</a>
-        <a href="#redevelopment" onclick="navigateTo('redevelopment', event)" class="hover:text-white transition-colors whitespace-nowrap cursor-pointer">재건축</a>
-        <a href="#online" onclick="navigateTo('online', event)" class="hover:text-white transition-colors text-[#e5b394] font-semibold whitespace-nowrap cursor-pointer">온라인 안건 현황</a>
-        <a href="#market" onclick="navigateTo('market', event)" class="hover:text-white transition-colors whitespace-nowrap cursor-pointer">시세·실거래</a>
-        <a href="#resident" onclick="navigateTo('resident', event)" class="hover:text-white transition-colors whitespace-nowrap cursor-pointer">입주민 안건</a>
-        <a href="#council" onclick="navigateTo('council', event)" class="hover:text-white transition-colors whitespace-nowrap cursor-pointer">대표회의 의결</a>
+        <button onclick="navigateTo('about')" class="hover:text-white transition-colors whitespace-nowrap">단지 소개</button>
+        <button onclick="navigateTo('redevelopment')" class="hover:text-white transition-colors whitespace-nowrap">재건축</button>
+        <button onclick="navigateTo('online')" class="hover:text-white transition-colors text-[#e5b394] font-semibold whitespace-nowrap">온라인 안건 현황</button>
+        <button onclick="navigateTo('market')" class="hover:text-white transition-colors whitespace-nowrap">시세·실거래</button>
+        <button onclick="navigateTo('resident')" class="hover:text-white transition-colors whitespace-nowrap">입주민 안건</button>
+        <button onclick="navigateTo('council')" class="hover:text-white transition-colors whitespace-nowrap">대표회의 의결</button>
       </div>
     </div>
   </header>
@@ -115,31 +115,31 @@
 
       <!-- Desktop Nav Items -->
       <div class="hidden lg:flex items-center space-x-5 xl:space-x-7 font-bold text-sm text-[#5a514a]">
-        <a href="#home" onclick="navigateTo('home', event)" id="nav-btn-home" class="nav-tab-link nav-tab-active hover:text-[#b8734a] transition-colors py-2 cursor-pointer">
+        <button onclick="navigateTo('home')" id="nav-btn-home" class="nav-tab-link nav-tab-active hover:text-[#b8734a] transition-colors py-2">
           홈
-        </a>
-        <a href="#about" onclick="navigateTo('about', event)" id="nav-btn-about" class="nav-tab-link hover:text-[#b8734a] transition-colors py-2 cursor-pointer">
+        </button>
+        <button onclick="navigateTo('about')" id="nav-btn-about" class="nav-tab-link hover:text-[#b8734a] transition-colors py-2">
           단지 소개
-        </a>
-        <a href="#redevelopment" onclick="navigateTo('redevelopment', event)" id="nav-btn-redevelopment" class="nav-tab-link hover:text-[#b8734a] transition-colors py-2 cursor-pointer">
+        </button>
+        <button onclick="navigateTo('redevelopment')" id="nav-btn-redevelopment" class="nav-tab-link hover:text-[#b8734a] transition-colors py-2">
           재건축
-        </a>
-        <a href="#online" onclick="navigateTo('online', event)" id="nav-btn-online" class="nav-tab-link hover:text-[#b8734a] transition-colors py-2 flex items-center gap-1.5 cursor-pointer">
+        </button>
+        <button onclick="navigateTo('online')" id="nav-btn-online" class="nav-tab-link hover:text-[#b8734a] transition-colors py-2 flex items-center gap-1.5">
           <span>온라인 안건 현황</span>
           <span id="nav-online-badge" class="text-[10px] px-1.5 py-0.2 rounded-full bg-emerald-100 text-emerald-800 font-bold">LIVE</span>
-        </a>
-        <a href="#market" onclick="navigateTo('market', event)" id="nav-btn-market" class="nav-tab-link hover:text-[#b8734a] transition-colors py-2 flex items-center gap-1 cursor-pointer">
+        </button>
+        <button onclick="navigateTo('market')" id="nav-btn-market" class="nav-tab-link hover:text-[#b8734a] transition-colors py-2 flex items-center gap-1">
           <span>시세·실거래</span>
           <span class="text-[10px] bg-[#f4ebe4] text-[#b8734a] px-1.5 py-0.2 rounded font-semibold">NEW</span>
-        </a>
-        <a href="#resident" onclick="navigateTo('resident', event)" id="nav-btn-resident" class="nav-tab-link hover:text-[#b8734a] transition-colors py-2 flex items-center gap-1.5 cursor-pointer">
+        </button>
+        <button onclick="navigateTo('resident')" id="nav-btn-resident" class="nav-tab-link hover:text-[#b8734a] transition-colors py-2 flex items-center gap-1.5">
           <span>입주민 안건</span>
           <span class="text-[11px] px-1.5 py-0.2 rounded-full bg-[#f4ebe4] text-[#b8734a] font-bold">33</span>
-        </a>
-        <a href="#council" onclick="navigateTo('council', event)" id="nav-btn-council" class="nav-tab-link hover:text-[#b8734a] transition-colors py-2 flex items-center gap-1.5 cursor-pointer">
+        </button>
+        <button onclick="navigateTo('council')" id="nav-btn-council" class="nav-tab-link hover:text-[#b8734a] transition-colors py-2 flex items-center gap-1.5">
           <span>대표회의 의결</span>
           <span class="text-[11px] px-1.5 py-0.2 rounded-full bg-[#231f1d] text-white font-bold">137</span>
-        </a>
+        </button>
       </div>
 
       <!-- Action Button (Google Sheets Connected Modal) -->
@@ -152,13 +152,13 @@
     </div>
     <!-- Mobile Sub Navigation Bar (Horizontal Scrollable) -->
     <div class="flex lg:hidden overflow-x-auto py-2 px-3.5 gap-1.5 border-t border-[#f0eae3] bg-[#faf8f5] no-scrollbar text-xs font-bold text-[#5a514a]">
-      <a href="#home" onclick="navigateTo('home', event)" id="m-nav-btn-home" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#b8734a] text-white font-bold shrink-0 cursor-pointer">홈</a>
-      <a href="#about" onclick="navigateTo('about', event)" id="m-nav-btn-about" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold shrink-0 cursor-pointer">단지 소개</a>
-      <a href="#redevelopment" onclick="navigateTo('redevelopment', event)" id="m-nav-btn-redevelopment" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold shrink-0 cursor-pointer">재건축</a>
-      <a href="#online" onclick="navigateTo('online', event)" id="m-nav-btn-online" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold shrink-0 cursor-pointer">온라인 안건 현황</a>
-      <a href="#market" onclick="navigateTo('market', event)" id="m-nav-btn-market" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold shrink-0 cursor-pointer">시세·실거래</a>
-      <a href="#resident" onclick="navigateTo('resident', event)" id="m-nav-btn-resident" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold shrink-0 cursor-pointer">입주민 안건 (33)</a>
-      <a href="#council" onclick="navigateTo('council', event)" id="m-nav-btn-council" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold shrink-0 cursor-pointer">대표회의 의결 (137)</a>
+      <button onclick="navigateTo('home')" id="m-nav-btn-home" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#b8734a] text-white font-bold shrink-0">홈</button>
+      <button onclick="navigateTo('about')" id="m-nav-btn-about" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold shrink-0">단지 소개</button>
+      <button onclick="navigateTo('redevelopment')" id="m-nav-btn-redevelopment" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold shrink-0">재건축</button>
+      <button onclick="navigateTo('online')" id="m-nav-btn-online" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold shrink-0">온라인 안건 현황</button>
+      <button onclick="navigateTo('market')" id="m-nav-btn-market" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold shrink-0">시세·실거래</button>
+      <button onclick="navigateTo('resident')" id="m-nav-btn-resident" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold shrink-0">입주민 안건 (33)</button>
+      <button onclick="navigateTo('council')" id="m-nav-btn-council" class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-[#faf8f5] text-[#5a514a] font-bold shrink-0">대표회의 의결 (137)</button>
     </div>
 </nav>
 
@@ -194,38 +194,26 @@
 
           <!-- 4 Core Stats Bar -->
           <div class="mt-8 sm:mt-10 w-full max-w-5xl grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 sm:p-5 text-left">
-            <a href="#about" onclick="navigateTo('about', event)" class="group block cursor-pointer border-r border-b md:border-b-0 border-white/10 pr-2.5 sm:pr-3 pb-3 md:pb-0 hover:bg-white/10 rounded-xl p-1.5 -m-1.5 transition-all">
-              <div class="text-[11px] text-[#b8734a] font-bold uppercase flex items-center justify-between">
-                <span>단지 규모</span>
-                <span class="text-[10px] text-white/40 group-hover:text-white transition-colors">이동 ›</span>
-              </div>
-              <div class="text-xl sm:text-2xl font-black text-white mt-0.5 whitespace-nowrap group-hover:text-[#e5b394] transition-colors">804<span class="text-xs font-normal text-[#a3988f] ml-1">세대</span></div>
+            <div class="border-r border-b md:border-b-0 border-white/10 pr-2.5 sm:pr-3 pb-3 md:pb-0">
+              <div class="text-[11px] text-[#b8734a] font-bold uppercase">단지 규모</div>
+              <div class="text-xl sm:text-2xl font-black text-white mt-0.5 whitespace-nowrap">804<span class="text-xs font-normal text-[#a3988f] ml-1">세대</span></div>
               <div class="text-[11px] text-[#a3988f]">총 6개동 / 최고 15층</div>
-            </a>
-            <a href="#resident" onclick="navigateTo('resident', event)" class="group block cursor-pointer border-b md:border-b-0 md:border-r border-white/10 pl-1 md:pl-3 pr-0 md:pr-3 pb-3 md:pb-0 hover:bg-white/10 rounded-xl p-1.5 -m-1.5 transition-all">
-              <div class="text-[11px] text-[#b8734a] font-bold uppercase flex items-center justify-between">
-                <span>주민 안건</span>
-                <span class="text-[10px] text-white/40 group-hover:text-white transition-colors">이동 ›</span>
-              </div>
-              <div class="text-xl sm:text-2xl font-black text-white mt-0.5 whitespace-nowrap group-hover:text-[#e5b394] transition-colors">33<span class="text-xs font-normal text-[#a3988f] ml-1">건</span></div>
+            </div>
+            <div class="border-b md:border-b-0 md:border-r border-white/10 pl-1 md:pl-3 pr-0 md:pr-3 pb-3 md:pb-0">
+              <div class="text-[11px] text-[#b8734a] font-bold uppercase">주민 안건</div>
+              <div class="text-xl sm:text-2xl font-black text-white mt-0.5 whitespace-nowrap">33<span class="text-xs font-normal text-[#a3988f] ml-1">건</span></div>
               <div class="text-[11px] text-[#a3988f]">면목선·주차·시설 등</div>
-            </a>
-            <a href="#market" onclick="navigateTo('market', event)" class="group block cursor-pointer border-r border-white/10 pr-2.5 sm:pr-3 pl-0 md:pl-3 pt-1 md:pt-0 hover:bg-white/10 rounded-xl p-1.5 -m-1.5 transition-all">
-              <div class="text-[11px] text-[#b8734a] font-bold uppercase flex items-center justify-between">
-                <span>최고 실거래가</span>
-                <span class="text-[10px] text-white/40 group-hover:text-white transition-colors">이동 ›</span>
-              </div>
-              <div class="text-xl sm:text-2xl font-black text-[#e5b394] mt-0.5 whitespace-nowrap group-hover:text-white transition-colors">6.4억<span class="text-xs font-normal text-[#a3988f] ml-1">원</span></div>
+            </div>
+            <div class="border-r border-white/10 pr-2.5 sm:pr-3 pl-0 md:pl-3 pt-1 md:pt-0">
+              <div class="text-[11px] text-[#b8734a] font-bold uppercase">최고 실거래가</div>
+              <div class="text-xl sm:text-2xl font-black text-[#e5b394] mt-0.5 whitespace-nowrap">6.4억<span class="text-xs font-normal text-[#a3988f] ml-1">원</span></div>
               <div class="text-[11px] text-[#a3988f]">전용 49㎡ (2026.10)</div>
-            </a>
-            <a href="#council" onclick="navigateTo('council', event)" class="group block cursor-pointer pl-1 md:pl-3 pt-1 md:pt-0 hover:bg-white/10 rounded-xl p-1.5 -m-1.5 transition-all">
-              <div class="text-[11px] text-[#b8734a] font-bold uppercase flex items-center justify-between">
-                <span>최신 회의 의결</span>
-                <span class="text-[10px] text-white/40 group-hover:text-white transition-colors">이동 ›</span>
-              </div>
-              <div class="text-xl sm:text-2xl font-black text-white mt-0.5 whitespace-nowrap group-hover:text-[#e5b394] transition-colors">10.21<span class="text-xs font-normal text-[#a3988f] ml-1">의결</span></div>
+            </div>
+            <div class="pl-1 md:pl-3 pt-1 md:pt-0">
+              <div class="text-[11px] text-[#b8734a] font-bold uppercase">최신 회의 의결</div>
+              <div class="text-xl sm:text-2xl font-black text-white mt-0.5 whitespace-nowrap">10.21<span class="text-xs font-normal text-[#a3988f] ml-1">의결</span></div>
               <div class="text-[11px] text-[#a3988f]">파크골프장 주차비 등</div>
-            </a>
+            </div>
           </div>
         </div>
       </section>
@@ -259,10 +247,10 @@
                 <span class="w-5 h-5 rounded-full bg-white text-[#03c75a] flex items-center justify-center font-black text-xs">b</span>
                 <span>네이버 밴드 바로가기 ↗</span>
               </a>
-              <a href="#redevelopment" onclick="navigateTo('redevelopment', event)"
-                 class="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-[#d8cec5] hover:text-white font-bold text-xs sm:text-sm border border-white/20 transition-all cursor-pointer">
+              <button onclick="navigateTo('redevelopment')"
+                 class="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-[#d8cec5] hover:text-white font-bold text-xs sm:text-sm border border-white/20 transition-all">
                 <span>단지 재건축 가이드 보기 →</span>
-              </a>
+              </button>
             </div>
           </div>
           
@@ -302,7 +290,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           
           <!-- Card 1: 단지 소개 & 비전 -->
-          <a href="#about" onclick="navigateTo('about', event)" class="group cursor-pointer bg-white rounded-2xl p-6 shadow-sm border border-[#e8e2d9] hover:border-[#b8734a] hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between">
+          <div onclick="navigateTo('about')" class="group cursor-pointer bg-white rounded-2xl p-6 shadow-sm border border-[#e8e2d9] hover:border-[#b8734a] hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between">
             <div>
               <div class="flex justify-between items-start mb-4">
                 <div class="w-12 h-12 rounded-xl bg-[#f7ede7] text-[#b8734a] flex items-center justify-center group-hover:bg-[#b8734a] group-hover:text-white transition-colors">
@@ -319,10 +307,10 @@
               <span>단지소개 열기</span>
               <span class="group-hover:translate-x-1 transition-transform">→</span>
             </div>
-          </a>
+          </div>
 
           <!-- Card 2: 입주민 안건 (33건) -->
-          <a href="#resident" onclick="navigateTo('resident', event)" class="group cursor-pointer bg-white rounded-2xl p-6 shadow-sm border border-[#e8e2d9] hover:border-[#b8734a] hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between">
+          <div onclick="navigateTo('resident')" class="group cursor-pointer bg-white rounded-2xl p-6 shadow-sm border border-[#e8e2d9] hover:border-[#b8734a] hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between">
             <div>
               <div class="flex justify-between items-start mb-4">
                 <div class="w-12 h-12 rounded-xl bg-[#f7ede7] text-[#b8734a] flex items-center justify-center group-hover:bg-[#b8734a] group-hover:text-white transition-colors">
@@ -332,17 +320,17 @@
               </div>
               <h3 class="text-lg font-black text-[#231f1d] group-hover:text-[#b8734a] transition-colors mb-2">입주민 안건</h3>
               <p class="text-xs text-[#736961] leading-relaxed line-clamp-3">
-                오픈채팅 및 소통방 제안 안건 33건 전수 관리. 면목선 경전철 대응, 주차차단기, 단지 보안, 옥상방수 등 8대 분야별 트래킹.
+                오픈채팅 및 소통방 제안 안건 33건 전수 관리. 면목선 경전철 대응, 주차차단기, 단지 보안, 옥상방수 등 7대 분야별 트래킹.
               </p>
             </div>
             <div class="mt-6 pt-4 border-t border-[#f0eae3] flex items-center justify-between text-xs font-bold text-[#b8734a]">
               <span>입주민 안건 보기</span>
               <span class="group-hover:translate-x-1 transition-transform">→</span>
             </div>
-          </a>
+          </div>
 
           <!-- Card 3: 시세·실거래가 분석 -->
-          <a href="#market" onclick="navigateTo('market', event)" class="group cursor-pointer bg-white rounded-2xl p-6 shadow-sm border border-[#e8e2d9] hover:border-[#b8734a] hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between">
+          <div onclick="navigateTo('market')" class="group cursor-pointer bg-white rounded-2xl p-6 shadow-sm border border-[#e8e2d9] hover:border-[#b8734a] hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between">
             <div>
               <div class="flex justify-between items-start mb-4">
                 <div class="w-12 h-12 rounded-xl bg-[#f7ede7] text-[#b8734a] flex items-center justify-center group-hover:bg-[#b8734a] group-hover:text-white transition-colors">
@@ -359,10 +347,10 @@
               <span>시세 페이지 열기</span>
               <span class="group-hover:translate-x-1 transition-transform">→</span>
             </div>
-          </a>
+          </div>
 
-          <!-- Card 4: 대표회의 의결 & 안건 비교 -->
-          <a href="#council-comparison" onclick="navigateTo('council-comparison', event)" class="group cursor-pointer bg-white rounded-2xl p-6 shadow-sm border border-[#e8e2d9] hover:border-[#b8734a] hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between">
+          <!-- Card 4: 대표회의 의결 (137건) -->
+          <div onclick="navigateTo('council')" class="group cursor-pointer bg-white rounded-2xl p-6 shadow-sm border border-[#e8e2d9] hover:border-[#b8734a] hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between">
             <div>
               <div class="flex justify-between items-start mb-4">
                 <div class="w-12 h-12 rounded-xl bg-[#f7ede7] text-[#b8734a] flex items-center justify-center group-hover:bg-[#b8734a] group-hover:text-white transition-colors">
@@ -370,17 +358,39 @@
                 </div>
                 <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#231f1d] text-white">공식 의결 137건</span>
               </div>
-              <h3 class="text-lg font-black text-[#231f1d] group-hover:text-[#b8734a] transition-colors mb-2">대표회의 의결 & 안건 비교</h3>
+              <h3 class="text-lg font-black text-[#231f1d] group-hover:text-[#b8734a] transition-colors mb-2">대표회의 의결</h3>
               <p class="text-xs text-[#736961] leading-relaxed line-clamp-3">
-                2026년 65건 및 2025년 72건 공식 회의록 의결 전문. 주민안건 ↔ 대표회의 연계 비교 14대 주제 분석 및 처리 현황.
+                2026년 65건 및 2025년 72건 공식 회의록 의결 전문. 파크골프장 주차비 부과, 방수공사 경쟁입찰, 제설용품 구매 등 심의 결과.
               </p>
             </div>
             <div class="mt-6 pt-4 border-t border-[#f0eae3] flex items-center justify-between text-xs font-bold text-[#b8734a]">
-              <span>의결 및 비교 분석 보기</span>
+              <span>공식 의결사항 보기</span>
               <span class="group-hover:translate-x-1 transition-transform">→</span>
             </div>
-          </a>
+          </div>
 
+        </div>
+      </section>
+
+      <!-- Fast Online Proposal Banner on Home -->
+      <section class="max-w-7xl mx-auto px-4 sm:px-8">
+        <div class="bg-gradient-to-r from-[#231f1d] to-[#3a322d] text-white rounded-2xl sm:rounded-3xl p-6 sm:p-10 flex flex-col md:flex-row justify-between items-center gap-5 sm:gap-6 shadow-md border border-[#443b35]">
+          <div class="space-y-2 text-center md:text-left">
+            <span class="text-xs font-bold text-[#b8734a] uppercase tracking-wider">ONLINE RESIDENT VOICE</span>
+            <h3 class="text-xl sm:text-3xl font-black font-condensed">단지 개선 제안이 있으신가요?</h3>
+            <p class="text-xs sm:text-sm text-[#c9beb5] leading-relaxed">
+              온라인으로 접수하시면 관리자의 구글 시트에 실시간으로 기록되며, 동대표회의 검토 안건으로 정식 상정됩니다.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row w-full md:w-auto items-stretch sm:items-center justify-center gap-2.5 sm:gap-3 shrink-0">
+            <button onclick="navigateTo('online')" class="bg-white/10 hover:bg-white/20 text-white border border-white/25 font-bold text-xs sm:text-sm px-5 py-3 sm:py-3.5 rounded-xl transition-all flex items-center justify-center gap-2">
+              <span>📋 온라인 안건 접수 현황 보기</span>
+            </button>
+            <button onclick="openProposalModal()" class="bg-[#b8734a] hover:bg-[#a26139] text-white font-bold text-xs sm:text-sm px-6 py-3 sm:py-3.5 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
+              <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+              <span>지금 안건 제안하기</span>
+            </button>
+          </div>
         </div>
       </section>
 
@@ -397,7 +407,7 @@
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-5 sm:gap-6 relative z-10">
           <div>
             <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-[#b8734a] font-bold uppercase mb-2">
-              <a href="#home" onclick="navigateTo(\'home\', event)" class="hover:underline text-[#d8cec5] cursor-pointer">홈</a>
+              <button onclick="navigateTo('home')" class="hover:underline text-[#d8cec5]">홈</button>
               <span>/</span>
               <span>단지 미래 가치</span>
               <span>/</span>
@@ -447,7 +457,7 @@
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             
             <!-- 카드 1: 신내대명11단지 현황 -->
-            <a href="#redev-sec-conditions" class="group block cursor-pointer bg-white rounded-2xl p-5 border border-[#e8e2d9] shadow-sm hover:border-[#b8734a] hover:shadow-md transition-all flex flex-col justify-between">
+            <div class="bg-white rounded-2xl p-5 border border-[#e8e2d9] shadow-sm flex flex-col justify-between">
               <div>
                 <div class="flex justify-between items-center mb-3">
                   <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#f4ebe4] text-[#b8734a]">1. 신내대명11단지</span>
@@ -462,10 +472,10 @@
                 <div class="flex justify-between"><span class="text-[#8a7f76]">전용면적</span><span class="font-bold text-[#231f1d]">39.76 · 49.77 · 59.76㎡</span></div>
                 <div class="text-xs text-[#8a7f76]"><strong>출처:</strong> 정부24 건축물대장, KB부동산</div>
               </div>
-            </a>
+            </div>
 
             <!-- 카드 2: 신내택지개발지구 -->
-            <a href="#redev-sec-integration" class="group block cursor-pointer bg-white rounded-2xl p-5 border border-[#e8e2d9] shadow-sm hover:border-blue-500 hover:shadow-md transition-all flex flex-col justify-between">
+            <div class="bg-white rounded-2xl p-5 border border-[#e8e2d9] shadow-sm flex flex-col justify-between">
               <div>
                 <div class="flex justify-between items-center mb-3">
                   <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800">2. 신내택지개발지구</span>
@@ -480,10 +490,10 @@
                 <div class="flex justify-between"><span class="text-[#8a7f76]">핵심방향</span><span class="font-bold text-blue-700">인접 단지 연계 대블록 정비</span></div>
                 <div class="text-xs text-[#8a7f76]"><strong>출처:</strong> 서울특별시 공고 제2026-977호</div>
               </div>
-            </a>
+            </div>
 
             <!-- 카드 3: 노후계획도시 정비 -->
-            <a href="#redev-sec-benefits" class="group block cursor-pointer bg-white rounded-2xl p-5 border border-[#e8e2d9] shadow-sm hover:border-purple-500 hover:shadow-md transition-all flex flex-col justify-between">
+            <div class="bg-white rounded-2xl p-5 border border-[#e8e2d9] shadow-sm flex flex-col justify-between">
               <div>
                 <div class="flex justify-between items-center mb-3">
                   <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-800">3. 노후계획도시 정비</span>
@@ -498,10 +508,10 @@
                 <div class="flex justify-between"><span class="text-[#8a7f76]">인허가특례</span><span class="font-bold text-purple-700">건축·교통·환경 통합심의</span></div>
                 <div class="text-xs text-[#8a7f76]"><strong>출처:</strong> 국토교통부(법률 제19840호), KRIHS</div>
               </div>
-            </a>
+            </div>
 
             <!-- 카드 4: 면목선 경전철 -->
-            <a href="#redev-sec-myeonmok" class="group block cursor-pointer bg-white rounded-2xl p-5 border border-[#e8e2d9] shadow-sm hover:border-emerald-500 hover:shadow-md transition-all flex flex-col justify-between">
+            <div class="bg-white rounded-2xl p-5 border border-[#e8e2d9] shadow-sm flex flex-col justify-between">
               <div>
                 <div class="flex justify-between items-center mb-3">
                   <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800">4. 면목선 경전철</span>
@@ -516,14 +526,13 @@
                 <div class="flex justify-between"><span class="text-[#8a7f76]">핵심쟁점</span><span class="font-bold text-emerald-700">구청사거리역 접근성 확보</span></div>
                 <div class="text-xs text-[#8a7f76]"><strong>출처:</strong> 기재부 예타 의결, 서울시 공청회</div>
               </div>
-            </a>
+            </div>
 
           </div>
         </section>
 
         <!-- ===================================================================== -->
         <!-- PART 2: 사업성 분석 (좌측: 핵심 해설 & 비교표 / 우측: 용적률·세대수 다이어그램) -->
-        <div id="redev-sec-conditions" class="scroll-mt-28"></div>
         <!-- ===================================================================== -->
         <section class="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-[#e8e2d9] shadow-sm space-y-5 sm:space-y-6">
           <div class="border-b border-[#f0eae3] pb-3.5 sm:pb-4">
@@ -672,7 +681,6 @@
 
         <!-- ===================================================================== -->
         <!-- PART 3: 공간·교통 분석 (좌측: 지구단위계획·면목선 설명 / 우측: 입지 개념도) -->
-        <div id="redev-sec-integration" class="scroll-mt-28"></div>
         <!-- ===================================================================== -->
         <section class="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-[#e8e2d9] shadow-sm space-y-5 sm:space-y-6">
           <div class="border-b border-[#f0eae3] pb-3.5 sm:pb-4">
@@ -691,8 +699,7 @@
                   <span class="px-2.5 py-0.5 rounded bg-blue-700 text-white text-[11px] sm:text-xs font-bold shrink-0">서울시 공고 제2026-977호</span>
                   <span class="text-[11px] sm:text-xs text-blue-800 font-semibold">신내지구 지구단위계획 결정(변경)(안)</span>
                 </div>
-                <div id="redev-sec-benefits" class="scroll-mt-28"></div>
-            <h3 class="text-sm sm:text-base font-black text-blue-950 leading-snug">① 왜 15개 단지를 5개 구역으로 묶는가?</h3>
+                <h3 class="text-sm sm:text-base font-black text-blue-950 leading-snug">① 왜 15개 단지를 5개 구역으로 묶는가?</h3>
                 <p class="text-xs text-blue-900 leading-relaxed">
                   서울시는 신내택지개발지구(약 124만㎡) 내 단지들이 개별적으로 소규모 나홀로 재건축을 할 경우 기반시설 부족과 난개발이 우려됨에 따라, 
                   <strong>왕복 6차선(폭 25m) 이상의 간선도로를 기준으로 15개 단지를 5개 대블록 구역으로 묶어 통합 재건축</strong>하도록 밑그림을 제시했습니다.
@@ -708,8 +715,7 @@
                   <span class="px-2.5 py-0.5 rounded bg-emerald-700 text-white text-[11px] sm:text-xs font-bold shrink-0">2026.08.13 공청회 핵심 쟁점</span>
                   <span class="text-[11px] sm:text-xs text-emerald-800 font-semibold">청량리~신내 9.05km (2034 개통 목표)</span>
                 </div>
-                <div id="redev-sec-myeonmok" class="scroll-mt-28"></div>
-            <h3 class="text-sm sm:text-base font-black text-emerald-950 leading-snug">② 왜 '중랑구청사거리역' 위치가 재건축 종상향을 좌우하는가?</h3>
+                <h3 class="text-sm sm:text-base font-black text-emerald-950 leading-snug">② 왜 '중랑구청사거리역' 위치가 재건축 종상향을 좌우하는가?</h3>
                 <p class="text-xs text-emerald-900 leading-relaxed">
                   서울시 역세권 고밀개발(준주거 종상향, 용적률 최대 500%) 특례는 <strong>지하철 승강장으로부터 반경 250m~350m 이내 포함 여부</strong>가 핵심 기준입니다.
                 </p>
@@ -845,7 +851,6 @@
 
         <!-- ===================================================================== -->
         <!-- PART 5: 6단계 재건축 추진 로드맵 (시각 진행바 + 단계별 상세 내용 카드)    -->
-        <div id="redev-sec-roadmap" class="scroll-mt-28"></div>
         <!-- ===================================================================== -->
         <section class="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-[#e8e2d9] shadow-sm space-y-5 sm:space-y-6">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 border-b border-[#f0eae3] pb-4">
@@ -998,7 +1003,7 @@
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div>
             <div class="flex items-center gap-2 text-xs text-[#b8734a] font-bold uppercase mb-2">
-              <a href="#home" onclick="navigateTo(\'home\', event)" class="hover:underline text-[#d8cec5] cursor-pointer">홈</a>
+              <button onclick="navigateTo('home')" class="hover:underline text-[#d8cec5]">홈</button>
               <span>/</span>
               <span>입주민 소통 & 제안</span>
             </div>
@@ -1063,7 +1068,7 @@
           </div>
         </div>
 
-        <!-- 8개 카테고리 필터 & 검색 툴바 -->
+        <!-- 7개 카테고리 + 전체 필터 & 검색 툴바 -->
         <div class="bg-white rounded-2xl p-4 border border-[#e8e2d9] shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
           <div class="flex flex-wrap gap-1.5" id="agenda-page-category-container"></div>
           <div class="relative w-full md:w-64">
@@ -1099,7 +1104,7 @@
 
             <div class="flex items-center gap-2 text-xs text-[#b8734a] font-bold uppercase mb-2">
 
-              <a href="#home" onclick="navigateTo(\'home\', event)" class="hover:underline text-[#d8cec5] cursor-pointer">홈</a>
+              <button onclick="navigateTo('home')" class="hover:underline text-[#d8cec5]">홈</button>
 
               <span>/</span>
 
@@ -1288,7 +1293,7 @@
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div>
             <div class="flex items-center gap-2 text-xs text-[#b8734a] font-bold uppercase mb-2">
-              <a href="#home" onclick="navigateTo(\'home\', event)" class="hover:underline text-[#d8cec5] cursor-pointer">홈</a>
+              <button onclick="navigateTo('home')" class="hover:underline text-[#d8cec5]">홈</button>
               <span>/</span>
               <span>입주자대표회의 공식 행정</span>
             </div>
@@ -1417,7 +1422,7 @@
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div>
             <div class="flex items-center gap-2 text-xs text-[#b8734a] font-bold uppercase mb-2">
-              <a href="#home" onclick="navigateTo(\'home\', event)" class="hover:underline text-[#d8cec5] cursor-pointer">홈</a>
+              <button onclick="navigateTo('home')" class="hover:underline text-[#d8cec5]">홈</button>
               <span>/</span>
               <span>봉화산로 193 부동산 분석</span>
             </div>
@@ -1765,7 +1770,7 @@
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div>
             <div class="flex items-center gap-2 text-xs text-[#b8734a] font-bold uppercase mb-2">
-              <a href="#home" onclick="navigateTo(\'home\', event)" class="hover:underline text-[#d8cec5] cursor-pointer">홈</a>
+              <button onclick="navigateTo('home')" class="hover:underline text-[#d8cec5]">홈</button>
               <span>/</span>
               <span>단지 개요 및 비전</span>
             </div>
@@ -1877,13 +1882,13 @@
         <div class="md:col-span-3 space-y-2">
           <div class="text-xs font-bold text-white uppercase tracking-wider mb-2">QUICK NAVIGATION</div>
           <ul class="space-y-1.5 text-xs text-[#8a7e75]">
-            <li><a href="#home" onclick="navigateTo('home', event)" class="hover:text-white transition-colors cursor-pointer block">홈</a></li>
-            <li><a href="#about" onclick="navigateTo('about', event)" class="hover:text-white transition-colors cursor-pointer block">단지 소개</a></li>
-            <li><a href="#redevelopment" onclick="navigateTo('redevelopment', event)" class="hover:text-white transition-colors cursor-pointer block">재건축</a></li>
-            <li><a href="#online" onclick="navigateTo('online', event)" class="hover:text-white transition-colors text-[#e5b394] font-semibold cursor-pointer block">온라인 안건 현황</a></li>
-            <li><a href="#market" onclick="navigateTo('market', event)" class="hover:text-white transition-colors cursor-pointer block">시세·실거래</a></li>
-            <li><a href="#resident" onclick="navigateTo('resident', event)" class="hover:text-white transition-colors cursor-pointer block">입주민 안건</a></li>
-            <li><a href="#council" onclick="navigateTo('council', event)" class="hover:text-white transition-colors cursor-pointer block">대표회의 의결</a></li>
+            <li><button onclick="navigateTo('home')" class="hover:text-white transition-colors">홈</button></li>
+            <li><button onclick="navigateTo('about')" class="hover:text-white transition-colors">단지 소개</button></li>
+            <li><button onclick="navigateTo('redevelopment')" class="hover:text-white transition-colors">재건축</button></li>
+            <li><button onclick="navigateTo('online')" class="hover:text-white transition-colors text-[#e5b394] font-semibold">온라인 안건 현황</button></li>
+            <li><button onclick="navigateTo('market')" class="hover:text-white transition-colors">시세·실거래</button></li>
+            <li><button onclick="navigateTo('resident')" class="hover:text-white transition-colors">입주민 안건</button></li>
+            <li><button onclick="navigateTo('council')" class="hover:text-white transition-colors">대표회의 의결</button></li>
           </ul>
         </div>
 
@@ -1903,9 +1908,9 @@
       <div class="pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-[#6e635a] gap-3">
         <div>© 2026 신내대명11단지 입주자대표회의 & 관리사무소. All Rights Reserved.</div>
         <div class="flex space-x-4">
-          <button type="button" onclick="openInfoModal(\'privacy\')" class="hover:text-[#a89d93] cursor-pointer">개인정보처리방침</button>
+          <a href="#" class="hover:text-[#a89d93]">개인정보처리방침</a>
           <span>•</span>
-          <button type="button" onclick="openInfoModal(\'bylaws\')" class="hover:text-[#a89d93] cursor-pointer">공동주택 관리규약</button>
+          <a href="#" class="hover:text-[#a89d93]">공동주택 관리규약</a>
         </div>
       </div>
     </div>
@@ -2217,30 +2222,11 @@
       }
     }
 
-    // Page Tab Navigation Function (Enhanced for Semantic Links & History Routing)
+    // Page Tab Navigation Function
     const views = ['home', 'about', 'redevelopment', 'resident', 'online', 'market', 'council'];
 
-    function navigateTo(target, event, updateHistory = true) {
-      if (event && event.preventDefault) {
-        event.preventDefault();
-      }
-
-      let viewName = target || 'home';
-      let subTarget = null;
-
-      // Handle Sub-routing and aliases
+    function navigateTo(viewName) {
       if (viewName === 'agendas') viewName = 'resident';
-      if (viewName.startsWith('council-')) {
-        subTarget = viewName.replace('council-', '');
-        viewName = 'council';
-      } else if (viewName.startsWith('market-')) {
-        subTarget = viewName.replace('market-', '');
-        viewName = 'market';
-      } else if (viewName.startsWith('redev-sec-')) {
-        subTarget = viewName;
-        viewName = 'redevelopment';
-      }
-
       if (!views.includes(viewName)) viewName = 'home';
 
       // Hide all views
@@ -2277,45 +2263,25 @@
         mActiveBtn.classList.remove('bg-[#faf8f5]', 'text-[#5a514a]');
       }
 
-      // Update URL hash with full History Support
-      const hashStr = target ? ('#' + target) : ('#' + viewName);
-      if (updateHistory) {
-        try {
-          if (window.location.hash !== hashStr) {
-            history.pushState({ target: target || viewName }, '', hashStr);
-          }
-        } catch (e) {
-          window.location.hash = hashStr;
-        }
+      // Update URL hash safely without reload
+      try {
+        history.replaceState(null, '', '#' + viewName);
+      } catch (e) {
+        window.location.hash = '#' + viewName;
       }
 
-      // Scroll smoothly
-      if (subTarget && subTarget.startsWith('redev-sec-')) {
-        setTimeout(() => {
-          const sec = document.getElementById(subTarget);
-          if (sec) sec.scrollIntoView({ behavior: 'smooth' });
-        }, 80);
-      } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+      // Scroll smoothly to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
 
       // Special init for views
-      if (viewName === 'resident') {
+      if (viewName === 'resident' || viewName === 'agendas') {
         initAgendaPageCategories();
         renderAgendaPageList();
       } else if (viewName === 'online') {
         initOnlineCategories();
         renderOnlineProposals();
       } else if (viewName === 'council') {
-        if (subTarget === 'comparison') {
-          switchCouncilSubTab('comparison');
-        } else if (subTarget === 'checklist') {
-          switchCouncilSubTab('checklist');
-        } else {
-          switchCouncilSubTab('resolutions');
-        }
-      } else if (viewName === 'market' && subTarget) {
-        switchRealEstateTab('tab-' + subTarget);
+        renderCouncilList();
       }
     }
 
@@ -2342,10 +2308,6 @@
       currentAgendaCategory = cat;
       initAgendaPageCategories();
       renderAgendaPageList();
-      const listEl = document.getElementById('agenda-page-list-container');
-      if (listEl) {
-        listEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
     }
 
     function renderAgendaPageList() {
@@ -2726,9 +2688,9 @@
         seen.add(key);
         return true;
       });
-      // 먼저 작성한 안건이 위로 (작성일시 오름차순, 날짜를 읽을 수 없는 항목은 맨 아래)
-      const ts = it => { const t = Date.parse(String(it.date || '').replace(' ', 'T')); return isNaN(t) ? Infinity : t; };
-      return unique.map((it, i) => [it, i]).sort((a, b) => (ts(a[0]) - ts(b[0])) || (a[1] - b[1]) || 0).map(p => p[0]);
+      // 최신 안건이 위로 (작성일시 내림차순, 날짜를 읽을 수 없는 항목은 맨 아래)
+      const ts = it => { const t = Date.parse(String(it.date || '').replace(' ', 'T')); return isNaN(t) ? -Infinity : t; };
+      return unique.map((it, i) => [it, i]).sort((a, b) => (ts(b[0]) - ts(a[0])) || (a[1] - b[1]) || 0).map(p => p[0]);
     }
 
     async function fetchOnlineProposalsFromSheet() {
@@ -2790,7 +2752,7 @@
       const allItems = getAllOnlineProposals();
       const monthContainer = document.getElementById('online-month-container');
       if (monthContainer) {
-        const months = [...new Set(allItems.map(getOnlineMonth).filter(Boolean))].sort();
+        const months = [...new Set(allItems.map(getOnlineMonth).filter(Boolean))].sort().reverse();
         if (currentOnlineMonth !== '전체' && !months.includes(currentOnlineMonth)) currentOnlineMonth = '전체';
         monthContainer.innerHTML = ['전체'].concat(months).map(m => {
           const count = m === '전체' ? allItems.length : allItems.filter(i => getOnlineMonth(i) === m).length;
@@ -3022,65 +2984,10 @@
       }
     });
 
-    // Information Modal Controls (Privacy & Bylaws)
-    function openInfoModal(type) {
-      const modal = document.getElementById('info-modal');
-      const titleEl = document.getElementById('info-modal-title');
-      const bodyEl = document.getElementById('info-modal-body');
-      if (!modal || !titleEl || !bodyEl) return;
-
-      if (type === 'privacy') {
-        titleEl.textContent = '개인정보처리방침 안내';
-        bodyEl.innerHTML = `
-          <div class="space-y-3 text-xs sm:text-sm text-[#524942]">
-            <p class="font-bold text-[#b8734a]">1. 개인정보의 수집 및 이용 목적</p>
-            <p>신내대명11단지 공식 소통 포털은 입주민 안건 제안 접수, 의견 수렴 및 대표회의 안건 상정을 위한 최소한의 정보(동·호수 정보 등)만을 접수받으며, 영리적 목적이나 외부 제3자 제공을 일체 하지 않습니다.</p>
-            <p class="font-bold text-[#b8734a]">2. 보유 및 이용 기간</p>
-            <p>제안된 안건 및 회의록 데이터는 공동주택관리법 시행령에 준하여 투명한 단지 운영 기록 보존을 위해 관련 법정 보존 기한 동안 안전하게 관리됩니다.</p>
-            <p class="font-bold text-[#b8734a]">3. 문의처</p>
-            <p>신내대명11단지 관리사무소: 02-3421-0276 (평일 09:00 ~ 18:00)</p>
-          </div>
-        `;
-      } else if (type === 'bylaws') {
-        titleEl.textContent = '신내대명11단지 공동주택 관리규약 요약';
-        bodyEl.innerHTML = `
-          <div class="space-y-3 text-xs sm:text-sm text-[#524942]">
-            <p class="font-bold text-[#b8734a]">제1장 총칙 & 자치 관리</p>
-            <p>본 규약은 서울특별시 중랑구 봉화산로 193 신내대명11단지 아파트의 입주자등의 권익을 보호하고 공동주거생활의 질서를 확립함을 목적으로 합니다.</p>
-            <p class="font-bold text-[#b8734a]">주요 의결 및 관리 규정</p>
-            <ul class="list-disc pl-5 space-y-1">
-              <li><strong>관리비 및 장기수선충당금:</strong> 투명한 경쟁입찰과 적립금 관리 규정에 따라 집행.</li>
-              <li><strong>주차장 운영 규정:</strong> 단지 내 등록 차량 질서 유지 및 외부 차량 불법 주차 단속.</li>
-              <li><strong>층간소음 및 흡연 방지:</strong> 입주민 상호 배려 원칙 및 자율관리위원회 운영.</li>
-            </ul>
-            <p class="text-[11px] text-[#8a7f76] pt-2 border-t border-[#f0eae3]">※ 전문 열람이 필요하신 세대는 관리사무소를 방문하시면 열람 및 사본 교부가 가능합니다.</p>
-          </div>
-        `;
-      }
-      modal.classList.remove('hidden');
-    }
-
-    function closeInfoModal() {
-      const modal = document.getElementById('info-modal');
-      if (modal) modal.classList.add('hidden');
-    }
-
-    // Close Info modal on background click
-    window.addEventListener('click', (e) => {
-      const modal = document.getElementById('info-modal');
-      if (e.target === modal) closeInfoModal();
-    });
-
-    // Handle Browser Back / Forward Buttons (Popstate)
-    window.addEventListener('popstate', (e) => {
-      const hash = window.location.hash.replace('#', '') || 'home';
-      navigateTo(hash, null, false);
-    });
-
     // Listen to URL hash changes for direct linking
     window.addEventListener('hashchange', () => {
       const hash = window.location.hash.replace('#', '');
-      if (hash) navigateTo(hash, null, false);
+      if (hash) navigateTo(hash);
     });
 
     // Initial load
@@ -3091,37 +2998,13 @@
       renderOnlineProposals();
       fetchOnlineProposalsFromSheet();
       renderCouncilList();
-
       const initialHash = window.location.hash.replace('#', '');
-      if (initialHash) {
-        navigateTo(initialHash, null, false);
+      if (initialHash && views.includes(initialHash)) {
+        navigateTo(initialHash);
       } else {
-        navigateTo('home', null, false);
+        navigateTo('home');
       }
     });
   </script>
-  <!-- Information Modal (개인정보처리방침 / 공동주택 관리규약) -->
-  <div id="info-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-[#ded5ca] relative max-h-[85vh] flex flex-col">
-      <div class="flex items-center justify-between pb-4 border-b border-[#f0eae3]">
-        <div class="flex items-center gap-2">
-          <span class="w-8 h-8 rounded-lg bg-[#f7ede7] text-[#b8734a] flex items-center justify-center font-bold text-sm">📜</span>
-          <h3 id="info-modal-title" class="text-lg sm:text-xl font-black text-[#231f1d]">안내</h3>
-        </div>
-        <button onclick="closeInfoModal()" class="w-8 h-8 rounded-full bg-[#f4ebe4] hover:bg-[#e8dbd1] text-[#786c63] flex items-center justify-center transition-colors cursor-pointer">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-        </button>
-      </div>
-      <div id="info-modal-body" class="py-5 text-xs sm:text-sm text-[#5a514a] leading-relaxed overflow-y-auto space-y-4 no-scrollbar">
-        <!-- Dynamic Content -->
-      </div>
-      <div class="pt-4 border-t border-[#f0eae3] flex justify-end">
-        <button onclick="closeInfoModal()" class="px-5 py-2 rounded-xl bg-[#231f1d] hover:bg-[#3b3430] text-white text-xs font-bold transition-all cursor-pointer">
-          확인 및 닫기
-        </button>
-      </div>
-    </div>
-  </div>
-
 </body>
 </html>
