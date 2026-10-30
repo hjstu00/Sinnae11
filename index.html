@@ -1137,9 +1137,7 @@
           <div class="flex flex-wrap items-center gap-2.5">
 
             <button onclick="refreshOnlineProposals()" id="online-refresh-btn" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-bold text-white border border-white/20 transition-all flex items-center gap-1.5">
-
               <span>🔄 목록 새로고침</span>
-
             </button>
 
             <button onclick="openProposalModal()" class="px-5 py-2.5 rounded-xl bg-[#b8734a] hover:bg-[#a26139] text-xs font-bold text-white shadow-lg transition-all flex items-center gap-1.5">
@@ -1997,6 +1995,71 @@
     <div id="comment-sheet-body" class="flex-1 min-h-0 flex flex-col"></div>
   </aside>
 
+  <!-- DONG SELECTION MODAL (투표 전 동 선택 유도 모달) -->
+  <div id="dong-select-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl p-6 sm:p-7 max-w-sm w-full shadow-2xl border border-[#ded5ca] animate-in fade-in zoom-in-95 duration-150">
+      <div class="flex items-center justify-between mb-3">
+        <div class="flex items-center gap-2.5">
+          <span class="w-9 h-9 rounded-2xl bg-[#f4ebe4] text-[#b8734a] flex items-center justify-center text-base font-black">🗳</span>
+          <div>
+            <h4 class="text-base font-black text-[#231f1d] leading-none">거주 동 선택</h4>
+            <span class="text-[10px] text-[#8a7f76]">신내대명11단지 입주민 투표</span>
+          </div>
+        </div>
+        <button onclick="closeDongModal()" class="w-8 h-8 rounded-full text-[#8a7f76] hover:bg-gray-100 flex items-center justify-center font-bold text-sm" aria-label="닫기">✕</button>
+      </div>
+      <p class="text-xs text-[#524942] mb-4 leading-relaxed">
+        투표를 반영하기 위해 <strong>거주하시는 동</strong>을 선택해 주세요.<br>
+        <span class="text-[11px] text-[#8a7f76]">(선택하신 동은 이 기기에 안전하게 기억됩니다)</span>
+      </p>
+      <div class="grid grid-cols-3 gap-2 mb-3.5">
+        <button onclick="confirmUserDongAndVote('1101')" class="py-3 rounded-2xl border-2 border-[#e8e2d9] bg-[#faf8f5] hover:bg-[#b8734a] hover:border-[#b8734a] hover:text-white text-xs font-black transition-all text-[#231f1d]">1101동</button>
+        <button onclick="confirmUserDongAndVote('1102')" class="py-3 rounded-2xl border-2 border-[#e8e2d9] bg-[#faf8f5] hover:bg-[#b8734a] hover:border-[#b8734a] hover:text-white text-xs font-black transition-all text-[#231f1d]">1102동</button>
+        <button onclick="confirmUserDongAndVote('1103')" class="py-3 rounded-2xl border-2 border-[#e8e2d9] bg-[#faf8f5] hover:bg-[#b8734a] hover:border-[#b8734a] hover:text-white text-xs font-black transition-all text-[#231f1d]">1103동</button>
+        <button onclick="confirmUserDongAndVote('1104')" class="py-3 rounded-2xl border-2 border-[#e8e2d9] bg-[#faf8f5] hover:bg-[#b8734a] hover:border-[#b8734a] hover:text-white text-xs font-black transition-all text-[#231f1d]">1104동</button>
+        <button onclick="confirmUserDongAndVote('1105')" class="py-3 rounded-2xl border-2 border-[#e8e2d9] bg-[#faf8f5] hover:bg-[#b8734a] hover:border-[#b8734a] hover:text-white text-xs font-black transition-all text-[#231f1d]">1105동</button>
+        <button onclick="confirmUserDongAndVote('1106')" class="py-3 rounded-2xl border-2 border-[#e8e2d9] bg-[#faf8f5] hover:bg-[#b8734a] hover:border-[#b8734a] hover:text-white text-xs font-black transition-all text-[#231f1d]">1106동</button>
+      </div>
+      <p class="text-[10px] text-center text-[#a39890]">※ 세대 호수는 수집되지 않으며 동별 통계만 익명 집계됩니다.</p>
+    </div>
+  </div>
+
+  <!-- VOTERS MODAL (투표 참여자 / 찬성자 / 반대자 명단 모달) -->
+  <div id="voters-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl p-5 sm:p-6 max-w-md w-full shadow-2xl border border-[#ded5ca] flex flex-col max-h-[85vh] animate-in fade-in zoom-in-95 duration-150">
+      <div class="flex items-center justify-between pb-3 border-b border-[#f2ece5]">
+        <div class="min-w-0 pr-2">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-[#f4ebe4] text-[#b8734a]">투표 참여 현황</span>
+            <span class="text-xs font-black text-[#231f1d]">총 <span id="voters-modal-total">0</span>명 참여</span>
+          </div>
+          <h4 id="voters-modal-title" class="text-sm font-black text-[#231f1d] truncate">안건 제목</h4>
+        </div>
+        <button onclick="closeVotersModal()" class="w-8 h-8 rounded-full text-[#8a7f76] hover:bg-gray-100 flex items-center justify-center font-bold text-sm shrink-0" aria-label="닫기">✕</button>
+      </div>
+
+      <!-- 동별 참여 요약 배지 -->
+      <div id="voters-modal-dong-summary" class="flex flex-wrap gap-1.5 py-2.5 border-b border-[#f2ece5] text-[11px]">
+      </div>
+
+      <!-- 탭 선택: 전체 (N) | 찬성자 (N) | 반대자 (N) -->
+      <div class="flex gap-1.5 pt-3 pb-2">
+        <button onclick="filterVotersTab('all')" id="voters-tab-all" class="flex-1 py-1.5 rounded-xl text-xs font-bold transition-all bg-[#231f1d] text-white">전체 (<span id="voters-tab-all-cnt">0</span>)</button>
+        <button onclick="filterVotersTab('yes')" id="voters-tab-yes" class="flex-1 py-1.5 rounded-xl text-xs font-bold transition-all bg-[#faf8f5] text-emerald-700 border border-emerald-200 hover:bg-emerald-50">찬성자 (<span id="voters-tab-yes-cnt">0</span>)</button>
+        <button onclick="filterVotersTab('no')" id="voters-tab-no" class="flex-1 py-1.5 rounded-xl text-xs font-bold transition-all bg-[#faf8f5] text-rose-600 border border-rose-200 hover:bg-rose-50">반대자 (<span id="voters-tab-no-cnt">0</span>)</button>
+      </div>
+
+      <!-- 참여자 명단 리스트 -->
+      <div id="voters-modal-list" class="flex-1 min-h-[180px] overflow-y-auto divide-y divide-[#f5f0eb] py-1">
+      </div>
+
+      <div class="pt-3 border-t border-[#f2ece5] flex justify-between items-center text-[11px] text-[#8a7f76]">
+        <span>※ 개인정보 보호를 위해 호수는 비공개 집계됩니다</span>
+        <button onclick="closeVotersModal()" class="px-3 py-1.5 rounded-lg bg-gray-100 text-[#524942] font-bold hover:bg-gray-200">닫기</button>
+      </div>
+    </div>
+  </div>
+
   <!-- TOAST NOTIFICATION -->
   <div id="toast" class="fixed bottom-5 right-5 z-50 bg-[#231f1d] text-white px-5 py-3 rounded-xl shadow-2xl border border-[#b8734a] hidden flex items-center gap-3 transition-opacity duration-300">
     <span class="text-[#b8734a] font-bold text-lg">✓</span>
@@ -2280,6 +2343,7 @@
       } else if (viewName === 'online') {
         initOnlineCategories();
         renderOnlineProposals();
+        fetchOnlineProposalsFromSheet();
       } else if (viewName === 'council') {
         renderCouncilList();
       }
@@ -2467,72 +2531,478 @@
       }
     }
 
-    // 온라인 안건 찬반 투표 (현재는 브라우저 localStorage에만 저장)
-    const VOTE_STORAGE_KEY = 'sinnae11_online_votes_v1';
+    // 온라인 안건 찬반 투표 & 의견 상태 관리
+    const VOTE_STORAGE_KEY = 'sinnae11_online_votes_v2';
+    const MY_VOTES_STORAGE_KEY = 'sinnae11_my_votes_v2';
+
+    // 이전 테스트 투표 데이터 초기화
+    try {
+      localStorage.removeItem('sinnae11_online_votes_v1');
+      localStorage.removeItem('sinnae11_my_votes_v1');
+      localStorage.removeItem(VOTE_STORAGE_KEY);
+      localStorage.removeItem(MY_VOTES_STORAGE_KEY);
+    } catch (e) {}
+    const USER_DONG_STORAGE_KEY = 'sinnae11_user_dong';
+    const COMMENT_STORAGE_KEY = 'sinnae11_online_comments_v1';
     const VOTE_DONGS = ['1101', '1102', '1103', '1104', '1105', '1106'];
     const voteDongSelection = {};
     let renderedOnlineItems = [];
+    let openSheetKey = null;
+    let pendingVoteAction = null; // { idx, choice } 동 선택 팝업 대기 액션
+
+    function getUserDong() {
+      try {
+        return localStorage.getItem(USER_DONG_STORAGE_KEY) || '';
+      } catch (e) {
+        return '';
+      }
+    }
+
+    function setUserDong(dong) {
+      if (!dong) return;
+      try {
+        localStorage.setItem(USER_DONG_STORAGE_KEY, String(dong));
+      } catch (e) {}
+    }
+
+    function openDongModal() {
+      const modal = document.getElementById('dong-select-modal');
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeDongModal() {
+      const modal = document.getElementById('dong-select-modal');
+      if (modal) modal.classList.add('hidden');
+      pendingVoteAction = null;
+    }
+
+    function confirmUserDongAndVote(dong) {
+      setUserDong(dong);
+      const action = pendingVoteAction;
+      closeDongModal();
+      if (action) {
+        executeVote(action.idx, action.choice, dong);
+      }
+    }
 
     function voteKeyOf(item) {
-      return (item.id || '') + '|' + (item.title || '');
+      if (!item) return '';
+      // 안건 제목(정규화)을 불변 고유 식별자로 사용하여 목록 순서나 ID 변경에도 영구 보존
+      return (item.title || '').trim().toLowerCase() || 'untitled';
     }
 
     function getAllVotes() {
       try {
-        const parsed = JSON.parse(localStorage.getItem(VOTE_STORAGE_KEY));
+        const raw = localStorage.getItem(VOTE_STORAGE_KEY);
+        const parsed = JSON.parse(raw);
+        return (parsed && typeof parsed === 'object') ? parsed : {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    async function resetAllOnlineVotes() {
+      if (!confirm('모든 온라인 안건의 투표(찬성/반대) 및 참여자 기록을 0으로 초기화하시겠습니까?')) return;
+      try {
+        localStorage.removeItem(VOTE_STORAGE_KEY);
+        localStorage.removeItem(MY_VOTES_STORAGE_KEY);
+        localStorage.removeItem('sinnae11_online_votes_v1');
+        localStorage.removeItem('sinnae11_my_votes_v1');
+
+        if (GOOGLE_APPS_SCRIPT_URL) {
+          fetch(GOOGLE_APPS_SCRIPT_URL + '?action=reset', { method: 'GET', mode: 'no-cors' }).catch(() => {});
+        }
+
+        sheetFetchedProposals.forEach(p => {
+          p.sheetYes = 0;
+          p.sheetNo = 0;
+          p.votes = [];
+        });
+
+        renderOnlineProposals();
+        renderCommentSheet();
+        showToast('투표 찬반 기록이 성공적으로 초기화되었습니다.');
+      } catch (e) {
+        console.warn('Reset error:', e);
+      }
+    }
+
+    function getMyVotes() {
+      try {
+        const parsed = JSON.parse(localStorage.getItem(MY_VOTES_STORAGE_KEY));
         return parsed && typeof parsed === 'object' ? parsed : {};
       } catch (e) {
         return {};
       }
     }
 
+    function getMyVote(item) {
+      if (!item) return null;
+      const sheetYes = Number(item.sheetYes) || 0;
+      const sheetNo = Number(item.sheetNo) || 0;
+      const hasSheetVotes = Array.isArray(item.votes) && item.votes.length > 0;
+      const key = voteKeyOf(item);
+      const list = getAllVotes()[key] || [];
+
+      // 시트가 0으로 초기화되었고 로컬에도 신규 투표가 없다면 선택 해제
+      if (item.hasOwnProperty('sheetYes') && item.hasOwnProperty('sheetNo') && sheetYes === 0 && sheetNo === 0 && !hasSheetVotes && list.length === 0) {
+        return null;
+      }
+      return getMyVotes()[key] || null;
+    }
+
+    function getVotersList(item) {
+      if (!item) return [];
+      const key = voteKeyOf(item);
+      const localList = getAllVotes()[key] || [];
+      const sheetList = (item && item.votes) || [];
+      const sheetYes = Number(item && item.sheetYes) || 0;
+      const sheetNo = Number(item && item.sheetNo) || 0;
+
+      // 구글 시트에서 0으로 초기화된 경우 빈 명단 반환
+      if (item.hasOwnProperty('sheetYes') && item.hasOwnProperty('sheetNo') && sheetYes === 0 && sheetNo === 0 && sheetList.length === 0 && localList.length === 0) {
+        return [];
+      }
+
+      const combined = [];
+      const seen = new Set();
+
+      // 구글 스프레드시트 기록 추가
+      sheetList.forEach(v => {
+        const d = String(v.dong || '1100동');
+        const c = String(v.choice || 'yes');
+        const dt = String(v.date || '');
+        const idKey = `${d}|${c}|${dt}`;
+        if (!seen.has(idKey)) {
+          seen.add(idKey);
+          combined.push({
+            dong: d.includes('동') ? d : d + '동',
+            choice: (c === 'yes' || c === '찬성') ? 'yes' : 'no',
+            choiceKor: (c === 'yes' || c === '찬성') ? '찬성' : '반대',
+            date: dt
+          });
+        }
+      });
+
+      // 로컬 투표 추가 (시트에 아직 반영 전인 항목 반영)
+      localList.forEach(v => {
+        const d = String(v.dong || '1100동');
+        const c = String(v.choice || 'yes');
+        const pad = n => String(n).padStart(2, '0');
+        let dt = '';
+        if (v.at) {
+          const dObj = new Date(v.at);
+          dt = `${pad(dObj.getMonth() + 1)}-${pad(dObj.getDate())} ${pad(dObj.getHours())}:${pad(dObj.getMinutes())}`;
+        }
+        const idKey = `${d}|${c}|${dt}`;
+        if (!seen.has(idKey)) {
+          seen.add(idKey);
+          combined.push({
+            dong: d.includes('동') ? d : d + '동',
+            choice: (c === 'yes' || c === '찬성') ? 'yes' : 'no',
+            choiceKor: (c === 'yes' || c === '찬성') ? '찬성' : '반대',
+            date: dt
+          });
+        }
+      });
+
+      return combined;
+    }
+
+    function getVotersBreakdown(item) {
+      const voters = getVotersList(item);
+      const yesVoters = voters.filter(v => v.choice === 'yes');
+      const noVoters = voters.filter(v => v.choice === 'no');
+
+      // 동별 통계 집계
+      const dongTally = {};
+      voters.forEach(v => {
+        const d = v.dong || '미지정';
+        dongTally[d] = (dongTally[d] || 0) + 1;
+      });
+
+      const tally = getVoteTally(item);
+      const yesCount = Math.max(yesVoters.length, tally.yes);
+      const noCount = Math.max(noVoters.length, tally.no);
+      const total = Math.max(voters.length, tally.total);
+
+      return {
+        voters,
+        yesVoters,
+        noVoters,
+        dongTally,
+        total,
+        yesCount,
+        noCount
+      };
+    }
+
+    let currentVotersModalItem = null;
+    let currentVotersTab = 'all';
+
+    function openVotersModal(idx) {
+      const item = renderedOnlineItems[idx];
+      if (!item) return;
+      currentVotersModalItem = item;
+      currentVotersTab = 'all';
+      renderVotersModalContent();
+      const modal = document.getElementById('voters-modal');
+      if (modal) modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeVotersModal() {
+      const modal = document.getElementById('voters-modal');
+      if (modal) modal.classList.add('hidden');
+      currentVotersModalItem = null;
+      document.body.style.overflow = '';
+    }
+
+    function filterVotersTab(tab) {
+      currentVotersTab = tab;
+      renderVotersModalContent();
+    }
+
+    function renderVotersModalContent() {
+      if (!currentVotersModalItem) return;
+      const item = currentVotersModalItem;
+      const breakdown = getVotersBreakdown(item);
+
+      const titleEl = document.getElementById('voters-modal-title');
+      const totalEl = document.getElementById('voters-modal-total');
+      const allCntEl = document.getElementById('voters-tab-all-cnt');
+      const yesCntEl = document.getElementById('voters-tab-yes-cnt');
+      const noCntEl = document.getElementById('voters-tab-no-cnt');
+      const dongSummaryEl = document.getElementById('voters-modal-dong-summary');
+      const listEl = document.getElementById('voters-modal-list');
+
+      if (titleEl) titleEl.textContent = item.title;
+      if (totalEl) totalEl.textContent = breakdown.total;
+      if (allCntEl) allCntEl.textContent = breakdown.total;
+      if (yesCntEl) yesCntEl.textContent = breakdown.yesCount;
+      if (noCntEl) noCntEl.textContent = breakdown.noCount;
+
+      if (dongSummaryEl) {
+        const dongKeys = Object.keys(breakdown.dongTally).sort();
+        if (dongKeys.length === 0) {
+          dongSummaryEl.innerHTML = '<span class="text-xs text-[#8a7f76]">아직 투표한 세대가 없습니다.</span>';
+        } else {
+          dongSummaryEl.innerHTML = dongKeys.map(d => `
+            <span class="px-2.5 py-1 rounded-lg bg-[#faf8f5] border border-[#e8e2d9] font-bold text-[#3d3530]">
+              ${d} <span class="text-[#b8734a] font-black">${breakdown.dongTally[d]}명</span>
+            </span>
+          `).join('');
+        }
+      }
+
+      const tabAll = document.getElementById('voters-tab-all');
+      const tabYes = document.getElementById('voters-tab-yes');
+      const tabNo = document.getElementById('voters-tab-no');
+
+      if (tabAll) {
+        tabAll.className = `flex-1 py-1.5 rounded-xl text-xs font-bold transition-all ${currentVotersTab === 'all' ? 'bg-[#231f1d] text-white shadow-sm' : 'bg-[#faf8f5] text-[#524942] border border-[#ded5ca]'}`;
+      }
+      if (tabYes) {
+        tabYes.className = `flex-1 py-1.5 rounded-xl text-xs font-bold transition-all ${currentVotersTab === 'yes' ? 'bg-emerald-600 text-white shadow-sm' : 'bg-[#faf8f5] text-emerald-700 border border-emerald-200'}`;
+      }
+      if (tabNo) {
+        tabNo.className = `flex-1 py-1.5 rounded-xl text-xs font-bold transition-all ${currentVotersTab === 'no' ? 'bg-rose-500 text-white shadow-sm' : 'bg-[#faf8f5] text-rose-600 border border-rose-200'}`;
+      }
+
+      let displayList = breakdown.voters;
+      if (currentVotersTab === 'yes') displayList = breakdown.yesVoters;
+      else if (currentVotersTab === 'no') displayList = breakdown.noVoters;
+
+      if (listEl) {
+        if (displayList.length === 0) {
+          listEl.innerHTML = `
+            <div class="py-10 text-center text-xs text-[#8a7f76]">
+              해당하는 투표 참여자가 아직 없습니다.
+            </div>
+          `;
+        } else {
+          listEl.innerHTML = displayList.map(v => `
+            <div class="flex items-center justify-between py-2 text-xs">
+              <div class="flex items-center gap-2">
+                <span class="w-7 h-7 rounded-full bg-[#f4ebe4] text-[#b8734a] font-black text-[10px] flex items-center justify-center">${v.dong.replace('동','').slice(-2)}</span>
+                <span class="font-bold text-[#231f1d]">${escapeHtml(v.dong)} 입주민</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded-md text-[10px] font-black ${v.choice === 'yes' ? 'bg-emerald-100 text-emerald-800 border border-emerald-200' : 'bg-rose-100 text-rose-700 border border-rose-200'}">
+                  ${v.choice === 'yes' ? '👍 찬성' : '👎 반대'}
+                </span>
+                ${v.date ? `<span class="text-[10px] text-[#a39890]">${escapeHtml(v.date)}</span>` : ''}
+              </div>
+            </div>
+          `).join('');
+        }
+      }
+    }
+
     function getVoteTally(item) {
-      const list = getAllVotes()[voteKeyOf(item)] || [];
-      const yes = list.filter(v => v.choice === 'yes').length;
-      const total = list.length;
+      const key = voteKeyOf(item);
+      const list = getAllVotes()[key] || [];
+      const localYes = list.filter(v => v.choice === 'yes').length;
+      const localNo = list.filter(v => v.choice === 'no').length;
+
+      const sheetYes = Number(item && item.sheetYes) || 0;
+      const sheetNo = Number(item && item.sheetNo) || 0;
+      const hasSheetVotes = item && Array.isArray(item.votes) && item.votes.length > 0;
+
+      // 구글 시트에서 찬성수와 반대수가 0(또는 빈칸)이고 참여 기록도 없는 경우(관리자 리셋 상태)
+      if (item && item.hasOwnProperty('sheetYes') && item.hasOwnProperty('sheetNo') && sheetYes === 0 && sheetNo === 0 && !hasSheetVotes && list.length === 0) {
+        return { yes: 0, no: 0, total: 0, yesPct: 0, noPct: 0 };
+      }
+
+      const yes = Math.max(sheetYes, localYes);
+      const no = Math.max(sheetNo, localNo);
+      const total = yes + no;
       const yesPct = total ? Math.round(yes / total * 100) : 0;
-      return { yes, no: total - yes, total, yesPct, noPct: total ? 100 - yesPct : 0 };
+      const noPct = total ? 100 - yesPct : 0;
+      return { yes, no, total, yesPct, noPct };
     }
 
     function selectVoteDong(idx, dong) {
       const item = renderedOnlineItems[idx];
-      if (item) voteDongSelection[voteKeyOf(item)] = dong;
+      if (!item) return;
+      const key = voteKeyOf(item);
+      if (dong) {
+        voteDongSelection[key] = dong;
+        setUserDong(dong);
+        renderOnlineProposals();
+        renderCommentSheet();
+      }
     }
 
-    function castOnlineVote(idx, choice) {
+    function castOnlineVote(idx, choice, event) {
+      if (event && event.stopPropagation) event.stopPropagation();
+      const item = renderedOnlineItems[idx];
+      if (!item) return;
+
+      const key = voteKeyOf(item);
+      let dong = voteDongSelection[key] || getUserDong();
+
+      if (!dong) {
+        pendingVoteAction = { idx, choice };
+        openDongModal();
+        return;
+      }
+
+      executeVote(idx, choice, dong);
+    }
+
+    function executeVote(idx, choice, dong) {
       const item = renderedOnlineItems[idx];
       if (!item) return;
       const key = voteKeyOf(item);
-      const dong = voteDongSelection[key];
-      if (!dong) {
-        showToast('먼저 거주 동을 선택해 주세요.');
+
+      const all = getAllVotes();
+      const myVotes = getMyVotes();
+      const currentChoice = myVotes[key];
+
+      // 동일한 선택을 이미 한 경우 안내
+      if (currentChoice === choice) {
+        showToast(`이미 ${choice === 'yes' ? '찬성' : '반대'}에 투표하셨습니다. (의견 변경을 원하시면 ${choice === 'yes' ? '반대' : '찬성'}를 누르세요)`);
         return;
       }
+
+      const list = all[key] || [];
+
+      // 기존 투표가 있다면 이전 선택 1건 제거
+      if (currentChoice) {
+        const existingIdx = list.findIndex(v => v.choice === currentChoice && String(v.dong) === String(dong));
+        if (existingIdx !== -1) {
+          list.splice(existingIdx, 1);
+        } else {
+          const fallbackIdx = list.findIndex(v => v.choice === currentChoice);
+          if (fallbackIdx !== -1) list.splice(fallbackIdx, 1);
+        }
+      }
+
+      // 새 투표 추가
+      list.push({ dong: dong, choice: choice, at: Date.now() });
+      all[key] = list;
+      myVotes[key] = choice;
+
+      // 동 선택 정보 보존 및 저장
+      voteDongSelection[key] = dong;
+      setUserDong(dong);
+
       try {
-        const all = getAllVotes();
-        (all[key] = all[key] || []).push({ dong: dong, choice: choice, at: Date.now() });
         localStorage.setItem(VOTE_STORAGE_KEY, JSON.stringify(all));
+        localStorage.setItem(MY_VOTES_STORAGE_KEY, JSON.stringify(myVotes));
       } catch (e) {
         console.warn('LocalStorage save warning:', e);
       }
-      delete voteDongSelection[key];
+
+      // 구글 스프레드시트 실시간 투표 연동 전송
+      if (GOOGLE_APPS_SCRIPT_URL) {
+        try {
+          const params = new URLSearchParams();
+          params.append('action', 'vote');
+          params.append('title', item.title || '');
+          params.append('dong', dong);
+          params.append('choice', choice);
+          if (currentChoice) params.append('prevChoice', currentChoice);
+
+          fetch(GOOGLE_APPS_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: params
+          }).catch(err => console.warn('Google Sheet vote sync warning:', err));
+        } catch (e) {
+          console.warn('Google Sheet vote sync error:', e);
+        }
+      }
+
+      // 메모리 내 시트 카운트 즉시 반영
+      if (choice === 'yes') {
+        item.sheetYes = Math.max(item.sheetYes || 0, list.filter(v => v.choice === 'yes').length);
+        if (currentChoice === 'no' && item.sheetNo > 0) item.sheetNo -= 1;
+      } else {
+        item.sheetNo = Math.max(item.sheetNo || 0, list.filter(v => v.choice === 'no').length);
+        if (currentChoice === 'yes' && item.sheetYes > 0) item.sheetYes -= 1;
+      }
+
       renderOnlineProposals();
       renderCommentSheet();
-      showToast(`${dong}동 · ${choice === 'yes' ? '찬성' : '반대'} 투표가 반영되었습니다.`);
+
+      const choiceLabel = choice === 'yes' ? '찬성' : '반대';
+      if (currentChoice) {
+        showToast(`${dong}동 · [${choiceLabel}] 투표가 구글 시트에 연동되었습니다.`);
+      } else {
+        showToast(`${dong}동 · [${choiceLabel}] 투표가 구글 시트에 연동되었습니다.`);
+      }
     }
 
-    // 온라인 안건 주민 의견(댓글) (현재는 브라우저 localStorage에만 저장)
-    const COMMENT_STORAGE_KEY = 'sinnae11_online_comments_v1';
-    let openSheetKey = null;
-
+    // 온라인 안건 주민 의견(댓글)
     function escapeHtml(str) {
       return String(str).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
     }
 
     function getAllComments() {
       try {
-        const parsed = JSON.parse(localStorage.getItem(COMMENT_STORAGE_KEY));
-        return parsed && typeof parsed === 'object' ? parsed : {};
+        const raw = localStorage.getItem(COMMENT_STORAGE_KEY);
+        const parsed = JSON.parse(raw);
+        if (!parsed || typeof parsed !== 'object') return {};
+        let migrated = false;
+        const normalized = {};
+        for (const [k, v] of Object.entries(parsed)) {
+          let cleanKey = k;
+          if (k.includes('|')) {
+            cleanKey = k.split('|').slice(1).join('|').trim().toLowerCase();
+            migrated = true;
+          }
+          if (!normalized[cleanKey]) {
+            normalized[cleanKey] = v;
+          } else if (Array.isArray(v) && Array.isArray(normalized[cleanKey])) {
+            normalized[cleanKey] = normalized[cleanKey].concat(v);
+          }
+        }
+        if (migrated) {
+          localStorage.setItem(COMMENT_STORAGE_KEY, JSON.stringify(normalized));
+        }
+        return normalized;
       } catch (e) {
         return {};
       }
@@ -2557,6 +3027,7 @@
         showToast('의견 내용을 입력해 주세요.');
         return;
       }
+      setUserDong(dong); // 사용자 동 자동 기억
       const now = new Date();
       const pad = n => String(n).padStart(2, '0');
       try {
@@ -2609,19 +3080,32 @@
         return;
       }
       const tally = getVoteTally(item);
+      const breakdown = getVotersBreakdown(item);
       const comments = getComments(item);
-      const selectedDong = voteDongSelection[openSheetKey] || '';
-      const voteOptions = VOTE_DONGS.map(d => `<option value="${d}" ${selectedDong === d ? 'selected' : ''}>${d}</option>`).join('');
-      const commentOptions = VOTE_DONGS.map(d => `<option value="${d}">${d}</option>`).join('');
+      const myVote = getMyVote(item);
+      const currentDong = voteDongSelection[openSheetKey] || getUserDong() || '';
+      const voteOptions = VOTE_DONGS.map(d => `<option value="${d}" ${currentDong === d ? 'selected' : ''}>${d}동</option>`).join('');
+      const defaultCommentDong = getUserDong();
+      const commentOptions = VOTE_DONGS.map(d => `<option value="${d}" ${defaultCommentDong === d ? 'selected' : ''}>${d}동</option>`).join('');
+
+      const yesBtnStyle = myVote === 'yes'
+        ? 'bg-emerald-600 text-white border-2 border-emerald-600 font-black shadow-md ring-2 ring-emerald-300'
+        : 'border-2 border-emerald-600 text-emerald-700 hover:bg-emerald-600 hover:text-white font-bold bg-white';
+      const noBtnStyle = myVote === 'no'
+        ? 'bg-rose-500 text-white border-2 border-rose-500 font-black shadow-md ring-2 ring-rose-300'
+        : 'border-2 border-rose-500 text-rose-600 hover:bg-rose-500 hover:text-white font-bold bg-white';
+
+      const yesBtnText = myVote === 'yes' ? '👍 찬성 ✔' : '👍 찬성';
+      const noBtnText = myVote === 'no' ? '👎 반대 ✔' : '👎 반대';
 
       const commentRows = comments.length === 0
         ? '<p class="text-xs text-[#8a7f76] py-8 text-center">아직 등록된 의견이 없습니다. 첫 의견을 남겨 주세요.</p>'
         : comments.map(c => `
           <div class="flex gap-2.5 py-2.5">
-            <div class="w-8 h-8 shrink-0 rounded-full bg-[#f4ebe4] text-[#b8734a] text-[10px] font-black flex items-center justify-center">${escapeHtml(String(c.dong).slice(2))}</div>
+            <div class="w-8 h-8 shrink-0 rounded-full bg-[#f4ebe4] text-[#b8734a] text-[10px] font-black flex items-center justify-center">${escapeHtml(String(c.dong).replace('동', '').slice(-2))}</div>
             <div class="flex-1 min-w-0">
               <div class="flex items-center gap-1.5 text-[11px]">
-                <span class="font-bold text-[#231f1d]">${escapeHtml(c.dong)}동 입주민</span>
+                <span class="font-bold text-[#231f1d]">${escapeHtml(c.dong.includes('동') ? c.dong : c.dong + '동')} 입주민</span>
                 <span class="text-[#a39890]">${escapeHtml(c.date)}</span>
               </div>
               <p class="text-[13px] text-[#3d3530] leading-relaxed whitespace-pre-line mt-0.5 break-words">${escapeHtml(c.text)}</p>
@@ -2642,6 +3126,31 @@
             <button onclick="closeCommentSheet()" class="w-8 h-8 shrink-0 text-[#8a7f76] text-base" aria-label="닫기">✕</button>
           </div>
           <p class="text-xs text-[#524942] leading-relaxed whitespace-pre-line mt-2 max-h-24 overflow-y-auto">${item.content}</p>
+          <!-- 참여자 명단 요약 박스 -->
+          <div class="mt-2.5 p-3 rounded-2xl bg-[#faf8f5] border border-[#eee7df]">
+            <div class="flex justify-between items-center mb-1.5">
+              <span class="text-xs font-black text-[#231f1d]">👥 투표 참여자 명단 <span class="text-[#b8734a]">(${breakdown.total}명)</span></span>
+              <div class="flex gap-1 text-[10px] font-bold">
+                <span class="px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800">찬성 ${breakdown.yesCount}명</span>
+                <span class="px-2 py-0.5 rounded-md bg-rose-100 text-rose-700">반대 ${breakdown.noCount}명</span>
+              </div>
+            </div>
+            <div class="max-h-28 overflow-y-auto space-y-1 divide-y divide-[#f0eae3]">
+              ${breakdown.voters.length === 0
+                ? '<p class="text-[11px] text-[#8a7f76] py-2 text-center">아직 투표한 참여자가 없습니다.</p>'
+                : breakdown.voters.map(v => `
+                  <div class="flex items-center justify-between py-1 text-[11px]">
+                    <div class="flex items-center gap-1.5">
+                      <span class="font-bold text-[#231f1d]">${escapeHtml(v.dong)} 입주민</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                      <span class="px-1.5 py-0.5 rounded text-[10px] font-black ${v.choice === 'yes' ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-rose-50 text-rose-600 border border-rose-200'}">${v.choice === 'yes' ? '👍 찬성' : '👎 반대'}</span>
+                      ${v.date ? `<span class="text-[10px] text-[#a39890]">${escapeHtml(v.date)}</span>` : ''}
+                    </div>
+                  </div>
+                `).join('')}
+            </div>
+          </div>
           <div class="mt-3 space-y-2.5">
             <div class="space-y-1">
               <div class="flex justify-between text-[10px] font-bold">
@@ -2654,19 +3163,19 @@
                 <div class="bg-rose-400 transition-all" style="width:${tally.noPct}%"></div>
               </div>
             </div>
-            <div class="grid grid-cols-[76px_1fr_1fr] gap-1.5">
-              <select onchange="selectVoteDong(${idx}, this.value)" class="px-1.5 rounded-xl border border-[#ded5ca] bg-[#faf8f5] text-xs font-bold">
-                <option value="">동</option>${voteOptions}
+            <div class="grid grid-cols-[82px_1fr_1fr] gap-1.5">
+              <select onchange="selectVoteDong(${idx}, this.value)" class="px-1.5 rounded-xl border border-[#ded5ca] bg-[#faf8f5] text-xs font-bold text-[#231f1d]">
+                <option value="">동 선택</option>${voteOptions}
               </select>
-              <button onclick="castOnlineVote(${idx}, 'yes')" class="py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-black transition-all">👍 찬성</button>
-              <button onclick="castOnlineVote(${idx}, 'no')" class="py-2.5 rounded-xl bg-rose-500 hover:bg-rose-600 text-white text-xs font-black transition-all">👎 반대</button>
+              <button onclick="castOnlineVote(${idx}, 'yes', event)" class="py-2.5 rounded-xl text-xs transition-all ${yesBtnStyle}">${yesBtnText}</button>
+              <button onclick="castOnlineVote(${idx}, 'no', event)" class="py-2.5 rounded-xl text-xs transition-all ${noBtnStyle}">${noBtnText}</button>
             </div>
           </div>
         </div>
         <div class="px-4 sm:px-5 pt-3 text-[13px] font-black text-[#231f1d]">💬 주민 의견 <span class="text-[#b8734a]">${comments.length}</span></div>
         <div id="comment-list" class="flex-1 min-h-0 overflow-y-auto px-4 sm:px-5">${commentRows}</div>
         <div class="p-3 border-t border-[#f2ece5] bg-white flex items-end gap-1.5">
-          <select id="comment-dong" class="h-10 px-1.5 rounded-xl border border-[#ded5ca] bg-[#faf8f5] text-xs font-bold shrink-0">
+          <select id="comment-dong" class="h-10 px-1.5 rounded-xl border border-[#ded5ca] bg-[#faf8f5] text-xs font-bold shrink-0 text-[#231f1d]">
             <option value="">동</option>${commentOptions}
           </select>
           <textarea id="comment-text" rows="1" maxlength="500" placeholder="의견을 입력하세요 (호수는 공개되지 않습니다)"
@@ -2712,8 +3221,38 @@
               title: r.title || '(제목 없음)',
               content: r.content || '',
               status: r.status || '접수완료 · 검토대기',
-              adminNote: r.adminNote || '구글 스프레드시트 실시간 접수 완료 (관리소/입대의 검토 예정)'
+              adminNote: r.adminNote || '구글 스프레드시트 실시간 접수 완료 (관리소/입대의 검토 예정)',
+              sheetYes: Number(r.yes) || 0,
+              sheetNo: Number(r.no) || 0,
+              votes: Array.isArray(r.votes) ? r.votes : []
             })).reverse();
+
+            // 구글 스프레드시트에서 찬성수/반대수가 0(또는 빈칸)으로 초기화된 경우 브라우저 로컬 캐시 동기화 삭제
+            const allVotes = getAllVotes();
+            const myVotes = getMyVotes();
+            let storageModified = false;
+
+            sheetFetchedProposals.forEach(p => {
+              const key = voteKeyOf(p);
+              if (p.sheetYes === 0 && p.sheetNo === 0 && (!p.votes || p.votes.length === 0)) {
+                if (allVotes[key]) {
+                  delete allVotes[key];
+                  storageModified = true;
+                }
+                if (myVotes[key]) {
+                  delete myVotes[key];
+                  storageModified = true;
+                }
+              }
+            });
+
+            if (storageModified) {
+              try {
+                localStorage.setItem(VOTE_STORAGE_KEY, JSON.stringify(allVotes));
+                localStorage.setItem(MY_VOTES_STORAGE_KEY, JSON.stringify(myVotes));
+              } catch (e) {}
+            }
+
             initOnlineCategories();
             renderOnlineProposals();
           }
@@ -2847,8 +3386,20 @@
 
         const maskedAuthor = maskDongHo(item.dong);
         const tally = getVoteTally(item);
-        const selectedDong = voteDongSelection[voteKeyOf(item)] || '';
-        const dongOptions = VOTE_DONGS.map(d => `<option value="${d}" ${selectedDong === d ? 'selected' : ''}>${d}동</option>`).join('');
+        const breakdown = getVotersBreakdown(item);
+        const myVote = getMyVote(item);
+        const currentDong = voteDongSelection[voteKeyOf(item)] || getUserDong() || '';
+        const dongOptions = VOTE_DONGS.map(d => `<option value="${d}" ${currentDong === d ? 'selected' : ''}>${d}동</option>`).join('');
+
+        const yesBtnStyle = myVote === 'yes'
+          ? 'bg-emerald-600 text-white border-2 border-emerald-600 font-black shadow-md ring-2 ring-emerald-300'
+          : 'border-2 border-emerald-600 text-emerald-700 hover:bg-emerald-600 hover:text-white font-bold bg-white';
+        const noBtnStyle = myVote === 'no'
+          ? 'bg-rose-500 text-white border-2 border-rose-500 font-black shadow-md ring-2 ring-rose-300'
+          : 'border-2 border-rose-500 text-rose-600 hover:bg-rose-500 hover:text-white font-bold bg-white';
+
+        const yesBtnText = myVote === 'yes' ? '👍 찬성 ✔' : '👍 찬성';
+        const noBtnText = myVote === 'no' ? '👎 반대 ✔' : '👎 반대';
 
         return `
           <div onclick="openCommentSheet(${idx})" class="cursor-pointer bg-white border border-[#e8e2d9] rounded-2xl p-4 sm:p-6 shadow-sm hover:border-[#b8734a] hover:shadow-md transition-all">
@@ -2860,11 +3411,11 @@
               </div>
               <div class="flex flex-wrap items-center gap-1.5" onclick="event.stopPropagation()">
                 <span class="text-[11px] font-black text-[#231f1d] mr-0.5">🗳 투표</span>
-                <select onchange="selectVoteDong(${idx}, this.value)" class="px-2 py-1 rounded-lg border border-[#ded5ca] bg-[#faf8f5] text-[11px] font-bold">
+                <select onchange="event.stopPropagation(); selectVoteDong(${idx}, this.value)" class="px-2 py-1 rounded-lg border border-[#ded5ca] bg-[#faf8f5] text-[11px] font-bold text-[#231f1d]">
                   <option value="">동 선택</option>${dongOptions}
                 </select>
-                <button onclick="castOnlineVote(${idx}, 'yes')" class="px-2.5 py-1 rounded-lg border-2 border-emerald-600 text-emerald-700 hover:bg-emerald-600 hover:text-white text-[11px] font-black transition-all">👍 찬성</button>
-                <button onclick="castOnlineVote(${idx}, 'no')" class="px-2.5 py-1 rounded-lg border-2 border-rose-500 text-rose-600 hover:bg-rose-500 hover:text-white text-[11px] font-black transition-all">👎 반대</button>
+                <button onclick="castOnlineVote(${idx}, 'yes', event)" class="px-2.5 py-1 rounded-lg text-[11px] transition-all ${yesBtnStyle}">${yesBtnText}</button>
+                <button onclick="castOnlineVote(${idx}, 'no', event)" class="px-2.5 py-1 rounded-lg text-[11px] transition-all ${noBtnStyle}">${noBtnText}</button>
               </div>
             </div>
 
@@ -2878,6 +3429,20 @@
                 <div class="bg-emerald-500 transition-all" style="width:${tally.yesPct}%"></div>
                 <div class="bg-rose-400 transition-all" style="width:${tally.noPct}%"></div>
               </div>
+            </div>
+
+            <!-- 참여자 / 찬성자 / 반대자 요약 배지 및 명단 버튼 -->
+            <div class="flex flex-wrap items-center justify-between gap-1.5 text-[11px] text-[#6e5a4f] bg-[#faf8f5] px-3 py-1.5 rounded-xl border border-[#eee7df] mb-2.5">
+              <div class="flex items-center gap-1.5">
+                <span class="font-bold text-[#231f1d]">👥 참여 ${breakdown.total}명</span>
+                <span class="text-[#a39890]">•</span>
+                <span class="text-emerald-700 font-bold">찬성 ${breakdown.yesCount}명</span>
+                <span class="text-[#a39890]">/</span>
+                <span class="text-rose-600 font-bold">반대 ${breakdown.noCount}명</span>
+              </div>
+              <button onclick="event.stopPropagation(); openVotersModal(${idx})" class="text-[11px] font-bold text-[#b8734a] hover:underline flex items-center gap-0.5">
+                <span>참여자 명단 확인 ›</span>
+              </button>
             </div>
 
             <h4 class="text-sm sm:text-base font-black text-[#231f1d] leading-snug">${item.title}</h4>
@@ -2974,6 +3539,10 @@
     window.addEventListener('click', (e) => {
       const modal = document.getElementById('proposal-modal');
       if (e.target === modal) closeProposalModal();
+      const dongModal = document.getElementById('dong-select-modal');
+      if (e.target === dongModal) closeDongModal();
+      const votersModal = document.getElementById('voters-modal');
+      if (e.target === votersModal) closeVotersModal();
     });
 
     // Close on Escape key
@@ -2981,6 +3550,8 @@
       if (e.key === 'Escape') {
         closeProposalModal();
         closeCommentSheet();
+        closeDongModal();
+        closeVotersModal();
       }
     });
 
